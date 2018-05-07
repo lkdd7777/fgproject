@@ -8,11 +8,6 @@
 *.class
 
 # eclipse ignore
-RemoteSystemsTempFiles/
-Servers/
-.settings/
-.project
-.classpath
 .metadata
 
 # idea ignore
