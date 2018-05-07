@@ -41,16 +41,6 @@
 /*     */ 
 /*     */ 
 /*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
-/*     */ 
 /*     */ @Controller
 /*     */ @RequestMapping({"/announcementController"})
 /*     */ public class AnnouncementController
