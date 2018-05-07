@@ -1,0 +1,44 @@
+#main{width:1002px;height:340px;position:relative;}
+#main div span{position:absolute;display:block;width:32px;height:32px;top:-18px;right:-9px;background:url(../../images/Home/num.png) no-repeat;line-height:32px;text-align:center;padding:0 4px 4px 0;font-weight:bold;color:#fff;font-size:16px;z-index:30;}
+
+#main .section01{width:158px;height:327px;position:absolute;left:0px;top:0px;background:url(../../images/Home/Home01.jpg) no-repeat;}
+#main .section01 .date{padding:16px 14px; line-height:22px;color:#fff; text-shadow:1px 1px 1px #111;}
+#main .section01 .ico{padding:0 14px; text-align:center;}
+#main .section01 .temperature{padding:12px 14px 6px;font-size:20px;line-height:2em;color:#fff; text-shadow:1px 1px 0px #111;font-weight:bold;text-align:center;}
+#main .section01 .weather{padding:0px 14px 0px;text-align:center;line-height:22px;color:#fff; text-shadow:1px 1px 1px #111;}
+#main .section01 .airQuality{padding:18px 14px 0px;line-height:22px;color:#fff; text-shadow:1px 1px 1px #111; position:relative;}
+#main .section01 .airQuality div.num_bg{width:68px;height:18px;overflow:hidden; position:absolute;right:15px;top:20px;background:#afdb00;text-align:center; line-height:18px;font-weight:bold;text-shadow:1px 1px 1px #111;}
+
+
+#main .section02{width:159px;height:159px;position:absolute;left:167px;top:0px;background:url(../../images/Home/Home02.jpg) no-repeat;}
+#main .section02 a{display:block;width:159px;height:159px;position:relative;z-index:20;text-indent:-10000em;}
+#main .section02_sub{width:159px;height:159px;position:absolute;left:335px;top:0px;background:url(../../images/Home/Home07.jpg) no-repeat;}
+#main .section02_sub a{display:block;width:159px;height:159px;position:relative;z-index:20;text-indent:-10000em;}
+#main .section03{width:160px;height:159px;position:absolute;left:504px;top:0px;background:url(../../images/Home/Home04.jpg) no-repeat;}
+#main .section03 a{display:block;width:160px;height:159px;position:relative;z-index:20;text-indent:-10000em;}
+#main .section04{width:160px;height:159px;position:absolute;left:673px;top:0px;background:url(../../images/Home/Home05.jpg) no-repeat;}
+#main .section04 a{display:block;width:160px;height:159px;position:relative;z-index:20;text-indent:-10000em;}
+#main .section05{width:160px;height:159px;position:absolute;left:842px;top:0px;background:url(../../images/Home/Home03.jpg) no-repeat;}
+#main .section05 a{display:block;width:160px;height:159px;position:relative;z-index:20;text-indent:-10000em;}
+#main .section06{width:159px;height:159px;position:absolute;left:167px;top:168px;background:url(../../images/Home/Home08.jpg) no-repeat;}
+#main .section06 a{display:block;width:159px;height:159px;position:relative;z-index:20;text-indent:-10000em;}
+#main .section07{width:160px;height:159px;position:absolute;left:335px;top:168px;background:url(../../images/Home/Home06.jpg) no-repeat;}
+#main .section07 a{display:block;width:160px;height:159px;position:relative;z-index:20;text-indent:-10000em;}
+#main .section08{width:160px;height:159px;position:absolute;left:504px;top:168px;background:url(../../images/Home/Home02_sub.jpg) no-repeat;}
+#main .section08 a{display:block;width:160px;height:159px;position:relative;z-index:20;text-indent:-10000em;}
+#main .section09{width:160px;height:159px;position:absolute;left:672px;top:168px;background:url(../../images/Home/Home09.jpg) no-repeat;}
+#main .section09 a{display:block;width:160px;height:159px;position:relative;z-index:20;text-indent:-10000em;}
+#main .section10{width:160px;height:159px;position:absolute;left:842px;top:168px;background:url(../../images/Home/Home10.jpg) no-repeat;}
+#main .section10 a{display:block;width:160px;height:159px;position:relative;z-index:20;text-indent:-10000em;}
+#main .section11{width:160px;height:159px;position:absolute;left:842px;top:353px;background:url(../../images/Home/Home11.jpg) no-repeat;}
+#main .section11 a{display:block;width:160px;height:159px;position:relative;z-index:20;text-indent:-10000em;}
+
+#main .section12{width:833px;height:159px;position:absolute;left:0px;top:353px;}
+#main .section12 li{float:right;width:160px;height:159px;margin-left:8px;}
+#main .section12 li.li1{background:url(../../images/Home/Home12.jpg) no-repeat;}
+#main .section12 li.li2{background:url(../../images/Home/Home13.jpg) no-repeat;}
+#main .section12 li.li3{background:url(../../images/Home/Home14.jpg) no-repeat;}
+#main .section12 li.li4{background:url(../../images/Home/Home15.jpg) no-repeat;}
+#main .section12 li.li5{background:url(../../images/Home/Home16.jpg) no-repeat;margin:0px;}
+
+#main .section12 li a{display:block;width:160px;height:159px;position:relative;z-index:20;text-indent:-10000em;}

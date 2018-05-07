@@ -1,0 +1,29 @@
+#main{width:1002px;position:relative;}
+#main .title{width:1001px;height:58px;overflow:hidden;overflow:hidden;padding:0 0 13px;}
+#main .title img{display:block;width:1001px;height:58px;}
+
+#main li{margin:0 0 14px 0;}
+#main li div.in_time{height:38px;overflow:hidden;line-height:38px;width:100%;font-size:14px;color:#454545;}
+#main li div.in_time span.date{padding:0 20px 0 48px;width:87px;color:#1db0a3;}
+#main li div.in_time span.divide{padding:0 0 0 38px;font-size:16px;}
+
+#main li table{width:100%;border-bottom:4px solid #d1d1d1;background:#f9f9f9;}
+
+#main li.meeting table th{background:url(images/Announcement/bg.jpg) left bottom repeat-x;height:48px;padding:0 0 2px 0;color:#b4b4b4;font-size:14px;line-height:48x;font-weight:bold;}
+#main li.meeting table th.th1{padding:0 0 0 49px;width:200px;overflow:hidden;}
+#main li.meeting table th.th2{width:344px;overflow:hidden;}
+#main li.meeting table th.th3{width:270px;overflow:hidden;}
+#main li.meeting table th.th4{width:187px;overflow:hidden;}
+
+#main li.meeting table td{color:#000;font-size:14px;line-height:24x;padding:12px 0;}
+#main li.meeting table td.td1{padding-left:49px;width:200px;overflow:hidden;}
+#main li.meeting table td.td2{padding-right:151px;width:193px;overflow:hidden;}
+#main li.meeting table td.td3{padding-right:76px;width:194px;overflow:hidden;}
+#main li.meeting table td.td4{padding-right:60px;width:127px;overflow:hidden;}
+
+
+
+#main li.notice table th.th1{background:url(images/Announcement/bg.jpg) left bottom repeat-x;height:48px;padding:0 0 2px 0;color:#b4b4b4;font-size:14px;line-height:48x;font-weight:bold;width:200px;text-align:center;}
+#main li.notice table td.td1{background:url(images/Announcement/bg.jpg) left bottom repeat-x;height:48px;padding:0 0 2px 0;color:#000;font-size:14px;line-height:48x;width:800px;}
+#main li.notice table th.th2{height:48px;padding:0 0 2px 0;color:#b4b4b4;font-size:14px;line-height:48x;font-weight:bold;width:200px;text-align:center;}
+#main li.notice table td.td2{height:48px;padding:0 0 2px 0;color:#000;font-size:14px;line-height:48x;width:800px;}

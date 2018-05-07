@@ -1,0 +1,3739 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : fcoa
+Source Server Version : 50173
+Source Host           : 115.29.9.78:3306
+Source Database       : fcoa
+
+Target Server Type    : MYSQL
+Target Server Version : 50173
+File Encoding         : 65001
+
+Date: 2014-09-16 11:35:19
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for cgform_button
+-- ----------------------------
+DROP TABLE IF EXISTS `cgform_button`;
+CREATE TABLE `cgform_button` (
+  `ID` varchar(32) NOT NULL,
+  `BUTTON_CODE` varchar(50) DEFAULT NULL,
+  `button_icon` varchar(20) DEFAULT NULL,
+  `BUTTON_NAME` varchar(50) DEFAULT NULL,
+  `BUTTON_STATUS` varchar(2) DEFAULT NULL,
+  `BUTTON_STYLE` varchar(20) DEFAULT NULL,
+  `EXP` varchar(255) DEFAULT NULL,
+  `FORM_ID` varchar(32) DEFAULT NULL,
+  `OPT_TYPE` varchar(20) DEFAULT NULL,
+  `order_num` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cgform_button
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for cgform_button_sql
+-- ----------------------------
+DROP TABLE IF EXISTS `cgform_button_sql`;
+CREATE TABLE `cgform_button_sql` (
+  `ID` varchar(32) NOT NULL,
+  `BUTTON_CODE` varchar(50) DEFAULT NULL,
+  `CGB_SQL` tinyblob,
+  `CGB_SQL_NAME` varchar(50) DEFAULT NULL,
+  `CONTENT` longtext,
+  `FORM_ID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cgform_button_sql
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for cgform_enhance_js
+-- ----------------------------
+DROP TABLE IF EXISTS `cgform_enhance_js`;
+CREATE TABLE `cgform_enhance_js` (
+  `ID` varchar(32) NOT NULL,
+  `CG_JS` blob,
+  `CG_JS_TYPE` varchar(20) DEFAULT NULL,
+  `CONTENT` longtext,
+  `FORM_ID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cgform_enhance_js
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for cgform_field
+-- ----------------------------
+DROP TABLE IF EXISTS `cgform_field`;
+CREATE TABLE `cgform_field` (
+  `id` varchar(32) NOT NULL,
+  `content` varchar(200) NOT NULL,
+  `create_by` varchar(255) DEFAULT NULL,
+  `create_date` datetime DEFAULT NULL,
+  `create_name` varchar(32) DEFAULT NULL,
+  `dict_field` varchar(100) DEFAULT NULL,
+  `dict_table` varchar(100) DEFAULT NULL,
+  `dict_text` varchar(100) DEFAULT NULL,
+  `field_default` varchar(20) DEFAULT NULL,
+  `field_href` varchar(200) DEFAULT NULL,
+  `field_length` int(11) DEFAULT NULL,
+  `field_name` varchar(32) NOT NULL,
+  `field_valid_type` varchar(10) DEFAULT NULL,
+  `is_key` varchar(2) DEFAULT NULL,
+  `is_null` varchar(5) DEFAULT NULL,
+  `is_query` varchar(5) DEFAULT NULL,
+  `is_show` varchar(5) DEFAULT NULL,
+  `is_show_list` varchar(5) DEFAULT NULL,
+  `length` int(11) NOT NULL,
+  `main_field` varchar(100) DEFAULT NULL,
+  `main_table` varchar(100) DEFAULT NULL,
+  `old_field_name` varchar(32) DEFAULT NULL,
+  `order_num` int(11) DEFAULT NULL,
+  `point_length` int(11) DEFAULT NULL,
+  `query_mode` varchar(10) DEFAULT NULL,
+  `show_type` varchar(10) DEFAULT NULL,
+  `type` varchar(32) NOT NULL,
+  `update_by` varchar(32) DEFAULT NULL,
+  `update_date` datetime DEFAULT NULL,
+  `update_name` varchar(32) DEFAULT NULL,
+  `table_id` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cgform_field
+-- ----------------------------
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda804e0132', '主键', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'id', null, 'Y', 'N', 'N', 'N', 'N', '36', '', '', null, '0', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda8033012d');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80550133', '订单号', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'order_code', null, 'N', 'Y', 'Y', 'Y', 'Y', '50', '', '', null, '1', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda8033012d');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80590134', '订单日期', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'order_date', null, 'N', 'Y', 'Y', 'Y', 'Y', '20', '', '', null, '2', '0', 'single', 'date', 'Date', null, null, null, '402882e446efd9fd0146efda8033012d');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda805d0135', '订单金额', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'order_money', null, 'N', 'Y', 'Y', 'Y', 'Y', '10', '', '', null, '3', '3', 'single', 'text', 'double', null, null, null, '402882e446efd9fd0146efda8033012d');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80610136', '备注', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'content', null, 'N', 'Y', 'Y', 'Y', 'Y', '255', '', '', null, '4', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda8033012d');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80700137', '主键', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'id', null, 'Y', 'N', 'N', 'N', 'N', '36', '', '', null, '0', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda803c012e');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80750138', '请假标题', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'title', null, 'N', 'N', 'N', 'Y', 'Y', '50', '', '', null, '1', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda803c012e');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80780139', '请假人', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'people', null, 'N', 'N', 'Y', 'Y', 'Y', '20', '', '', null, '2', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda803c012e');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda807b013a', '性别', 'admin', '2014-07-01 10:56:52', '管理员', 'sex', '', null, null, null, '0', 'sex', null, 'N', 'N', 'Y', 'Y', 'Y', '10', '', '', null, '3', '0', 'single', 'list', 'string', null, null, null, '402882e446efd9fd0146efda803c012e');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda807e013b', '请假开始时间', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'begindate', null, 'N', 'N', 'N', 'Y', 'Y', '0', '', '', null, '4', '0', 'group', 'date', 'Date', null, null, null, '402882e446efd9fd0146efda803c012e');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda8080013c', '请假结束时间', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'enddate', null, 'N', 'N', 'N', 'Y', 'Y', '0', '', '', null, '5', '0', 'group', 'datetime', 'Date', null, null, null, '402882e446efd9fd0146efda803c012e');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda8083013d', '所属部门', 'admin', '2014-07-01 10:56:52', '管理员', 'id', 't_s_depart', 'departname', null, null, '0', 'hol_dept', null, 'N', 'N', 'N', 'Y', 'Y', '32', '', '', null, '7', '0', 'single', 'list', 'string', null, null, null, '402882e446efd9fd0146efda803c012e');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda8086013e', '请假原因', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'hol_reson', null, 'N', 'N', 'N', 'Y', 'Y', '255', '', '', null, '8', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda803c012e');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda8089013f', '部门审批人', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'dep_leader', null, 'N', 'N', 'N', 'Y', 'Y', '20', '', '', null, '9', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda803c012e');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda808b0140', '部门审批意见', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'content', null, 'N', 'N', 'N', 'Y', 'Y', '255', '', '', null, '10', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda803c012e');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda808e0141', '请假天数', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '120', 'day_num', null, 'N', 'Y', 'N', 'Y', 'Y', '10', '', '', null, '6', '0', 'single', 'text', 'int', null, null, null, '402882e446efd9fd0146efda803c012e');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda809c0142', '主键', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'id', null, 'Y', 'N', 'N', 'N', 'N', '36', '', '', null, '0', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda803f012f');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda809f0143', '客户名', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'name', null, 'N', 'Y', 'Y', 'Y', 'Y', '32', '', '', null, '1', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda803f012f');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80a30144', '单价', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'money', null, 'N', 'Y', 'Y', 'Y', 'Y', '10', '', '', null, '2', '2', 'group', 'text', 'double', null, null, null, '402882e446efd9fd0146efda803f012f');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80a60145', '外键', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '120', 'fk_id', null, 'N', 'N', 'Y', 'N', 'N', '36', 'id', 'jform_order_main', null, '5', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda803f012f');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80a80146', '电话', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '120', 'telphone', null, 'N', 'Y', 'Y', 'Y', 'Y', '32', '', '', null, '4', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda803f012f');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80ac0147', '性别', 'admin', '2014-07-01 10:56:52', '管理员', 'sex', '', null, null, null, '120', 'sex', null, 'N', 'Y', 'Y', 'Y', 'Y', '4', '', '', null, '3', '0', 'single', 'radio', 'string', null, null, null, '402882e446efd9fd0146efda803f012f');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80b30148', '主键', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '120', 'id', null, 'Y', 'N', 'N', 'N', 'N', '36', '', '', null, '0', '0', 'single', 'checkbox', 'string', null, null, null, '402882e446efd9fd0146efda80420130');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80b70149', '航班号', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '120', 'ticket_code', null, 'N', 'N', 'Y', 'Y', 'Y', '100', '', '', null, '1', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda80420130');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80ba014a', '航班时间', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '120', 'tickect_date', null, 'N', 'N', 'Y', 'Y', 'Y', '10', '', '', null, '2', '0', 'single', 'datetime', 'Date', null, null, null, '402882e446efd9fd0146efda80420130');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80bc014b', '外键', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '120', 'fck_id', null, 'N', 'N', 'N', 'N', 'N', '36', 'id', 'jform_order_main', null, '3', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda80420130');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80c4014c', '主键', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'id', null, 'Y', 'N', 'N', 'N', 'N', '36', '', '', null, '0', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80c9014d', '机构合计', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'a', null, 'N', 'N', 'Y', 'Y', 'Y', '10', '', '', null, '1', '2', 'group', 'text', 'double', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80cd014e', '行政小计', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'b1', null, 'N', 'N', 'N', 'Y', 'Y', '10', '', '', null, '2', '2', 'group', 'text', 'double', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80d0014f', '行政省', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'b11', null, 'N', 'N', 'N', 'Y', 'Y', '100', '', '', null, '3', '0', 'group', 'text', 'string', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80d30150', '行政市', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'b12', null, 'N', 'N', 'N', 'Y', 'Y', '100', '', '', null, '4', '0', 'group', 'text', 'string', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80d60151', '行政县', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'b13', null, 'N', 'N', 'N', 'Y', 'Y', '100', '', '', null, '5', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80dc0152', '事业合计', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'b2', null, 'N', 'N', 'N', 'Y', 'Y', '10', '', '', null, '6', '2', 'single', 'text', 'double', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80e00153', '参公小计', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'b3', null, 'N', 'N', 'N', 'Y', 'Y', '10', '', '', null, '7', '2', 'single', 'text', 'double', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80e30154', '参公省', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'b31', null, 'N', 'N', 'N', 'Y', 'Y', '100', '', '', null, '8', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80e60155', '参公市', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'b32', null, 'N', 'N', 'N', 'Y', 'Y', '100', '', '', null, '9', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80e90156', '参公县', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'b33', null, 'N', 'N', 'N', 'Y', 'Y', '100', '', '', null, '10', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80ec0157', '全额拨款', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'c1', null, 'N', 'N', 'N', 'Y', 'Y', '10', '', '', null, '11', '2', 'single', 'text', 'double', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80ef0158', '差额拨款', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'c2', null, 'N', 'N', 'N', 'Y', 'Y', '10', '', '', null, '12', '2', 'single', 'text', 'double', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80f30159', '自收自支', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'c3', null, 'N', 'N', 'N', 'Y', 'Y', '10', '', '', null, '13', '2', 'single', 'text', 'double', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80f5015a', '经费合计', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'd', null, 'N', 'N', 'Y', 'Y', 'Y', '10', '', '', null, '14', '2', 'single', 'text', 'int', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446efd9fd0146efda80f8015b', '机构资质', 'admin', '2014-07-01 10:56:52', '管理员', '', '', null, null, null, '0', 'd1', null, 'N', 'N', 'N', 'Y', 'Y', '1000', '', '', null, '15', '0', 'single', 'text', 'string', null, null, null, '402882e446efd9fd0146efda80450131');
+INSERT INTO `cgform_field` VALUES ('402882e446f088f00146f090033e0002', '主键', 'admin', '2014-07-01 14:15:08', '管理员', '', '', '', '', '', '120', 'id', '', 'Y', 'N', 'N', 'N', 'N', '36', '', '', 'id', '1', '0', 'single', 'text', 'string', null, null, null, '402882e446f088f00146f090033a0001');
+INSERT INTO `cgform_field` VALUES ('402882e446f088f00146f09003520003', '标题', 'admin', '2014-07-01 14:15:08', '管理员', '', '', '', '', '', '200', 'title', '', 'N', 'N', 'N', 'Y', 'Y', '100', '', '', 'title', '2', '0', 'single', 'text', 'string', 'admin', '2014-07-02 09:53:51', '管理员', '402882e446f088f00146f090033a0001');
+INSERT INTO `cgform_field` VALUES ('402882e446f088f00146f09003570004', '内容', 'admin', '2014-07-01 14:15:08', '管理员', '', '', '', '', '', '200', 'content', '', 'N', 'N', 'N', 'Y', 'Y', '0', '', '', 'content', '6', '0', 'single', 'textarea', 'Text', 'admin', '2014-07-02 09:53:51', '管理员', '402882e446f088f00146f090033a0001');
+INSERT INTO `cgform_field` VALUES ('402882e446f088f00146f090035d0005', '生效时间', 'admin', '2014-07-01 14:15:08', '管理员', '', '', '', '', '', '200', 'validtime', '', 'N', 'N', 'N', 'Y', 'Y', '0', '', '', 'validtime', '4', '0', 'single', 'date', 'Date', 'admin', '2014-07-02 09:53:51', '管理员', '402882e446f088f00146f090033a0001');
+INSERT INTO `cgform_field` VALUES ('402882e446f088f00146f09003630006', '失效时间', 'admin', '2014-07-01 14:15:08', '管理员', '', '', '', '', '', '200', 'invalidtime', '', 'N', 'N', 'N', 'Y', 'Y', '0', '', '', 'invalidtime', '5', '0', 'single', 'date', 'Date', 'admin', '2014-07-02 09:53:51', '管理员', '402882e446f088f00146f090033a0001');
+INSERT INTO `cgform_field` VALUES ('402882e446f088f00146f09003760007', '是否置顶', 'admin', '2014-07-01 14:15:08', '管理员', 'yesorno', '', '', '', '', '200', 'is_on_top', '', 'N', 'N', 'N', 'Y', 'Y', '50', '', '', 'is_on_top', '3', '0', 'single', 'list', 'string', 'admin', '2014-07-02 09:53:51', '管理员', '402882e446f088f00146f090033a0001');
+INSERT INTO `cgform_field` VALUES ('8a8080ef46f4e8a50146f5094c020006', '主键', 'admin', '2014-07-02 11:06:05', '管理员', '', '', '', '', '', '120', 'id', '', 'Y', 'N', 'N', 'N', 'N', '36', '', '', 'id', '1', '0', 'single', 'text', 'string', null, null, null, '8a8080ef46f4e8a50146f5094bfc0005');
+INSERT INTO `cgform_field` VALUES ('8a8080ef46f4e8a50146f5094c160007', '类型名称', 'admin', '2014-07-02 11:06:05', '管理员', '', '', '', '', '', '120', 'name', '', 'N', 'N', 'N', 'Y', 'Y', '100', '', '', 'name', '2', '0', 'single', 'text', 'string', null, null, null, '8a8080ef46f4e8a50146f5094bfc0005');
+INSERT INTO `cgform_field` VALUES ('8a8080ef46f4e8a50146f5094c1a0008', '类型单位名', 'admin', '2014-07-02 11:06:05', '管理员', '', '', '', '', '', '120', 'unit_name', '', 'N', 'N', 'N', 'Y', 'Y', '100', '', '', 'unit_name', '3', '0', 'single', 'text', 'string', null, null, null, '8a8080ef46f4e8a50146f5094bfc0005');
+INSERT INTO `cgform_field` VALUES ('8a8080ef46f4e8a50146f51264790017', '设备数量', 'admin', '2014-07-02 11:16:01', '管理员', '', '', '', '', '', '120', 'amount', '', 'N', 'N', 'N', 'Y', 'Y', '22', '', '', 'amount', '4', '0', 'group', 'textarea', 'double', 'admin', '2014-07-26 23:12:07', '管理员', '8a8080ef46f4e8a50146f512646c0013');
+INSERT INTO `cgform_field` VALUES ('8a8080ef46f4e8a50146f51264730015', '设备名称', 'admin', '2014-07-02 11:16:01', '管理员', '', '', '', '', '', '120', 'name', '', 'N', 'N', 'N', 'Y', 'Y', '100', '', '', 'name', '2', '0', 'group', 'text', 'string', 'admin', '2014-07-02 11:16:44', '管理员', '8a8080ef46f4e8a50146f512646c0013');
+INSERT INTO `cgform_field` VALUES ('8a8080ef46f4e8a50146f51264760016', '设备类型', 'admin', '2014-07-02 11:16:01', '管理员', '', '', '', '', '', '120', 'type', '', 'N', 'N', 'N', 'Y', 'Y', '50', 'id', 't_oa_enquipment_type', 'type', '3', '0', 'group', 'list', 'string', 'admin', '2014-07-02 14:05:45', '管理员', '8a8080ef46f4e8a50146f512646c0013');
+INSERT INTO `cgform_field` VALUES ('8a8080ef46f4e8a50146f512646d0014', 'id', 'admin', '2014-07-02 11:16:01', '管理员', '', '', '', '', '', '120', 'id', '', 'Y', 'N', 'N', 'N', 'N', '36', '', '', 'id', '1', '0', 'group', 'text', 'string', 'admin', '2014-07-02 11:16:44', '管理员', '8a8080ef46f4e8a50146f512646c0013');
+INSERT INTO `cgform_field` VALUES ('402880e7477349520147785aa619002c', '主键', 'admin', '2014-07-27 23:05:12', '管理员', '', '', '', '', '', '120', 'id', '', 'Y', 'N', 'N', 'N', 'N', '36', '', '', 'id', '1', '0', 'single', 'text', 'string', null, null, null, '402880e7477349520147785aa615002b');
+INSERT INTO `cgform_field` VALUES ('402880e7477349520147785aa635002d', '活动地点', 'admin', '2014-07-27 23:05:12', '管理员', '', '', '', '', '', '120', 'address', '', 'N', 'N', 'N', 'Y', 'Y', '1000', '', '', 'address', '2', '0', 'single', 'text', 'string', null, null, null, '402880e7477349520147785aa615002b');
+INSERT INTO `cgform_field` VALUES ('402880e7477349520147785aa639002e', '活动内容', 'admin', '2014-07-27 23:05:12', '管理员', '', '', '', '', '', '120', 'content', '', 'N', 'N', 'N', 'Y', 'Y', '1000', '', '', 'content', '3', '0', 'single', 'textarea', 'string', null, null, null, '402880e7477349520147785aa615002b');
+INSERT INTO `cgform_field` VALUES ('402880e7477349520147785aa63e002f', ' 活动时间', 'admin', '2014-07-27 23:05:12', '管理员', '', '', '', '', '', '120', 'executetime', '', 'N', 'N', 'N', 'Y', 'Y', '0', '', '', 'executetime', '4', '0', 'single', 'datetime', 'Date', null, null, null, '402880e7477349520147785aa615002b');
+INSERT INTO `cgform_field` VALUES ('402882e4477b800f01477b8ed9890009', '主键', 'admin', '2014-07-28 14:01:05', '管理员', '', '', '', '', '', '120', 'id', '', 'Y', 'N', 'N', 'N', 'N', '36', '', '', 'id', '1', '0', 'single', 'text', 'string', null, null, null, '402882e4477b800f01477b8ed9860008');
+INSERT INTO `cgform_field` VALUES ('402882e4477b800f01477b8ed99a000a', '会议时间', 'admin', '2014-07-28 14:01:05', '管理员', '', '', '', '', '', '120', 'executetime', '', 'N', 'Y', 'N', 'Y', 'Y', '0', '', '', 'executetime', '2', '0', 'single', 'datetime', 'Date', null, null, null, '402882e4477b800f01477b8ed9860008');
+INSERT INTO `cgform_field` VALUES ('402882e4477b800f01477b8ed99d000b', '会议内容', 'admin', '2014-07-28 14:01:05', '管理员', '', '', '', '', '', '120', 'content', '', 'N', 'Y', 'N', 'Y', 'Y', '1000', '', '', 'content', '3', '0', 'single', 'textarea', 'string', null, null, null, '402882e4477b800f01477b8ed9860008');
+INSERT INTO `cgform_field` VALUES ('402882e4477b800f01477b8ed9a0000c', '会议地点', 'admin', '2014-07-28 14:01:05', '管理员', 'roomtype', '', '', '', '', '120', 'roomtype', '', 'N', 'Y', 'N', 'Y', 'Y', '50', '', '', 'roomtype', '4', '0', 'single', 'list', 'string', null, null, null, '402882e4477b800f01477b8ed9860008');
+
+-- ----------------------------
+-- Table structure for cgform_ftl
+-- ----------------------------
+DROP TABLE IF EXISTS `cgform_ftl`;
+CREATE TABLE `cgform_ftl` (
+  `ID` varchar(32) NOT NULL,
+  `CGFORM_ID` varchar(36) NOT NULL,
+  `CGFORM_NAME` varchar(100) NOT NULL,
+  `CREATE_BY` varchar(36) DEFAULT NULL,
+  `CREATE_DATE` datetime DEFAULT NULL,
+  `CREATE_NAME` varchar(32) DEFAULT NULL,
+  `FTL_CONTENT` longtext,
+  `FTL_STATUS` varchar(50) DEFAULT NULL,
+  `FTL_VERSION` int(11) NOT NULL,
+  `FTL_WORD_URL` varchar(200) DEFAULT NULL,
+  `UPDATE_BY` varchar(36) DEFAULT NULL,
+  `UPDATE_DATE` datetime DEFAULT NULL,
+  `UPDATE_NAME` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cgform_ftl
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for cgform_head
+-- ----------------------------
+DROP TABLE IF EXISTS `cgform_head`;
+CREATE TABLE `cgform_head` (
+  `id` varchar(32) NOT NULL,
+  `content` varchar(200) NOT NULL,
+  `create_by` varchar(32) DEFAULT NULL,
+  `create_date` datetime DEFAULT NULL,
+  `create_name` varchar(32) DEFAULT NULL,
+  `is_checkbox` varchar(5) NOT NULL,
+  `is_dbsynch` varchar(20) NOT NULL,
+  `is_pagination` varchar(5) NOT NULL,
+  `is_tree` varchar(5) NOT NULL,
+  `jform_pk_sequence` varchar(200) DEFAULT NULL,
+  `jform_pk_type` varchar(100) DEFAULT NULL,
+  `jform_type` int(11) NOT NULL,
+  `jform_version` varchar(10) NOT NULL,
+  `querymode` varchar(10) NOT NULL,
+  `relation_type` int(11) DEFAULT NULL,
+  `sub_table_str` longtext,
+  `tab_order` int(11) DEFAULT NULL,
+  `table_name` varchar(20) NOT NULL,
+  `update_by` varchar(32) DEFAULT NULL,
+  `update_date` datetime DEFAULT NULL,
+  `update_name` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cgform_head
+-- ----------------------------
+INSERT INTO `cgform_head` VALUES ('402882e446efd9fd0146efda8033012d', '订单主信息', 'admin', '2014-07-01 10:56:52', '管理员', 'N', 'N', 'Y', 'N', null, 'UUID', '2', '59', 'group', '0', 'jform_order_ticket,jform_order_customer', null, 'jform_order_main', 'admin', '2014-07-02 11:19:32', '管理员');
+INSERT INTO `cgform_head` VALUES ('402882e446efd9fd0146efda803c012e', '请假单', 'admin', '2014-07-01 10:56:52', '管理员', 'N', 'N', 'Y', 'N', null, 'UUID', '1', '51', 'group', '0', null, null, 'jform_leave', null, null, null);
+INSERT INTO `cgform_head` VALUES ('402882e446efd9fd0146efda803f012f', '订单客户信息', 'admin', '2014-07-01 10:56:52', '管理员', 'Y', 'Y', 'Y', 'N', null, 'UUID', '3', '16', 'single', '0', null, null, 'jform_order_customer', 'admin', '2014-07-02 11:13:34', '管理员');
+INSERT INTO `cgform_head` VALUES ('402882e446efd9fd0146efda80420130', '订单机票信息', 'admin', '2014-07-01 10:56:52', '管理员', 'N', 'N', 'Y', 'N', null, 'UUID', '3', '20', 'single', '0', null, null, 'jform_order_ticket', null, null, null);
+INSERT INTO `cgform_head` VALUES ('402882e446efd9fd0146efda80450131', '价格认证机构统计表', 'admin', '2014-07-01 10:56:52', '管理员', 'N', 'N', 'Y', 'N', null, 'UUID', '1', '3', 'group', '0', null, null, 'jform_price1', null, null, null);
+INSERT INTO `cgform_head` VALUES ('402882e446f088f00146f090033a0001', '公告通知', 'admin', '2014-07-01 14:15:08', '管理员', 'N', 'Y', 'Y', 'N', '', 'UUID', '1', '7', 'single', '0', null, null, 't_oa_announcement', 'admin', '2014-07-02 09:53:58', '管理员');
+INSERT INTO `cgform_head` VALUES ('8a8080ef46f4e8a50146f5094bfc0005', '设备类型', 'admin', '2014-07-02 11:06:05', '管理员', 'N', 'Y', 'Y', 'N', '', 'UUID', '1', '17', 'single', '0', 't_oa_enquipment', null, 't_oa_enquipment_type', 'admin', '2014-07-26 23:12:07', '管理员');
+INSERT INTO `cgform_head` VALUES ('8a8080ef46f4e8a50146f512646c0013', '办公设备', 'admin', '2014-07-02 11:16:01', '管理员', 'Y', 'Y', 'Y', 'N', '', 'UUID', '1', '11', 'single', '1', null, null, 't_oa_enquipment', 'admin', '2014-07-26 23:12:07', '管理员');
+INSERT INTO `cgform_head` VALUES ('402880e7477349520147785aa615002b', '日程安排', 'admin', '2014-07-27 23:05:12', '管理员', 'N', 'Y', 'Y', 'N', '', 'UUID', '1', '1', 'single', '0', null, null, 't_oa_schedule', 'admin', '2014-07-27 23:05:20', '管理员');
+INSERT INTO `cgform_head` VALUES ('402882e4477b800f01477b8ed9860008', '会议管理', 'admin', '2014-07-28 14:01:05', '管理员', 'N', 'Y', 'Y', 'N', '', 'UUID', '1', '1', 'single', '0', null, null, 't_oa_conference', 'admin', '2014-07-28 14:01:10', '管理员');
+
+-- ----------------------------
+-- Table structure for cgform_uploadfiles
+-- ----------------------------
+DROP TABLE IF EXISTS `cgform_uploadfiles`;
+CREATE TABLE `cgform_uploadfiles` (
+  `CGFORM_FIELD` varchar(100) NOT NULL,
+  `CGFORM_ID` varchar(36) NOT NULL,
+  `CGFORM_NAME` varchar(100) NOT NULL,
+  `id` varchar(32) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_qwig8sn3okhvh4wye8nn8gdeg` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of cgform_uploadfiles
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for ck_editor
+-- ----------------------------
+DROP TABLE IF EXISTS `ck_editor`;
+CREATE TABLE `ck_editor` (
+  `ID` varchar(32) NOT NULL,
+  `CONTENTS` blob,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ck_editor
+-- ----------------------------
+INSERT INTO `ck_editor` VALUES ('402882e446efd9fd0146efda802e012c', 0x3C68746D6C3E3C686561643E3C7469746C653E3C2F7469746C653E3C6C696E6B20687265663D27706C75672D696E2F6561737975692F7468656D65732F64656661756C742F6561737975692E637373272069643D276561737975695468656D65272072656C3D277374796C6573686565742720747970653D27746578742F63737327202F3E3C6C696E6B20687265663D27706C75672D696E2F6561737975692F7468656D65732F69636F6E2E637373272072656C3D277374796C6573686565742720747970653D27746578742F63737327202F3E3C6C696E6B20687265663D27706C75672D696E2F6163636F7264696F6E2F6373732F6163636F7264696F6E2E637373272072656C3D277374796C6573686565742720747970653D27746578742F63737327202F3E3C6C696E6B20687265663D27706C75672D696E2F56616C6964666F726D2F6373732F7374796C652E637373272072656C3D277374796C6573686565742720747970653D27746578742F63737327202F3E3C6C696E6B20687265663D27706C75672D696E2F56616C6964666F726D2F6373732F7461626C6566726F6D2E637373272072656C3D277374796C6573686565742720747970653D27746578742F63737327202F3E3C7374796C6520747970653D27746578742F637373273E626F64797B666F6E742D73697A653A313270783B7D7461626C65207B626F726465723A31707820736F6C696420233030303030303B626F726465722D636F6C6C617073653A20636F6C6C617073653B7D7464207B626F726465723A31707820736F6C696420233030303030303B6261636B67726F756E643A77686974653B666F6E742D73697A653A313270783B666F6E742D66616D696C793A20E696B0E5AE8BE4BD933B636F6C6F723A20233333333B3C2F7374796C653E3C2F686561643E3C626F64793E3C6469763E3C703EE99984E4BBB632EFBC9A3C2F703E3C6831207374796C653D27746578742D616C69676E3A63656E746572273E3C7370616E207374796C653D27666F6E742D73697A653A32347078273E3C7374726F6E673EE4BBB7E6A0BCE8AEA4E8AF81E4BABAE59198E7BB9FE8AEA1E8A1A83C2F7374726F6E673E3C2F7370616E3E3C2F68313E3C703EE5A1ABE68AA5E58D95E4BD8DEFBC88E79B96E7ABA0EFBC89EFBC9A3C696E707574206E616D653D276F72675F6E616D652720747970653D2774657874272076616C75653D27247B6F72675F6E616D653F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C703EE58D95E4BD8DE4BBA3E7A081E58FB7EFBC9A3C696E707574206E616D653D276E756D2720747970653D2774657874272076616C75653D27247B6E756D3F69665F6578697374733F68746D6C7D27202F3E20266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703BE58D95E4BD8DEFBC9AE4BABAE5A1AB266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B20E68AA5E697A5E69C9FEFBC9A266E6273703B266E6273703B266E6273703B266E6273703B266E6273703B20E5B9B4266E6273703B266E6273703B20E69C88266E6273703B266E6273703B20E697A53C2F703E3C666F726D20616374696F6E3D276367466F726D4275696C64436F6E74726F6C6C65722E646F3F736176654F72557064617465272069643D27666F726D6F626A27206D6574686F643D27706F737427206E616D653D27666F726D6F626A273E3C696E707574206E616D653D277461626C654E616D652720747970653D2768696464656E272076616C75653D27247B7461626C654E616D653F69665F6578697374733F68746D6C7D27202F3E203C696E707574206E616D653D2769642720747970653D2768696464656E272076616C75653D27247B69643F69665F6578697374733F68746D6C7D27202F3E237B6A666F726D5F68696464656E5F6669656C647D3C696E70757420747970653D2768696464656E27202F3E3C703E266E6273703B3C2F703E3C7461626C6520626F726465723D2731272063656C6C70616464696E673D2730272063656C6C73706163696E673D273027207374796C653D2777696474683A313031367078273E3C74626F64793E3C74723E3C746420726F777370616E3D2734273E3C703E266E6273703B3C2F703E3C703E266E6273703B3C2F703E3C703EE59088E8AEA13C2F703E3C703E266E6273703B3C2F703E3C2F74643E3C746420636F6C7370616E3D27362720726F777370616E3D2732273E3C703E266E6273703B3C2F703E3C703EE4BABAE695B03C2F703E3C2F74643E3C746420636F6C7370616E3D27352720726F777370616E3D2732273E3C703E266E6273703B3C2F703E3C703EE5ADA6E58E863C2F703E3C2F74643E3C746420636F6C7370616E3D27342720726F777370616E3D2732273E3C703E266E6273703B3C2F703E3C703EE58F96E5BE97E79A84EFBC88E4B88AE5B297EFBC89E689A7E4B89AE8B584E6A0BC3C2F703E3C2F74643E3C746420636F6C7370616E3D2734273E3C703EE4B893E4B89AE68A80E69CAFE8818CE7A7B03C2F703E3C2F74643E3C2F74723E3C74723E3C746420636F6C7370616E3D2734273E3C703EEFBC88E7BB8FE6B58EE7B3BBE58897E38081E5B7A5E7A88BE7B3BBE58897EFBC893C2F703E3C2F74643E3C2F74723E3C74723E3C746420636F6C7370616E3D2733273E3C703EE59CA8E7BC96E4BABAE591983C2F703E3C2F74643E3C746420636F6C7370616E3D2732273E3C703EE88198E794A8E4BABAE591983C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE4B8B4E697B628E5809FE794A829E4BABAE591983C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE9AB98E4B8AD3C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE5A4A7E4B8933C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE69CACE7A7913C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE7A094E7A9B6E7949F3C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE585B6E5AE833C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE4BBB7E6A0BC3C2F703E3C703EE989B4E8AF81E591983C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE4BBB7E6A0BC3C2F703E3C703EE989B4E8AF81E5B8883C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE5A48DE6A0B83C2F703E3C703EE8A381E5AE9AE591983C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE585B6E5AE833C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE5889DE7BAA73C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE4B8ADE7BAA73C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE9AB98E7BAA73C2F703E3C2F74643E3C746420726F777370616E3D2732273E3C703EE585B6E5AE833C2F703E3C2F74643E3C2F74723E3C74723E3C74643E3C703EE69CACE58D95E4BD8D3C2F703E3C2F74643E3C746420636F6C7370616E3D2732273E3C703EE585B6E5AE833C2F703E3C2F74643E3C74643E3C703EE995BFE69C9F3C2F703E3C2F74643E3C74643E3C703EE79FADE69C9F3C2F703E3C2F74643E3C2F74723E3C74723E3C74643E3C703E41313C2F703E3C2F74643E3C74643E3C703E42313C2F703E3C2F74643E3C74643E3C703E42323C2F703E3C2F74643E3C746420636F6C7370616E3D2732273E3C703E42333C2F703E3C2F74643E3C74643E3C703E42343C2F703E3C2F74643E3C74643E3C703E42353C2F703E3C2F74643E3C74643E3C703E43313C2F703E3C2F74643E3C74643E3C703E43323C2F703E3C2F74643E3C74643E3C703E43333C2F703E3C2F74643E3C74643E3C703E43343C2F703E3C2F74643E3C74643E3C703E43353C2F703E3C2F74643E3C74643E3C703E44313C2F703E3C2F74643E3C74643E3C703E44323C2F703E3C2F74643E3C74643E3C703E44333C2F703E3C2F74643E3C74643E3C703E44343C2F703E3C2F74643E3C74643E3C703E45313C2F703E3C2F74643E3C74643E3C703E45323C2F703E3C2F74643E3C74643E3C703E45333C2F703E3C2F74643E3C74643E3C703E45343C2F703E3C2F74643E3C2F74723E3C74723E3C74643E3C703E3C696E707574206E616D653D276131272073697A653D27342720747970653D2774657874272076616C75653D27247B61313F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276231272073697A653D27342720747970653D2774657874272076616C75653D27247B62313F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276232272073697A653D27342720747970653D2774657874272076616C75653D27247B62323F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C746420636F6C7370616E3D2732273E3C703E3C696E707574206E616D653D276233272073697A653D27342720747970653D2774657874272076616C75653D27247B62333F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276234272073697A653D27342720747970653D2774657874272076616C75653D27247B62343F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276235272073697A653D27342720747970653D2774657874272076616C75653D27247B62353F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276331272073697A653D27342720747970653D2774657874272076616C75653D27247B63313F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276332272073697A653D27342720747970653D2774657874272076616C75653D27247B63323F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276333272073697A653D27342720747970653D2774657874272076616C75653D27247B63333F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276334272073697A653D27342720747970653D2774657874272076616C75653D27247B63343F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276335272073697A653D27342720747970653D2774657874272076616C75653D27247B63353F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276431272073697A653D27342720747970653D2774657874272076616C75653D27247B64313F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276432272073697A653D27342720747970653D2774657874272076616C75653D27247B64323F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276433272073697A653D27342720747970653D2774657874272076616C75653D27247B64333F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276434272073697A653D27342720747970653D2774657874272076616C75653D27247B64343F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276531272073697A653D27342720747970653D2774657874272076616C75653D27247B65313F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276532272073697A653D27342720747970653D2774657874272076616C75653D27247B65323F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276533272073697A653D27342720747970653D2774657874272076616C75653D27247B65333F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C74643E3C703E3C696E707574206E616D653D276534272073697A653D27342720747970653D2774657874272076616C75653D27247B65343F69665F6578697374733F68746D6C7D27202F3E3C2F703E3C2F74643E3C2F74723E3C74723E3C746420636F6C7370616E3D273230273E3C703E266E6273703B3C2F703E3C703EE5A1ABE68AA5E8AFB4E6988EEFBC9A3C2F703E3C703EE4B880E38081E59088E8AEA1EFBC8841EFBC89EFBC9AE5A1ABE68AA5E887B3E7BB9FE8AEA1E688AAE6ADA2E69C9FE79A84E69CACE69CBAE69E84E79A84E4BABAE59198E680BBE695B0E380823C2F703E3C703EE4BA8CE38081E4BABAE695B0EFBC9A3C2F703E3C703EE59CA8E7BC96E4BABAE59198EFBC9AE58886E588ABE68C89E785A7E4BBB7E6A0BCE8AEA4E8AF81E69CBAE69E84E7BC96E588B6E58685E58F8AE585B6E5AE83E585B7E69C89E4BBB7E6A0BCE4B8BBE7AEA1E983A8E997A8E7BC96E588B6E79A84E5AE9EE69C89E4BABAE695B0E5A1ABE68AA5E59CA84231E380814232E6A08FE58685E380823C2F703E3C703EE88198E794A8E4BABAE59198EFBC9AE68C89E785A7E7BB8FE4BBB7E6A0BCE4B8BBE7AEA1E983A8E997A8E68896E4BBB7E6A0BCE8AEA4E8AF81E69CBAE69E84E4BABAE4BA8BE983A8E997A8E8AEA4E58FAFE79A84E5B9B6E7ADBEE8AEA2E4B889E5B9B4E4BBA5E4B88AE79A84E5B7A5E4BD9CE59088E5908CE79A84E4BABAE59198EFBC884233EFBC89EFBC9BE4BBA5E58F8AE6B2A1E69C89E7BB8FE8BF87E4BBB7E6A0BCE4B8BBE7AEA1E983A8E997A8E68896E4BBB7E6A0BCE8AEA4E8AF81E69CBAE69E84E4BABAE4BA8BE983A8E997A8E8AEA4E58FAFE79A84E7ADBEE8AEA2E59088E5908CE5B091E4BA8EE4B889E5B9B4E79A84E4BABAE59198EFBC884234EFBC89E58886E588ABE69DA5E8BF9BE8A18CE7BB9FE8AEA1E380823C2F703E3C703EE4B8B4E697B6EFBC88E5809FE794A8EFBC89E4BABAE59198EFBC884235EFBC89EFBC9AE789B9E68C87E5A496E88198E79A84E4B8B4E697B6E5B7A5EFBC8CE68896E88085E5B7A5E4BD9CE585B3E7B3BBE4B88DE59CA8E69CACE58D95E4BD8DE4B894E697A0E995BFE69C9FE88198E794A8E59088E5908CE79A84E5809FE8B083E4BABAE59198E7AD89E380823C2F703E3C703EE4B889E38081E8A1A8E58685E59084E6A08FE79BAEE585B3E7B3BB3C2F703E3C703E413D42312B42322B42332B42342B42353D43312B43322B43332B43342B43353D44312B44322B44332B44343D45312B45322B45332B45343C2F703E3C2F74643E3C2F74723E3C2F74626F64793E3C2F7461626C653E3C2F666F726D3E3C2F6469763E3C2F626F64793E3C2F68746D6C3E);
+
+-- ----------------------------
+-- Table structure for ck_finder
+-- ----------------------------
+DROP TABLE IF EXISTS `ck_finder`;
+CREATE TABLE `ck_finder` (
+  `ID` varchar(32) NOT NULL,
+  `ATTACHMENT` varchar(255) DEFAULT NULL,
+  `IMAGE` varchar(255) DEFAULT NULL,
+  `REMARK` longtext,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of ck_finder
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for doc
+-- ----------------------------
+DROP TABLE IF EXISTS `doc`;
+CREATE TABLE `doc` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `DOCCONTENT` longblob,
+  `DOCDATE` datetime DEFAULT NULL,
+  `DOCID` varchar(255) DEFAULT NULL,
+  `DOCTITLE` varchar(255) DEFAULT NULL,
+  `DOCTYPE` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of doc
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for jeecg_demo
+-- ----------------------------
+DROP TABLE IF EXISTS `jeecg_demo`;
+CREATE TABLE `jeecg_demo` (
+  `ID` varchar(32) NOT NULL,
+  `AGE` int(11) DEFAULT NULL,
+  `BIRTHDAY` datetime DEFAULT NULL,
+  `content` varchar(255) DEFAULT NULL,
+  `create_date` datetime DEFAULT NULL,
+  `DEP_ID` varchar(255) DEFAULT NULL,
+  `EMAIL` varchar(255) DEFAULT NULL,
+  `MOBILE_PHONE` varchar(255) DEFAULT NULL,
+  `OFFICE_PHONE` varchar(255) DEFAULT NULL,
+  `SALARY` decimal(19,2) DEFAULT NULL,
+  `SEX` varchar(255) DEFAULT NULL,
+  `status` varchar(255) DEFAULT NULL,
+  `USER_NAME` varchar(255) NOT NULL,
+  `CREATE_TIME` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jeecg_demo
+-- ----------------------------
+INSERT INTO `jeecg_demo` VALUES ('402882e446efd9fd0146efda827b0161', '12', '2014-02-14 00:00:00', null, null, '123', 'demo@jeecg.com', '13111111111', '66666666', '111111.00', '1', null, '小明', null);
+
+-- ----------------------------
+-- Table structure for jeecg_demo_course
+-- ----------------------------
+DROP TABLE IF EXISTS `jeecg_demo_course`;
+CREATE TABLE `jeecg_demo_course` (
+  `ID` varchar(32) NOT NULL,
+  `NAME` varchar(25) DEFAULT NULL,
+  `teacher_ID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_g3jn8mfod69i7jfv5gnrcvgbx` (`teacher_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jeecg_demo_course
+-- ----------------------------
+INSERT INTO `jeecg_demo_course` VALUES ('402882e446efd9fd0146efda8102015e', '海贼王', '402882e446efd9fd0146efda80ff015d');
+
+-- ----------------------------
+-- Table structure for jeecg_demo_student
+-- ----------------------------
+DROP TABLE IF EXISTS `jeecg_demo_student`;
+CREATE TABLE `jeecg_demo_student` (
+  `ID` varchar(32) NOT NULL,
+  `BIRTHDAY` datetime DEFAULT NULL,
+  `NAME` varchar(32) DEFAULT NULL,
+  `SEX` varchar(1) DEFAULT NULL,
+  `COURSE_ID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_r86q81koyocgod3cx6529hbpw` (`COURSE_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jeecg_demo_student
+-- ----------------------------
+INSERT INTO `jeecg_demo_student` VALUES ('402882e446efd9fd0146efda8108015f', null, '卓洛', '0', '402882e446efd9fd0146efda8102015e');
+INSERT INTO `jeecg_demo_student` VALUES ('402882e446efd9fd0146efda810d0160', null, '山治 ', '0', '402882e446efd9fd0146efda8102015e');
+
+-- ----------------------------
+-- Table structure for jeecg_demo_teacher
+-- ----------------------------
+DROP TABLE IF EXISTS `jeecg_demo_teacher`;
+CREATE TABLE `jeecg_demo_teacher` (
+  `ID` varchar(32) NOT NULL,
+  `NAME` varchar(12) DEFAULT NULL,
+  `pic` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jeecg_demo_teacher
+-- ----------------------------
+INSERT INTO `jeecg_demo_teacher` VALUES ('402882e446efd9fd0146efda80ff015d', '路飞', 'upload/Teacher/pic3345280233.PNG');
+
+-- ----------------------------
+-- Table structure for jeecg_matter_bom
+-- ----------------------------
+DROP TABLE IF EXISTS `jeecg_matter_bom`;
+CREATE TABLE `jeecg_matter_bom` (
+  `ID` varchar(32) NOT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `code` varchar(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `price` decimal(21,6) NOT NULL,
+  `productionDate` datetime DEFAULT NULL,
+  `quantity` int(11) NOT NULL,
+  `stock` int(11) NOT NULL,
+  `unit` varchar(50) DEFAULT NULL,
+  `weight` varchar(50) DEFAULT NULL,
+  `parent_ID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_fldfyrevj0li4hej5b2gu2q7w` (`parent_ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jeecg_matter_bom
+-- ----------------------------
+INSERT INTO `jeecg_matter_bom` VALUES ('402882e446efd9fd0146efda828c0166', '广东深圳', '001', '电脑', '5000.000000', '2014-07-01 10:56:53', '5', '10', '台', '100', null);
+INSERT INTO `jeecg_matter_bom` VALUES ('402882e446efd9fd0146efda828f0167', '上海', '001001', '主板', '800.000000', '2014-07-01 10:56:53', '6', '18', '个', '60', '402882e446efd9fd0146efda828c0166');
+
+-- ----------------------------
+-- Table structure for jeecg_minidao
+-- ----------------------------
+DROP TABLE IF EXISTS `jeecg_minidao`;
+CREATE TABLE `jeecg_minidao` (
+  `ID` varchar(32) NOT NULL,
+  `AGE` int(11) DEFAULT NULL,
+  `BIRTHDAY` datetime DEFAULT NULL,
+  `CONTENT` varchar(255) DEFAULT NULL,
+  `CREATE_TIME` datetime DEFAULT NULL,
+  `DEP_ID` varchar(255) DEFAULT NULL,
+  `EMAIL` varchar(255) DEFAULT NULL,
+  `MOBILE_PHONE` varchar(255) DEFAULT NULL,
+  `OFFICE_PHONE` varchar(255) DEFAULT NULL,
+  `SALARY` decimal(19,2) DEFAULT NULL,
+  `SEX` int(11) DEFAULT NULL,
+  `STATUS` varchar(255) DEFAULT NULL,
+  `USER_NAME` varchar(255) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jeecg_minidao
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for jeecg_order_custom
+-- ----------------------------
+DROP TABLE IF EXISTS `jeecg_order_custom`;
+CREATE TABLE `jeecg_order_custom` (
+  `ID` varchar(32) NOT NULL,
+  `CREATE_DT` datetime DEFAULT NULL,
+  `CRTUSER` varchar(12) DEFAULT NULL,
+  `CRTUSER_NAME` varchar(10) DEFAULT NULL,
+  `DEL_DT` datetime DEFAULT NULL,
+  `DELFLAG` int(11) DEFAULT NULL,
+  `GO_ORDER_CODE` varchar(12) NOT NULL,
+  `GOC_BUSS_CONTENT` varchar(33) DEFAULT NULL,
+  `GOC_CONTENT` varchar(66) DEFAULT NULL,
+  `GOC_CUS_NAME` varchar(16) DEFAULT NULL,
+  `GOC_IDCARD` varchar(18) DEFAULT NULL,
+  `GOC_PASSPORT_CODE` varchar(10) DEFAULT NULL,
+  `GOC_SEX` varchar(255) DEFAULT NULL,
+  `MODIFIER` varchar(12) DEFAULT NULL,
+  `MODIFIER_NAME` varchar(10) DEFAULT NULL,
+  `MODIFY_DT` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jeecg_order_custom
+-- ----------------------------
+INSERT INTO `jeecg_order_custom` VALUES ('402882e446efd9fd0146efda82890165', null, null, null, null, null, '11111AAA', null, null, '小明', null, null, '1', null, null, null);
+
+-- ----------------------------
+-- Table structure for jeecg_order_main
+-- ----------------------------
+DROP TABLE IF EXISTS `jeecg_order_main`;
+CREATE TABLE `jeecg_order_main` (
+  `ID` varchar(32) NOT NULL,
+  `CREATE_DT` datetime DEFAULT NULL,
+  `CRTUSER` varchar(12) DEFAULT NULL,
+  `CRTUSER_NAME` varchar(10) DEFAULT NULL,
+  `DEL_DT` datetime DEFAULT NULL,
+  `DELFLAG` int(11) DEFAULT NULL,
+  `GO_ALL_PRICE` decimal(10,2) DEFAULT NULL,
+  `GO_CONTACT_NAME` varchar(16) DEFAULT NULL,
+  `GO_CONTENT` varchar(66) DEFAULT NULL,
+  `GO_ORDER_CODE` varchar(12) NOT NULL,
+  `GO_ORDER_COUNT` int(11) DEFAULT NULL,
+  `GO_RETURN_PRICE` decimal(10,2) DEFAULT NULL,
+  `GO_TELPHONE` varchar(11) DEFAULT NULL,
+  `GODER_TYPE` varchar(255) DEFAULT NULL,
+  `MODIFIER` varchar(12) DEFAULT NULL,
+  `MODIFIER_NAME` varchar(10) DEFAULT NULL,
+  `MODIFY_DT` datetime DEFAULT NULL,
+  `USERTYPE` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jeecg_order_main
+-- ----------------------------
+INSERT INTO `jeecg_order_main` VALUES ('402882e446efd9fd0146efda82820163', null, null, null, null, null, '1111111.00', 'alex', '别放辣椒', '11111AAA', '1', '100.00', null, '1', null, null, null, '1');
+
+-- ----------------------------
+-- Table structure for jeecg_order_product
+-- ----------------------------
+DROP TABLE IF EXISTS `jeecg_order_product`;
+CREATE TABLE `jeecg_order_product` (
+  `ID` varchar(32) NOT NULL,
+  `CREATE_DT` datetime DEFAULT NULL,
+  `CRTUSER` varchar(12) DEFAULT NULL,
+  `CRTUSER_NAME` varchar(10) DEFAULT NULL,
+  `DEL_DT` datetime DEFAULT NULL,
+  `DELFLAG` int(11) DEFAULT NULL,
+  `GO_ORDER_CODE` varchar(12) NOT NULL,
+  `GOP_CONTENT` varchar(66) DEFAULT NULL,
+  `GOP_COUNT` int(11) DEFAULT NULL,
+  `GOP_ONE_PRICE` decimal(10,2) DEFAULT NULL,
+  `GOP_PRODUCT_NAME` varchar(33) DEFAULT NULL,
+  `GOP_PRODUCT_TYPE` varchar(1) NOT NULL,
+  `GOP_SUM_PRICE` decimal(10,2) DEFAULT NULL,
+  `MODIFIER` varchar(12) DEFAULT NULL,
+  `MODIFIER_NAME` varchar(10) DEFAULT NULL,
+  `MODIFY_DT` datetime DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jeecg_order_product
+-- ----------------------------
+INSERT INTO `jeecg_order_product` VALUES ('402882e446efd9fd0146efda82850164', null, null, null, null, null, '11111AAA', null, '1', '100.00', '最最美味的地锅鸡', '1', '100.00', null, null, null);
+
+-- ----------------------------
+-- Table structure for jform_cgreport_head
+-- ----------------------------
+DROP TABLE IF EXISTS `jform_cgreport_head`;
+CREATE TABLE `jform_cgreport_head` (
+  `ID` varchar(36) NOT NULL,
+  `CGR_SQL` longtext NOT NULL,
+  `CODE` varchar(36) NOT NULL,
+  `CONTENT` longtext NOT NULL,
+  `NAME` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jform_cgreport_head
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for jform_cgreport_item
+-- ----------------------------
+DROP TABLE IF EXISTS `jform_cgreport_item`;
+CREATE TABLE `jform_cgreport_item` (
+  `ID` varchar(36) NOT NULL,
+  `S_FLAG` varchar(2) DEFAULT NULL,
+  `S_MODE` varchar(10) DEFAULT NULL,
+  `CGRHEAD_ID` varchar(36) DEFAULT NULL,
+  `DICT_CODE` varchar(36) DEFAULT NULL,
+  `FIELD_HREF` varchar(120) DEFAULT NULL,
+  `FIELD_NAME` varchar(36) DEFAULT NULL,
+  `FIELD_TXT` longtext,
+  `FIELD_TYPE` varchar(10) DEFAULT NULL,
+  `IS_SHOW` varchar(5) DEFAULT NULL,
+  `ORDER_NUM` int(11) DEFAULT NULL,
+  `REPLACE_VA` varchar(36) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jform_cgreport_item
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for jform_order_customer
+-- ----------------------------
+DROP TABLE IF EXISTS `jform_order_customer`;
+CREATE TABLE `jform_order_customer` (
+  `id` varchar(36) NOT NULL,
+  `name` varchar(32) DEFAULT NULL COMMENT '客户名',
+  `money` double DEFAULT NULL COMMENT '单价',
+  `sex` varchar(4) DEFAULT NULL COMMENT '性别',
+  `telphone` varchar(32) DEFAULT NULL COMMENT '电话',
+  `fk_id` varchar(36) NOT NULL COMMENT '外键',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jform_order_customer
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for jg_person
+-- ----------------------------
+DROP TABLE IF EXISTS `jg_person`;
+CREATE TABLE `jg_person` (
+  `ID` varchar(32) NOT NULL,
+  `AGE` int(11) DEFAULT NULL,
+  `BIRTHDAY` datetime DEFAULT NULL,
+  `CREATEDT` datetime DEFAULT NULL,
+  `NAME` varchar(255) NOT NULL,
+  `SALARY` decimal(19,2) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of jg_person
+-- ----------------------------
+INSERT INTO `jg_person` VALUES ('402882e446efd9fd0146efda827f0162', '10', '2014-07-01 10:56:53', '2014-07-01 10:56:53', '小红', '1000.00');
+
+-- ----------------------------
+-- Table structure for optimistic_locking
+-- ----------------------------
+DROP TABLE IF EXISTS `optimistic_locking`;
+CREATE TABLE `optimistic_locking` (
+  `ID` varchar(32) NOT NULL,
+  `ACCOUNT` int(11) DEFAULT NULL,
+  `AGE` int(11) DEFAULT NULL,
+  `NAME` varchar(85) DEFAULT NULL,
+  `VER` int(11) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of optimistic_locking
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_finance
+-- ----------------------------
+DROP TABLE IF EXISTS `t_finance`;
+CREATE TABLE `t_finance` (
+  `ID` varchar(32) NOT NULL,
+  `APPROFILETYPE` varchar(255) DEFAULT NULL,
+  `BUYMONEY` float DEFAULT NULL,
+  `BUYPROJECTNO` varchar(255) DEFAULT NULL,
+  `BUYPROJECTORG` varchar(255) DEFAULT NULL,
+  `BUYUSE` varchar(255) DEFAULT NULL,
+  `BUYYEAR` varchar(255) DEFAULT NULL,
+  `CATEGORY` varchar(255) DEFAULT NULL,
+  `COLLECTORG` varchar(255) DEFAULT NULL,
+  `EXPENSEACCOUNT` varchar(255) DEFAULT NULL,
+  `HAPPENYEAR` int(11) DEFAULT NULL,
+  `MONEYAREA` varchar(255) DEFAULT NULL,
+  `MONEYSOURCE` varchar(255) DEFAULT NULL,
+  `MONEYTOTAL` float DEFAULT NULL,
+  `MONEYUSE` varchar(255) DEFAULT NULL,
+  `PAYTIME` datetime DEFAULT NULL,
+  `ZBWNO` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_finance
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_finance_files
+-- ----------------------------
+DROP TABLE IF EXISTS `t_finance_files`;
+CREATE TABLE `t_finance_files` (
+  `id` varchar(32) NOT NULL,
+  `financeId` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_ij2p74feypwcda4n0n96pyd10` (`financeId`),
+  KEY `FK_28m7vvi0cy5r5keke68b6f7rt` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_finance_files
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_oa_announce_depart
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_announce_depart`;
+CREATE TABLE `t_oa_announce_depart` (
+  `announce_id` varchar(36) NOT NULL COMMENT '通知id',
+  `depart_id` varchar(36) NOT NULL COMMENT '部门id',
+  KEY `foreignkey_announce_depart_1` (`announce_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_announce_depart
+-- ----------------------------
+INSERT INTO `t_oa_announce_depart` VALUES ('8afad58747e49a2d0147e807b1660008', '8afad58747abc2800147abce00130003');
+INSERT INTO `t_oa_announce_depart` VALUES ('8afad58747e49a2d0147e8004d2a0006', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_oa_announce_depart` VALUES ('8afad58747e49a2d0147e80d7d3e000b', '8afad58747abc2800147abce00130003');
+
+-- ----------------------------
+-- Table structure for t_oa_announce_user
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_announce_user`;
+CREATE TABLE `t_oa_announce_user` (
+  `announce_id` varchar(36) NOT NULL COMMENT '通知id',
+  `user_id` varchar(36) NOT NULL COMMENT '用户id',
+  PRIMARY KEY (`announce_id`,`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_announce_user
+-- ----------------------------
+INSERT INTO `t_oa_announce_user` VALUES ('8afad58747e49a2d0147e8004d2a0006', '402880e447a6c4820147a6c6d4c90007');
+INSERT INTO `t_oa_announce_user` VALUES ('8afad58747e49a2d0147e807b1660008', '402880e447a6c4820147a6c6d4c90007');
+INSERT INTO `t_oa_announce_user` VALUES ('8afad58747e49a2d0147e80d7d3e000b', '402880e447a6c4820147a6c6d4c90007');
+
+-- ----------------------------
+-- Table structure for t_oa_announcement
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_announcement`;
+CREATE TABLE `t_oa_announcement` (
+  `id` varchar(36) NOT NULL,
+  `title` varchar(100) NOT NULL COMMENT '标题',
+  `is_on_top` varchar(50) DEFAULT NULL COMMENT '是否置顶',
+  `validtime` datetime NOT NULL COMMENT '生效时间',
+  `invalidtime` datetime NOT NULL COMMENT '失效时间',
+  `content` longtext NOT NULL COMMENT '内容',
+  `executeTime` datetime DEFAULT NULL COMMENT '活动时间',
+  `master_dep_id` varchar(36) NOT NULL,
+  `departsName` varchar(255) DEFAULT NULL,
+  `usersName` varchar(255) DEFAULT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_announcement
+-- ----------------------------
+INSERT INTO `t_oa_announcement` VALUES ('8afad58747e49a2d0147e8004d2a0006', '11楼6会议室', null, '2014-08-19 08:30:00', '2014-08-24 03:23:40', '测试会议', null, '402882e446efd9fd0146efda7ab50015', '办公室', '陈浩', '1');
+INSERT INTO `t_oa_announcement` VALUES ('8afad58747e49a2d0147e807b1660008', '大会议室', null, '2014-08-21 16:30:41', '2014-08-24 15:31:52', '职工大会', null, '402882e446efd9fd0146efda7ab50015', '副主任', '陈浩', '1');
+INSERT INTO `t_oa_announcement` VALUES ('8afad58747e49a2d0147e80d7d3e000b', '小会议室', null, '2014-08-21 15:38:16', '2014-08-24 15:38:20', '会议室测试', null, '402882e446efd9fd0146efda7ab50015', '副主任', '陈浩', '0');
+
+-- ----------------------------
+-- Table structure for t_oa_conference
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_conference`;
+CREATE TABLE `t_oa_conference` (
+  `id` varchar(36) NOT NULL,
+  `executetime` datetime NOT NULL COMMENT '会议时间',
+  `content` longtext NOT NULL COMMENT '会议内容',
+  `roomtype` varchar(50) NOT NULL COMMENT '会议地点',
+  `master_dep_id` varchar(36) NOT NULL,
+  `departsName` varchar(255) DEFAULT NULL,
+  `usersName` varchar(255) DEFAULT NULL,
+  `anno_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_conference
+-- ----------------------------
+INSERT INTO `t_oa_conference` VALUES ('8afad58747e49a2d0147e80d7d5c000d', '2014-08-24 15:38:20', '会议室测试', '2', '402882e446efd9fd0146efda7ab50015', '副主任', '陈浩', '8afad58747e49a2d0147e80d7d3e000b');
+
+-- ----------------------------
+-- Table structure for t_oa_conference_depart
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_conference_depart`;
+CREATE TABLE `t_oa_conference_depart` (
+  `conference_id` varchar(36) NOT NULL,
+  `depart_id` varchar(36) NOT NULL,
+  PRIMARY KEY (`conference_id`,`depart_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_conference_depart
+-- ----------------------------
+INSERT INTO `t_oa_conference_depart` VALUES ('8afad58747e49a2d0147e80d7d5c000d', '8afad58747abc2800147abce00130003');
+
+-- ----------------------------
+-- Table structure for t_oa_conference_user
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_conference_user`;
+CREATE TABLE `t_oa_conference_user` (
+  `conference_id` varchar(36) NOT NULL,
+  `user_id` varchar(36) NOT NULL,
+  PRIMARY KEY (`conference_id`,`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_conference_user
+-- ----------------------------
+INSERT INTO `t_oa_conference_user` VALUES ('8afad58747e49a2d0147e80d7d5c000d', '402880e447a6c4820147a6c6d4c90007');
+
+-- ----------------------------
+-- Table structure for t_oa_device_manage
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_device_manage`;
+CREATE TABLE `t_oa_device_manage` (
+  `id` varchar(36) NOT NULL,
+  `myorder` int(11) DEFAULT NULL COMMENT '序号',
+  `depart` varchar(100) DEFAULT NULL COMMENT '部门',
+  `model` varchar(100) DEFAULT NULL COMMENT '型号',
+  `type` varchar(100) DEFAULT NULL COMMENT '类型',
+  `devicetype` varchar(100) DEFAULT NULL COMMENT '设备类型',
+  `purchasedate` datetime DEFAULT NULL COMMENT '购置时间',
+  `status` varchar(100) DEFAULT NULL COMMENT '状况',
+  `user` varchar(100) DEFAULT NULL,
+  `baseconfig` varchar(100) DEFAULT NULL COMMENT '状况',
+  `remark` longtext COMMENT '备注',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_device_manage
+-- ----------------------------
+INSERT INTO `t_oa_device_manage` VALUES ('263b6acf-3bef-11e4-aec4-3c970ec4fb80', '1', '中心领导', 'DELL VOSTRO 230', '台式电脑', '台式电脑', '2010-07-01 00:00:00', '正常使用', '谢平', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b7193-3bef-11e4-aec4-3c970ec4fb80', '2', '中心领导', 'MACBOOK Air', '笔记本电脑', '笔记本电脑', '2012-11-01 00:00:00', '正常使用', '谢平', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b7466-3bef-11e4-aec4-3c970ec4fb80', '3', '中心领导', 'DELL OptiPlex 7010', '台式电脑', '台式电脑', '2013-10-01 00:00:00', '正常使用', '徐冰涛', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b76e1-3bef-11e4-aec4-3c970ec4fb80', '4', '中心领导', 'DELL INSPIRON 530B', '台式电脑', '台式电脑-机箱', '2008-09-01 00:00:00', '未使用', '徐冰涛', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b793d-3bef-11e4-aec4-3c970ec4fb80', '5', '中心领导', 'Thinkpad X200', '笔记本电脑', '笔记本电脑', '2009-05-01 00:00:00', '正常使用', '徐冰涛', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b7b89-3bef-11e4-aec4-3c970ec4fb80', '6', '中心领导', 'Thinkpad X220', '笔记本电脑', '笔记本电脑', '2012-04-01 00:00:00', '正常使用', '徐冰涛', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b7df9-3bef-11e4-aec4-3c970ec4fb80', '7', '中心领导', 'DELL 大客户机', '台式电脑', '台式电脑', '2009-12-01 00:00:00', '正常使用', '陈浩(市场处)', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b8051-3bef-11e4-aec4-3c970ec4fb80', '8', '中心领导', 'Thinkpad X200', '笔记本电脑', '笔记本电脑', '2009-05-01 00:00:00', '正常使用', '陈浩', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b82a9-3bef-11e4-aec4-3c970ec4fb80', '9', '中心领导', 'Alienware M14X', '笔记本电脑', '笔记本电脑', '2013-06-01 00:00:00', '正常使用', '陈浩', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b84ed-3bef-11e4-aec4-3c970ec4fb80', '10', '中心领导', 'DELL STUDIO XPS', '台式电脑', '台式电脑', '2010-07-01 00:00:00', '正常使用', '龙克虎', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b8fd4-3bef-11e4-aec4-3c970ec4fb80', '11', '中心领导', 'Thinkpad s230u twist', '笔记本电脑', '超级本', '2013-05-01 00:00:00', '正常使用', '龙克虎', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b91fd-3bef-11e4-aec4-3c970ec4fb80', '12', '中心领导', 'DELL INSPIRON 518', '台式电脑', '台式电脑', '2008-09-01 00:00:00', '正常使用', '张世桥', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b94c3-3bef-11e4-aec4-3c970ec4fb80', '13', '中心领导', 'ThinkCenter ', '台式电脑', '台式电脑', '2012-04-01 00:00:00', '正常使用', '刘天金', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b974f-3bef-11e4-aec4-3c970ec4fb80', '14', '办公室', 'DELL INSPIRON 230s', '台式电脑', '台式电脑', '2010-12-01 00:00:00', '正常使用', '王芳', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b993c-3bef-11e4-aec4-3c970ec4fb80', '15', '办公室', 'DELL  INSPIRON 530', '台式电脑', '台式电脑', '2008-09-01 00:00:00', '正常使用', '索祖强', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b9bf7-3bef-11e4-aec4-3c970ec4fb80', '16', '办公室', 'MAC PRO MB871CH/A', '台式电脑', '台式电脑', '2009-12-01 00:00:00', '正常使用', '王易菲', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b9dd8-3bef-11e4-aec4-3c970ec4fb80', '17', '办公室', 'DELL VOSTRO 220', '台式电脑', '台式电脑', '2010-01-01 00:00:00', '正常使用', '刘博', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263b9fb6-3bef-11e4-aec4-3c970ec4fb80', '18', '办公室', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '李娟', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263ba22d-3bef-11e4-aec4-3c970ec4fb80', '19', '办公室', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '阮辉', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263ba4a5-3bef-11e4-aec4-3c970ec4fb80', '20', '办公室', '兼容机', '台式电脑', '台式电脑', '2009-12-01 00:00:00', '正常使用', '李博', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263ba719-3bef-11e4-aec4-3c970ec4fb80', '21', '办公室', 'DELL Vostro 220', '台式电脑', '台式电脑', '2010-04-01 00:00:00', '正常使用', '陈迟', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263ba8e2-3bef-11e4-aec4-3c970ec4fb80', '22', '办公室', 'DELL INSPIRON 5450', '台式电脑', '台式电脑', '2008-09-01 00:00:00', '正常使用', '杨曙', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bab56-3bef-11e4-aec4-3c970ec4fb80', '23', '办公室', 'DELL DIMENSION 3000', '台式电脑', '台式电脑', '2006-06-01 00:00:00', '已下账', '潘国祥', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263badda-3bef-11e4-aec4-3c970ec4fb80', '24', '办公室', 'DELL DIMENSION 3000', '台式电脑', '台式电脑', '2006-06-01 00:00:00', '已下账', '潘一立', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bafaf-3bef-11e4-aec4-3c970ec4fb80', '25', '办公室', 'DELL DIMENSION 520', '台式电脑', '台式电脑', '2007-03-01 00:00:00', '拟下账', '汤池', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bb17d-3bef-11e4-aec4-3c970ec4fb80', '26', '办公室', 'DELL PowerEdge', '台式电脑', '服务器', '2013-11-01 00:00:00', '正常使用', '网站服务器', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bb347-3bef-11e4-aec4-3c970ec4fb80', '27', '办公室', '英特尔服务器', '台式电脑', '服务器', '2010-01-01 00:00:00', '正常使用', '待移交登记中心', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bb511-3bef-11e4-aec4-3c970ec4fb80', '28', '办公室', '英特尔服务器', '台式电脑', '服务器', '2010-01-01 00:00:00', '正常使用', '待移交登记中心', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bb6df-3bef-11e4-aec4-3c970ec4fb80', '29', '办公室', 'ThinkpadT420S', '笔记本电脑', '笔记本电脑', '2012-01-01 00:00:00', '正常使用', '公用笔记本', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bb8a9-3bef-11e4-aec4-3c970ec4fb80', '30', '办公室', 'Thinkpad X1 Carbon', '台式电脑', '超极本', '2013-12-01 00:00:00', '正常使用', '公用笔记本', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bbb40-3bef-11e4-aec4-3c970ec4fb80', '31', '办公室', 'DELL 390', '台式电脑', '服务器', '2007-02-01 00:00:00', '正常使用', '照片服务器', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bbd45-3bef-11e4-aec4-3c970ec4fb80', '32', '办公室', 'DELL Vostro 220', '台式电脑', '服务器', '2010-04-01 00:00:00', '正常使用', '影像化服务器', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bbfec-3bef-11e4-aec4-3c970ec4fb80', '33', '办公室', 'DELL INSPIRON 530', '台式电脑', '服务器', '2008-07-01 00:00:00', '正常使用', '文件服务器', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bc1be-3bef-11e4-aec4-3c970ec4fb80', '34', '办公室', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2013-11-01 00:00:00', '库存', '库存机', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bc380-3bef-11e4-aec4-3c970ec4fb80', '35', '办公室', '联想商务机', '台式电脑', '台式电脑', '2013-12-01 00:00:00', '正常使用', '职工之家', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bc549-3bef-11e4-aec4-3c970ec4fb80', '36', '资金监管一科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '胡刚', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bc72f-3bef-11e4-aec4-3c970ec4fb80', '37', '资金监管一科', 'Thinkpad X200', '笔记本电脑', '笔记本电脑', '2009-05-01 00:00:00', '正常使用', '胡刚', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bc8fd-3bef-11e4-aec4-3c970ec4fb80', '38', '资金监管一科', 'DELL INSPIRON 530', '台式电脑', '台式电脑', '2008-09-01 00:00:00', '正常使用', '肖黎', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bcac3-3bef-11e4-aec4-3c970ec4fb80', '39', '资金监管一科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2013-06-01 00:00:00', '正常使用', '孙红', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bcc8d-3bef-11e4-aec4-3c970ec4fb80', '40', '资金监管一科', 'DELL INSPIRON 5300', '台式电脑', '台式电脑', '2008-02-01 00:00:00', '正常使用', '杨辰虎', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bce5a-3bef-11e4-aec4-3c970ec4fb80', '41', '资金监管一科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '张琪', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bd024-3bef-11e4-aec4-3c970ec4fb80', '42', '资金监管一科', 'DELL INSPIRON 530', '台式电脑', '台式电脑', '2008-09-01 00:00:00', '正常使用', '刘晋', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bd1e2-3bef-11e4-aec4-3c970ec4fb80', '43', '资金监管一科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-12-01 00:00:00', '正常使用', '杨爽', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bd3b8-3bef-11e4-aec4-3c970ec4fb80', '44', '资金监管一科', 'DELL VOSTRO 220', '台式电脑', '台式电脑', '2009-12-01 00:00:00', '正常使用', '袁涛', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bd582-3bef-11e4-aec4-3c970ec4fb80', '45', '资金监管一科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-12-01 00:00:00', '正常使用', '\\', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bd750-3bef-11e4-aec4-3c970ec4fb80', '46', '资金监管一科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '窗口', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bd916-3bef-11e4-aec4-3c970ec4fb80', '47', '资金监管二科', 'DELL INSPIRON 530', '台式电脑', '台式电脑', '2008-09-01 00:00:00', '正常使用', '李晓鸣', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bdae0-3bef-11e4-aec4-3c970ec4fb80', '48', '资金监管二科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2013-10-01 00:00:00', '正常使用', '张红远', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bdca6-3bef-11e4-aec4-3c970ec4fb80', '49', '资金监管二科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2013-06-01 00:00:00', '正常使用', '胡萍', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bde73-3bef-11e4-aec4-3c970ec4fb80', '50', '资金监管二科', 'DELL OPTIPLEX 380', '台式电脑', '台式电脑', '2012-04-01 00:00:00', '正常使用', '刘晖', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263be03d-3bef-11e4-aec4-3c970ec4fb80', '51', '资金监管二科', 'DELL INSPIRON 5450', '台式电脑', '台式电脑', '2008-09-01 00:00:00', '正常使用', '吴彩梅', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263be31c-3bef-11e4-aec4-3c970ec4fb80', '52', '资金监管二科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '夏勇波', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263be4f1-3bef-11e4-aec4-3c970ec4fb80', '53', '资金监管二科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '李慧丽', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263be6b7-3bef-11e4-aec4-3c970ec4fb80', '54', '资金监管二科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '谌玉平', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263be881-3bef-11e4-aec4-3c970ec4fb80', '55', '资金监管二科', 'DELL VOSTRO 220', '台式电脑', '台式电脑', '2009-12-01 00:00:00', '正常使用', '高炎松', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bea47-3bef-11e4-aec4-3c970ec4fb80', '56', '资金监管二科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-12-01 00:00:00', '正常使用', '黄晓旭', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bec15-3bef-11e4-aec4-3c970ec4fb80', '57', '资金监管二科', 'DELL VOSTRO 220', '台式电脑', '台式电脑', '2009-12-01 00:00:00', '正常使用', '江晶', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bedd7-3bef-11e4-aec4-3c970ec4fb80', '58', '资金监管二科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '窗口', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263befa9-3bef-11e4-aec4-3c970ec4fb80', '59', '财务科', 'DELL STUDIO 5405', '台式电脑', '台式电脑', '2007-06-01 00:00:00', '未使用', '汪静', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bf16f-3bef-11e4-aec4-3c970ec4fb80', '60', '财务科', 'ThinkCenter ', '台式电脑', '台式电脑', '2012-11-01 00:00:00', '正常使用', '汪静', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bf338-3bef-11e4-aec4-3c970ec4fb80', '61', '财务科', 'DELL VOSTRO 220', '台式电脑', '台式电脑', '2009-12-01 00:00:00', '正常使用', '刘群雁', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bf4fe-3bef-11e4-aec4-3c970ec4fb80', '62', '财务科', 'DELL Vostro 200', '台式电脑', '台式电脑', '2010-09-01 00:00:00', '正常使用', '记账专用', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bf6c4-3bef-11e4-aec4-3c970ec4fb80', '63', '财务科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-12-01 00:00:00', '正常使用', '韩颖', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bf886-3bef-11e4-aec4-3c970ec4fb80', '64', '财务科', 'SONY Tap 11', '笔记本电脑', '超级本', '2014-01-01 00:00:00', '正常使用', '财务专用', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bfa54-3bef-11e4-aec4-3c970ec4fb80', '65', '执法监督科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2013-06-01 00:00:00', '正常使用', '潘峰', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bfc1e-3bef-11e4-aec4-3c970ec4fb80', '66', '执法监督科', 'DELL VOSTRO 220s', '台式电脑', '台式电脑', '2010-05-01 00:00:00', '正常使用', '杨军', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bfde8-3bef-11e4-aec4-3c970ec4fb80', '67', '执法监督科', 'DELL Vostro 220', '台式电脑', '台式电脑', '2010-04-01 00:00:00', '正常使用', '曾正', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263bffb2-3bef-11e4-aec4-3c970ec4fb80', '68', '执法监督科', 'DELL INSPIRON 530', '台式电脑', '台式电脑', '2008-09-01 00:00:00', '正常使用', '吕巍', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c0178-3bef-11e4-aec4-3c970ec4fb80', '69', '执法监督科', 'DELL Vostro 220', '台式电脑', '台式电脑', '2010-02-01 00:00:00', '正常使用', '陈炎', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c0342-3bef-11e4-aec4-3c970ec4fb80', '70', '执法监督科', 'DELL OPTIPLEX 320 ', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '陈龙', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c0504-3bef-11e4-aec4-3c970ec4fb80', '71', '执法监督科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-12-01 00:00:00', '正常使用', '蒋君', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c06ca-3bef-11e4-aec4-3c970ec4fb80', '72', '执法监督科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-12-01 00:00:00', '正常使用', '谈旭', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c1055-3bef-11e4-aec4-3c970ec4fb80', '73', '执法监督科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-12-01 00:00:00', '正常使用', '张漾', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c12e8-3bef-11e4-aec4-3c970ec4fb80', '74', '执法监督科', 'DELL DIMENSION 520', '台式电脑', '台式电脑', '2007-03-01 00:00:00', '拟下账', '向堃', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c1530-3bef-11e4-aec4-3c970ec4fb80', '75', '执法监督科', 'DELL Vostro 220', '台式电脑', '台式电脑', '2010-04-01 00:00:00', '正常使用', '杨广青', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c17db-3bef-11e4-aec4-3c970ec4fb80', '76', '执法监督科', 'Thinkpad X230', '笔记本电脑', '笔记本电脑', '2012-12-01 00:00:00', '正常使用', '执法专用', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c1a2b-3bef-11e4-aec4-3c970ec4fb80', '77', '物业专班', 'DELL INSPRION 530', '台式电脑', '台式电脑', '2008-02-01 00:00:00', '正常使用', '黄建平', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c1c74-3bef-11e4-aec4-3c970ec4fb80', '78', '物业专班', 'DELL Vostro 220', '台式电脑', '台式电脑', '2010-04-01 00:00:00', '正常使用', '邱云', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c1f66-3bef-11e4-aec4-3c970ec4fb80', '79', '物业专班', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2013-06-01 00:00:00', '正常使用', '曹阳', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c21f5-3bef-11e4-aec4-3c970ec4fb80', '80', '物业专班', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2013-06-01 00:00:00', '正常使用', '李胜兰', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c2470-3bef-11e4-aec4-3c970ec4fb80', '81', '物业专班', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2013-06-01 00:00:00', '正常使用', '程贞', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c26e4-3bef-11e4-aec4-3c970ec4fb80', '82', '物业专班', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2013-06-01 00:00:00', '正常使用', '汤皓', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c2944-3bef-11e4-aec4-3c970ec4fb80', '83', '物业专班', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2013-09-01 00:00:00', '正常使用', '李文', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c2ba4-3bef-11e4-aec4-3c970ec4fb80', '84', '物业专班', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2013-09-01 00:00:00', '正常使用', '彭倩', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c2eec-3bef-11e4-aec4-3c970ec4fb80', '85', '市场监测科', 'DELL Vostro 220', '台式电脑', '台式电脑', '2011-01-01 00:00:00', '正常使用', '谭国林', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c3188-3bef-11e4-aec4-3c970ec4fb80', '86', '市场监测科', 'ThinkpadT420S', '笔记本电脑', '笔记本电脑', '2012-01-01 00:00:00', '正常使用', '谭国林', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c3365-3bef-11e4-aec4-3c970ec4fb80', '87', '市场监测科', 'DELL VOSTRO 220', '台式电脑', '台式电脑', '2008-08-01 00:00:00', '正常使用', '张嘉东', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c352f-3bef-11e4-aec4-3c970ec4fb80', '88', '市场监测科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '赵波', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c3705-3bef-11e4-aec4-3c970ec4fb80', '89', '市场监测科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '田昌', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c38cf-3bef-11e4-aec4-3c970ec4fb80', '90', '市场监测科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '章亮', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c3a9d-3bef-11e4-aec4-3c970ec4fb80', '91', '市场监测科', 'DELL VOSTRO 220', '台式电脑', '台式电脑', '2010-02-01 00:00:00', '正常使用', '金道森', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c3c66-3bef-11e4-aec4-3c970ec4fb80', '92', '市场监测科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '杨威', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c3e38-3bef-11e4-aec4-3c970ec4fb80', '93', '市场监测科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-12-01 00:00:00', '正常使用', '张明明', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c3ffa-3bef-11e4-aec4-3c970ec4fb80', '94', '市场监测科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '窗口', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c41f7-3bef-11e4-aec4-3c970ec4fb80', '95', '市场监测科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2013-11-01 00:00:00', '正常使用', '窗口', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c43c9-3bef-11e4-aec4-3c970ec4fb80', '96', '维修资金管理科', 'DELL OPTIPLEX 380', '台式电脑', '台式电脑', '2012-04-01 00:00:00', '正常使用', '张毅', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c459f-3bef-11e4-aec4-3c970ec4fb80', '97', '维修资金管理科', 'DELL OPTIPLEX 320 ', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '吴元平', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c486d-3bef-11e4-aec4-3c970ec4fb80', '98', '维修资金管理科', '兼容机', '台式电脑', '台式电脑', '2010-06-01 00:00:00', '正常使用', '付礼栋', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c4a4f-3bef-11e4-aec4-3c970ec4fb80', '99', '维修资金管理科', '兼容机', '台式电脑', '台式电脑', '2010-06-01 00:00:00', '正常使用', '刘博宇', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c4c21-3bef-11e4-aec4-3c970ec4fb80', '100', '维修资金管理科', '兼容机', '台式电脑', '台式电脑', '2010-06-01 00:00:00', '正常使用', '袁红林', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c5ab3-3bef-11e4-aec4-3c970ec4fb80', '101', '维修资金管理科', '兼容机', '台式电脑', '台式电脑', '2010-06-01 00:00:00', '正常使用', '鞠文娟', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c5e0b-3bef-11e4-aec4-3c970ec4fb80', '102', '维修资金管理科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '张静洁', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c6067-3bef-11e4-aec4-3c970ec4fb80', '103', '维修资金管理科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '夏媛', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c624d-3bef-11e4-aec4-3c970ec4fb80', '104', '维修资金管理科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '石萌涛', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c642b-3bef-11e4-aec4-3c970ec4fb80', '105', '维修资金管理科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2013-06-01 00:00:00', '正常使用', '实习生', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c65fc-3bef-11e4-aec4-3c970ec4fb80', '106', '维修资金管理科', 'DELL OptiPlex 3010', '台式电脑', '台式电脑', '2012-09-01 00:00:00', '正常使用', '窗口', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c67ca-3bef-11e4-aec4-3c970ec4fb80', '107', '维修资金管理科', 'Thinkpad T430S', '笔记本电脑', '笔记本电脑', '2013-05-01 00:00:00', '正常使用', '维修资金专用', null, null);
+INSERT INTO `t_oa_device_manage` VALUES ('263c69a8-3bef-11e4-aec4-3c970ec4fb80', '1', '中心领导', 'HP Laserjet 1006', '打印机', null, '2010-07-01 00:00:00', '正常使用', '谢平', 'A4桌面激光打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c6b85-3bef-11e4-aec4-3c970ec4fb80', '2', '中心领导', 'HP Laserjet 2055DN', '打印机', null, '2010-09-01 00:00:00', '正常使用', '陈浩', 'A4激光打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c6d5b-3bef-11e4-aec4-3c970ec4fb80', '3', '中心领导', 'HP Laserjet 2055DN', '打印机', null, '2012-09-01 00:00:00', '正常使用', '徐冰涛', 'A4激光打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c6f2d-3bef-11e4-aec4-3c970ec4fb80', '4', '中心领导', 'HP彩色激光打印机 CP1515n', '打印机', null, '2010-07-01 00:00:00', '正常使用', '龙克虎', 'A4激光彩色打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c70ff-3bef-11e4-aec4-3c970ec4fb80', '5', '中心领导', 'HP Laserjet 1007', '打印机', null, '2012-11-01 00:00:00', '正常使用', '张世桥', 'A4桌面激光打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c72d0-3bef-11e4-aec4-3c970ec4fb80', '6', '中心领导', 'HP彩色激光打印机 CP1515n', '打印机', null, '2010-07-01 00:00:00', '正常使用', '刘天金', 'A4激光彩色打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c749e-3bef-11e4-aec4-3c970ec4fb80', '7', '办公室', 'HP Laserjet 2055DN', '打印机', null, '2012-09-01 00:00:00', '正常使用', '王芳', 'A4激光打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c766c-3bef-11e4-aec4-3c970ec4fb80', '8', '办公室', 'HP彩色激光打印机 CP2055dn', '打印机', null, '2012-04-01 00:00:00', '正常使用', '王易菲', 'A4激光彩色打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c783a-3bef-11e4-aec4-3c970ec4fb80', '9', '办公室', '东芝 e283s复印机', '打印机', null, '2009-04-01 00:00:00', '正常使用', '李博', '复印打印一体机', '对办公室开放');
+INSERT INTO `t_oa_device_manage` VALUES ('263c7a20-3bef-11e4-aec4-3c970ec4fb80', '10', '办公室', 'HP Officejet 4500', '打印机', null, '2008-09-01 00:00:00', '正常使用', '李博', '传真一体机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c7bed-3bef-11e4-aec4-3c970ec4fb80', '11', '办公室', '东芝 e232s复印机', '打印机', null, '2007-07-01 00:00:00', '已下账', '刘博', '复印打印一体机', '对中心开放');
+INSERT INTO `t_oa_device_manage` VALUES ('263c7de3-3bef-11e4-aec4-3c970ec4fb80', '12', '财务科', 'HP Laserjet 5200n', '打印机', null, '2012-01-01 00:00:00', '正常使用', '汪静', 'A3激光打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c7fad-3bef-11e4-aec4-3c970ec4fb80', '13', '财务科', 'OKI 760F 税票打印机', '打印机', null, '2008-09-01 00:00:00', '正常使用', '刘群雁', '税票打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c8182-3bef-11e4-aec4-3c970ec4fb80', '14', '资金监管一科', 'HP Laserjet 2055DN', '打印机', null, '2012-09-01 00:00:00', '正常使用', '胡刚', 'A4激光打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c8354-3bef-11e4-aec4-3c970ec4fb80', '15', '资金监管一科', 'HP Laserjet 2055D', '打印机', null, '2012-11-01 00:00:00', '正常使用', '胡刚', 'A4激光打印机', '窗口');
+INSERT INTO `t_oa_device_manage` VALUES ('263c8522-3bef-11e4-aec4-3c970ec4fb80', '16', '资金监管二科', 'HP Laserjet 2055DN', '打印机', null, '2012-09-01 00:00:00', '正常使用', '李晓鸣', 'A4激光打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c86ec-3bef-11e4-aec4-3c970ec4fb80', '17', '资金监管二科', 'HP Officejet 8600', '打印机', null, '2013-05-01 00:00:00', '正常使用', '李晓鸣', '彩色传真一体机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c88c5-3bef-11e4-aec4-3c970ec4fb80', '18', '执法监督科', 'HP Laserjet1606DN', '打印机', null, '2010-07-01 00:00:00', '正常使用', '潘峰', 'A4桌面激光打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c8a93-3bef-11e4-aec4-3c970ec4fb80', '19', '市场监测科', 'HP彩色激光打印机 CP1515n', '打印机', null, '2010-08-01 00:00:00', '正常使用', '谭国林', 'A4激光彩色打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c8c65-3bef-11e4-aec4-3c970ec4fb80', '20', '维修资金管理科', 'HP Laserjet 5200n', '打印机', null, '2008-09-01 00:00:00', '正常使用', '吴元平', 'A3激光打印机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c8e2b-3bef-11e4-aec4-3c970ec4fb80', '21', '维修资金管理科', 'HP Officejet 8600', '打印机', null, '2013-05-01 00:00:00', '正常使用', '吴元平', '彩色传真一体机', '');
+INSERT INTO `t_oa_device_manage` VALUES ('263c901c-3bef-11e4-aec4-3c970ec4fb80', '22', '维修资金管理科', 'HP Laserjet  Pro 140M', '打印机', null, '2013-05-01 00:00:00', '正常使用', '吴元平', 'A4激光打印机', '窗口');
+INSERT INTO `t_oa_device_manage` VALUES ('263c91fa-3bef-11e4-aec4-3c970ec4fb80', '23', '维修资金管理科', 'HP Laserjet  Pro 140M', '打印机', null, '2013-09-01 00:00:00', '正常使用', '吴元平', 'A4激光打印机', '');
+
+-- ----------------------------
+-- Table structure for t_oa_enquipment
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_enquipment`;
+CREATE TABLE `t_oa_enquipment` (
+  `id` varchar(36) NOT NULL,
+  `name` varchar(100) NOT NULL COMMENT '设备名称',
+  `type` varchar(50) NOT NULL COMMENT '设备类型',
+  `amount` double NOT NULL COMMENT '设备数量',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_enquipment
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_oa_enquipment_type
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_enquipment_type`;
+CREATE TABLE `t_oa_enquipment_type` (
+  `id` varchar(36) NOT NULL,
+  `name` varchar(100) NOT NULL COMMENT '类型名称',
+  `unit_name` varchar(100) NOT NULL COMMENT '类型单位名',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_enquipment_type
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_oa_inbox
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_inbox`;
+CREATE TABLE `t_oa_inbox` (
+  `id` varchar(36) NOT NULL,
+  `title` varchar(1000) NOT NULL,
+  `orgName` varchar(1000) NOT NULL,
+  `submitDate` datetime NOT NULL,
+  `tag` varchar(1000) NOT NULL,
+  `sortNum` varchar(1000) NOT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `addon` varchar(1000) DEFAULT NULL,
+  `classification` varchar(1000) NOT NULL,
+  `folder` varchar(1000) NOT NULL,
+  `leaderId` varchar(50) DEFAULT NULL,
+  `statusInfo` varchar(1000) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `logbackDate` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_inbox
+-- ----------------------------
+INSERT INTO `t_oa_inbox` VALUES ('665ad7778f3943afbd2ad25e474306a8', '发文测试', '发文单位', '2014-09-02 00:00:00', '测字', '20140902s001', '2', '无', '本部门', 'c1bf8787-1569-4e41-a8f3-23dfa25e7aa9', '8afad58747e49a2d01480d00dd1c0022', '已归档', '1', null);
+INSERT INTO `t_oa_inbox` VALUES ('8c2f6e7346c34922bcf5d3cb04d4bb88', '20140903测试的收文', '测试收文单位', '2014-09-03 00:00:00', '测试收2014第12号', '20140903s001', '1', '无', '公开', 'defd94cd-9abc-4d21-a401-5cee95d05ec1', '8afad58747e49a2d01480d00dd1c0022', '已归档', '1', null);
+INSERT INTO `t_oa_inbox` VALUES ('2882541380a34becba4da42588bbcb97', '测试文件的标题', '测试单位', '2014-09-03 00:00:00', '武房发2014第12号', '20140903s002', '1', '无', ' 公开', '3e0fbe08-ccb8-4b46-b5ec-5eedb70d9bdf', '8afad58747e49a2d01480d00dd1c0022', '已归档', '1', null);
+
+-- ----------------------------
+-- Table structure for t_oa_inbox_doc
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_inbox_doc`;
+CREATE TABLE `t_oa_inbox_doc` (
+  `path` varchar(1000) NOT NULL,
+  `inboxId` varchar(50) NOT NULL,
+  `orderNum` int(11) NOT NULL,
+  `folder` varchar(1000) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_inbox_doc
+-- ----------------------------
+INSERT INTO `t_oa_inbox_doc` VALUES ('/userupload/inboxfile/c1bf8787-1569-4e41-a8f3-23dfa25e7aa9/1.jpg', '665ad7778f3943afbd2ad25e474306a8', '0', 'c1bf8787-1569-4e41-a8f3-23dfa25e7aa9');
+INSERT INTO `t_oa_inbox_doc` VALUES ('/userupload/inboxfile/c1bf8787-1569-4e41-a8f3-23dfa25e7aa9/2.jpg', '665ad7778f3943afbd2ad25e474306a8', '1', 'c1bf8787-1569-4e41-a8f3-23dfa25e7aa9');
+INSERT INTO `t_oa_inbox_doc` VALUES ('/userupload/inboxfile/c1bf8787-1569-4e41-a8f3-23dfa25e7aa9/3.jpg', '665ad7778f3943afbd2ad25e474306a8', '2', 'c1bf8787-1569-4e41-a8f3-23dfa25e7aa9');
+INSERT INTO `t_oa_inbox_doc` VALUES ('/userupload/inboxfile/defd94cd-9abc-4d21-a401-5cee95d05ec1/1.jpg', '8c2f6e7346c34922bcf5d3cb04d4bb88', '0', 'defd94cd-9abc-4d21-a401-5cee95d05ec1');
+INSERT INTO `t_oa_inbox_doc` VALUES ('/userupload/inboxfile/defd94cd-9abc-4d21-a401-5cee95d05ec1/2.jpg', '8c2f6e7346c34922bcf5d3cb04d4bb88', '1', 'defd94cd-9abc-4d21-a401-5cee95d05ec1');
+INSERT INTO `t_oa_inbox_doc` VALUES ('/userupload/inboxfile/defd94cd-9abc-4d21-a401-5cee95d05ec1/3.jpg', '8c2f6e7346c34922bcf5d3cb04d4bb88', '2', 'defd94cd-9abc-4d21-a401-5cee95d05ec1');
+INSERT INTO `t_oa_inbox_doc` VALUES ('/userupload/inboxfile/defd94cd-9abc-4d21-a401-5cee95d05ec1/4.jpg', '8c2f6e7346c34922bcf5d3cb04d4bb88', '3', 'defd94cd-9abc-4d21-a401-5cee95d05ec1');
+INSERT INTO `t_oa_inbox_doc` VALUES ('/userupload/inboxfile/3e0fbe08-ccb8-4b46-b5ec-5eedb70d9bdf/1.jpg', '2882541380a34becba4da42588bbcb97', '0', '3e0fbe08-ccb8-4b46-b5ec-5eedb70d9bdf');
+INSERT INTO `t_oa_inbox_doc` VALUES ('/userupload/inboxfile/3e0fbe08-ccb8-4b46-b5ec-5eedb70d9bdf/2.jpg', '2882541380a34becba4da42588bbcb97', '1', '3e0fbe08-ccb8-4b46-b5ec-5eedb70d9bdf');
+INSERT INTO `t_oa_inbox_doc` VALUES ('/userupload/inboxfile/3e0fbe08-ccb8-4b46-b5ec-5eedb70d9bdf/3.jpg', '2882541380a34becba4da42588bbcb97', '2', '3e0fbe08-ccb8-4b46-b5ec-5eedb70d9bdf');
+INSERT INTO `t_oa_inbox_doc` VALUES ('/userupload/inboxfile/3e0fbe08-ccb8-4b46-b5ec-5eedb70d9bdf/4.jpg', '2882541380a34becba4da42588bbcb97', '3', '3e0fbe08-ccb8-4b46-b5ec-5eedb70d9bdf');
+
+-- ----------------------------
+-- Table structure for t_oa_inbox_opinion
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_inbox_opinion`;
+CREATE TABLE `t_oa_inbox_opinion` (
+  `id` varchar(50) NOT NULL,
+  `inboxId` varchar(50) NOT NULL,
+  `content` varchar(1000) NOT NULL,
+  `userName` varchar(50) NOT NULL,
+  `priority` int(11) NOT NULL,
+  `submitDate` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_inbox_opinion
+-- ----------------------------
+INSERT INTO `t_oa_inbox_opinion` VALUES ('cd1b5f8007ec455a862e3a85e163b321', '665ad7778f3943afbd2ad25e474306a8', '谢平的批示', '谢平', '0', '2014-09-02 21:25:28');
+INSERT INTO `t_oa_inbox_opinion` VALUES ('a4b0a98d405047cfa5d99750df3d4193', '665ad7778f3943afbd2ad25e474306a8', '徐冰涛的批示', '徐冰涛', '0', '2014-09-02 21:26:44');
+INSERT INTO `t_oa_inbox_opinion` VALUES ('466bb6f258694a6587a7654ffecd6f24', '665ad7778f3943afbd2ad25e474306a8', '徐小明的批示', '李晓鸣', '0', '2014-09-02 21:28:00');
+INSERT INTO `t_oa_inbox_opinion` VALUES ('ef283af4730448719fabdde5b6be9926', '8c2f6e7346c34922bcf5d3cb04d4bb88', '请**科室落实此事。', '谢平', '0', '2014-09-03 08:41:14');
+INSERT INTO `t_oa_inbox_opinion` VALUES ('e5a5d8bdc8fa48ee8bcc950f93fcaa20', '8c2f6e7346c34922bcf5d3cb04d4bb88', '请***落实此事。', '陈浩', '0', '2014-09-03 08:42:04');
+INSERT INTO `t_oa_inbox_opinion` VALUES ('b9a233d4d901453aa508cd36788d79e5', '8c2f6e7346c34922bcf5d3cb04d4bb88', '已经由**同志落实。', '潘峰', '0', '2014-09-03 08:43:04');
+INSERT INTO `t_oa_inbox_opinion` VALUES ('6be78af1ccbc4fb0b5c8ee1e1bad9ccf', '2882541380a34becba4da42588bbcb97', '请***科室落实此事。', '谢平', '0', '2014-09-03 09:25:32');
+INSERT INTO `t_oa_inbox_opinion` VALUES ('7fcbe64d568c4316bed922e39336eac2', '2882541380a34becba4da42588bbcb97', '已阅。', '陈浩', '0', '2014-09-03 09:37:46');
+INSERT INTO `t_oa_inbox_opinion` VALUES ('e5ea7ef6fa5240138a66c73418792502', '2882541380a34becba4da42588bbcb97', '请向堃同志落实。', '潘峰', '0', '2014-09-03 09:38:52');
+
+-- ----------------------------
+-- Table structure for t_oa_inbox_org_rel
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_inbox_org_rel`;
+CREATE TABLE `t_oa_inbox_org_rel` (
+  `inboxId` varchar(50) NOT NULL,
+  `orgId` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_inbox_org_rel
+-- ----------------------------
+INSERT INTO `t_oa_inbox_org_rel` VALUES ('887141730a3c454080c24cd635d464a1', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_oa_inbox_org_rel` VALUES ('45cfe989d6274f16bf93eed0063fafc1', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_oa_inbox_org_rel` VALUES ('665ad7778f3943afbd2ad25e474306a8', '8afad58747abc2800147abcfac2c0005');
+INSERT INTO `t_oa_inbox_org_rel` VALUES ('665ad7778f3943afbd2ad25e474306a8', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_oa_inbox_org_rel` VALUES ('665ad7778f3943afbd2ad25e474306a8', '8afad587480d524e01482aa1d67e0064');
+INSERT INTO `t_oa_inbox_org_rel` VALUES ('8c2f6e7346c34922bcf5d3cb04d4bb88', '8afad58747abc2800147abcfac2c0005');
+INSERT INTO `t_oa_inbox_org_rel` VALUES ('2882541380a34becba4da42588bbcb97', '8afad58747abc2800147abcfac2c0005');
+
+-- ----------------------------
+-- Table structure for t_oa_inbox_user_org
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_inbox_user_org`;
+CREATE TABLE `t_oa_inbox_user_org` (
+  `userId` varchar(50) NOT NULL,
+  `orgId` varchar(50) NOT NULL,
+  PRIMARY KEY (`userId`,`orgId`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_inbox_user_org
+-- ----------------------------
+INSERT INTO `t_oa_inbox_user_org` VALUES ('', '');
+INSERT INTO `t_oa_inbox_user_org` VALUES ('', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_oa_inbox_user_org` VALUES ('402880e447a6c4820147a6c6d4c90007', '8afad58747abc2800147abcfac2c0005');
+INSERT INTO `t_oa_inbox_user_org` VALUES ('8afad587480d524e014811ba513f0002', '8afad587480d524e01482aa1d67e0064');
+
+-- ----------------------------
+-- Table structure for t_oa_inbox_user_rel
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_inbox_user_rel`;
+CREATE TABLE `t_oa_inbox_user_rel` (
+  `userId` varchar(50) NOT NULL,
+  `inboxId` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_inbox_user_rel
+-- ----------------------------
+INSERT INTO `t_oa_inbox_user_rel` VALUES ('402880e447a6c4820147a6c6d4c90007', '665ad7778f3943afbd2ad25e474306a8');
+INSERT INTO `t_oa_inbox_user_rel` VALUES ('8afad587480d524e014811ba513f0002', '665ad7778f3943afbd2ad25e474306a8');
+INSERT INTO `t_oa_inbox_user_rel` VALUES ('8afad587480d524e014811bf7e060005', '665ad7778f3943afbd2ad25e474306a8');
+INSERT INTO `t_oa_inbox_user_rel` VALUES ('402880e447a6c4820147a6c6d4c90007', '8c2f6e7346c34922bcf5d3cb04d4bb88');
+INSERT INTO `t_oa_inbox_user_rel` VALUES ('402880e447a6c4820147a6c6d4c90007', '2882541380a34becba4da42588bbcb97');
+
+-- ----------------------------
+-- Table structure for t_oa_office_supply
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_office_supply`;
+CREATE TABLE `t_oa_office_supply` (
+  `id` varchar(100) NOT NULL,
+  `myorder` int(11) DEFAULT NULL,
+  `guestname` varchar(100) DEFAULT NULL,
+  `devicetype` varchar(100) DEFAULT NULL,
+  `devicename` varchar(100) DEFAULT NULL,
+  `purchasedate` date DEFAULT NULL,
+  `unit` varchar(100) DEFAULT NULL,
+  `number` int(11) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `money` double DEFAULT NULL,
+  `depart` varchar(100) DEFAULT NULL,
+  `remark` varchar(500) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_office_supply
+-- ----------------------------
+INSERT INTO `t_oa_office_supply` VALUES ('3a21eab9-3bc7-11e4-aec4-3c970ec4fb80', '1', null, '耗材', '东芝复印机粉仓', '2012-08-27', '支', '1', '680', '680', '', '');
+INSERT INTO `t_oa_office_supply` VALUES ('3a21f042-3bc7-11e4-aec4-3c970ec4fb80', '2', null, '耗材', '通用碎纸机', '2012-08-27', '台', '1', '690', '690', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a21f2aa-3bc7-11e4-aec4-3c970ec4fb80', '3', null, '耗材', '电话线、网线及接头模块', '2012-08-28', '批', '1', '52', '52', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a21f4bf-3bc7-11e4-aec4-3c970ec4fb80', '4', null, '耗材', 'CD、DVD保护套', '2012-08-29', '袋', '1', '50', '50', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a21f6df-3bc7-11e4-aec4-3c970ec4fb80', '5', null, '耗材', 'HP 05A', '2012-09-06', '支', '1', '690', '690', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e2f3a-3bc7-11e4-aec4-3c970ec4fb80', '6', null, '耗材', 'USB移动硬盘线', '2012-09-06', '根', '2', '30', '60', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e3200-3bc7-11e4-aec4-3c970ec4fb80', '7', null, '耗材', '音量可调电话', '2012-09-11', '部', '1', '82', '82', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e341d-3bc7-11e4-aec4-3c970ec4fb80', '8', null, '耗材', 'HP 543A（红色）', '2012-09-11', '支', '1', '660', '660', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e3622-3bc7-11e4-aec4-3c970ec4fb80', '9', null, '耗材', 'HP 78A', '2012-09-12', '支', '1', '670', '670', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e3823-3bc7-11e4-aec4-3c970ec4fb80', '10', null, '耗材', 'Sandisk U盘', '2012-09-16', '个', '1', '90', '90', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e3a54-3bc7-11e4-aec4-3c970ec4fb80', '11', null, '耗材', 'HP 05A', '2012-09-17', '支', '1', '690', '690', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e3ccf-3bc7-11e4-aec4-3c970ec4fb80', '12', null, '耗材', 'DELL台式电脑键盘', '2012-09-19', '支', '1', '80', '80', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e3ed4-3bc7-11e4-aec4-3c970ec4fb80', '13', null, '耗材', 'Sandisk U盘', '2012-09-25', '支', '1', '90', '90', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e40b6-3bc7-11e4-aec4-3c970ec4fb80', '14', null, '耗材', 'DWA网卡', '2012-09-28', '块', '1', '120', '120', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e429f-3bc7-11e4-aec4-3c970ec4fb80', '15', null, '耗材', '电话线及接头模块', '2012-09-29', '批', '1', '77', '77', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e448d-3bc7-11e4-aec4-3c970ec4fb80', '16', null, '耗材', '中国联通上网资费卡（6G/年）', '2012-10-08', '年', '1', '699', '699', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e4682-3bc7-11e4-aec4-3c970ec4fb80', '17', null, '耗材', '罗技蓝牙鼠标（以旧换新）', '2012-10-08', '支', '1', '190', '190', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e486c-3bc7-11e4-aec4-3c970ec4fb80', '18', null, '耗材', '多功能电话（维修）', '2012-10-09', '个', '1', '81', '81', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e4a61-3bc7-11e4-aec4-3c970ec4fb80', '19', null, '耗材', '公牛接线板', '2012-10-11', '个', '1', '60', '60', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e4c46-3bc7-11e4-aec4-3c970ec4fb80', '20', null, '耗材', 'HP 16A', '2012-10-12', '支', '1', '1200', '1200', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e4e2c-3bc7-11e4-aec4-3c970ec4fb80', '21', null, '耗材', 'HP 901墨盒', '2012-10-12', '个', '1', '229', '229', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e500a-3bc7-11e4-aec4-3c970ec4fb80', '22', null, '耗材', '微软光学鲨鼠标', '2012-10-17', '支', '1', '76', '76', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e5203-3bc7-11e4-aec4-3c970ec4fb80', '23', null, '耗材', 'Sandisk U盘', '2012-10-17', '支', '1', '90', '90', null, null);
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e5410-3bc7-11e4-aec4-3c970ec4fb80', '1', null, '耗材', 'hp540硒鼓', '2012-12-11', '支', '1', '560', '560', null, '市场监测科（张明明）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e55f9-3bc7-11e4-aec4-3c970ec4fb80', '2', null, '耗材', '东芝原厂粉仓', '2012-12-11', '套', '1', '790', '790', null, '办公室（王易菲）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e581a-3bc7-11e4-aec4-3c970ec4fb80', '3', null, '耗材', 'HP 901墨盒', '2012-12-13', '个', '1', '230', '230', null, '办公室（刘博）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e5a76-3bc7-11e4-aec4-3c970ec4fb80', '4', null, '耗材', '成品网线', '2012-12-14', '根', '2', '45', '90', null, '资金监管一科（胡刚）执法监督科（曾正）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e5cf9-3bc7-11e4-aec4-3c970ec4fb80', '5', null, '耗材', '微型网络交换机', '2012-12-14', '台', '2', '110', '220', null, '资金监管一科（胡刚）执法监督科（曾正）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e5f26-3bc7-11e4-aec4-3c970ec4fb80', '6', null, '耗材', '计算机内存条', '2012-12-14', '跟', '1', '290', '290', null, '资金监管二科（胡萍）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e6123-3bc7-11e4-aec4-3c970ec4fb80', '7', null, '耗材', '联通3G资费卡', '2012-12-15', '张', '1', '1200', '1200', null, '中心领导（刘天金）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e6348-3bc7-11e4-aec4-3c970ec4fb80', '8', null, '耗材', 'HP 05A硒鼓', '2012-12-17', '支', '1', '790', '790', null, '资金监管二科（李慧丽）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e6531-3bc7-11e4-aec4-3c970ec4fb80', '9', null, '耗材', '公牛 GN-216 5米', '2012-12-17', '个', '1', '90', '90', null, '办公室（李博）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e6717-3bc7-11e4-aec4-3c970ec4fb80', '10', null, '耗材', 'SONY U10原装摄像机包', '2012-12-17', '个', '1', '200', '200', null, '办公室（李博）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e68f8-3bc7-11e4-aec4-3c970ec4fb80', '11', null, '耗材', 'SONY FV70原装摄像机电池', '2012-12-17', '块', '1', '220', '220', null, '办公室（李博）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e6ade-3bc7-11e4-aec4-3c970ec4fb80', '12', null, '耗材', '联通3G资费卡（含设备）', '2012-12-17', '个', '1', '1500', '1500', null, '资金监管一科（袁涛）下乡扶贫');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e6cd7-3bc7-11e4-aec4-3c970ec4fb80', '13', null, '耗材', '12V 电源', '2012-12-19', '部', '1', '75', '75', null, '办公室（刘博）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e6ec5-3bc7-11e4-aec4-3c970ec4fb80', '14', null, '耗材', '增强型无线路由器', '2012-12-19', '部', '1', '290', '290', null, '维修资金管理科（刘博宇）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e70ae-3bc7-11e4-aec4-3c970ec4fb80', '15', null, '耗材', '成品网线', '2012-12-19', '根', '1', '45', '45', null, '维修资金管理科（刘博宇）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e7290-3bc7-11e4-aec4-3c970ec4fb80', '16', null, '耗材', 'HP 16A硒鼓', '2012-12-25', '支', '1', '1280', '1280', null, '维修资金管理科（石萌涛）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e746d-3bc7-11e4-aec4-3c970ec4fb80', '17', null, '耗材', '公牛 GN-216 5米', '2013-01-04', '个', '1', '90', '90', null, '执法监督科（李胜兰）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e7653-3bc7-11e4-aec4-3c970ec4fb80', '18', null, '耗材', '电话程控交换机及安装（含材料）', '2013-01-05', '台', '1', '870', '870', null, '资金监管二科');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e7848-3bc7-11e4-aec4-3c970ec4fb80', '19', null, '耗材', '铝合金线槽', '2013-01-05', '根', '3', '20', '60', null, '执法监督科');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e7a26-3bc7-11e4-aec4-3c970ec4fb80', '20', null, '耗材', '金士顿U盘', '2013-01-06', '个', '1', '90', '90', null, '中心领导（龙克虎）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e7c03-3bc7-11e4-aec4-3c970ec4fb80', '21', null, '耗材', 'HP 78A硒鼓', '2013-01-08', '支', '1', '670', '670', null, '执法监督科（曾正）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e7de9-3bc7-11e4-aec4-3c970ec4fb80', '22', null, '耗材', '东芝U盘', '2013-01-08', '支', '1', '90', '90', null, '维修资金管理科（刘博宇）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e7fca-3bc7-11e4-aec4-3c970ec4fb80', '23', null, '维修', '东芝复印机维修（更换双面器挡板）', '2013-01-09', '台', '1', '460', '460', null, '办公室');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e81ac-3bc7-11e4-aec4-3c970ec4fb80', '24', null, '耗材', '公牛 GN-216 5米', '2013-01-09', '个', '1', '90', '90', null, '中心领导（张世桥）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e8395-3bc7-11e4-aec4-3c970ec4fb80', '25', null, '耗材', 'HP 531A硒鼓', '2013-01-10', '支', '1', '950', '950', null, '办公室（王易菲）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e857b-3bc7-11e4-aec4-3c970ec4fb80', '26', null, '耗材', '微型网络交换机', '2013-01-15', '台', '1', '110', '110', null, '执法监督科（曾正）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e8759-3bc7-11e4-aec4-3c970ec4fb80', '27', null, '耗材', '东芝原厂粉仓', '2013-01-16', '支', '1', '750', '750', null, '办公室（王易菲）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e896e-3bc7-11e4-aec4-3c970ec4fb80', '28', null, '耗材', '多功能读卡器', '2013-01-16', '个', '1', '70', '70', null, '办公室（李博）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e8b53-3bc7-11e4-aec4-3c970ec4fb80', '29', null, '耗材', '普通电话机', '2013-01-16', '部', '1', '75', '75', null, '资金监管一二科窗口（杨爽）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e8d35-3bc7-11e4-aec4-3c970ec4fb80', '30', null, '耗材', '普通电话机', '2013-01-16', '部', '3', '75', '225', null, '资金监管二科（夏勇波）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e8f16-3bc7-11e4-aec4-3c970ec4fb80', '31', null, '耗材', '投影机电源线', '2013-01-17', '套', '1', '90', '90', null, '办公室（李博）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e90f0-3bc7-11e4-aec4-3c970ec4fb80', '32', null, '耗材', '打印机数据线', '2013-01-18', '套', '1', '30', '30', null, '办公室（李博）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e92cd-3bc7-11e4-aec4-3c970ec4fb80', '33', null, '耗材', '闪迪U盘', '2013-01-18', '支', '2', '90', '180', null, '维修资金管理科（付礼栋）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e94bf-3bc7-11e4-aec4-3c970ec4fb80', '34', null, '耗材', '飞利浦无绳电话（3部分机）', '2013-01-18', '套', '1', '680', '680', null, '资金监管二科');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e96a0-3bc7-11e4-aec4-3c970ec4fb80', '35', null, '耗材', '联通3G资费卡', '2013-01-18', '个', '1', '1200', '1200', null, '中心领导（刘天金）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e9882-3bc7-11e4-aec4-3c970ec4fb80', '36', null, '耗材', '电话线路安装（含材料费）', '2013-01-21', '次', '1', '80', '80', null, '资金监管一二科窗口');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e9a60-3bc7-11e4-aec4-3c970ec4fb80', '37', null, '耗材', '笔记本-话筒音箱转换头', '2013-01-21', '个', '1', '40', '40', null, '办公室（李博）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e9c45-3bc7-11e4-aec4-3c970ec4fb80', '38', null, '耗材', 'HP 16A硒鼓', '2013-01-22', '支', '1', '990', '990', null, '计划财务科（韩颖）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2e9e27-3bc7-11e4-aec4-3c970ec4fb80', '39', null, '耗材', 'BT无绳电话机（4部分机）', '2013-01-23', '套', '1', '860', '860', null, '资金监管一科');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ea004-3bc7-11e4-aec4-3c970ec4fb80', '40', null, '耗材', '无绳电话电源转换头', '2013-01-23', '个', '4', '8', '32', null, '资金监管一科');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ea1e6-3bc7-11e4-aec4-3c970ec4fb80', '27', null, '耗材', '物业知识竞赛各区局光盘制作', '2013-01-23', '套', '16', '12', '192', null, '物业知识竞赛工作组（李胜兰）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ea3e3-3bc7-11e4-aec4-3c970ec4fb80', '28', null, '耗材', 'HP 05A硒鼓', '2013-01-28', '支', '1', '790', '790', null, '资金监管一科（杨爽）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ea5c1-3bc7-11e4-aec4-3c970ec4fb80', '1', null, '耗材', 'HP 05A 硒鼓', '2013-02-04', '支', '1', '750', '750', '', '资金监管二科（黄晓旭）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ea7b6-3bc7-11e4-aec4-3c970ec4fb80', '2', null, '耗材', '通用双头螺丝刀', '2013-02-04', '把', '1', '15', '15', '', '办公室（李博）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ea9a3-3bc7-11e4-aec4-3c970ec4fb80', '3', null, '耗材', '兼容计算机内存', '2013-02-26', '根', '1', '286', '286', '', '执法监督科（潘峰）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2eab8d-3bc7-11e4-aec4-3c970ec4fb80', '4', null, '耗材', '兼容DVD光驱', '2013-02-26', '部', '1', '188', '188', '', '中心领导（谢主任）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ead6f-3bc7-11e4-aec4-3c970ec4fb80', '5', null, '耗材', 'OKI税票打印机色带架', '2013-02-26', '套', '1', '92', '92', '', '财务科（刘群雁）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2eaf48-3bc7-11e4-aec4-3c970ec4fb80', '6', null, '耗材', 'OKI税票打印机维修', '2013-02-26', '次', '1', '290', '290', '', '财务科（刘群雁）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2eb141-3bc7-11e4-aec4-3c970ec4fb80', '7', null, '耗材', 'DWA网络卡', '2013-02-27', '块', '1', '150', '150', '', '维修资金管理科（张静洁）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2eb32f-3bc7-11e4-aec4-3c970ec4fb80', '8', null, '耗材', '加长网络线缆', '2013-03-01', '根', '1', '20', '20', '', '办公室（王易菲）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2eb509-3bc7-11e4-aec4-3c970ec4fb80', '9', null, '耗材', 'DWA网络卡', '2013-03-04', '块', '1', '150', '150', '', '资金监管二科（江晶）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2eb6e2-3bc7-11e4-aec4-3c970ec4fb80', '10', null, '耗材', '公牛接线板', '2013-03-04', '个', '1', '90', '90', '', '办公室（李博）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2eb8b8-3bc7-11e4-aec4-3c970ec4fb80', '11', null, '耗材', 'HP 78A硒鼓', '2013-03-07', '支', '1', '650', '650', '', '执法监督科（陈炎）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2eba92-3bc7-11e4-aec4-3c970ec4fb80', '12', null, '耗材', '东芝原厂碳粉', '2013-03-07', '支', '1', '780', '780', '', '办公室（王易菲）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ebc6b-3bc7-11e4-aec4-3c970ec4fb80', '13', null, '耗材', '东芝原厂碳粉', '2013-03-11', '支', '1', '780', '780', '', '办公室（李娟）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ebe49-3bc7-11e4-aec4-3c970ec4fb80', '14', null, '耗材', '笔记本电脑键盘膜', '2013-03-11', '套', '1', '299', '299', '', '办公室（李博）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ec01f-3bc7-11e4-aec4-3c970ec4fb80', '15', null, '耗材', '智能电话机', '2013-03-11', '部', '4', '96', '384', '', '维修资金管理科（鞠文娟）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ec204-3bc7-11e4-aec4-3c970ec4fb80', '16', null, '耗材', '电话线路调整及维修', '2013-03-11', '次', '1', '82', '82', '', '维修资金管理科（鞠文娟）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ec3e6-3bc7-11e4-aec4-3c970ec4fb80', '17', null, '耗材', '键盘鼠标光学套件', '2013-03-14', '套', '1', '130', '130', '', '维修资金管理科（袁红林）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ec5c3-3bc7-11e4-aec4-3c970ec4fb80', '18', null, '耗材', '东芝复印机维修（进纸轮更换）', '2013-03-14', '次', '1', '380', '380', '', '办公室（李博）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ec7a5-3bc7-11e4-aec4-3c970ec4fb80', '19', null, '耗材', 'HP 540A 硒鼓', '2013-03-18', '支', '1', '510', '510', '', '市场监测科（张嘉东）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ec97f-3bc7-11e4-aec4-3c970ec4fb80', '20', null, '耗材', 'HP 541A 硒鼓', '2013-03-18', '支', '1', '610', '610', '', '市场监测科（张嘉东）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ecb64-3bc7-11e4-aec4-3c970ec4fb80', '21', null, '耗材', 'HP 05A 硒鼓', '2013-03-18', '支', '1', '668', '668', '', '资金监管一、二科窗口（袁涛）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ecd42-3bc7-11e4-aec4-3c970ec4fb80', '22', null, '耗材', '加长USB打印机数据线', '2013-03-18', '根', '1', '20', '20', '', '资金监管一、二科窗口（袁涛）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ecf1f-3bc7-11e4-aec4-3c970ec4fb80', '23', null, '耗材', 'DVD刻录机', '2013-03-19', '部', '1', '198', '198', '', '办公室（阮辉）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ed0fd-3bc7-11e4-aec4-3c970ec4fb80', '24', null, '维修', '档案刻录DVD碟片', '2013-03-19', '桶', '1', '96', '96', '', '办公室（阮辉）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ed2d7-3bc7-11e4-aec4-3c970ec4fb80', '25', null, '耗材', 'HP 543A 硒鼓', '2013-03-20', '支', '1', '610', '610', '', '市场监测科（金道森）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ed4ac-3bc7-11e4-aec4-3c970ec4fb80', '26', null, '耗材', 'HP 05A 硒鼓', '2013-03-22', '支', '1', '668', '668', '', '资金监管一科（杨爽）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ed696-3bc7-11e4-aec4-3c970ec4fb80', '27', null, '耗材', 'HP 05A 硒鼓', '2013-03-25', '支', '1', '668', '668', '', '办公室（王芳）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ed89b-3bc7-11e4-aec4-3c970ec4fb80', '1', '市场管理中心', '耗材', 'HP 542A硒鼓', '2013-03-26', '支', '1', '450', '450', '市场监测科', '金道森');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2eda84-3bc7-11e4-aec4-3c970ec4fb80', '2', '市场管理中心', '耗材', 'HP 530A硒鼓', '2013-04-03', '支', '1', '690', '690', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2edc66-3bc7-11e4-aec4-3c970ec4fb80', '3', '市场管理中心', '耗材', 'DELL原厂鼠标', '2013-04-08', '支', '1', '60', '60', '市场监测科', '赵波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ede44-3bc7-11e4-aec4-3c970ec4fb80', '4', '市场管理中心', '耗材', 'DELL原厂内存', '2013-04-08', '根', '1', '280', '280', '执法监督科', '陈炎');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ee01d-3bc7-11e4-aec4-3c970ec4fb80', '5', '市场管理中心', '维修', '网络维修服务', '2013-04-09', '次', '1', '60', '60', '财务科', '刘群雁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ee1f7-3bc7-11e4-aec4-3c970ec4fb80', '6', '市场管理中心', '耗材', '网络交换模块', '2013-04-09', '套', '1', '45', '45', '财务科', '刘群雁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ee3d1-3bc7-11e4-aec4-3c970ec4fb80', '7', '市场管理中心', '耗材', 'HP 533A硒鼓', '2013-04-09', '支', '1', '740', '740', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ee5ae-3bc7-11e4-aec4-3c970ec4fb80', '8', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-04-10', '支', '1', '580', '580', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ef4ab-3bc7-11e4-aec4-3c970ec4fb80', '9', '市场管理中心', '耗材', 'HP 901墨盒', '2013-04-11', '个', '1', '220', '220', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ef7e8-3bc7-11e4-aec4-3c970ec4fb80', '10', '市场管理中心', '耗材', '公牛插座 5米', '2013-04-12', '个', '1', '75', '75', '财务科', '刘群雁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2efaa3-3bc7-11e4-aec4-3c970ec4fb80', '11', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-04-15', '支', '1', '580', '580', '财务科', '刘群雁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f03cb-3bc7-11e4-aec4-3c970ec4fb80', '12', '市场管理中心', '耗材', '公牛插座 3米', '2013-04-18', '个', '1', '45', '45', '市场监测科', '杨威');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f0672-3bc7-11e4-aec4-3c970ec4fb80', '13', '市场管理中心', '耗材', 'HP 高容量墨盒', '2013-04-18', '个', '1', '329', '329', '资金监管二科', '谌玉平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f0906-3bc7-11e4-aec4-3c970ec4fb80', '14', '市场管理中心', '耗材', '东芝原厂粉仓', '2013-04-18', '个', '1', '720', '720', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f0d72-3bc7-11e4-aec4-3c970ec4fb80', '15', '市场管理中心', '耗材', 'HP 78A硒鼓', '2013-04-19', '支', '1', '490', '490', '执法监督科', '蒋君');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f1011-3bc7-11e4-aec4-3c970ec4fb80', '16', '市场管理中心', '耗材', '闪迪 U盘', '2013-04-22', '支', '1', '69', '69', '市场监测科', '金道森');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f1289-3bc7-11e4-aec4-3c970ec4fb80', '17', '市场管理中心', '耗材', 'HP 532A硒鼓', '2013-04-23', '支', '1', '710', '710', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f1501-3bc7-11e4-aec4-3c970ec4fb80', '18', '市场管理中心', '耗材', 'DWA网络卡', '2013-04-25', '块', '1', '120', '120', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f1774-3bc7-11e4-aec4-3c970ec4fb80', '19', '市场管理中心', '耗材', 'HP 88A硒鼓', '2013-04-25', '支', '1', '410', '410', '中心领导', '谢主任');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f19e8-3bc7-11e4-aec4-3c970ec4fb80', '20', '市场管理中心', '耗材', '多功能读卡器', '2013-04-27', '个', '1', '135', '135', '办公室', '阮辉');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f1c67-3bc7-11e4-aec4-3c970ec4fb80', '21', '市场管理中心', '耗材', '电话分离器', '2013-04-27', '次', '4', '20', '80', '执法监督科', '电话线路维修\n（李胜兰）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f1ef7-3bc7-11e4-aec4-3c970ec4fb80', '22', '市场管理中心', '耗材', '铝合金地槽', '2013-04-27', '根', '3', '40', '120', '执法监督科', '电话线路维修\n（李胜兰）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f217a-3bc7-11e4-aec4-3c970ec4fb80', '23', '市场管理中心', '耗材', 'PVC固定装置', '2013-04-27', '套', '1', '25', '25', '执法监督科', '电话线路维修\n（李胜兰）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f2401-3bc7-11e4-aec4-3c970ec4fb80', '24', '市场管理中心', '耗材', '电话线', '2013-04-27', '根', '4', '5', '20', '执法监督科', '电话线路维修\n（李胜兰）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f26dc-3bc7-11e4-aec4-3c970ec4fb80', '25', '市场管理中心', '维修', '电话维修人工费', '2013-04-27', '次', '1', '60', '60', '执法监督科', '电话线路维修\n（李胜兰）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f295f-3bc7-11e4-aec4-3c970ec4fb80', '26', '市场管理中心', '耗材', '线路接头卡', '2013-04-27', '套', '4', '20', '80', '执法监督科', '电话线路维修\n（李胜兰）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f2be2-3bc7-11e4-aec4-3c970ec4fb80', '27', '市场管理中心', '耗材', '尼康LC-77镜头盖', '2013-05-06', '套', '1', '245', '245', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f2e5a-3bc7-11e4-aec4-3c970ec4fb80', '28', '市场管理中心', '耗材', 'HP 531A硒鼓', '2013-05-06', '支', '1', '710', '710', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f30d6-3bc7-11e4-aec4-3c970ec4fb80', '29', '市场管理中心', '耗材', '电脑耳机', '2013-05-06', '个', '1', '30', '30', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f3345-3bc7-11e4-aec4-3c970ec4fb80', '30', '市场管理中心', '耗材', 'USB驱动线', '2013-05-06', '根', '1', '30', '30', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f35e0-3bc7-11e4-aec4-3c970ec4fb80', '31', '市场管理中心', '耗材', '双飞燕鼠标', '2013-05-09', '支', '1', '65', '65', '执法监督科', '曾正');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f3854-3bc7-11e4-aec4-3c970ec4fb80', '32', '市场管理中心', '耗材', '公牛接线板 5米', '2013-05-09', '个', '1', '75', '75', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f3ac4-3bc7-11e4-aec4-3c970ec4fb80', '33', '市场管理中心', '耗材', '公牛接线板5米', '2013-05-09', '个', '1', '75', '75', '办公室', '刘博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f3d2f-3bc7-11e4-aec4-3c970ec4fb80', '34', '市场管理中心', '耗材', 'HP 540A硒鼓', '2013-05-15', '支', '1', '450', '450', '市场监测科', '张明明');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f3fa3-3bc7-11e4-aec4-3c970ec4fb80', '35', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-05-21', '支', '1', '580', '580', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f418c-3bc7-11e4-aec4-3c970ec4fb80', '36', '市场管理中心', '耗材', 'HP 16A硒鼓', '2013-05-21', '支', '1', '1040', '1040', '财务科', '刘群雁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f4376-3bc7-11e4-aec4-3c970ec4fb80', '37', '市场管理中心', '耗材', 'HP 78A硒鼓', '2013-05-22', '支', '1', '490', '490', '执法监督科', '曾正');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f4557-3bc7-11e4-aec4-3c970ec4fb80', '38', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-05-23', '支', '1', '580', '580', '资金监管二科', '江晶');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f472d-3bc7-11e4-aec4-3c970ec4fb80', '39', '市场管理中心', '维修', '东芝复印机维保', '2013-05-24', '次', '1', '385', '385', '办公室', '日常维修保养');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f490f-3bc7-11e4-aec4-3c970ec4fb80', '40', '市场管理中心', '耗材', '键鼠套件', '2013-06-03', '套', '1', '90', '90', '执法监督科', '曾正');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f4c58-3bc7-11e4-aec4-3c970ec4fb80', '41', '市场管理中心', '耗材', 'VGA数据线', '2013-06-03', '根', '1', '15', '15', '执法监督科', '曾正');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f4f2a-3bc7-11e4-aec4-3c970ec4fb80', '42', '市场管理中心', '耗材', '网络线缆', '2013-06-03', '根', '1', '10', '10', '执法监督科', '曾正');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f5143-3bc7-11e4-aec4-3c970ec4fb80', '43', '市场管理中心', '耗材', '东芝原厂粉仓', '2013-06-03', '个', '1', '720', '720', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f5340-3bc7-11e4-aec4-3c970ec4fb80', '44', '市场管理中心', '耗材', 'HP 951系列墨盒（全套）', '2013-06-05', '套', '1', '900', '900', '资金监管二科', '审批单');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f5525-3bc7-11e4-aec4-3c970ec4fb80', '45', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-06-07', '支', '1', '580', '580', '资金监管一科', '杨辰虎');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f56ff-3bc7-11e4-aec4-3c970ec4fb80', '46', '市场管理中心', '耗材', 'DVD刻录光盘', '2013-06-09', '桶', '1', '90', '90', '办公室', '办公室');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f58dd-3bc7-11e4-aec4-3c970ec4fb80', '47', '市场管理中心', '耗材', 'HP 78A硒鼓', '2013-06-13', '支', '1', '490', '490', '执法监督科', '蒋君');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f5ab6-3bc7-11e4-aec4-3c970ec4fb80', '48', '市场管理中心', '耗材', 'DELL原厂鼠标', '2013-06-14', '支', '1', '60', '60', '物业专班', '程贞');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f5ca0-3bc7-11e4-aec4-3c970ec4fb80', '49', '市场管理中心', '耗材', 'DWA网络卡', '2013-06-17', '个', '1', '120', '120', '资金监管一科', '孙红');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f5e76-3bc7-11e4-aec4-3c970ec4fb80', '50', '市场管理中心', '耗材', 'alienware鼠标', '2013-06-17', '个', '1', '540', '540', '中心领导', '陈浩');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f604b-3bc7-11e4-aec4-3c970ec4fb80', '51', '市场管理中心', '耗材', 'HP 80A硒鼓', '2013-06-18', '支', '1', '690', '690', '市场监测科', '杨威');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f6221-3bc7-11e4-aec4-3c970ec4fb80', '52', '市场管理中心', '耗材', 'HP 532A硒鼓', '2013-06-18', '支', '1', '710', '710', '办公室', '刘博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f63f3-3bc7-11e4-aec4-3c970ec4fb80', '53', '市场管理中心', '耗材', '公牛接线板 5米', '2013-06-18', '个', '1', '75', '75', '执法监督科', '何昊');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f65cd-3bc7-11e4-aec4-3c970ec4fb80', '54', '市场管理中心', '耗材', 'HP 540A硒鼓', '2013-06-18', '支', '1', '460', '460', '市场监测科', '赵波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f68af-3bc7-11e4-aec4-3c970ec4fb80', '55', '市场管理中心', '耗材', '中国联通20G资费卡', '2013-06-19', '块', '1', '1200', '1200', '中心领导', '刘天金');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f6aac-3bc7-11e4-aec4-3c970ec4fb80', '56', '市场管理中心', '耗材', 'DELL原厂内存', '2013-06-21', '对', '1', '220', '220', '物业专班', '曹阳');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f6c8d-3bc7-11e4-aec4-3c970ec4fb80', '57', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-06-23', '支', '1', '580', '580', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f6e67-3bc7-11e4-aec4-3c970ec4fb80', '58', '市场管理中心', '耗材', '打印机维修', '2013-06-23', '次', '1', '110', '110', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f7039-3bc7-11e4-aec4-3c970ec4fb80', '59', '市场管理中心', '耗材', '公牛接线板 5米', '2013-06-24', '个', '1', '75', '75', '财务科', '刘群雁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f720b-3bc7-11e4-aec4-3c970ec4fb80', '60', '市场管理中心', '耗材', '智能电话机', '2013-06-24', '部', '1', '94', '94', '市场监测科', '谭国林');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f7414-3bc7-11e4-aec4-3c970ec4fb80', '61', '市场管理中心', '耗材', '智能电话机', '2013-06-24', '部', '3', '94', '282', '物业专班', '汤皓');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f75e9-3bc7-11e4-aec4-3c970ec4fb80', '62', '市场管理中心', '耗材', 'HP 901墨盒', '2013-06-25', '个', '1', '220', '220', '办公室', '田昌');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f77c3-3bc7-11e4-aec4-3c970ec4fb80', '63', '市场管理中心', '耗材', '甲骨文照片打印纸', '2013-06-27', '包', '1', '45', '45', '办公室', '彩色文件印制');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f7999-3bc7-11e4-aec4-3c970ec4fb80', '64', '市场管理中心', '耗材', '东芝原厂粉仓', '2013-06-03', '个', '1', '720', '720', '办公室', '复印室');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f7b63-3bc7-11e4-aec4-3c970ec4fb80', '48', '维修资金中心', '耗材', 'DELL原厂鼠标', '2013-06-14', '支', '1', '60', '60', '物业专班', '程贞');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f7d35-3bc7-11e4-aec4-3c970ec4fb80', '56', '维修资金中心', '耗材', 'DELL原厂内存', '2013-06-21', '对', '1', '220', '220', '物业专班', '曹阳');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f7efe-3bc7-11e4-aec4-3c970ec4fb80', '61', '维修资金中心', '耗材', '智能电话机', '2013-06-24', '部', '3', '94', '282', '物业专班', '汤皓');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f80d0-3bc7-11e4-aec4-3c970ec4fb80', '65', '维修资金中心', '耗材', 'HP 16A硒鼓', '2013-05-06', '支', '1', '1040', '1040', '维修资金管理科', '夏媛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f829a-3bc7-11e4-aec4-3c970ec4fb80', '66', '维修资金中心', '耗材', '公牛接线板 5米', '2013-05-17', '个', '1', '75', '75', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f8470-3bc7-11e4-aec4-3c970ec4fb80', '67', '维修资金中心', '耗材', '网络跳线', '2013-05-17', '根', '2', '10', '20', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f863e-3bc7-11e4-aec4-3c970ec4fb80', '68', '维修资金中心', '耗材', '网络交换机', '2013-05-17', '部', '1', '60', '60', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f8817-3bc7-11e4-aec4-3c970ec4fb80', '69', '维修资金中心', '维修', '电话线路安装人工', '2013-05-21', '次', '1', '60', '60', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f89e5-3bc7-11e4-aec4-3c970ec4fb80', '70', '维修资金中心', '耗材', '电话安装配件', '2013-05-21', '套', '1', '35', '35', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f8bb3-3bc7-11e4-aec4-3c970ec4fb80', '71', '维修资金中心', '耗材', '普通电话机', '2013-05-21', '部', '1', '70', '70', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f8d85-3bc7-11e4-aec4-3c970ec4fb80', '72', '维修资金中心', '耗材', 'Thinkpad 笔记本专用包', '2013-05-31', '件', '2', '60', '120', '维修资金管理科', '吴元平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f8f57-3bc7-11e4-aec4-3c970ec4fb80', '73', '维修资金中心', '耗材', 'Thinkpad 原厂鼠标', '2013-05-31', '支', '2', '0', '0', '维修资金管理科', '吴元平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f912c-3bc7-11e4-aec4-3c970ec4fb80', '74', '维修资金中心', '耗材', '电信3G上网卡（含设备）', '2013-05-31', '套', '2', '999', '1998', '维修资金管理科', '吴元平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f930e-3bc7-11e4-aec4-3c970ec4fb80', '75', '维修资金中心', '耗材', '高清数字VGA转换头', '2013-05-31', '个', '1', '95', '95', '维修资金管理科', '吴元平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f94e0-3bc7-11e4-aec4-3c970ec4fb80', '76', '维修资金中心', '耗材', 'DWA网络卡', '2013-06-13', '块', '1', '110', '110', '维修资金管理科', '石萌涛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f96b1-3bc7-11e4-aec4-3c970ec4fb80', '77', '维修资金中心', '耗材', '微软鼠标', '2013-06-21', '支', '1', '75', '75', '维修资金管理科', '石萌涛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f9883-3bc7-11e4-aec4-3c970ec4fb80', '78', '维修资金中心', '耗材', '公牛接线板 5米', '2013-06-21', '个', '1', '75', '75', '维修资金管理科', '魏向辉');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f9a55-3bc7-11e4-aec4-3c970ec4fb80', '79', '维修资金中心', '耗材', '公牛接线板 5米', '2013-06-21', '个', '1', '75', '75', '维修资金管理科', '刘博宇');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f9c76-3bc7-11e4-aec4-3c970ec4fb80', '1', null, '耗材', 'HP 540A硒鼓', '2013-07-01', '支', '1', '0', '0', '市场监测科', '田昌');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2f9e4f-3bc7-11e4-aec4-3c970ec4fb80', '2', null, '耗材', 'HP 05A硒鼓', '2013-07-02', '支', '1', '0', '0', '资金监管二科', '谌玉平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fa025-3bc7-11e4-aec4-3c970ec4fb80', '3', null, '耗材', 'SONY数码相机电池', '2013-07-02', '块', '1', '0', '0', '资金监管一科', '杨辰虎');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fa1fb-3bc7-11e4-aec4-3c970ec4fb80', '4', null, '耗材', '电池座充', '2013-07-02', '个', '1', '0', '0', '资金监管一科', '杨辰虎');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fa3c5-3bc7-11e4-aec4-3c970ec4fb80', '5', null, '维修', '电话线路维修', '2013-07-05', '次', '1', '0', '0', '执法监督科', '陈炎');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fa5a2-3bc7-11e4-aec4-3c970ec4fb80', '6', null, '维修', '电话线路维修', '2013-07-05', '次', '1', '0', '0', '资金监管二科', '李晓鸣');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fa770-3bc7-11e4-aec4-3c970ec4fb80', '7', null, '耗材', 'HP 532A硒鼓', '2013-07-09', '支', '1', '0', '0', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fa93e-3bc7-11e4-aec4-3c970ec4fb80', '8', null, '耗材', 'HP 533A硒鼓', '2013-07-09', '支', '1', '0', '0', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fab08-3bc7-11e4-aec4-3c970ec4fb80', '9', null, '耗材', 'HP 531A硒鼓', '2013-07-09', '支', '1', '0', '0', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2facd2-3bc7-11e4-aec4-3c970ec4fb80', '10', null, '耗材', 'HP 05A硒鼓', '2013-07-10', '支', '1', '0', '0', '办公室', '刘博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2faea0-3bc7-11e4-aec4-3c970ec4fb80', '11', null, '耗材', '公牛接线板', '2013-07-12', '个', '1', '0', '0', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fb071-3bc7-11e4-aec4-3c970ec4fb80', '12', null, '耗材', '双飞燕鼠标', '2013-07-11', '支', '1', '0', '0', '执法监督科', '潘峰');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fb23f-3bc7-11e4-aec4-3c970ec4fb80', '13', null, '耗材', 'HP 05A硒鼓', '2013-07-19', '支', '1', '0', '0', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fb409-3bc7-11e4-aec4-3c970ec4fb80', '0', null, '耗材', '无绳电话电池', '2013-07-19', '套', '1', '0', '0', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fb5d3-3bc7-11e4-aec4-3c970ec4fb80', '14', null, '耗材', 'HP 950墨盒', '2013-07-19', '支', '1', '0', '0', '资金监管二科', '黄晓旭');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fb7ad-3bc7-11e4-aec4-3c970ec4fb80', '15', null, '维修', '东芝复印机维保', '2013-07-22', '次', '1', '0', '0', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fb97b-3bc7-11e4-aec4-3c970ec4fb80', '16', null, '耗材', 'HP 80A硒鼓', '2013-07-22', '支', '1', '0', '0', '市场监测科', '杨威');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fbb48-3bc7-11e4-aec4-3c970ec4fb80', '17', null, '维修', '电话安装维修', '2013-07-09', '次', '1', '0', '0', '物业专班', '汤皓');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fbd12-3bc7-11e4-aec4-3c970ec4fb80', '18', null, '耗材', 'HP 16A硒鼓', '2013-07-10', '支', '1', '0', '0', '维修资金管理科', '夏媛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fbee8-3bc7-11e4-aec4-3c970ec4fb80', '19', null, '耗材', '闪迪U盘', '2013-07-11', '支', '6', '0', '0', '物业专班', '物业专班成员/程贞（代）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fc0b6-3bc7-11e4-aec4-3c970ec4fb80', '20', null, '耗材', 'HP 05A硒鼓', '2013-07-16', '支', '1', '0', '0', '物业专班', '曹阳');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fc294-3bc7-11e4-aec4-3c970ec4fb80', '21', null, '耗材', 'HP 16A硒鼓', '2013-07-24', '支', '1', '0', '0', '维修资金管理科', '石萌涛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fc461-3bc7-11e4-aec4-3c970ec4fb80', '22', null, '耗材', 'HP 05A硒鼓', '2013-07-29', '支', '1', '0', '0', '物业专班', '曹阳');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fc62b-3bc7-11e4-aec4-3c970ec4fb80', '23', null, '耗材', '电话线路维修', '2013-07-29', '支', '1', '0', '0', '维修资金管理科', '付礼栋');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fc7f9-3bc7-11e4-aec4-3c970ec4fb80', '24', null, '耗材', 'HP 05A硒鼓', '2013-08-19', '支', '1', '0', '0', '物业专班', '汤皓');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fc9d7-3bc7-11e4-aec4-3c970ec4fb80', '25', null, '耗材', 'HP 16A硒鼓', '2013-08-23', '支', '1', '0', '0', '维修资金管理科', '石萌涛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fd5da-3bc7-11e4-aec4-3c970ec4fb80', '26', null, '耗材', 'HP 80A硒鼓', '2013-08-30', '支', '1', '0', '0', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fd894-3bc7-11e4-aec4-3c970ec4fb80', '27', null, '耗材', '东芝原厂粉仓', '2013-07-23', '支', '1', '0', '0', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fdb18-3bc7-11e4-aec4-3c970ec4fb80', '28', null, '耗材', 'HP 05A硒鼓', '2013-07-24', '支', '1', '0', '0', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fdd83-3bc7-11e4-aec4-3c970ec4fb80', '29', null, '耗材', 'HP 78A硒鼓', '2013-07-25', '支', '1', '0', '0', '执法监督科', '蒋君');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fdfef-3bc7-11e4-aec4-3c970ec4fb80', '30', null, '维修', 'SONY照相机维修', '2013-07-25', '次', '1', '0', '0', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fe25b-3bc7-11e4-aec4-3c970ec4fb80', '31', null, '耗材', 'PP光盘塑封套', '2013-07-29', '包', '1', '0', '0', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fe4bf-3bc7-11e4-aec4-3c970ec4fb80', '32', null, '耗材', 'HP 05A硒鼓', '2013-08-05', '支', '1', '0', '0', '办公室', '李娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fe727-3bc7-11e4-aec4-3c970ec4fb80', '33', null, '耗材', 'HP 533A硒鼓', '2013-08-06', '支', '1', '0', '0', '办公室', '张明明');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fe9ca-3bc7-11e4-aec4-3c970ec4fb80', '34', null, '耗材', 'HP 530A硒鼓', '2013-08-06', '支', '1', '0', '0', '办公室', '张明明');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2fec35-3bc7-11e4-aec4-3c970ec4fb80', '35', null, '耗材', 'HP 80A硒鼓', '2013-08-07', '支', '1', '0', '0', '市场监测科', '杨威');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2feea5-3bc7-11e4-aec4-3c970ec4fb80', '36', null, '耗材', 'Wi-Fi SD Card', '2013-08-07', '片', '1', '0', '0', '办公室', '陈浩');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ff109-3bc7-11e4-aec4-3c970ec4fb80', '37', null, '耗材', '智能电话机', '2013-08-09', '部', '1', '0', '0', '执法监督科', '陈炎');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ff374-3bc7-11e4-aec4-3c970ec4fb80', '38', null, '耗材', 'HP 541A硒鼓', '2013-08-09', '支', '1', '0', '0', '市场监测科', '张明明');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ff556-3bc7-11e4-aec4-3c970ec4fb80', '39', null, '耗材', 'HP 543A硒鼓', '2013-08-09', '支', '1', '0', '0', '市场监测科', '张明明');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ff728-3bc7-11e4-aec4-3c970ec4fb80', '40', null, '耗材', 'HP 05A硒鼓', '2013-08-12', '支', '1', '0', '0', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ff8fe-3bc7-11e4-aec4-3c970ec4fb80', '41', null, '耗材', 'TLWN网络卡', '2013-08-13', '块', '1', '0', '0', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ffac7-3bc7-11e4-aec4-3c970ec4fb80', '42', null, '耗材', 'SDHC卡', '2013-08-19', '块', '1', '0', '0', '办公室', '阮辉');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ffc95-3bc7-11e4-aec4-3c970ec4fb80', '43', null, '耗材', '东芝原厂粉仓', '2013-08-19', '支', '1', '0', '0', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a2ffe67-3bc7-11e4-aec4-3c970ec4fb80', '44', null, '耗材', 'HP 05A硒鼓', '2013-08-19', '支', '1', '0', '0', '办公室', '刘博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a300031-3bc7-11e4-aec4-3c970ec4fb80', '45', null, '耗材', '公牛接线板', '2013-08-20', '个', '1', '0', '0', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a300203-3bc7-11e4-aec4-3c970ec4fb80', '46', null, '维修', '笔记本电源适配器维修', '2013-08-21', '次', '1', '0', '0', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3003d8-3bc7-11e4-aec4-3c970ec4fb80', '47', null, '耗材', 'HP 540A硒鼓', '2013-08-21', '支', '1', '0', '0', '市场监测科', '张明明');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3005aa-3bc7-11e4-aec4-3c970ec4fb80', '49', null, '耗材', 'HP 05A硒鼓', '2013-08-22', '支', '1', '0', '0', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30077c-3bc7-11e4-aec4-3c970ec4fb80', '50', null, '耗材', 'HP 530A硒鼓', '2013-08-22', '支', '1', '0', '0', '办公室', '陈迟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a300946-3bc7-11e4-aec4-3c970ec4fb80', '51', null, '耗材', 'HP 533A硒鼓', '2013-08-22', '支', '1', '0', '0', '办公室', '陈迟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a300b14-3bc7-11e4-aec4-3c970ec4fb80', '52', null, '耗材', '东芝原厂粉仓', '2013-08-22', '支', '1', '0', '0', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a300cda-3bc7-11e4-aec4-3c970ec4fb80', '53', null, '耗材', 'HP 80A硒鼓', '2013-08-23', '支', '1', '0', '0', '市场监测科', '杨威');
+INSERT INTO `t_oa_office_supply` VALUES ('3a300ea4-3bc7-11e4-aec4-3c970ec4fb80', '54', null, '耗材', 'HP 532A硒鼓', '2013-08-26', '支', '1', '0', '0', '办公室', '陈迟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a301243-3bc7-11e4-aec4-3c970ec4fb80', '55', null, '耗材', 'HP 531A硒鼓', '2013-08-26', '支', '1', '0', '0', '办公室', '陈迟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30151d-3bc7-11e4-aec4-3c970ec4fb80', '57', null, '耗材', 'HP 542A硒鼓', '2013-08-26', '支', '1', '0', '0', '市场监测科', '张明明');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30176a-3bc7-11e4-aec4-3c970ec4fb80', '58', null, '耗材', 'HP 05A硒鼓', '2013-08-28', '支', '1', '0', '0', '办公室', '陈迟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30198e-3bc7-11e4-aec4-3c970ec4fb80', '59', null, '耗材', '东芝原厂粉仓', '2013-08-30', '支', '1', '0', '0', '办公室', '阮辉');
+INSERT INTO `t_oa_office_supply` VALUES ('3a301bbb-3bc7-11e4-aec4-3c970ec4fb80', '60', null, '耗材', 'HP 05A硒鼓', '2013-08-30', '支', '1', '0', '0', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a301ddc-3bc7-11e4-aec4-3c970ec4fb80', '61', null, '耗材', 'MINI WIFI路由器', '2013-09-02', '个', '1', '0', '0', '中心领导', '谢主任');
+INSERT INTO `t_oa_office_supply` VALUES ('3a301ff0-3bc7-11e4-aec4-3c970ec4fb80', '62', null, '耗材', 'HP 05A硒鼓', '2013-09-04', '支', '1', '0', '0', '物业专班', '曹阳');
+INSERT INTO `t_oa_office_supply` VALUES ('3a302211-3bc7-11e4-aec4-3c970ec4fb80', '63', null, '耗材', 'HP 540A硒鼓', '2013-09-06', '支', '1', '0', '0', '中心领导', '龙主任');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30242a-3bc7-11e4-aec4-3c970ec4fb80', '65', null, '耗材', 'HP 541A硒鼓', '2013-09-06', '支', '1', '0', '0', '中心领导', '龙主任');
+INSERT INTO `t_oa_office_supply` VALUES ('3a302643-3bc7-11e4-aec4-3c970ec4fb80', '66', null, '耗材', 'HP 542A硒鼓', '2013-09-06', '支', '1', '0', '0', '中心领导', '龙主任');
+INSERT INTO `t_oa_office_supply` VALUES ('3a302858-3bc7-11e4-aec4-3c970ec4fb80', '67', null, '耗材', 'HP 543A硒鼓', '2013-09-06', '支', '1', '0', '0', '中心领导', '龙主任');
+INSERT INTO `t_oa_office_supply` VALUES ('3a302a6d-3bc7-11e4-aec4-3c970ec4fb80', '68', null, '耗材', 'HP 78A硒鼓', '2013-09-09', '支', '1', '0', '0', '执法监督科', '曾正');
+INSERT INTO `t_oa_office_supply` VALUES ('3a302c82-3bc7-11e4-aec4-3c970ec4fb80', '69', null, '耗材', 'HP高容量墨盒', '2013-09-11', '个', '1', '0', '0', '资金监管二科', '黄晓旭');
+INSERT INTO `t_oa_office_supply` VALUES ('3a302ea6-3bc7-11e4-aec4-3c970ec4fb80', '70', null, '耗材', 'HP 05A硒鼓', '2013-09-11', '支', '1', '0', '0', '资金监管二科', '谌玉平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3030bb-3bc7-11e4-aec4-3c970ec4fb80', '72', null, '耗材', '智能电话机', '2013-09-11', '部', '1', '0', '0', '资金监管二科', '谌玉平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3032d4-3bc7-11e4-aec4-3c970ec4fb80', '73', null, '耗材', '东芝原厂粉仓', '2013-09-11', '支', '2', '0', '0', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3034f1-3bc7-11e4-aec4-3c970ec4fb80', '74', null, '耗材', 'HP 533A硒鼓', '2013-09-18', '支', '1', '0', '0', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30372d-3bc7-11e4-aec4-3c970ec4fb80', '75', null, '耗材', '公牛接线板', '2013-09-18', '个', '1', '0', '0', '资金监管二科', '黄晓旭');
+INSERT INTO `t_oa_office_supply` VALUES ('3a303a52-3bc7-11e4-aec4-3c970ec4fb80', '76', null, '耗材', 'HP 05A硒鼓', '2013-09-22', '支', '1', '0', '0', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a303c9b-3bc7-11e4-aec4-3c970ec4fb80', '77', null, '耗材', 'HP 05A硒鼓', '2013-09-22', '支', '1', '0', '0', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a303ebf-3bc7-11e4-aec4-3c970ec4fb80', '78', null, '耗材', 'DELL原厂鼠标', '2013-09-24', '支', '1', '0', '0', '执法监督科', '吕巍');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3040e4-3bc7-11e4-aec4-3c970ec4fb80', '80', null, '耗材', '东芝原厂粉仓', '2013-09-25', '支', '1', '0', '0', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a304338-3bc7-11e4-aec4-3c970ec4fb80', '81', null, '维修', '碎纸机维修服务（更换正向电路的电路板）', '2013-09-26', '次', '1', '0', '0', '财务科', '韩颖');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3046a4-3bc7-11e4-aec4-3c970ec4fb80', '82', null, '耗材', 'HP 05A硒鼓', '2013-09-16', '支', '1', '0', '0', '物业专班', '邱云');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30496b-3bc7-11e4-aec4-3c970ec4fb80', '83', null, '耗材', 'HP 80A硒鼓', '2013-09-17', '支', '1', '0', '0', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a304bc7-3bc7-11e4-aec4-3c970ec4fb80', '84', null, '耗材', '智能电话机', '2013-09-17', '部', '2', '0', '0', '物业专班', '李文');
+INSERT INTO `t_oa_office_supply` VALUES ('3a304e23-3bc7-11e4-aec4-3c970ec4fb80', '85', null, '耗材', 'SONY NEX5数据线', '2013-09-26', '根', '1', '0', '0', '维修资金管理科', '鞠文娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30508a-3bc7-11e4-aec4-3c970ec4fb80', '86', null, '耗材', '闪迪SDHC卡', '2013-09-26', '片', '1', '0', '0', '中心领导', '龙主任');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3052a7-3bc7-11e4-aec4-3c970ec4fb80', '88', null, '耗材', '网络交换机', '2013-09-26', '部', '1', '0', '0', '维修资金管理科', '鞠文娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3054c4-3bc7-11e4-aec4-3c970ec4fb80', '89', null, '耗材', '网络跳线', '2013-09-26', '根', '3', '0', '0', '维修资金管理科', '鞠文娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3056d5-3bc7-11e4-aec4-3c970ec4fb80', '90', null, '耗材', 'HP 05A硒鼓', '2013-09-29', '支', '1', '0', '0', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3058ea-3bc7-11e4-aec4-3c970ec4fb80', '1', '市场管理中心', '维修', '佳能相机维修服务', '2013-10-09', '次', '1', '460', '460', '办公室', '索祖强');
+INSERT INTO `t_oa_office_supply` VALUES ('3a305b07-3bc7-11e4-aec4-3c970ec4fb80', '2', '市场管理中心', '耗材', 'HP 80A硒鼓', '2013-10-09', '支', '1', '650', '650', '市场监测科', '杨威');
+INSERT INTO `t_oa_office_supply` VALUES ('3a305d1f-3bc7-11e4-aec4-3c970ec4fb80', '3', '市场管理中心', '耗材', '东芝原厂粉仓', '2013-10-09', '支', '1', '720', '720', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a305f7f-3bc7-11e4-aec4-3c970ec4fb80', '4', '市场管理中心', '耗材', 'HP 531A硒鼓', '2013-10-10', '支', '1', '660', '660', '办公室', '陈迟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3061ac-3bc7-11e4-aec4-3c970ec4fb80', '5', '市场管理中心', '耗材', 'HP 78A硒鼓', '2013-10-10', '支', '1', '380', '380', '执法监督科', '曾正');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3063c1-3bc7-11e4-aec4-3c970ec4fb80', '6', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-10-11', '支', '1', '580', '580', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3065d6-3bc7-11e4-aec4-3c970ec4fb80', '7', '市场管理中心', '耗材', 'HP 540A硒鼓', '2013-10-11', '支', '1', '390', '390', '市场监测科', '张明明');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3067e7-3bc7-11e4-aec4-3c970ec4fb80', '8', '市场管理中心', '耗材', 'HP 543A硒鼓', '2013-10-11', '支', '1', '410', '410', '市场监测科', '张明明');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3069f4-3bc7-11e4-aec4-3c970ec4fb80', '9', '市场管理中心', '耗材', '移动硬盘', '2013-10-11', '块', '1', '500', '500', '办公室', '徐冰涛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a306c0c-3bc7-11e4-aec4-3c970ec4fb80', '10', '市场管理中心', '耗材', 'HP 530A硒鼓', '2013-10-10', '支', '1', '650', '650', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a306e21-3bc7-11e4-aec4-3c970ec4fb80', '11', '市场管理中心', '维修', '东芝复印机维修（更换硒鼓+刮板）', '2013-10-15', '次', '1', '550', '550', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a307042-3bc7-11e4-aec4-3c970ec4fb80', '12', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-10-16', '支', '1', '580', '580', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30724b-3bc7-11e4-aec4-3c970ec4fb80', '13', '市场管理中心', '耗材', '东芝原厂粉仓', '2013-10-17', '支', '1', '720', '720', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a307468-3bc7-11e4-aec4-3c970ec4fb80', '14', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-10-08', '支', '1', '580', '580', '资金监管二科', '谌玉平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a307675-3bc7-11e4-aec4-3c970ec4fb80', '15', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-10-22', '支', '1', '580', '580', '资金监管二科', '谌玉平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a307886-3bc7-11e4-aec4-3c970ec4fb80', '16', '市场管理中心', '耗材', 'HP 530A硒鼓', '2013-10-22', '支', '1', '650', '650', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a307a8b-3bc7-11e4-aec4-3c970ec4fb80', '17', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-10-30', '支', '1', '580', '580', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a307ca0-3bc7-11e4-aec4-3c970ec4fb80', '18', '市场管理中心', '耗材', 'HP 80A硒鼓', '2013-10-30', '支', '1', '650', '650', '市场监测科', '杨威');
+INSERT INTO `t_oa_office_supply` VALUES ('3a307ead-3bc7-11e4-aec4-3c970ec4fb80', '19', '市场管理中心', '耗材', 'HP 高容量墨盒', '2013-10-30', '支', '1', '290', '290', '办公室', '陈迟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3080be-3bc7-11e4-aec4-3c970ec4fb80', '20', '市场管理中心', '耗材', 'HP 78A硒鼓', '2013-10-22', '支', '1', '380', '380', '执法监督科', '吕巍');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3082c7-3bc7-11e4-aec4-3c970ec4fb80', '21', '市场管理中心', '耗材', 'HP 78A硒鼓', '2013-11-04', '支', '1', '380', '380', '执法监督科', '吕巍');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3084dc-3bc7-11e4-aec4-3c970ec4fb80', '22', '市场管理中心', '耗材', 'HP 78A硒鼓', '2013-11-20', '支', '1', '380', '380', '执法监督科', '吕巍');
+INSERT INTO `t_oa_office_supply` VALUES ('3a308864-3bc7-11e4-aec4-3c970ec4fb80', '23', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-11-06', '支', '1', '580', '580', '办公室', '李娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a308a78-3bc7-11e4-aec4-3c970ec4fb80', '24', '市场管理中心', '耗材', 'DELL原厂鼠标', '2013-11-06', '支', '1', '90', '90', '市场监测科', '赵波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a308d2b-3bc7-11e4-aec4-3c970ec4fb80', '25', '市场管理中心', '耗材', 'HP 540A硒鼓', '2013-11-06', '支', '1', '390', '390', '市场监测科', '田昌');
+INSERT INTO `t_oa_office_supply` VALUES ('3a308fea-3bc7-11e4-aec4-3c970ec4fb80', '26', '市场管理中心', '耗材', 'HP 543A硒鼓', '2013-11-06', '支', '1', '410', '410', '市场监测科', '田昌');
+INSERT INTO `t_oa_office_supply` VALUES ('3a309386-3bc7-11e4-aec4-3c970ec4fb80', '27', '市场管理中心', '耗材', 'HP 80A硒鼓', '2013-11-06', '支', '1', '650', '650', '市场监测科', '杨威');
+INSERT INTO `t_oa_office_supply` VALUES ('3a309668-3bc7-11e4-aec4-3c970ec4fb80', '28', '市场管理中心', '耗材', 'HP 950XL墨盒', '2013-11-11', '支', '1', '300', '300', '资金监管二科', '李慧丽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30991a-3bc7-11e4-aec4-3c970ec4fb80', '29', '市场管理中心', '耗材', 'HP 951XL墨盒', '2013-11-11', '支', '1', '300', '300', '资金监管二科', '李慧丽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a309bd5-3bc7-11e4-aec4-3c970ec4fb80', '30', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-11-05', '支', '1', '580', '580', '资金监管二科', '谌玉平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a309e98-3bc7-11e4-aec4-3c970ec4fb80', '31', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-11-19', '支', '1', '580', '580', '资金监管二科', '黄晓旭');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30a162-3bc7-11e4-aec4-3c970ec4fb80', '32', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-11-08', '支', '1', '580', '580', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30a40d-3bc7-11e4-aec4-3c970ec4fb80', '33', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-11-19', '支', '1', '580', '580', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30a6df-3bc7-11e4-aec4-3c970ec4fb80', '34', '市场管理中心', '耗材', 'HP 530A硒鼓', '2013-11-06', '支', '1', '650', '650', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30a9a2-3bc7-11e4-aec4-3c970ec4fb80', '35', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-11-20', '支', '1', '580', '580', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30ac6c-3bc7-11e4-aec4-3c970ec4fb80', '36', '市场管理中心', '耗材', 'HP 533A硒鼓', '2013-11-22', '支', '1', '660', '660', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30af1b-3bc7-11e4-aec4-3c970ec4fb80', '37', '市场管理中心', '耗材', 'HP 530A硒鼓', '2013-11-22', '支', '1', '650', '650', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30b1d6-3bc7-11e4-aec4-3c970ec4fb80', '38', '市场管理中心', '耗材', 'HP 950XL墨盒', '2013-11-22', '支', '1', '300', '300', '资金监管二科', '黄晓旭');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30b48d-3bc7-11e4-aec4-3c970ec4fb80', '39', '市场管理中心', '耗材', '公牛接线板', '2013-12-03', '支', '1', '55', '55', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30b734-3bc7-11e4-aec4-3c970ec4fb80', '40', '市场管理中心', '耗材', 'HP 951XL墨盒', '2013-12-03', '支', '1', '300', '300', '资金监管二科', '黄晓旭');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30b968-3bc7-11e4-aec4-3c970ec4fb80', '41', '市场管理中心', '耗材', 'HP 05A硒鼓', '2013-12-03', '支', '1', '720', '720', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30c751-3bc7-11e4-aec4-3c970ec4fb80', '42', '市场管理中心', '耗材', '东芝原厂粉仓', '2013-12-03', '支', '1', '720', '720', '办公室', '谌玉平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30c999-3bc7-11e4-aec4-3c970ec4fb80', '1', '维修资金中心', '耗材', 'HP 05A硒鼓', '2013-09-30', '支', '1', '580', '580', '物业专班', '彭倩');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30cb96-3bc7-11e4-aec4-3c970ec4fb80', '2', '维修资金中心', '耗材', 'HP 16A硒鼓', '2013-10-11', '支', '1', '1050', '1050', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30cd7b-3bc7-11e4-aec4-3c970ec4fb80', '3', '维修资金中心', '耗材', 'HP 05A硒鼓', '2013-10-17', '支', '1', '580', '580', '物业专班', '曹阳');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30cf65-3bc7-11e4-aec4-3c970ec4fb80', '4', '维修资金中心', '耗材', 'HP 80A硒鼓', '2013-10-22', '支', '1', '650', '650', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30d13f-3bc7-11e4-aec4-3c970ec4fb80', '5', '维修资金中心', '耗材', 'HP 16A硒鼓', '2013-10-23', '支', '1', '1040', '1040', '维修资金管理科', '鞠文娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30d37f-3bc7-11e4-aec4-3c970ec4fb80', '6', '维修资金中心', '服务', '数据清理综合布线（含设备）', '2013-11-04', '次', '1', '2212', '2212', '维修资金管理科', '吴元平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30d6b8-3bc7-11e4-aec4-3c970ec4fb80', '7', '维修资金中心', '耗材', 'HP 05A硒鼓', '2013-11-12', '支', '1', '580', '580', '物业专班', '曹阳');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30d910-3bc7-11e4-aec4-3c970ec4fb80', '8', '维修资金中心', '耗材', '西门子电话机', '2013-11-14', '部', '1', '410', '410', '维修资金管理科', '龙克虎');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30db35-3bc7-11e4-aec4-3c970ec4fb80', '9', '维修资金中心', '耗材', 'HP 05A硒鼓', '2013-11-14', '支', '1', '580', '580', '物业专班', '曹阳');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30dd55-3bc7-11e4-aec4-3c970ec4fb80', '10', '维修资金中心', '耗材', 'HP 80A硒鼓', '2013-11-20', '支', '1', '650', '650', '维修资金管理科', '鞠文娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30df76-3bc7-11e4-aec4-3c970ec4fb80', '11', '维修资金中心', '耗材', 'HP 80A硒鼓', '2013-11-20', '支', '1', '650', '650', '维修资金管理科（窗口）', '杨威（代）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30e1ba-3bc7-11e4-aec4-3c970ec4fb80', '12', '维修资金中心', '耗材', 'HP 16A硒鼓', '2013-11-21', '支', '1', '938', '938', '维修资金管理科', '鞠文娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30e3f7-3bc7-11e4-aec4-3c970ec4fb80', '1', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-01-01', '支', '1', '0', '0', '资金监管二科', '江晶');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30e610-3bc7-11e4-aec4-3c970ec4fb80', '2', '市场管理中心', '耗材', '东芝原厂粉仓', '2014-01-01', '支', '1', '0', '0', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30e824-3bc7-11e4-aec4-3c970ec4fb80', '3', '市场管理中心', '维修', 'HP 彩色打印机维修', '2013-12-10', '次', '1', '490', '490', '市场监测科', '田昌');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30ea41-3bc7-11e4-aec4-3c970ec4fb80', '4', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2013-12-10', '支', '1', '550', '550', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30ec5a-3bc7-11e4-aec4-3c970ec4fb80', '5', '市场管理中心', '耗材', 'HP 80A硒鼓', '2013-12-10', '支', '1', '690', '690', '市场监测科', '田昌');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30ee6f-3bc7-11e4-aec4-3c970ec4fb80', '6', '市场管理中心', '耗材', '东芝原厂粉仓', '2014-01-01', '支', '1', '0', '0', '办公室', '外协');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30f088-3bc7-11e4-aec4-3c970ec4fb80', '7', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-01-01', '支', '1', '0', '0', '办公室', '陈迟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30f299-3bc7-11e4-aec4-3c970ec4fb80', '8', '市场管理中心', '耗材', 'DELL原厂鼠标', '2013-12-16', '支', '1', '80', '80', '执法监督科', '张漾');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30f4b5-3bc7-11e4-aec4-3c970ec4fb80', '9', '市场管理中心', '耗材', 'HP 78A 硒鼓', '2014-01-01', '支', '1', '0', '0', '执法监督科', '向堃');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30f6d6-3bc7-11e4-aec4-3c970ec4fb80', '10', '市场管理中心', '耗材', 'HP 533A 硒鼓', '2014-01-01', '支', '1', '0', '0', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30f8eb-3bc7-11e4-aec4-3c970ec4fb80', '11', '市场管理中心', '耗材', '东芝原厂粉仓', '2013-12-18', '支', '1', '720', '720', '办公室', '外协');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30fbb9-3bc7-11e4-aec4-3c970ec4fb80', '12', '市场管理中心', '耗材', '加长电话线', '2013-12-23', '根', '1', '10', '10', '执法监督科', '杨广青');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30fdda-3bc7-11e4-aec4-3c970ec4fb80', '13', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-01-01', '支', '1', '0', '0', '资金监管二科', '吴彩梅');
+INSERT INTO `t_oa_office_supply` VALUES ('3a30ffef-3bc7-11e4-aec4-3c970ec4fb80', '14', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-01-01', '支', '1', '0', '0', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a310208-3bc7-11e4-aec4-3c970ec4fb80', '15', '市场管理中心', '耗材', '平板电脑防盗器', '2013-12-26', '个', '1', '60', '60', '办公室', '李娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a310425-3bc7-11e4-aec4-3c970ec4fb80', '16', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2013-12-26', '支', '1', '550', '550', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31063e-3bc7-11e4-aec4-3c970ec4fb80', '17', '市场管理中心', '维修', 'HP打印机维修', '2013-12-26', '次', '1', '395', '395', '资金监管二科', '吴彩梅');
+INSERT INTO `t_oa_office_supply` VALUES ('3a310852-3bc7-11e4-aec4-3c970ec4fb80', '18', '市场管理中心', '耗材', 'ipad电源转换头', '2013-12-27', '个', '2', '90', '180', '执法监督科', '曾正');
+INSERT INTO `t_oa_office_supply` VALUES ('3a310a63-3bc7-11e4-aec4-3c970ec4fb80', '19', '市场管理中心', '耗材', 'HP 80A硒鼓', '2013-12-27', '支', '1', '690', '690', '市场监测科', '田昌');
+INSERT INTO `t_oa_office_supply` VALUES ('3a310c7c-3bc7-11e4-aec4-3c970ec4fb80', '20', '市场管理中心', '耗材', 'HP 540A硒鼓', '2013-12-30', '支', '1', '420', '420', '市场监测科', '田昌');
+INSERT INTO `t_oa_office_supply` VALUES ('3a310e8d-3bc7-11e4-aec4-3c970ec4fb80', '21', '市场管理中心', '耗材', 'HP 543A硒鼓', '2013-12-30', '支', '1', '420', '420', '市场监测科', '田昌');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3110aa-3bc7-11e4-aec4-3c970ec4fb80', '22', '市场管理中心', '耗材', '移动硬盘', '2013-12-31', '个', '1', '490', '490', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3112bb-3bc7-11e4-aec4-3c970ec4fb80', '23', '市场管理中心', '耗材', '3G多频段路由器', '2013-12-31', '台', '1', '480', '480', '办公室', '刘书记');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3114cc-3bc7-11e4-aec4-3c970ec4fb80', '24', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-01-01', '支', '1', '0', '0', '办公室', '李娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3116e1-3bc7-11e4-aec4-3c970ec4fb80', '25', '市场管理中心', '耗材', '双飞燕鼠标', '2014-01-08', '支', '1', '80', '80', '资金监管二科', '黄晓旭');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3118ee-3bc7-11e4-aec4-3c970ec4fb80', '26', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-01-08', '支', '1', '550', '550', '资金监管一科', '袁涛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a311b03-3bc7-11e4-aec4-3c970ec4fb80', '27', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-01-13', '支', '1', '550', '550', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a311e92-3bc7-11e4-aec4-3c970ec4fb80', '28', '市场管理中心', '维修', 'HP 打印机维修', '2014-01-13', '次', '1', '410', '410', '资金监管二科', '张红远');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3120e3-3bc7-11e4-aec4-3c970ec4fb80', '29', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-01-13', '支', '1', '550', '550', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31238d-3bc7-11e4-aec4-3c970ec4fb80', '30', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-01-13', '支', '1', '550', '550', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a312609-3bc7-11e4-aec4-3c970ec4fb80', '31', '市场管理中心', '维修', '电源线路改造（含耗材）', '2014-01-17', '次', '1', '575', '575', '团支部', '李娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a312859-3bc7-11e4-aec4-3c970ec4fb80', '32', '市场管理中心', '耗材', 'HP 16A 硒鼓', '2014-01-01', '支', '1', '0', '0', '财务科', '韩颖');
+INSERT INTO `t_oa_office_supply` VALUES ('3a312aa5-3bc7-11e4-aec4-3c970ec4fb80', '33', '市场管理中心', '耗材', 'HP 78A 硒鼓', '2014-01-21', '支', '1', '460', '460', '执法监督科', '曾正');
+INSERT INTO `t_oa_office_supply` VALUES ('3a312d01-3bc7-11e4-aec4-3c970ec4fb80', '34', '市场管理中心', '耗材', '闪迪U盘', '2014-01-22', '支', '5', '90', '450', '执法监督科', '潘峰');
+INSERT INTO `t_oa_office_supply` VALUES ('3a312f51-3bc7-11e4-aec4-3c970ec4fb80', '35', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-01-22', '支', '1', '550', '550', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3131ad-3bc7-11e4-aec4-3c970ec4fb80', '36', '市场管理中心', '耗材', 'HP 530A硒鼓', '2014-01-01', '支', '1', '0', '0', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3133fd-3bc7-11e4-aec4-3c970ec4fb80', '37', '市场管理中心', '耗材', 'HP 533A 硒鼓', '2014-01-23', '支', '1', '710', '710', '办公室', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a313649-3bc7-11e4-aec4-3c970ec4fb80', '38', '市场管理中心', '耗材', '秋叶原VGA数据线', '2014-01-23', '根', '1', '100', '100', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a313896-3bc7-11e4-aec4-3c970ec4fb80', '39', '市场管理中心', '耗材', 'USB键盘', '2014-01-26', '个', '1', '90', '90', '办公室', '王芳');
+INSERT INTO `t_oa_office_supply` VALUES ('3a313ade-3bc7-11e4-aec4-3c970ec4fb80', '40', '市场管理中心', '耗材', '电子阅读器充电器', '2014-02-10', '个', '1', '80', '80', '团支部', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a313d26-3bc7-11e4-aec4-3c970ec4fb80', '41', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-02-10', '支', '1', '550', '550', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a313f82-3bc7-11e4-aec4-3c970ec4fb80', '42', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-02-10', '支', '1', '550', '550', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3141ca-3bc7-11e4-aec4-3c970ec4fb80', '43', '市场管理中心', '耗材', '网络线缆10米', '2014-02-17', '根', '1', '10', '10', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31442a-3bc7-11e4-aec4-3c970ec4fb80', '44', '市场管理中心', '耗材', '网络稳定适配器', '2014-02-17', '个', '1', '30', '30', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a314676-3bc7-11e4-aec4-3c970ec4fb80', '45', '市场管理中心', '耗材', 'HP 05A硒鼓', '2014-02-17', '支', '1', '550', '550', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a314941-3bc7-11e4-aec4-3c970ec4fb80', '46', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-02-17', '支', '1', '550', '550', '办公室', '陈迟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a314beb-3bc7-11e4-aec4-3c970ec4fb80', '47', '市场管理中心', '耗材', '东芝原厂粉仓', '2014-02-18', '支', '1', '720', '720', '办公室', '陈迟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a314ea2-3bc7-11e4-aec4-3c970ec4fb80', '48', '市场管理中心', '耗材', 'HP 530A硒鼓', '2014-02-20', '支', '1', '700', '700', '办公室', '专项工作');
+INSERT INTO `t_oa_office_supply` VALUES ('3a315149-3bc7-11e4-aec4-3c970ec4fb80', '49', '市场管理中心', '耗材', 'HP 531A硒鼓', '2014-02-20', '支', '2', '710', '1420', '办公室', '专项工作');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3153f4-3bc7-11e4-aec4-3c970ec4fb80', '50', '市场管理中心', '耗材', 'HP 532A硒鼓', '2014-02-20', '支', '1', '720', '720', '办公室', '专项工作');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3156da-3bc7-11e4-aec4-3c970ec4fb80', '51', '市场管理中心', '耗材', 'WLAN网络卡', '2014-02-24', '支', '1', '110', '110', '团支部', '李娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a315922-3bc7-11e4-aec4-3c970ec4fb80', '52', '市场管理中心', '耗材', 'HP 80A硒鼓', '2014-02-25', '支', '1', '690', '690', '市场监测科', '杨威');
+INSERT INTO `t_oa_office_supply` VALUES ('3a315b33-3bc7-11e4-aec4-3c970ec4fb80', '53', '市场管理中心', '耗材', '网络线路改造及耗材', '2014-02-25', '次', '1', '680', '680', '市场监测科', '赵波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a315d25-3bc7-11e4-aec4-3c970ec4fb80', '54', '市场管理中心', '耗材', 'HP 05A硒鼓', '2014-02-25', '支', '1', '550', '550', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a315f39-3bc7-11e4-aec4-3c970ec4fb80', '55', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-03-03', '支', '1', '550', '550', '办公室', '陈迟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31611b-3bc7-11e4-aec4-3c970ec4fb80', '56', '市场管理中心', '耗材', 'HP原装彩色墨盒', '2014-03-03', '支', '3', '320', '960', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3162fd-3bc7-11e4-aec4-3c970ec4fb80', '57', '市场管理中心', '耗材', '电话机', '2014-03-05', '部', '2', '55', '110', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3164d6-3bc7-11e4-aec4-3c970ec4fb80', '58', '市场管理中心', '维修', '电话线路维修', '2014-03-07', '次', '1', '80', '80', '资金监管二科', '李慧丽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3166c4-3bc7-11e4-aec4-3c970ec4fb80', '59', '市场管理中心', '维修', '电话线路调整（含耗材）', '2014-03-07', '次', '1', '250', '250', '资金监管一科', '杨辰虎');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3168b5-3bc7-11e4-aec4-3c970ec4fb80', '60', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-03-12', '支', '1', '550', '550', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a316a8b-3bc7-11e4-aec4-3c970ec4fb80', '61', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-03-20', '支', '1', '550', '550', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a316c61-3bc7-11e4-aec4-3c970ec4fb80', '62', '市场管理中心', '维修', '台式电脑维修', '2014-03-24', '次', '1', '180', '180', '资金监管一科', '胡刚');
+INSERT INTO `t_oa_office_supply` VALUES ('3a316e3e-3bc7-11e4-aec4-3c970ec4fb80', '1', '维修资金中心', '耗材', 'HP 16A 硒鼓', '2013-12-03', '支', '1', '980', '980', '维修资金管理科', '夏媛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3170c6-3bc7-11e4-aec4-3c970ec4fb80', '2', '维修资金中心', '耗材', 'HP 05A 硒鼓', '2013-12-03', '支', '1', '579', '579', '物业事务指导科', '李胜兰');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3172ab-3bc7-11e4-aec4-3c970ec4fb80', '3', '维修资金中心', '维修', '打印机及数据线路改造', '2013-12-11', '次', '1', '436', '436', '维修资金管理科', '鞠文娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a317491-3bc7-11e4-aec4-3c970ec4fb80', '4', '维修资金中心', '耗材', '公牛接线板', '2013-12-16', '支', '1', '65', '65', '物业事务指导科', '程贞');
+INSERT INTO `t_oa_office_supply` VALUES ('3a317676-3bc7-11e4-aec4-3c970ec4fb80', '5', '维修资金中心', '耗材', 'HP 05A 硒鼓', '2013-12-17', '次', '1', '550', '550', '物业事务指导科', '曹阳');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31784c-3bc7-11e4-aec4-3c970ec4fb80', '6', '维修资金中心', '耗材', 'HP 80A 硒鼓', '2013-12-19', '支', '1', '690', '690', '维修资金管理科', '夏媛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a317a22-3bc7-11e4-aec4-3c970ec4fb80', '7', '维修资金中心', '耗材', 'HP 16A 硒鼓', '2014-01-01', '支', '1', '0', '0', '维修资金管理科', '鞠文娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a317bf3-3bc7-11e4-aec4-3c970ec4fb80', '8', '维修资金中心', '耗材', '公牛接线板', '2014-01-07', '个', '1', '65', '65', '维修资金管理科', '张毅');
+INSERT INTO `t_oa_office_supply` VALUES ('3a318126-3bc7-11e4-aec4-3c970ec4fb80', '9', '维修资金中心', '耗材', 'HP 80A 硒鼓', '2014-01-01', '支', '1', '0', '0', '维修资金管理科', '刘博宇');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31855f-3bc7-11e4-aec4-3c970ec4fb80', '10', '维修资金中心', '耗材', 'HP 16A 硒鼓', '2014-01-01', '支', '1', '0', '0', '维修资金管理科', '夏媛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a318961-3bc7-11e4-aec4-3c970ec4fb80', '11', '维修资金中心', '耗材', '无线网络设备', '2014-01-13', '台', '1', '320', '320', '维修资金管理科', '张毅');
+INSERT INTO `t_oa_office_supply` VALUES ('3a318d7f-3bc7-11e4-aec4-3c970ec4fb80', '12', '维修资金中心', '维修', '网络线路改造（含耗材）', '2014-01-13', '次', '1', '598', '598', '维修资金管理科', '张毅');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3191d1-3bc7-11e4-aec4-3c970ec4fb80', '13', '维修资金中心', '耗材', 'DWA网络卡', '2014-01-13', '块', '1', '110', '110', '维修资金管理科', '张毅');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3195eb-3bc7-11e4-aec4-3c970ec4fb80', '14', '维修资金中心', '耗材', 'HP 05A 硒鼓', '2014-01-21', '支', '1', '550', '550', '物业事务指导科', '程贞');
+INSERT INTO `t_oa_office_supply` VALUES ('3a319a20-3bc7-11e4-aec4-3c970ec4fb80', '15', '维修资金中心', '耗材', 'HP 80A 硒鼓', '2014-02-08', '支', '1', '690', '690', '维修资金管理科', '刘博宇');
+INSERT INTO `t_oa_office_supply` VALUES ('3a319ce3-3bc7-11e4-aec4-3c970ec4fb80', '16', '维修资金中心', '耗材', 'HP 05A 硒鼓', '2014-02-08', '支', '1', '550', '550', '物业事务指导科', '程贞');
+INSERT INTO `t_oa_office_supply` VALUES ('3a319f27-3bc7-11e4-aec4-3c970ec4fb80', '17', '维修资金中心', '耗材', 'HP 16A 硒鼓', '2014-02-08', '支', '1', '980', '980', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31a118-3bc7-11e4-aec4-3c970ec4fb80', '18', '维修资金中心', '耗材', 'HP 05A 硒鼓', '2014-02-25', '支', '1', '550', '550', '物业事务指导科', '程贞');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31a2fe-3bc7-11e4-aec4-3c970ec4fb80', '19', '维修资金中心', '耗材', 'HP 80A 硒鼓', '2014-02-25', '支', '1', '690', '690', '维修资金管理科', '夏媛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31a4dc-3bc7-11e4-aec4-3c970ec4fb80', '20', '维修资金中心', '耗材', '网络线路改造（含耗材）', '2014-03-03', '次', '1', '989', '989', '物业事务指导科', '黄剑平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31a6e5-3bc7-11e4-aec4-3c970ec4fb80', '21', '维修资金中心', '耗材', '移动硬盘盒', '2014-03-04', '个', '1', '198', '198', '物业事务指导科', '刘博宇');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31a8be-3bc7-11e4-aec4-3c970ec4fb80', '22', '维修资金中心', '耗材', 'USB鼠标', '2014-03-05', '支', '1', '75', '75', '物业事务指导科', '李娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31aa94-3bc7-11e4-aec4-3c970ec4fb80', '23', '维修资金中心', '耗材', '闪迪U盘', '2014-03-05', '支', '1', '65', '65', '物业事务指导科', '刘博宇');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31ac6e-3bc7-11e4-aec4-3c970ec4fb80', '24', '维修资金中心', '耗材', '中国电信3G季卡（含设备）', '2014-03-07', '块', '1', '499', '499', '物业事务指导科', '黄剑平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31ae5f-3bc7-11e4-aec4-3c970ec4fb80', '25', '维修资金中心', '耗材', 'HP 05A 硒鼓', '2014-03-09', '支', '1', '550', '550', '物业事务指导科', '黄剑平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31c062-3bc7-11e4-aec4-3c970ec4fb80', '26', '维修资金中心', '耗材', 'HP 78A 硒鼓', '2014-03-09', '支', '1', '470', '470', '物业事务指导科', '黄剑平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31c37b-3bc7-11e4-aec4-3c970ec4fb80', '27', '维修资金中心', '耗材', 'HP 78A 硒鼓', '2014-03-14', '支', '1', '470', '470', '物业事务指导科', '程贞');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31c64d-3bc7-11e4-aec4-3c970ec4fb80', '28', '维修资金中心', '耗材', 'HP 16A 硒鼓', '2014-03-11', '支', '1', '980', '980', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31c99e-3bc7-11e4-aec4-3c970ec4fb80', '29', '维修资金中心', '耗材', 'HP 80A 硒鼓', '2014-03-19', '支', '1', '690', '690', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31cc7c-3bc7-11e4-aec4-3c970ec4fb80', '30', '维修资金中心', '耗材', 'HP 05A 硒鼓', '2014-03-20', '支', '1', '550', '550', '物业事务指导科', '程贞');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31cee4-3bc7-11e4-aec4-3c970ec4fb80', '31', '维修资金中心', '耗材', '多功能录音电话', '2014-03-20', '部', '1', '480', '480', '物业事务指导科', '彭倩');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31d240-3bc7-11e4-aec4-3c970ec4fb80', '32', '维修资金中心', '耗材', 'HP 16A 硒鼓', '2014-03-21', '支', '1', '980', '980', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31d51b-3bc7-11e4-aec4-3c970ec4fb80', '33', '维修资金中心', '耗材', 'HP 78A 硒鼓', '2014-03-24', '支', '1', '470', '470', '物业事务指导科', '程贞');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31d7f5-3bc7-11e4-aec4-3c970ec4fb80', '34', '维修资金中心', '耗材', '中国电信3G半年卡', '2014-03-26', '块', '1', '499', '499', '物业事务指导科', '李娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31dac3-3bc7-11e4-aec4-3c970ec4fb80', '35', '维修资金中心', '耗材', '3G无线路由器', '2014-03-26', '部', '1', '495', '495', '物业事务指导科', '李娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31dd96-3bc7-11e4-aec4-3c970ec4fb80', '1', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-03-26', '支', '1', '579', '579', '办公室', '陈迟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31e041-3bc7-11e4-aec4-3c970ec4fb80', '2', '市场管理中心', '耗材', 'HP 78A 硒鼓', '2014-03-28', '支', '1', '470', '470', '执法监督科', '向堃');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31e29d-3bc7-11e4-aec4-3c970ec4fb80', '3', '市场管理中心', '耗材', 'HP 80A 硒鼓', '2014-04-02', '支', '1', '690', '690', '市场监测科', '杨威');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31e52c-3bc7-11e4-aec4-3c970ec4fb80', '4', '市场管理中心', '耗材', 'WLAN 网络卡', '2014-04-02', '块', '1', '120', '120', '资金监管二科', '李晓鸣');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31e798-3bc7-11e4-aec4-3c970ec4fb80', '5', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-04-04', '支', '1', '579', '579', '资金监管一科', '张琪');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31e9f0-3bc7-11e4-aec4-3c970ec4fb80', '6', '市场管理中心', '耗材', '东芝原厂粉仓', '2014-04-04', '支', '1', '690', '690', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31ec5b-3bc7-11e4-aec4-3c970ec4fb80', '7', '市场管理中心', '耗材', '电脑网卡', '2014-04-15', '块', '1', '80', '80', '资金监管二科', '江晶');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31eeab-3bc7-11e4-aec4-3c970ec4fb80', '8', '市场管理中心', '耗材', '交换机', '2014-04-15', '部', '1', '90', '90', '资金监管二科', '江晶');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31f0fb-3bc7-11e4-aec4-3c970ec4fb80', '9', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-04-15', '支', '1', '579', '579', '资金监管二科', '黄晓旭');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31f353-3bc7-11e4-aec4-3c970ec4fb80', '10', '市场管理中心', '耗材', 'HP 541A 硒鼓', '2014-04-16', '支', '1', '420', '420', '市场监测科', '张嘉东');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31f5a4-3bc7-11e4-aec4-3c970ec4fb80', '11', '市场管理中心', '耗材', 'HP 542A 硒鼓', '2014-04-16', '支', '1', '420', '420', '市场监测科', '张嘉东');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31f7ec-3bc7-11e4-aec4-3c970ec4fb80', '12', '市场管理中心', '耗材', '诺基亚移动电话', '2014-04-21', '部', '1', '300', '300', '办公室', '物业处');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31fa50-3bc7-11e4-aec4-3c970ec4fb80', '13', '市场管理中心', '耗材', '东芝原厂粉仓', '2014-04-24', '支', '1', '690', '690', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31fcdf-3bc7-11e4-aec4-3c970ec4fb80', '14', '市场管理中心', '耗材', 'USB鼠标', '2014-04-24', '支', '1', '80', '80', '办公室', '刘博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a31ff86-3bc7-11e4-aec4-3c970ec4fb80', '15', '市场管理中心', '耗材', 'TPlink3G无线路由器', '2014-04-24', '部', '1', '399', '399', '执法监督科', '曾正');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32021d-3bc7-11e4-aec4-3c970ec4fb80', '16', '市场管理中心', '耗材', '联通3G季卡', '2014-04-24', '块', '1', '300', '300', '执法监督科', '曾正');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3204b8-3bc7-11e4-aec4-3c970ec4fb80', '17', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-04-24', '支', '1', '579', '579', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a320763-3bc7-11e4-aec4-3c970ec4fb80', '18', '市场管理中心', '耗材', 'HP 541A 硒鼓', '2014-04-16', '支', '1', '420', '420', '市场监测科', '张嘉东');
+INSERT INTO `t_oa_office_supply` VALUES ('3a320a1a-3bc7-11e4-aec4-3c970ec4fb80', '19', '市场管理中心', '耗材', 'HP 542A 硒鼓', '2014-04-16', '支', '1', '420', '420', '市场监测科', '张嘉东');
+INSERT INTO `t_oa_office_supply` VALUES ('3a320cc8-3bc7-11e4-aec4-3c970ec4fb80', '20', '市场管理中心', '耗材', 'HP 80A 硒鼓', '2014-04-25', '支', '1', '690', '690', '市场监测科', '杨威');
+INSERT INTO `t_oa_office_supply` VALUES ('3a320f7b-3bc7-11e4-aec4-3c970ec4fb80', '21', '市场管理中心', '耗材', 'TPlink3G无线路由器', '2014-04-28', '部', '1', '399', '399', '执法监督科', '陈炎');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3213f4-3bc7-11e4-aec4-3c970ec4fb80', '22', '市场管理中心', '耗材', '联通3G季卡', '2014-04-28', '块', '1', '300', '300', '执法监督科', '陈炎');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3216af-3bc7-11e4-aec4-3c970ec4fb80', '23', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-04-28', '支', '1', '579', '579', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32198d-3bc7-11e4-aec4-3c970ec4fb80', '24', '市场管理中心', '耗材', 'HP 78A 硒鼓', '2014-05-06', '支', '1', '470', '470', '执法监督科', '曾正');
+INSERT INTO `t_oa_office_supply` VALUES ('3a321c63-3bc7-11e4-aec4-3c970ec4fb80', '25', '市场管理中心', '耗材', '东芝原厂粉仓', '2014-05-06', '支', '1', '690', '690', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a321ebb-3bc7-11e4-aec4-3c970ec4fb80', '26', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-05-15', '支', '1', '579', '579', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a322176-3bc7-11e4-aec4-3c970ec4fb80', '27', '市场管理中心', '耗材', '公牛接线板', '2014-05-15', '个', '1', '45', '45', '财务科', '韩颖');
+INSERT INTO `t_oa_office_supply` VALUES ('3a322430-3bc7-11e4-aec4-3c970ec4fb80', '28', '市场管理中心', '维修', 'DELL电脑维修（质保期内）', '2014-05-15', '次', '1', '0', '0', '执法监督科', '周方');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3226fb-3bc7-11e4-aec4-3c970ec4fb80', '29', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-05-15', '支', '1', '579', '579', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3229ae-3bc7-11e4-aec4-3c970ec4fb80', '30', '市场管理中心', '耗材', 'HP 80A 硒鼓', '2014-05-15', '支', '1', '690', '690', '市场监测科', '杨威');
+INSERT INTO `t_oa_office_supply` VALUES ('3a322c8c-3bc7-11e4-aec4-3c970ec4fb80', '31', '市场管理中心', '耗材', 'HP 540A 硒鼓', '2014-05-26', '支', '1', '420', '420', '市场监测科', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a322f43-3bc7-11e4-aec4-3c970ec4fb80', '32', '市场管理中心', '耗材', 'HP 542A 硒鼓', '2014-05-26', '支', '1', '420', '420', '市场监测科', '王易菲');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3231e6-3bc7-11e4-aec4-3c970ec4fb80', '33', '市场管理中心', '耗材', '东芝原厂粉仓', '2014-05-26', '支', '1', '690', '690', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3234df-3bc7-11e4-aec4-3c970ec4fb80', '34', '市场管理中心', '耗材', 'HP 高容量墨盒', '2014-05-28', '个', '1', '290', '290', '办公室', '陈迟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3237b2-3bc7-11e4-aec4-3c970ec4fb80', '35', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-05-30', '支', '1', '579', '579', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a323a31-3bc7-11e4-aec4-3c970ec4fb80', '36', '市场管理中心', '耗材', 'HP 78A 硒鼓', '2014-06-23', '支', '1', '470', '470', '执法监督科', '向堃');
+INSERT INTO `t_oa_office_supply` VALUES ('3a323d6a-3bc7-11e4-aec4-3c970ec4fb80', '37', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-06-04', '支', '1', '579', '579', '资金监管一科', '杨辰虎');
+INSERT INTO `t_oa_office_supply` VALUES ('3a323fd2-3bc7-11e4-aec4-3c970ec4fb80', '38', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-06-04', '支', '1', '579', '579', '办公室', '阮辉');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32422a-3bc7-11e4-aec4-3c970ec4fb80', '39', '市场管理中心', '耗材', 'HP多功能一体机维修服务', '2014-06-05', '次', '1', '280', '280', '资金监管二科', '黄晓旭');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32447e-3bc7-11e4-aec4-3c970ec4fb80', '40', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-06-05', '支', '1', '579', '579', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3246ce-3bc7-11e4-aec4-3c970ec4fb80', '41', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-06-05', '支', '1', '579', '579', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a324952-3bc7-11e4-aec4-3c970ec4fb80', '42', '市场管理中心', '维修', 'DELL原厂鼠标（原厂服务）', '2014-06-13', '支', '1', '0', '0', '资金监管二科', '黄晓旭');
+INSERT INTO `t_oa_office_supply` VALUES ('3a324bfc-3bc7-11e4-aec4-3c970ec4fb80', '43', '市场管理中心', '耗材', '闪迪U盘', '2014-06-20', '支', '2', '90', '180', '办公室', '陈迟、阮辉');
+INSERT INTO `t_oa_office_supply` VALUES ('3a324e51-3bc7-11e4-aec4-3c970ec4fb80', '44', '市场管理中心', '耗材', 'HP 80A 硒鼓', '2014-06-23', '支', '1', '690', '690', '市场监测科', '田昌');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3250ec-3bc7-11e4-aec4-3c970ec4fb80', '45', '市场管理中心', '耗材', 'HP 78A 硒鼓', '2014-06-23', '支', '1', '470', '470', '执法监督科', '曾正');
+INSERT INTO `t_oa_office_supply` VALUES ('3a325340-3bc7-11e4-aec4-3c970ec4fb80', '46', '市场管理中心', '维修', 'DELL原厂鼠标（原厂服务）', '2014-06-24', '支', '1', '0', '0', '资金监管一科', '胡刚');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3255c7-3bc7-11e4-aec4-3c970ec4fb80', '47', '市场管理中心', '耗材', '东芝原厂粉仓', '2014-06-24', '支', '1', '690', '690', '办公室', '李博');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32586a-3bc7-11e4-aec4-3c970ec4fb80', '48', '市场管理中心', '维修', 'SONY 照相机维修', '2014-06-24', '次', '1', '390', '390', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a325c4d-3bc7-11e4-aec4-3c970ec4fb80', '49', '市场管理中心', '耗材', '飞利浦2.4G无绳电话', '2014-06-24', '部', '1', '300', '300', '财务科', '韩颖');
+INSERT INTO `t_oa_office_supply` VALUES ('3a325fc5-3bc7-11e4-aec4-3c970ec4fb80', '50', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-06-24', '支', '1', '579', '579', '资金监管一科', '杨爽');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3262e2-3bc7-11e4-aec4-3c970ec4fb80', '51', '市场管理中心', '耗材', 'HP 05A 硒鼓', '2014-06-24', '支', '1', '579', '579', '资金监管二科', '夏勇波');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32659d-3bc7-11e4-aec4-3c970ec4fb80', '52', '市场管理中心', '耗材', 'HP 541A 硒鼓', '2014-06-25', '支', '1', '420', '420', '市场监测科', '田昌');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3267b2-3bc7-11e4-aec4-3c970ec4fb80', '53', '市场管理中心', '耗材', '无线路由器', '2014-06-30', '部', '1', '170', '170', '资金监管二科', '李晓鸣');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3269bf-3bc7-11e4-aec4-3c970ec4fb80', '54', '市场管理中心', '维修', '网络线路维修', '2014-06-30', '次', '1', '50', '50', '资金监管二科', '李晓鸣');
+INSERT INTO `t_oa_office_supply` VALUES ('3a326ba4-3bc7-11e4-aec4-3c970ec4fb80', '1', '维修资金中心', '耗材', 'HP打印机谐振模块', '2014-04-03', '套', '1', '420', '420', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a326d82-3bc7-11e4-aec4-3c970ec4fb80', '2', '维修资金中心', '耗材', 'HP 16A硒鼓', '2014-04-03', '支', '1', '980', '980', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a326f5c-3bc7-11e4-aec4-3c970ec4fb80', '3', '维修资金中心', '耗材', 'HP 78A硒鼓', '2014-04-08', '支', '1', '470', '470', '物业事务指导科', '程贞');
+INSERT INTO `t_oa_office_supply` VALUES ('3a327135-3bc7-11e4-aec4-3c970ec4fb80', '4', '维修资金中心', '耗材', 'HP 80A硒鼓', '2014-04-08', '支', '1', '690', '690', '维修资金管理科', '夏媛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32730f-3bc7-11e4-aec4-3c970ec4fb80', '5', '维修资金中心', '耗材', '中国电信3G上网季度卡', '2014-04-09', '块', '1', '300', '300', '物业事务指导科', '黄剑平');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3274ed-3bc7-11e4-aec4-3c970ec4fb80', '6', '维修资金中心', '耗材', '电话程控交换机', '2014-04-15', '部', '1', '790', '790', '物业事务指导科', '李胜兰');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3276c2-3bc7-11e4-aec4-3c970ec4fb80', '7', '维修资金中心', '耗材', '移动硬盘', '2014-04-16', '块', '1', '599', '599', '物业事务指导科', '李娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3278ac-3bc7-11e4-aec4-3c970ec4fb80', '8', '维修资金中心', '耗材', 'HP 78A硒鼓', '2014-04-16', '支', '1', '470', '470', '物业事务指导科', '程贞');
+INSERT INTO `t_oa_office_supply` VALUES ('3a327a82-3bc7-11e4-aec4-3c970ec4fb80', '9', '维修资金中心', '耗材', 'HP 80A硒鼓', '2014-04-16', '支', '1', '690', '690', '维修资金管理科', '夏媛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a327c57-3bc7-11e4-aec4-3c970ec4fb80', '10', '维修资金中心', '耗材', '普通电话机', '2014-04-17', '部', '1', '45', '45', '物业事务指导科', '李娟');
+INSERT INTO `t_oa_office_supply` VALUES ('3a327e31-3bc7-11e4-aec4-3c970ec4fb80', '11', '维修资金中心', '耗材', '闪迪U盘', '2014-04-18', '块', '2', '45', '90', '物业事务指导科', '袁涛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a328003-3bc7-11e4-aec4-3c970ec4fb80', '12', '维修资金中心', '耗材', '刻录光盘', '2014-04-21', '桶', '1', '45', '45', '物业事务指导科', '龙克虎');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3281e4-3bc7-11e4-aec4-3c970ec4fb80', '13', '维修资金中心', '耗材', '360WIFI', '2014-04-28', '部', '1', '20', '20', '物业事务指导科', '刘博宇');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3283ba-3bc7-11e4-aec4-3c970ec4fb80', '14', '维修资金中心', '耗材', '飞利浦坐式话筒', '2014-04-28', '部', '1', '110', '110', '物业事务指导科', '彭倩');
+INSERT INTO `t_oa_office_supply` VALUES ('3a328598-3bc7-11e4-aec4-3c970ec4fb80', '15', '维修资金中心', '耗材', 'HP 80A硒鼓', '2014-04-28', '支', '1', '690', '690', '维修资金管理科', '夏媛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a328775-3bc7-11e4-aec4-3c970ec4fb80', '16', '维修资金中心', '耗材', 'HP 78A硒鼓', '2014-04-29', '支', '1', '470', '470', '物业事务指导科', '彭倩');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32894f-3bc7-11e4-aec4-3c970ec4fb80', '17', '维修资金中心', '耗材', 'HP 05A硒鼓', '2014-04-29', '支', '1', '579', '579', '物业事务指导科', '彭倩');
+INSERT INTO `t_oa_office_supply` VALUES ('3a328b21-3bc7-11e4-aec4-3c970ec4fb80', '18', '维修资金中心', '耗材', 'HP 16A硒鼓', '2014-05-05', '支', '1', '980', '980', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a328cfa-3bc7-11e4-aec4-3c970ec4fb80', '19', '维修资金中心', '耗材', 'HP 78A硒鼓', '2014-05-06', '支', '2', '470', '940', '物业事务指导科', '袁涛\n（市民之家）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3290a6-3bc7-11e4-aec4-3c970ec4fb80', '20', '维修资金中心', '耗材', 'HP 80A硒鼓', '2014-05-07', '支', '1', '690', '690', '维修资金管理科', '袁红林');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3292bf-3bc7-11e4-aec4-3c970ec4fb80', '21', '维修资金中心', '耗材', 'DELL电脑主机板', '2014-05-09', '块', '1', '520', '520', '物业事务指导科', '李娟\n（市民之家）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a3294a0-3bc7-11e4-aec4-3c970ec4fb80', '22', '维修资金中心', '耗材', 'DELL电脑标准电源', '2014-05-09', '部', '1', '200', '200', '物业事务指导科', '李娟\n（市民之家）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a329682-3bc7-11e4-aec4-3c970ec4fb80', '23', '维修资金中心', '耗材', '通用密码打印纸', '2014-05-12', '批', '1', '400', '400', '物业事务指导科', '袁涛\n（市民之家）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a329858-3bc7-11e4-aec4-3c970ec4fb80', '24', '维修资金中心', '耗材', 'HP 80A硒鼓', '2014-05-12', '支', '1', '690', '690', '维修资金管理科', '夏媛');
+INSERT INTO `t_oa_office_supply` VALUES ('3a329a2d-3bc7-11e4-aec4-3c970ec4fb80', '25', '维修资金中心', '耗材', 'HP 78A硒鼓', '2014-05-19', '支', '1', '470', '470', '物业事务指导科', '彭倩');
+INSERT INTO `t_oa_office_supply` VALUES ('3a329c17-3bc7-11e4-aec4-3c970ec4fb80', '26', '维修资金中心', '耗材', '网络交换机', '2014-05-20', '部', '1', '90', '90', '维修资金管理科', '宋康（外协）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a329df4-3bc7-11e4-aec4-3c970ec4fb80', '27', '维修资金中心', '耗材', 'HP 78A硒鼓', '2014-05-26', '支', '1', '470', '470', '物业事务指导科', '程贞');
+INSERT INTO `t_oa_office_supply` VALUES ('3a329fc6-3bc7-11e4-aec4-3c970ec4fb80', '28', '维修资金中心', '耗材', '电脑硬盘', '2014-05-26', '块', '1', '420', '420', '维修资金管理科', '张毅');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32a19c-3bc7-11e4-aec4-3c970ec4fb80', '29', '维修资金中心', '耗材', 'HP 78A硒鼓', '2014-06-06', '支', '1', '470', '470', '物业事务指导科', '袁涛\n（市民之家）');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32a372-3bc7-11e4-aec4-3c970ec4fb80', '30', '维修资金中心', '耗材', 'HP 80A硒鼓', '2014-06-06', '支', '1', '690', '690', '维修资金管理科', '吴正坤');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32a547-3bc7-11e4-aec4-3c970ec4fb80', '31', '维修资金中心', '', 'HP 78A硒鼓', '2014-06-06', '支', '1', '470', '470', '物业事务指导科', '彭倩');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32a721-3bc7-11e4-aec4-3c970ec4fb80', '32', '维修资金中心', '耗材', 'HP 16A硒鼓', '2014-06-12', '支', '1', '980', '980', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32aa07-3bc7-11e4-aec4-3c970ec4fb80', '33', '维修资金中心', '耗材', '闪迪U盘', '2014-06-13', '支', '1', '90', '90', '物业事务指导科', '彭倩');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32acc6-3bc7-11e4-aec4-3c970ec4fb80', '34', '维修资金中心', '耗材', 'HP 80A硒鼓', '2014-06-13', '支', '1', '690', '690', '维修资金管理科', '张静洁');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32af6d-3bc7-11e4-aec4-3c970ec4fb80', '35', '维修资金中心', '耗材', '东芝原厂粉仓e255', '2014-06-16', '支', '1', '690', '690', '维修资金管理科', '张艳艳');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32b267-3bc7-11e4-aec4-3c970ec4fb80', '36', '维修资金中心', '耗材', '东芝原厂粉仓e230s', '2014-06-16', '支', '1', '660', '660', '维修资金管理科', '张艳艳');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32bf99-3bc7-11e4-aec4-3c970ec4fb80', '37', '维修资金中心', '耗材', 'HP 78A硒鼓', '2014-06-17', '支', '1', '470', '470', '物业事务指导科', '彭倩');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32c355-3bc7-11e4-aec4-3c970ec4fb80', '38', '维修资金中心', '耗材', 'HP 950高容量墨盒', '2014-06-24', '支', '1', '300', '300', '维修资金管理科', '张艳艳');
+INSERT INTO `t_oa_office_supply` VALUES ('3a32c63b-3bc7-11e4-aec4-3c970ec4fb80', '39', '维修资金中心', '耗材', 'HP 80A硒鼓', '2014-06-24', '支', '1', '690', '690', '维修资金管理科', '夏媛');
+
+-- ----------------------------
+-- Table structure for t_oa_order
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_order`;
+CREATE TABLE `t_oa_order` (
+  `dateStr` varchar(50) NOT NULL,
+  `order` int(11) NOT NULL,
+  `type` tinyint(4) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_order
+-- ----------------------------
+INSERT INTO `t_oa_order` VALUES ('20140902', '1', '1');
+INSERT INTO `t_oa_order` VALUES ('20140902', '1', '0');
+INSERT INTO `t_oa_order` VALUES ('20140903', '1', '0');
+INSERT INTO `t_oa_order` VALUES ('20140903', '1', '1');
+INSERT INTO `t_oa_order` VALUES ('20140916', '1', '2');
+
+-- ----------------------------
+-- Table structure for t_oa_petition
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_petition`;
+CREATE TABLE `t_oa_petition` (
+  `id` varchar(50) NOT NULL,
+  `title` varchar(1000) NOT NULL,
+  `source` varchar(1000) DEFAULT NULL,
+  `orgName` varchar(1000) NOT NULL,
+  `tag` varchar(100) NOT NULL,
+  `sortNum` varchar(1000) NOT NULL,
+  `amount` int(11) NOT NULL,
+  `addon` varchar(1000) DEFAULT NULL,
+  `classification` varchar(1000) NOT NULL,
+  `submitDate` datetime NOT NULL,
+  `folder` varchar(1000) NOT NULL,
+  `leaderId` varchar(1000) DEFAULT NULL,
+  `status` tinyint(4) DEFAULT NULL,
+  `statusInfo` varchar(1000) DEFAULT NULL,
+  `distributed` tinyint(4) NOT NULL,
+  `replyContent` varchar(1000) DEFAULT NULL,
+  `rejectContent` varchar(1000) DEFAULT NULL,
+  `replyed` tinyint(4) DEFAULT NULL,
+  `rejected` tinyint(4) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_petition
+-- ----------------------------
+INSERT INTO `t_oa_petition` VALUES ('a55cf82c089949988b42a165f0300795', '这是一个测试数据', '渠道', '单位', '字号', '20140916x002', '10', '无', '本部门', '2014-09-16 00:00:00', '8116024c-c5e4-4308-95b4-b3e42dedf995', null, '1', '谢平', '0', '<p>曾正de答复 panfeng的答复 陈浩的答复 xieping 的答复</p>', null, '0', '1');
+
+-- ----------------------------
+-- Table structure for t_oa_petition_doc
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_petition_doc`;
+CREATE TABLE `t_oa_petition_doc` (
+  `petitionId` varchar(50) NOT NULL,
+  `path` varchar(1000) NOT NULL,
+  `orderNum` int(11) NOT NULL,
+  `folder` varchar(1000) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_petition_doc
+-- ----------------------------
+INSERT INTO `t_oa_petition_doc` VALUES ('a55cf82c089949988b42a165f0300795', '/userupload/inboxfile/8116024c-c5e4-4308-95b4-b3e42dedf995/1.jpg', '0', '8116024c-c5e4-4308-95b4-b3e42dedf995');
+INSERT INTO `t_oa_petition_doc` VALUES ('a55cf82c089949988b42a165f0300795', '/userupload/inboxfile/8116024c-c5e4-4308-95b4-b3e42dedf995/2.jpg', '1', '8116024c-c5e4-4308-95b4-b3e42dedf995');
+INSERT INTO `t_oa_petition_doc` VALUES ('a55cf82c089949988b42a165f0300795', '/userupload/inboxfile/8116024c-c5e4-4308-95b4-b3e42dedf995/3.jpg', '2', '8116024c-c5e4-4308-95b4-b3e42dedf995');
+INSERT INTO `t_oa_petition_doc` VALUES ('0f0023e003464803a3214887f42acb02', '/userupload/inboxfile/067eacfd-a325-4d2a-9f9c-26fdce1ba027/1.jpg', '0', '067eacfd-a325-4d2a-9f9c-26fdce1ba027');
+INSERT INTO `t_oa_petition_doc` VALUES ('7cb1b0d2b46342d28950b5266a391891', '/userupload/inboxfile/067eacfd-a325-4d2a-9f9c-26fdce1ba027/1.jpg', '0', '067eacfd-a325-4d2a-9f9c-26fdce1ba027');
+
+-- ----------------------------
+-- Table structure for t_oa_petition_opinion
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_petition_opinion`;
+CREATE TABLE `t_oa_petition_opinion` (
+  `id` varchar(50) NOT NULL,
+  `petitionId` varchar(50) NOT NULL,
+  `content` varchar(1000) NOT NULL,
+  `userName` varchar(1000) NOT NULL,
+  `priority` int(11) NOT NULL,
+  `submitDate` datetime NOT NULL,
+  `userId` varchar(50) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_petition_opinion
+-- ----------------------------
+INSERT INTO `t_oa_petition_opinion` VALUES ('99807763cace4c8ea78affd3266a839b', 'a55cf82c089949988b42a165f0300795', '谢平的批阅', '谢平', '0', '2014-09-16 10:31:23', '8afad58747e49a2d01480d00dd1c0022');
+INSERT INTO `t_oa_petition_opinion` VALUES ('32b19c39c99a4cd9bd05857e6230fe49', 'a55cf82c089949988b42a165f0300795', '陈浩的批阅', '陈浩', '0', '2014-09-16 10:31:50', '402880e447a6c4820147a6c6d4c90007');
+INSERT INTO `t_oa_petition_opinion` VALUES ('5d95ffbac2d149ef9600fa387e8d66a6', 'a55cf82c089949988b42a165f0300795', '潘峰的批阅', '潘峰', '0', '2014-09-16 10:32:11', '8afad58747e49a2d01480d09e063002c');
+
+-- ----------------------------
+-- Table structure for t_oa_petition_user_rel
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_petition_user_rel`;
+CREATE TABLE `t_oa_petition_user_rel` (
+  `userId` varchar(50) NOT NULL,
+  `petitionId` varchar(50) NOT NULL,
+  `active` tinyint(4) NOT NULL,
+  `replyActive` tinyint(4) DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_petition_user_rel
+-- ----------------------------
+INSERT INTO `t_oa_petition_user_rel` VALUES ('8afad58747e49a2d01480d00dd1c0022', 'a55cf82c089949988b42a165f0300795', '1', null, '29');
+INSERT INTO `t_oa_petition_user_rel` VALUES ('402880e447a6c4820147a6c6d4c90007', 'a55cf82c089949988b42a165f0300795', '1', null, '30');
+INSERT INTO `t_oa_petition_user_rel` VALUES ('8afad58747e49a2d01480d09e063002c', 'a55cf82c089949988b42a165f0300795', '1', null, '31');
+INSERT INTO `t_oa_petition_user_rel` VALUES ('8afad587480d524e01482ab2628e0099', 'a55cf82c089949988b42a165f0300795', '1', null, '32');
+INSERT INTO `t_oa_petition_user_rel` VALUES ('402880e447a6c4820147a6c5b6040001', 'a55cf82c089949988b42a165f0300795', '1', null, '33');
+
+-- ----------------------------
+-- Table structure for t_oa_post
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_post`;
+CREATE TABLE `t_oa_post` (
+  `id` varchar(50) NOT NULL,
+  `departName` varchar(200) NOT NULL,
+  `sortNum` varchar(200) NOT NULL,
+  `classfication` varchar(200) NOT NULL,
+  `title` varchar(1000) NOT NULL,
+  `keyWords` varchar(1000) NOT NULL,
+  `to` varchar(1000) NOT NULL,
+  `cc` varchar(1000) DEFAULT NULL,
+  `from` varchar(1000) DEFAULT NULL,
+  `sectionChief` varchar(1000) DEFAULT NULL,
+  `sectionChiefTime` datetime DEFAULT NULL,
+  `viceDirector` varchar(1000) DEFAULT NULL,
+  `viceDirectorTime` datetime DEFAULT NULL,
+  `centerLeader` varchar(1000) DEFAULT NULL,
+  `centerLeaderTime` datetime DEFAULT NULL,
+  `auditor` varchar(1000) DEFAULT NULL,
+  `content` text,
+  `status` int(5) NOT NULL,
+  `submitTime` datetime NOT NULL,
+  `statusInfo` varchar(200) NOT NULL,
+  `createUserId` varchar(50) NOT NULL,
+  `postManager` varchar(1000) DEFAULT NULL,
+  `postManagerTime` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_post
+-- ----------------------------
+INSERT INTO `t_oa_post` VALUES ('e1db74f9-081c-42c9-942e-e1a713247a5f', '刘辉发文', '20140902s002', '本部门', '刘辉发文', '刘辉发文', '发', '抄送', '刘晖', '李晓鸣', '2014-09-02 21:12:24', '徐冰涛', '2014-09-02 21:12:58', '谢平', '2014-09-02 21:13:18', null, '<p>刘辉发文&nbsp;</p><p><br/></p><p>胡萍查看 李晓明审批</p><p><br/></p><p>徐冰涛 审批</p><p><br/></p><p>xieping 审批</p>', '5', '2014-09-02 21:05:41', '已发文', '8afad58747e49a2d01480d0e30c40037', null, null);
+INSERT INTO `t_oa_post` VALUES ('3ab3833a-a202-4c85-82a4-038745c2c35d', '无', '20140903s001', '公开', '20140903测试的发文内容', '测试', '测试科室', '测试部门', '刘晖', null, null, null, null, null, null, null, '<p style=\"text-align:center;line-height:37px\"><span style=\"font-size:29px;font-family:华文中宋\">关于印发集中开展“六打六治”打非治违</span></p><p style=\"text-align:center;line-height:37px\"><span style=\"font-size:29px;font-family:华文中宋\">专项行动工作方案的通知</span></p><p style=\"line-height: 37px;\"><span style=\"font-size:29px;font-family:华文中宋\"><br/></span></p><p style=\"line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">中心各科室：</span></p><p style=\"line-height: 37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">&nbsp;&nbsp;&nbsp; </span><span style=\"font-size:21px;font-family:仿宋_GB2312\">根据《市房管局关于印发集中开展“六打六治”打非治违专项行动工作方案的通知》（</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">武房发〔2014〕102号</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">）文件精神。经中心办公会研究，特制定《中心集中开展“六打六治”打非治违专项行动工作方案》，现印发给你们，请结合实际认真贯彻执行。</span></p><p style=\"margin-right:85px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">&nbsp;</span></p><p style=\"margin-right:85px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">&nbsp;</span></p><p style=\"text-indent:245px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 二</span><span style=\"font-size:21px;font-family:宋体\">〇</span><span style=\"font-size:21px;font-family: 仿宋_GB2312\">一四年八月二十一</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">日</span></p><p><br/></p>', '4', '2014-09-03 08:45:52', '已驳回', '8afad58747e49a2d01480d0e30c40037', null, null);
+INSERT INTO `t_oa_post` VALUES ('b922cf38-1c94-46cc-99d9-b9c01a47a24a', '无', '20140903s002', '公开', '20140903测试发文2', '测试', '测试部门', '测试科室', '刘晖', '李晓鸣', '2014-09-03 08:50:32', '徐冰涛', '2014-09-03 08:51:01', '谢平', '2014-09-03 08:51:26', null, '<p style=\"text-align:center;line-height:37px\"><span style=\"font-size:29px;font-family:华文中宋\">市房地产市场管理中心集中开展“六打六治”打非治违专项行动工作方案</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">&nbsp;</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">为进一步深化安全生产“打非治违”工作，有效防范和坚决遏制重特大事故，促进中心安全生产形势持续稳定，</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">根据市局通知精神，结合中心工作实际，制定本方案。</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:黑体\">一、工作目标</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">认真贯彻落实习近平总书记、李克强总理等中央领导同志关于安全生产的重要指示精神，按照“全覆盖、零容忍、严执法、重实效”的要求，以开展“六打六治”打非治违专项行动为契机，集中开展隐患排查整治，及时消除安全隐患，有效防范各类事故的发生，确保中心安全生产形势持续稳定。</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:黑体\">二、组织领导</span></p><p style=\"text-indent: 43px;line-height: 37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">中心成立由谢平任组长，张世桥任副组长，</span><span style=\"font-size: 21px;font-family: 仿宋_GB2312\">中心各科室负责人为成员的</span><span style=\"font-size: 21px;font-family:仿宋_GB2312\">“六打六治”打非治违专项行动工作领导小组。中心办公室为“六打六治”打非治违专项行动</span><span style=\"font-size: 21px;font-family: 仿宋_GB2312\">小组办公室，具体负责、组织、指导、协调各科室开展</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">专项活动</span><span style=\"font-size: 21px;font-family: 仿宋_GB2312\">。</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:黑体\">三、重点内容</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">突出出租屋、职工宿舍、办公场所、车辆管理等重点，集中开展隐患排查整治：</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（一）出租屋：</span></strong><span style=\"font-size:21px;font-family:楷体_GB2312\">全面</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">排查中心各出租屋安全隐患，重点排查和整改中山大道910号房屋全隐患。针对其正在进行的楼面装修改造工程，突出重点<ins cite=\"mailto:%E4%BA%8E%E9%9B%AA%E6%9D%BE\" datetime=\"2013-05-22T08:39\">、</ins>加强排查，做到安全隐患早部署、早防范、早落实，对可能发生的安全隐患，采取有效的防范措施，控制危险源的发生，确保整个施工工程顺利完工。</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（二）职工宿舍：</span></strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">重点排查安全检查制度是否落实、房屋电器线路老化、消防通道堵塞、下水道堵塞、电器</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">荷载超额、</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">消防设施缺失等隐患。</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">对有危险点的房屋采取有效防范措施，及时处理安全隐患。</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（三）办公场所：</span></strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">重点排查二、四楼办公区域安全提示不到位、消防设施缺失、安全出口和疏散通道堵塞、科室安全管理制度未落实等隐患。</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">对潜在的安全隐患，指定</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">专人管理和监督，确保不发生重大安全事故</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">。</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（四）车辆管理：</span></strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">重点检查车辆行驶要件，排除车辆</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">异状，消除安全隐患。</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">并</span><span style=\"font-size: 21px;font-family:仿宋_GB2312\">召集专职驾驶员强调行车安全</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">，杜绝车辆事故的发生。</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:黑体\">四、时间步骤</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">“六打六治”打非治违专项行动从2014年8月开始，到12月底结束。分三个阶段进行：</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（一）动员部署阶段（至8月底）</span></strong></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">制定打非治违专项行动工作方案，成立工作领导小组，明确工作目标、重点内容、时间步骤和具体工作要求，及时进行动员部署，广泛宣传发动。</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（二）集中整治阶段（8月底-11月底）</span></strong></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">在中心开展为期100天的安全生产隐患排查专项整治行动，采取全面排查和重点排查相结合的方式，有计划、有步骤地进行隐患排查整治。活动中，采取“四不两直”的方式，及时发现和解决问题，确保专项整治行动落实到位。</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（三）巩固深化阶段（12月）</span></strong></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">对排查出的安全隐患进行逐一复查，制定整改措施或防范措施，巩固专项整治行动成果，总结工作经验，进一步完善相关制度措施，积极建立隐患排查整治长效工作机制。</span></p><p><br/></p>', '5', '2014-09-03 08:49:44', '已发文', '8afad58747e49a2d01480d0e30c40037', null, null);
+INSERT INTO `t_oa_post` VALUES ('19fb439d-15a1-4dbc-9ff4-56ca28a3da8b', '无', '20140903s002', '公开', '2014090302测试发文标题', '测试', '测试', '测试', '刘晖', '李晓鸣', '2014-09-03 10:03:09', '徐冰涛', '2014-09-03 10:06:40', '谢平', '2014-09-03 10:07:10', null, '<p style=\"text-align:center;line-height:37px\"><span style=\"font-size:29px;font-family:华文中宋\">市房地产市场管理中心集中开展“六打六治”打非治违专项行动工作方案</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">&nbsp;</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">为进一步深化安全生产“打非治违”工作，有效防范和坚决遏制重特大事故，促进中心安全生产形势持续稳定，</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">根据市局通知精神，结合中心工作实际，制定本方案。</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:黑体\">一、工作目标</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">认真贯彻落实习近平总书记、李克强总理等中央领导同志关于安全生产的重要指示精神，按照“全覆盖、零容忍、严执法、重实效”的要求，以开展“六打六治”打非治违专项行动为契机，集中开展隐患排查整治，及时消除安全隐患，有效防范各类事故的发生，确保中心安全生产形势持续稳定。</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:黑体\">二、组织领导</span></p><p style=\"text-indent: 43px;line-height: 37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">中心成立由谢平任组长，张世桥任副组长，</span><span style=\"font-size: 21px;font-family: 仿宋_GB2312\">中心各科室负责人为成员的</span><span style=\"font-size: 21px;font-family:仿宋_GB2312\">“六打六治”打非治违专项行动工作领导小组。中心办公室为“六打六治”打非治违专项行动</span><span style=\"font-size: 21px;font-family: 仿宋_GB2312\">小组办公室，具体负责、组织、指导、协调各科室开展</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">专项活动</span><span style=\"font-size: 21px;font-family: 仿宋_GB2312\">。</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:黑体\">三、重点内容</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">突出出租屋、职工宿舍、办公场所、车辆管理等重点，集中开展隐患排查整治：</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（一）出租屋：</span></strong><span style=\"font-size:21px;font-family:楷体_GB2312\">全面</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">排查中心各出租屋安全隐患，重点排查和整改中山大道910号房屋全隐患。针对其正在进行的楼面装修改造工程，突出重点<ins cite=\"mailto:%E4%BA%8E%E9%9B%AA%E6%9D%BE\" datetime=\"2013-05-22T08:39\">、</ins>加强排查，做到安全隐患早部署、早防范、早落实，对可能发生的安全隐患，采取有效的防范措施，控制危险源的发生，确保整个施工工程顺利完工。</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（二）职工宿舍：</span></strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">重点排查安全检查制度是否落实、房屋电器线路老化、消防通道堵塞、下水道堵塞、电器</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">荷载超额、</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">消防设施缺失等隐患。</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">对有危险点的房屋采取有效防范措施，及时处理安全隐患。</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（三）办公场所：</span></strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">重点排查二、四楼办公区域安全提示不到位、消防设施缺失、安全出口和疏散通道堵塞、科室安全管理制度未落实等隐患。</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">对潜在的安全隐患，指定</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">专人管理和监督，确保不发生重大安全事故</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">。</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（四）车辆管理：</span></strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">重点检查车辆行驶要件，排除车辆</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">异状，消除安全隐患。</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">并</span><span style=\"font-size: 21px;font-family:仿宋_GB2312\">召集专职驾驶员强调行车安全</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">，杜绝车辆事故的发生。</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:黑体\">四、时间步骤</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">“六打六治”打非治违专项行动从2014年8月开始，到12月底结束。分三个阶段进行：</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（一）动员部署阶段（至8月底）</span></strong></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">制定打非治违专项行动工作方案，成立工作领导小组，明确工作目标、重点内容、时间步骤和具体工作要求，及时进行动员部署，广泛宣传发动。</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（二）集中整治阶段（8月底-11月底）</span></strong></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">在中心开展为期100天的安全生产隐患排查专项整治行动，采取全面排查和重点排查相结合的方式，有计划、有步骤地进行隐患排查整治。活动中，采取“四不两直”的方式，及时发现和解决问题，确保专项整治行动落实到位。</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（三）巩固深化阶段（12月）</span></strong></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">对排查出的安全隐患进行逐一复查，制定整改措施或防范措施，巩固专项整治行动成果，总结工作经验，进一步完善相关制度措施，积极建立隐患排查整治长效工作机制。</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:黑体\">五、工作要求</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:楷体_GB2312\">（一）</span></strong><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">统一思想认识。</span></strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">要高度重视，切实加强“六打六治”打非治违专项行动工作的组织领导，</span><span style=\"font-size: 21px;font-family: 仿宋_GB2312\">周密部署，精心组织，狠抓落实，扎扎实实开展好隐患排查整治工作。</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:楷体_GB2312\">（二）</span></strong><strong><span style=\"font-size: 21px;font-family: 仿宋_GB2312\">务求工作实效。</span></strong><span style=\"font-size: 21px;font-family:仿宋_GB2312\">要认真组织隐患排查，不留漏洞，不留死角，及时发现存在的问题，立即进行隐患整改，绝不能走过场，敷衍了事，确保</span><span style=\"font-size: 21px;font-family: 仿宋_GB2312\">隐患排查</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">专项整治行动取得实实在在的效果。</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:楷体_GB2312\">（三）</span></strong><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">加强监督检查。</span></strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">要按照“管行业必须管安全、管业务必须管安全、管生产经营必须管安全”的要求，加强行业监管领域安全生产隐患排查整治工作的检查指导，促进工作落实。</span></p><p style=\"text-indent:43px;line-height:37px\"><strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">（四）健全长效机制</span></strong><strong><span style=\"font-size:21px;font-family:楷体_GB2312\">。</span></strong><span style=\"font-size:21px;font-family:仿宋_GB2312\">要把“六打六治”打非治违专项行动与隐患排查治理“两化”体系建设相结合，</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">建立健全隐患排查治理体系及安全监控体系，将安全排查贯穿于日常安全管理和监督工作中，着力提升中心安全保障能力</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">。</span></p><p style=\"text-indent:43px;line-height:37px\"><span style=\"font-size:21px;font-family:仿宋_GB2312\">并分别于8月27日和11月27日前将中心工作方案和专项整治行动工作总结报送市局“六打六治”打非治违专项行动</span><span style=\"font-size: 21px;font-family: 仿宋_GB2312\">小组</span><span style=\"font-size:21px;font-family:仿宋_GB2312\">办公室。</span></p><p><br/></p>', '5', '2014-09-03 09:58:25', '已发文', '8afad58747e49a2d01480d0e30c40037', null, null);
+INSERT INTO `t_oa_post` VALUES ('eb9bca2a-95a4-4f1e-bebe-80619dd8602b', 'wewrtwert', '20140903s002', '55', '55', '554', '34', '2345', '李博', null, null, null, null, null, null, null, '<p>fffdddeee</p>', '1', '2014-09-03 11:10:23', '审批中', '402882e4477f8f0201477f926ede0006', null, null);
+
+-- ----------------------------
+-- Table structure for t_oa_post_user_rel
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_post_user_rel`;
+CREATE TABLE `t_oa_post_user_rel` (
+  `postid` varchar(50) NOT NULL,
+  `userid` varchar(50) NOT NULL,
+  `active` tinyint(4) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_post_user_rel
+-- ----------------------------
+INSERT INTO `t_oa_post_user_rel` VALUES ('e1db74f9-081c-42c9-942e-e1a713247a5f', '8afad58747e49a2d01480d0e30c40037', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('e1db74f9-081c-42c9-942e-e1a713247a5f', '8afad58747e49a2d01480d0c68700034', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('e1db74f9-081c-42c9-942e-e1a713247a5f', '8afad587480d524e01482aa99939007e', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('e1db74f9-081c-42c9-942e-e1a713247a5f', '8afad587480d524e01482aaa75a20081', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('e1db74f9-081c-42c9-942e-e1a713247a5f', '8afad587480d524e014811ba513f0002', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('e1db74f9-081c-42c9-942e-e1a713247a5f', '8afad58747e49a2d01480d00dd1c0022', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('e1db74f9-081c-42c9-942e-e1a713247a5f', '8afad58747e49a2d01480cff8de7001f', '0');
+INSERT INTO `t_oa_post_user_rel` VALUES ('3ab3833a-a202-4c85-82a4-038745c2c35d', '8afad58747e49a2d01480d0e30c40037', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('3ab3833a-a202-4c85-82a4-038745c2c35d', '8afad58747e49a2d01480d0c68700034', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('3ab3833a-a202-4c85-82a4-038745c2c35d', '8afad587480d524e01482aa99939007e', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('3ab3833a-a202-4c85-82a4-038745c2c35d', '8afad587480d524e01482aaa75a20081', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('b922cf38-1c94-46cc-99d9-b9c01a47a24a', '8afad58747e49a2d01480d0e30c40037', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('b922cf38-1c94-46cc-99d9-b9c01a47a24a', '8afad58747e49a2d01480d0c68700034', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('b922cf38-1c94-46cc-99d9-b9c01a47a24a', '8afad587480d524e01482aa99939007e', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('b922cf38-1c94-46cc-99d9-b9c01a47a24a', '8afad587480d524e01482aaa75a20081', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('b922cf38-1c94-46cc-99d9-b9c01a47a24a', '8afad587480d524e014811ba513f0002', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('b922cf38-1c94-46cc-99d9-b9c01a47a24a', '8afad58747e49a2d01480d00dd1c0022', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('b922cf38-1c94-46cc-99d9-b9c01a47a24a', '8afad58747e49a2d01480cff8de7001f', '0');
+INSERT INTO `t_oa_post_user_rel` VALUES ('19fb439d-15a1-4dbc-9ff4-56ca28a3da8b', '8afad58747e49a2d01480d0e30c40037', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('19fb439d-15a1-4dbc-9ff4-56ca28a3da8b', '8afad58747e49a2d01480d0c68700034', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('19fb439d-15a1-4dbc-9ff4-56ca28a3da8b', '8afad587480d524e01482aa99939007e', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('19fb439d-15a1-4dbc-9ff4-56ca28a3da8b', '8afad587480d524e01482aaa75a20081', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('19fb439d-15a1-4dbc-9ff4-56ca28a3da8b', '8afad587480d524e014811ba513f0002', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('19fb439d-15a1-4dbc-9ff4-56ca28a3da8b', '8afad58747e49a2d01480d00dd1c0022', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('19fb439d-15a1-4dbc-9ff4-56ca28a3da8b', '8afad58747e49a2d01480cff8de7001f', '0');
+INSERT INTO `t_oa_post_user_rel` VALUES ('eb9bca2a-95a4-4f1e-bebe-80619dd8602b', '402882e4477f8f0201477f926ede0006', '1');
+INSERT INTO `t_oa_post_user_rel` VALUES ('eb9bca2a-95a4-4f1e-bebe-80619dd8602b', '8afad587480d524e0148150f73410016', '0');
+
+-- ----------------------------
+-- Table structure for t_oa_schedule
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_schedule`;
+CREATE TABLE `t_oa_schedule` (
+  `id` varchar(36) NOT NULL,
+  `address` longtext NOT NULL COMMENT '活动地点',
+  `content` longtext NOT NULL COMMENT '活动内容',
+  `executetime` datetime NOT NULL COMMENT '活动时间',
+  `master_dep_id` varchar(36) NOT NULL,
+  `departsName` varchar(255) DEFAULT NULL,
+  `usersName` varchar(255) DEFAULT NULL,
+  `anno_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_schedule
+-- ----------------------------
+INSERT INTO `t_oa_schedule` VALUES ('8afad58747e49a2d0147e80d7d68000e', '小会议室', '会议室测试', '2014-08-21 15:38:16', '402882e446efd9fd0146efda7ab50015', '副主任', '陈浩', '8afad58747e49a2d0147e80d7d3e000b');
+
+-- ----------------------------
+-- Table structure for t_oa_schedule_depart
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_schedule_depart`;
+CREATE TABLE `t_oa_schedule_depart` (
+  `schedule_id` varchar(36) NOT NULL,
+  `depart_id` varchar(36) NOT NULL,
+  PRIMARY KEY (`schedule_id`,`depart_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_schedule_depart
+-- ----------------------------
+INSERT INTO `t_oa_schedule_depart` VALUES ('8afad58747e49a2d0147e80d7d68000e', '8afad58747abc2800147abce00130003');
+
+-- ----------------------------
+-- Table structure for t_oa_schedule_user
+-- ----------------------------
+DROP TABLE IF EXISTS `t_oa_schedule_user`;
+CREATE TABLE `t_oa_schedule_user` (
+  `schedule_id` varchar(36) NOT NULL,
+  `user_id` varchar(36) NOT NULL,
+  PRIMARY KEY (`schedule_id`,`user_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_oa_schedule_user
+-- ----------------------------
+INSERT INTO `t_oa_schedule_user` VALUES ('8afad58747e49a2d0147e80d7d68000e', '402880e447a6c4820147a6c6d4c90007');
+
+-- ----------------------------
+-- Table structure for t_s_attachment
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_attachment`;
+CREATE TABLE `t_s_attachment` (
+  `ID` varchar(32) NOT NULL,
+  `attachmentcontent` longblob,
+  `attachmenttitle` varchar(100) DEFAULT NULL,
+  `businesskey` varchar(32) DEFAULT NULL,
+  `createdate` datetime DEFAULT NULL,
+  `extend` varchar(32) DEFAULT NULL,
+  `note` longtext,
+  `realpath` varchar(100) DEFAULT NULL,
+  `subclassname` longtext,
+  `swfpath` longtext,
+  `BUSENTITYNAME` varchar(100) DEFAULT NULL,
+  `INFOTYPEID` varchar(32) DEFAULT NULL,
+  `USERID` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_mnq23hlc835n4ufgjl7nkn3bd` (`USERID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_attachment
+-- ----------------------------
+INSERT INTO `t_s_attachment` VALUES ('402882e446efd9fd0146efda7a900008', null, 'JR079839867R90000001000', null, null, 'doc', null, 'JR079839867R90000001000', null, 'upload/files/20130719201109hDr31jP1.swf', null, null, null);
+INSERT INTO `t_s_attachment` VALUES ('402882e446efd9fd0146efda7a940009', null, 'JEECG平台协议', null, null, 'docx', null, 'JEECG平台协议', null, 'upload/files/20130719201156sYHjSFJj.swf', null, null, null);
+INSERT INTO `t_s_attachment` VALUES ('402882e446efd9fd0146efda7a96000a', null, '分析JEECG与其他的开源项目的不足和优势', null, null, 'docx', null, '分析JEECG与其他的开源项目的不足和优势', null, 'upload/files/20130719201727ZLEX1OSf.swf', null, null, null);
+INSERT INTO `t_s_attachment` VALUES ('402882e446efd9fd0146efda7a98000b', null, 'DMS-T3第三方租赁业务接口开发说明', null, null, 'docx', null, 'DMS-T3第三方租赁业务接口开发说明', null, 'upload/files/20130719201841LzcgqUek.swf', null, null, null);
+INSERT INTO `t_s_attachment` VALUES ('402882e446efd9fd0146efda7a9a000c', null, 'SAP-需求说明书-金融服务公司-第三方租赁业务需求V1.7-研发', null, null, 'doc', null, 'SAP-需求说明书-金融服务公司-第三方租赁业务需求V1.7-研发', null, 'upload/files/20130719201925mkCrU47P.swf', null, null, null);
+INSERT INTO `t_s_attachment` VALUES ('402882e446efd9fd0146efda7aa1000d', null, 'JEECG团队开发规范', null, null, 'txt', null, 'JEECG团队开发规范', null, 'upload/files/20130724103633fvOTwNSV.swf', null, null, null);
+INSERT INTO `t_s_attachment` VALUES ('402882e446efd9fd0146efda7aa3000e', null, '第一模板', null, null, 'doc', null, '第一模板', null, 'upload/files/20130724104603pHDw4QUT.swf', null, null, null);
+INSERT INTO `t_s_attachment` VALUES ('402882e446efd9fd0146efda7aa5000f', null, 'github入门使用教程', null, null, 'doc', null, 'github入门使用教程', null, 'upload/files/20130704200345EakUH3WB.swf', null, null, null);
+INSERT INTO `t_s_attachment` VALUES ('402882e446efd9fd0146efda7aa80010', null, 'github入门使用教程', null, null, 'doc', null, 'github入门使用教程', null, 'upload/files/20130704200651IE8wPdZ4.swf', null, null, null);
+INSERT INTO `t_s_attachment` VALUES ('402882e446efd9fd0146efda7aaa0011', null, '（张代浩）-金融服务公司机构岗位职责与任职资格设置表(根据模板填写）', null, null, 'xlsx', null, '（张代浩）-金融服务公司机构岗位职责与任职资格设置表(根据模板填写）', null, 'upload/files/20130704201022KhdRW1Gd.swf', null, null, null);
+INSERT INTO `t_s_attachment` VALUES ('402882e446efd9fd0146efda7aad0012', null, 'EIM201_CN', null, null, 'pdf', null, 'EIM201_CN', null, 'upload/files/20130704201046JVAkvvOt.swf', null, null, null);
+INSERT INTO `t_s_attachment` VALUES ('402882e446efd9fd0146efda7aaf0013', null, 'github入门使用教程', null, null, 'doc', null, 'github入门使用教程', null, 'upload/files/20130704201116Z8NhEK57.swf', null, null, null);
+INSERT INTO `t_s_attachment` VALUES ('402882e446efd9fd0146efda7ab20014', null, 'JEECGUI标签库帮助文档v3.2', null, null, 'pdf', null, 'JEECGUI标签库帮助文档v3.2', null, 'upload/files/20130704201125DQg8hi2x.swf', null, null, null);
+
+-- ----------------------------
+-- Table structure for t_s_base_user
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_base_user`;
+CREATE TABLE `t_s_base_user` (
+  `ID` varchar(32) NOT NULL,
+  `activitiSync` smallint(6) DEFAULT NULL,
+  `browser` varchar(20) DEFAULT NULL,
+  `password` varchar(100) DEFAULT NULL,
+  `realname` varchar(50) DEFAULT NULL,
+  `icon` varchar(1000) DEFAULT NULL,
+  `signature` blob,
+  `status` smallint(6) DEFAULT NULL,
+  `userkey` varchar(200) DEFAULT NULL,
+  `username` varchar(20) NOT NULL,
+  `departid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_15jh1g4iem1857546ggor42et` (`departid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_base_user
+-- ----------------------------
+INSERT INTO `t_s_base_user` VALUES ('402882e446efd9fd0146efda7bcc0044', '1', null, 'c44b01947c9e6e3f', '管理员', null, null, '1', null, 'admin', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('402882e4477f8f0201477f926ede0006', null, null, '6940b3510409259b', '李博', null, null, '1', null, 'libo', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('8afad58747e49a2d01480d00dd1c0022', null, null, '1efa12312e67ab21', '谢平', null, null, '1', null, 'xieping', '8afad58747abc2800147abce00130003');
+INSERT INTO `t_s_base_user` VALUES ('8afad58747e49a2d01480cff8de7001f', null, null, '571ff8bb0cfafac9', '阮辉', null, null, '1', null, 'ruanhui', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('402880e447a6c4820147a6c753b4000a', null, null, 'd1497867b183db8b1d1aec8a0c4276a9', '陈龙', null, null, '1', null, 'chenlong', '8afad58747abc2800147abcfac2c0005');
+INSERT INTO `t_s_base_user` VALUES ('402880e447a6c4820147a6c6d4c90007', null, null, '169075b8d3de4e74', '陈浩', null, null, '1', null, 'chenhao', '8afad58747abc2800147abce00130003');
+INSERT INTO `t_s_base_user` VALUES ('402880e447a6c4820147a6c6593a0004', null, null, 'dcd000da3d282c3e', '陈迟', null, null, '1', null, 'chenchi', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('402880e447a6c4820147a6c5b6040001', null, null, '6fd2bbc2d5878058c494fe18af395a8d', '曾正', null, null, '1', null, 'zengzheng', '8afad58747abc2800147abcfac2c0005');
+INSERT INTO `t_s_base_user` VALUES ('8afad58747e49a2d01480d0e30c40037', null, null, '09a121e98ebef6bb', '刘晖', null, null, '1', null, 'liuhui', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_s_base_user` VALUES ('8afad58747e49a2d01480d09e063002c', null, null, 'c16b844709be54c3', '潘峰', null, null, '1', null, 'panfeng', '8afad58747abc2800147abcfac2c0005');
+INSERT INTO `t_s_base_user` VALUES ('8afad58747e49a2d01480d0c68700034', null, null, '0c2568be8b2c46a367dd52f24d563a2d', '李晓鸣', null, null, '1', null, 'lixiaoming', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e014811ba513f0002', null, null, 'e1dce85b99cf54d6e3684320b66656a4', '徐冰涛', null, null, '1', null, 'xubingtao', '8afad58747abc2800147abce00130003');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e014811bf7e060005', null, null, '4049a5275fe84b597aaa3a4f395882ce', '龙克虎', null, null, '1', null, 'longkehu', '8afad58747abc2800147abce00130003');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e014811cbfd1e000e', null, null, '2a0ee0afff9058943d8b8ddc436aab01', '刘天金', null, null, '1', null, 'liutianjin', '8afad587480d524e014811caef0c000a');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e0148150f73410016', null, null, '5ea3fa4bc8f2e13d6d14bc7a0eb0df01', '王芳', null, null, '1', null, 'wangfang', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01481510b3fe0019', null, null, 'e4d3895958afef4fb131aaa03b8915e5', '索祖强', null, null, '1', null, 'suozuqiang', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01481524d9f9001d', null, null, '2369fc31a85f3173936e73199587405f', '张世桥', null, null, '1', null, 'zhangshiqiao', '8afad587480d524e014811cb1aa4000c');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e014815275ff80024', null, null, 'aa69805432178dc7b14462faaad35ffa', '潘国祥', null, null, '1', null, 'panguoxiang', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01481527f7c70027', null, null, '2474684bc7e62a6ac39f5e6e338be755', '金道森', null, null, '1', null, 'jindaosen', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01481539ecda002b', null, null, '07bc3fb9821d601d', '刘博宇', null, null, '1', null, 'liuboyu', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e0148153c5c32002e', null, null, 'd929265e091fac71', '刘博', null, null, '1', null, 'liubo', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e0148153e06b30035', null, null, 'd25de9714ae7b7ec', '杨曙', null, null, '1', null, 'yangshu', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e014815404acd0038', null, null, '3e7ec0be61c61e50', '潘一立', null, null, '1', null, 'panyili', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01481540f9ee003b', null, null, '59bd154969503359', '汤池', null, null, '1', null, 'tangchi', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e014815419fb8003e', null, null, '0c8991e507352d8a466579173fd32d62', '吴小英', null, null, '1', null, 'wuxiaoying', '402882e446efd9fd0146efda7ab50015');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482a9b7ef70046', null, null, '2d2c16b8d154a607', '张毅', null, null, '1', null, 'zhangyi', '8afad587480d524e01482a9a27620042');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482a9c3a2f0049', null, null, '603ace9cca414aa8239ac1751be9c834', '吴元平', null, null, '1', null, 'wuyuanping', '8afad587480d524e01482a9a27620042');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482a9cd718004c', null, null, 'c2c5d1074cef511aada82139b0b413f2', '付礼栋', null, null, '1', null, 'fulidong', '8afad587480d524e01482a9a27620042');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482a9d7541004f', null, null, '6bc8616022f327ac28fe2fb9de47fe64', '袁红林', null, null, '1', null, 'yuanhonglin', '8afad587480d524e01482a9a27620042');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482a9e62620052', null, null, 'da9b9a5bb4c239ad84119c557173cd85', '鞠文娟', null, null, '1', null, 'juwenjuan', '8afad587480d524e01482a9a27620042');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482a9f33170055', null, null, '1950f73c0f4e3e878487b4497814a7f8', '张静洁', null, null, '1', null, 'zhangjingjie', '8afad587480d524e01482a9a27620042');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ad35f7900f1', null, null, 'ff90d8114e6f79e6', '夏媛', null, null, '1', null, 'xiayuan', '8afad587480d524e01482a9a27620042');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aa056d9005b', null, null, '1c09f1b3fdf48af87e08686b92e51802', '石萌涛', null, null, '1', null, 'shimengtao', '8afad587480d524e01482a9a27620042');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aa0e567005e', null, null, '41971621412b4776768d73323f3f8534', '吴正坤', null, null, '1', null, 'wuzhengkun', '8afad587480d524e01482a9a27620042');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aa176400061', null, null, '96c324f5290b9cb6664785e474fee8e1', '张艳艳', null, null, '1', null, 'zhangyanyan', '8afad587480d524e01482a9a27620042');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aa29c7e0066', null, null, 'e4d553cfcedbd566', '胡刚', null, null, '1', null, 'hugang', '8afad587480d524e01482aa1d67e0064');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aa355250069', null, null, '677acc6b34b344ee', '肖黎', null, null, '1', null, 'xiaoli', '8afad587480d524e01482aa1d67e0064');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aa41703006c', null, null, '1537c7e15ce98ba7', '孙红', null, null, '1', null, 'sunhong', '8afad587480d524e01482aa1d67e0064');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aa4bd1d006f', null, null, '10c2dc1c21f62f835fc3e43700acc37c', '郑建中', null, null, '1', null, 'zhengjianzhong', '8afad587480d524e01482aa1d67e0064');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aa57be60072', null, null, '72369df1bccf8624', '刘晋', null, null, '1', null, 'liujin', '8afad587480d524e01482aa1d67e0064');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aa634b20075', null, null, '7f730ebd489d79373066285a71c29a9e', '杨辰虎', null, null, '1', null, 'yangchenhu', '8afad587480d524e01482aa1d67e0064');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aa6e3fa0078', null, null, '5bbcc127e02cbda0', '张琪', null, null, '1', null, 'zhangqi', '8afad587480d524e01482aa1d67e0064');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aa78885007b', null, null, '715c6b114968ca8b320abd6622e409fe', '杨爽', null, null, '1', null, 'yangshuang', '8afad587480d524e01482aa1d67e0064');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aa99939007e', null, null, '6de6d8d145c489f79d72b6392e6ff37c', '张红远', null, null, '1', null, 'zhanghongyuan', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aaa75a20081', null, null, 'ff52de510c75a409', '胡萍', null, null, '1', null, 'huping', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aab58b00084', null, null, '505a69de5e1c083952aab116f84623f3', '吴彩梅', null, null, '1', null, 'wucaimei', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aac01650087', null, null, '0409d8f5720bd8283407e66f260c0387', '夏勇波', null, null, '1', null, 'xiayongbo', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aacae15008a', null, null, '93cf5629647ff90fcff2b069ad8e985e', '高炎松', null, null, '1', null, 'gaoyansong', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aad6b80008d', null, null, 'fdd9b928cd4e320a', '李慧丽', null, null, '1', null, 'lihuili', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aae10450090', null, null, 'bb43c8945ebbfad54200d56416fcec6c', '江晶', null, null, '1', null, 'jiangjing', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aaf700d0093', null, null, '0ad7cdb693e479b55279ca5fe65d1bcc', '谌玉平', null, null, '1', null, 'shenyuping', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ab032190096', null, null, '46f957d21ab145b51f06627d8a8dd61f', '黄晓旭', null, null, '1', null, 'huangxiaoxu', '8afad58747e49a2d01480d0870720028');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ab2628e0099', null, null, 'a8395e485b73c998', '杨军', null, null, '1', null, 'yangjun', '8afad58747abc2800147abcfac2c0005');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ab476fc009c', null, null, '0d2166a9c5cbcbf0', '陈炎', null, null, '1', null, 'chenyan', '8afad58747abc2800147abcfac2c0005');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ab58f58009f', null, null, '93fe04b94f4bb0fa43ab922e5435c710', '杨广青', null, null, '1', null, 'yangguangqing', '8afad58747abc2800147abcfac2c0005');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ab68af600a2', null, null, '04aebb08de158df9fe834181ac32f951', '向堃', null, null, '1', null, 'xiangkun', '8afad58747abc2800147abcfac2c0005');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ab7576400a5', null, null, '05298ca9969df10c', '吕巍', null, null, '1', null, 'lvwei', '8afad58747abc2800147abcfac2c0005');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ab842e300a8', null, null, '21d433089c15eb165ba3a5ad0494972e', '周方', null, null, '1', null, 'zhoufang', '8afad58747abc2800147abcfac2c0005');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ac1404000ab', null, null, '96c324f5290b9cb6fd7978b03dd1e3eb', '张漾', null, null, '1', null, 'zhangyang', '8afad58747abc2800147abcfac2c0005');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ac2780200b0', null, null, '9b40fb51182975ac6fa3e88fb61dc674', '谭国林', null, null, '1', null, 'tanguolin', '8afad587480d524e01482ac1a91900ae');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ac3291900b3', null, null, 'b284bfe75612a8ee472ffbd0ff2c5786', '章亮', null, null, '1', null, 'zhangliang', '8afad587480d524e01482ac1a91900ae');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ac4028300b6', null, null, '57db221da57d2178eff98e5a9b9a6f6f', '张嘉东', null, null, '1', null, 'zhangjiadong', '8afad587480d524e01482ac1a91900ae');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ac4aab900b9', null, null, '91a08bce30b48aed', '赵波', null, null, '1', null, 'zhaobo', '8afad587480d524e01482ac1a91900ae');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ac5451000bc', null, null, '05f65784d5d235361587271b43cbcbcb', '王易菲', null, null, '1', null, 'wangyifei', '8afad587480d524e01482ac1a91900ae');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ac6368a00bf', null, null, '0ab1a3ad5c4ec28b15d9f58a5d4159c3', '田昌', null, null, '1', null, 'tianchang', '8afad587480d524e01482ac1a91900ae');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ac6d86200c2', null, null, '2edd9283d422e2f5', '杨威', null, null, '1', null, 'yangwei', '8afad587480d524e01482ac1a91900ae');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ac7bbe700c5', null, null, '577efffec37d4892a045f2e2f66592a3', '张明明', null, null, '1', null, 'zhangmingming', '8afad587480d524e01482ac1a91900ae');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ac897d900ca', null, null, '2039717aff49964234d443284374c650', '黄剑平', null, null, '1', null, 'huangjianping', '8afad587480d524e01482ac7fd1900c8');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ac932ef00cd', null, null, '7251b1bcddb2d33a217b29316bc5978c', '李胜兰', null, null, '1', null, 'lishenglan', '8afad587480d524e01482ac7fd1900c8');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ac9be7000d0', null, null, '72f6e2bfeb4f7bf9', '邱云', null, null, '1', null, 'qiuyun', '8afad587480d524e01482ac7fd1900c8');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482aca4ef300d3', null, null, '106889d618a9ae47', '李娟', null, null, '1', null, 'lijuan', '8afad587480d524e01482ac7fd1900c8');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482acb036d00d6', null, null, 'bcde5efc55afd776', '袁涛', null, null, '1', null, 'yuantao', '8afad587480d524e01482ac7fd1900c8');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482acb9bff00d9', null, null, 'd951366dafa2b84ebd0b65cec609230c', '蒋君', null, null, '1', null, 'jiangjun', '8afad587480d524e01482ac7fd1900c8');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482acc5b4400dc', null, null, '3252408900d4560b', '汤皓', null, null, '1', null, 'tanghao', '8afad587480d524e01482ac7fd1900c8');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482accffd000df', null, null, '1d84cfeda97324e7742ae243c2343665', '程贞', null, null, '1', null, 'chengzhen', '8afad587480d524e01482ac7fd1900c8');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482acd883600e2', null, null, '661aee2b276b744d76e6bcd9dfed7c2e', '彭倩', null, null, '1', null, 'pengqian', '8afad587480d524e01482ac7fd1900c8');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482ace677600e7', null, null, '4d74ea27dd5562201908ff64ee23e2c6', '汪静', null, null, '1', null, 'wangjing', '8afad587480d524e01482acdc49500e5');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482acef55800ea', null, null, '426fff4bdf8e1d302063098f95537d4d', '刘群雁', null, null, '1', null, 'liuqunyan', '8afad587480d524e01482acdc49500e5');
+INSERT INTO `t_s_base_user` VALUES ('8afad587480d524e01482acf7f6c00ed', null, null, '543497fc113d9366', '韩颖', null, null, '1', null, 'hanying', '8afad587480d524e01482acdc49500e5');
+
+-- ----------------------------
+-- Table structure for t_s_config
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_config`;
+CREATE TABLE `t_s_config` (
+  `ID` varchar(32) NOT NULL,
+  `code` varchar(100) DEFAULT NULL,
+  `content` longtext,
+  `name` varchar(100) NOT NULL,
+  `note` longtext,
+  `userid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_m3q8r50ror4fl7fjkvd82tqgn` (`userid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_config
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_s_demo
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_demo`;
+CREATE TABLE `t_s_demo` (
+  `ID` varchar(32) NOT NULL,
+  `democode` longtext,
+  `demoorder` smallint(6) DEFAULT NULL,
+  `demotitle` varchar(200) DEFAULT NULL,
+  `demourl` varchar(200) DEFAULT NULL,
+  `demopid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_fni8e3v88wcf2sahhlv57u4nm` (`demopid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_demo
+-- ----------------------------
+INSERT INTO `t_s_demo` VALUES ('402882e446efd9fd0146efda7ee400c7', '<div class=\"form\">\r\n   <label class=\"Validform_label\">\r\n     非空验证：\r\n    </label>\r\n    <input name=\"demotitle\" id=\"demotitle\" datatype=\"*\" errormsg=\"该字段不为空\">\r\n    <span class=\"Validform_checktip\"></span>\r\n   </div>\r\n   <div class=\"form\">\r\n     <label class=\"Validform_label\">\r\n     URL验证：\r\n    </label>\r\n    <input name=\"demourl\" id=\"demourl\" datatype=\"url\" errormsg=\"必须是URL\">\r\n    <span class=\"Validform_checktip\"></span>\r\n   </div>\r\n   <div class=\"form\">\r\n     <label class=\"Validform_label\">\r\n     至少选择2项：\r\n    </label>\r\n    <input name=\"shoppingsite1\" class=\"rt2\" id=\"shoppingsite21\" type=\"checkbox\" value=\"1\" datatype=\"need2\" nullmsg=\"请选择您的爱好！\" />\r\n  \r\n     阅读\r\n  \r\n    <input name=\"shoppingsite1\" class=\"rt2\" id=\"shoppingsite22\" type=\"checkbox\" value=\"2\" />\r\n    \r\n     音乐\r\n  \r\n    <input name=\"shoppingsite1\" class=\"rt2\" id=\"shoppingsite23\" type=\"checkbox\" value=\"3\" />\r\n  \r\n     运动\r\n   \r\n    <span class=\"Validform_checktip\"></span>\r\n   </div>\r\n   <div class=\"form\">\r\n     <label class=\"Validform_label\">\r\n     邮箱：\r\n    </label>\r\n    <input name=\"demoorder\" id=\"demoorder\" datatype=\"e\" errormsg=\"邮箱非法\">\r\n    <span class=\"Validform_checktip\"></span>\r\n   </div>\r\n   <div class=\"form\">\r\n     <label class=\"Validform_label\">\r\n     手机号：\r\n    </label>\r\n    <input name=\"phone\" id=\"phone\" datatype=\"m\" errormsg=\"手机号非法\">\r\n    <span class=\"Validform_checktip\"></span>\r\n   </div>\r\n   <div class=\"form\">\r\n     <label class=\"Validform_label\">\r\n     金额：\r\n    </label>\r\n    <input name=\"money\" id=\"money\" datatype=\"d\" errormsg=\"金额非法\">\r\n    <span class=\"Validform_checktip\"></span>\r\n   </div>\r\n   <div class=\"form\">\r\n     <label class=\"Validform_label\">\r\n     日期：\r\n    </label>\r\n    <input name=\"date\" id=\"date\" class=\"easyui-datebox\">\r\n    <span class=\"Validform_checktip\"></span>\r\n   </div>\r\n   <div class=\"form\">\r\n     <label class=\"Validform_label\">\r\n     时间：\r\n    </label>\r\n    <input name=\"time\" id=\"time\" class=\"easyui-datetimebox\">\r\n    <span class=\"Validform_checktip\"></span>\r\n   </div>', null, '表单验证', null, null);
+
+-- ----------------------------
+-- Table structure for t_s_depart
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_depart`;
+CREATE TABLE `t_s_depart` (
+  `ID` varchar(32) NOT NULL,
+  `departname` varchar(100) NOT NULL,
+  `description` longtext,
+  `parentdepartid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_knnm3wb0bembwvm0il7tf6686` (`parentdepartid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_depart
+-- ----------------------------
+INSERT INTO `t_s_depart` VALUES ('402882e446efd9fd0146efda7ab50015', '办公室', '办公室', null);
+INSERT INTO `t_s_depart` VALUES ('8afad58747e49a2d01480d0870720028', '资金监管二科', '资金监管二科', null);
+INSERT INTO `t_s_depart` VALUES ('8afad58747abc2800147abce00130003', '副主任', '副主任', null);
+INSERT INTO `t_s_depart` VALUES ('8afad58747abc2800147abcfac2c0005', '执法监督科', '执法监督科', null);
+INSERT INTO `t_s_depart` VALUES ('8afad587480d524e014811caef0c000a', '调研员', '调研员', null);
+INSERT INTO `t_s_depart` VALUES ('8afad587480d524e014811cb1aa4000c', '副调研员', '副调研员', null);
+INSERT INTO `t_s_depart` VALUES ('8afad587480d524e01482a9a27620042', '维修资金管理科', '维修资金管理科', null);
+INSERT INTO `t_s_depart` VALUES ('8afad587480d524e01482aa1d67e0064', '资金监管一科', '资金监管一科', null);
+INSERT INTO `t_s_depart` VALUES ('8afad587480d524e01482ac1a91900ae', '市场监测科', '市场监测科', null);
+INSERT INTO `t_s_depart` VALUES ('8afad587480d524e01482ac7fd1900c8', '物业事务指导科', '物业事务指导科', null);
+INSERT INTO `t_s_depart` VALUES ('8afad587480d524e01482acdc49500e5', '财务科', '财务科', null);
+INSERT INTO `t_s_depart` VALUES ('8afad587483689b8014839888277000a', '第一党支部', '第一党支部', null);
+INSERT INTO `t_s_depart` VALUES ('8afad587483689b801483988a19c000c', '第二党支部', '第二党支部', null);
+INSERT INTO `t_s_depart` VALUES ('8afad587483689b801483988c043000e', '团支部', '团支部', null);
+
+-- ----------------------------
+-- Table structure for t_s_document
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_document`;
+CREATE TABLE `t_s_document` (
+  `documentstate` smallint(6) DEFAULT NULL,
+  `documenttitle` varchar(100) DEFAULT NULL,
+  `pictureindex` blob,
+  `showhome` smallint(6) DEFAULT NULL,
+  `id` varchar(32) NOT NULL,
+  `typeid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK_qr3qlmgkflj35m5ci1xv0vvg3` (`typeid`),
+  KEY `FK_f2mc12eu0umghp2i70apmtxjl` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_document
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_s_fileno
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_fileno`;
+CREATE TABLE `t_s_fileno` (
+  `ID` varchar(32) NOT NULL,
+  `filenobefore` varchar(32) DEFAULT NULL,
+  `filenonum` int(11) DEFAULT NULL,
+  `filenotype` varchar(32) DEFAULT NULL,
+  `filenoYear` date DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_fileno
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_s_function
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_function`;
+CREATE TABLE `t_s_function` (
+  `ID` varchar(32) NOT NULL,
+  `functioniframe` smallint(6) DEFAULT NULL,
+  `functionlevel` smallint(6) DEFAULT NULL,
+  `functionname` varchar(50) NOT NULL,
+  `functionorder` varchar(255) DEFAULT NULL,
+  `functionurl` varchar(100) DEFAULT NULL,
+  `parentfunctionid` varchar(32) DEFAULT NULL,
+  `iconid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_brd7b3keorj8pmxcv8bpahnxp` (`parentfunctionid`),
+  KEY `FK_q5tqo3v4ltsp1pehdxd59rccx` (`iconid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_function
+-- ----------------------------
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7aed0018', null, '0', 'Online 开发', '1', '', null, '402882e446efd9fd0146efda7a8d0007');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7af20019', null, '0', '系统配置', '5', '', null, '402882e446efd9fd0146efda7a8a0005');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7af5001a', null, '0', '统计查询', '3', '', null, '402882e446efd9fd0146efda7a8d0007');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7af9001b', null, '0', '常用示例', '8', '', null, '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7afc001c', null, '0', '系统监控', '11', '', null, '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7aff001d', null, '1', '用户管理', '5', 'userController.do?user', '402880e5475432770147543970400001', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b03001e', null, '1', '角色管理', '6', 'roleController.do?role', '402880e5475432770147543970400001', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b07001f', null, '1', '菜单管理', '7', 'functionController.do?function', '402882e446efd9fd0146efda7af20019', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b0e0020', null, '1', '数据字典', '6', 'systemController.do?typeGroupList', '402882e446efd9fd0146efda7af20019', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b120021', null, '1', '图标管理', '18', 'iconController.do?icon', '402882e446efd9fd0146efda7af20019', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b160022', null, '1', '部门管理', '22', 'departController.do?depart', '402880e5475432770147543970400001', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b1a0023', null, '1', '地域管理', '22', 'territoryController.do?territory', '402882e446efd9fd0146efda7af20019', '402882e446efd9fd0146efda7a800001');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b1e0024', null, '1', '用户分析', '17', 'logController.do?statisticTabs&isIframe', '402882e446efd9fd0146efda7af5001a', '402882e446efd9fd0146efda7a800001');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b230025', null, '1', '表单配置', '1', 'cgFormHeadController.do?cgFormHeadList', '402882e446efd9fd0146efda7aed0018', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b270026', null, '1', '动态报表配置', '2', 'cgreportConfigHeadController.do?cgreportConfigHead', '402882e446efd9fd0146efda7aed0018', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b2c0027', null, '1', '数据监控', '11', 'dataSourceController.do?goDruid&isIframe', '402882e446efd9fd0146efda7afc001c', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b300028', null, '1', '系统日志', '21', 'logController.do?log', '402882e446efd9fd0146efda7afc001c', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b350029', null, '1', '定时任务', '21', 'timeTaskController.do?timeTask', '402882e446efd9fd0146efda7afc001c', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b3a002a', null, '1', '表单验证', '1', 'demoController.do?formTabs', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b3e002b', null, '1', 'Demo示例', '2', 'jeecgDemoController.do?jeecgDemo', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b45002c', null, '1', 'Minidao例子', '2', 'jeecgMinidaoController.do?jeecgMinidao', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b4e002d', null, '1', '单表模型', '3', 'jeecgNoteController.do?jeecgNote', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b55002e', null, '1', '一对多模型', '4', 'jeecgOrderMainController.do?jeecgOrderMain', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b5b002f', null, '1', 'Excel导入导出', '5', 'courseController.do?course', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b610030', null, '1', '上传下载', '6', 'commonController.do?listTurn&turn=system/document/filesList', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b660031', null, '1', 'JqueryFileUpload示例', '6', 'fileUploadController.do?fileUploadSample&isIframe', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b6b0032', null, '1', '无分页列表', '7', 'userNoPageController.do?user', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b710033', null, '1', 'jdbc示例', '8', 'jeecgJdbcController.do?jeecgJdbc', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b750034', null, '1', 'SQL分离', '9', 'jeecgJdbcController.do?dictParameter', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b7a0035', null, '1', '字典标签', '10', 'demoController.do?dictSelect', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b7e0036', null, '1', '表单弹出风格', '11', 'demoController.do?demoList', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b840037', null, '1', '特殊布局', '12', 'demoController.do?demoIframe', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b8a0038', null, '1', '单表例子(无Tag)', '13', 'jeecgEasyUIController.do?jeecgEasyUI', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b920039', null, '1', '一对多例子(无Tag)', '14', 'jeecgOrderMainNoTagController.do?jeecgOrderMainNoTag', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b98003a', null, '1', 'HTML编辑器', '15', 'jeecgDemoController.do?ckeditor&isIframe', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7b9f003b', null, '1', '在线word(IE)', '16', 'webOfficeController.do?webOffice', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7ba5003c', null, '1', 'WebOffice官方例子', '17', 'webOfficeController.do?webOfficeSample&isIframe', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7ba8003d', null, '1', '多附件管理', '18', 'tFinanceController.do?tFinance', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7bac003e', null, '1', 'Datagrid手工Html', '19', 'userController.do?userDemo', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7bb0003f', null, '1', '物料Bom', '20', 'jeecgMatterBomController.do?goList', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7bb40040', null, '1', '报表示例', '21', 'reportDemoController.do?studentStatisticTabs&isIframe', '402882e446efd9fd0146efda7af5001a', '402882e446efd9fd0146efda7a800001');
+INSERT INTO `t_s_function` VALUES ('402882e446efd9fd0146efda7bb70041', null, '1', 'ckfinder例子', '100', 'jeecgDemoCkfinderController.do?jeecgDemoCkfinder', '402882e446efd9fd0146efda7af9001b', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446f0a2220146f0b60c970001', null, '0', '协同办公', '0', '', null, '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e446f0a2220146f0b6bbb20003', null, '1', '公告通知', '1', 'announcementController.do?announcement', '402882e446f0a2220146f0b60c970001', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402882e4477ba0ef01477ba2582c0001', null, '1', '会议管理', '3', 'conferenceController.do?conference', '402882e446f0a2220146f0b60c970001', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402880e547787aab0147787dd34e0003', null, '1', '日程安排', '2', 'scheduleController.do?schedule', '402882e446f0a2220146f0b60c970001', '402882e446efd9fd0146efda7a8d0007');
+INSERT INTO `t_s_function` VALUES ('402880e5475432770147543970400001', null, '0', '人事管理', '2', '', null, '402882e446efd9fd0146efda7a8a0005');
+INSERT INTO `t_s_function` VALUES ('402881e74873fd2f014873ffd4bd0001', null, '0', '办公用品管理', '4', '', null, '402882e446efd9fd0146efda7a800001');
+INSERT INTO `t_s_function` VALUES ('402881e74873fd2f01487400d0830004', null, '1', '办公用品管理', '0', 'officeSupplyController.do?officeSupply', '402881e74873fd2f014873ffd4bd0001', '402882e446efd9fd0146efda7a820002');
+INSERT INTO `t_s_function` VALUES ('402881e74873fd2f014874015d440006', null, '1', '设备管理', '1', 'deviceManageController.do?deviceManage', '402881e74873fd2f014873ffd4bd0001', '402882e446efd9fd0146efda7a820002');
+
+-- ----------------------------
+-- Table structure for t_s_icon
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_icon`;
+CREATE TABLE `t_s_icon` (
+  `ID` varchar(32) NOT NULL,
+  `extend` varchar(255) DEFAULT NULL,
+  `iconclas` varchar(200) DEFAULT NULL,
+  `content` blob,
+  `name` varchar(100) NOT NULL,
+  `path` longtext,
+  `type` smallint(6) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_icon
+-- ----------------------------
+INSERT INTO `t_s_icon` VALUES ('402882e446efd9fd0146efda7a3b0000', 'png', 'back', null, '返回', 'plug-in/accordion/images/back.png', '1');
+INSERT INTO `t_s_icon` VALUES ('402882e446efd9fd0146efda7a800001', 'png', 'pie', null, '饼图', 'plug-in/accordion/images/pie.png', '1');
+INSERT INTO `t_s_icon` VALUES ('402882e446efd9fd0146efda7a820002', 'png', 'pictures', null, '图片', 'plug-in/accordion/images/pictures.png', '1');
+INSERT INTO `t_s_icon` VALUES ('402882e446efd9fd0146efda7a840003', 'png', 'pencil', null, '笔', 'plug-in/accordion/images/pencil.png', '1');
+INSERT INTO `t_s_icon` VALUES ('402882e446efd9fd0146efda7a860004', 'png', 'map', null, '地图', 'plug-in/accordion/images/map.png', '1');
+INSERT INTO `t_s_icon` VALUES ('402882e446efd9fd0146efda7a8a0005', 'png', 'group_add', null, '组', 'plug-in/accordion/images/group_add.png', '1');
+INSERT INTO `t_s_icon` VALUES ('402882e446efd9fd0146efda7a8b0006', 'png', 'calculator', null, '计算器', 'plug-in/accordion/images/calculator.png', '1');
+INSERT INTO `t_s_icon` VALUES ('402882e446efd9fd0146efda7a8d0007', 'png', 'folder', null, '文件夹', 'plug-in/accordion/images/folder.png', '1');
+INSERT INTO `t_s_icon` VALUES ('402880e447a63f6b0147a64a57f60006', 'png', 'temp01', 0x89504E470D0A1A0A0000000D494844520000007E00000092080600000083A57E710000001974455874536F6674776172650041646F626520496D616765526561647971C9653C0000036469545874584D4C3A636F6D2E61646F62652E786D7000000000003C3F787061636B657420626567696E3D22EFBBBF222069643D2257354D304D7043656869487A7265537A4E54637A6B633964223F3E203C783A786D706D65746120786D6C6E733A783D2261646F62653A6E733A6D6574612F2220783A786D70746B3D2241646F626520584D5020436F726520352E332D633031312036362E3134353636312C20323031322F30322F30362D31343A35363A32372020202020202020223E203C7264663A52444620786D6C6E733A7264663D22687474703A2F2F7777772E77332E6F72672F313939392F30322F32322D7264662D73796E7461782D6E7323223E203C7264663A4465736372697074696F6E207264663A61626F75743D222220786D6C6E733A786D704D4D3D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F312E302F6D6D2F2220786D6C6E733A73745265663D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F312E302F73547970652F5265736F75726365526566232220786D6C6E733A786D703D22687474703A2F2F6E732E61646F62652E636F6D2F7861702F312E302F2220786D704D4D3A4F726967696E616C446F63756D656E7449443D22786D702E6469643A43423339373334423745443044433131383746313935443031373539414536462220786D704D4D3A446F63756D656E7449443D22786D702E6469643A32353530423339433034443931314534393636344131443738464446393339392220786D704D4D3A496E7374616E636549443D22786D702E6969643A32353530423339423034443931314534393636344131443738464446393339392220786D703A43726561746F72546F6F6C3D2241646F62652050686F746F73686F70204353352057696E646F7773223E203C786D704D4D3A4465726976656446726F6D2073745265663A696E7374616E636549443D22786D702E6969643A3834463145413236363130324534313141464343394635434339394531353145222073745265663A646F63756D656E7449443D22786D702E6469643A4342333937333442374544304443313138374631393544303137353941453646222F3E203C2F7264663A4465736372697074696F6E3E203C2F7264663A5244463E203C2F783A786D706D6574613E203C3F787061636B657420656E643D2272223F3EB6B7355E00007C3E4944415478DAECBD079865577526FA9F7873AE1CBA3A0775ABBB15918404124124630CD86487076608E6F99937C636D8F3CCD87EC663CFC38C99B1C1388D497E988C2C900181400294BB25A46EB53A557575E5AA9BEF3DF9CCBFF6A916B2676C7FDF1BAABACD9BEAEFA84A55379CBB57FAFFB5D75A5BFBF8C73FFE9A57BDEAD59FFC9D0F7C087FF2892F224A9560E6CAD0AD34A069F85F5F3F025F718C38F471F3A1ED78FFAFBC114BF3E7FFA3363333F3E5DFFEA33F7FE167BFF120B2E37B911A9C82992D42D3CDFF25F81F25D9472122B78751DBC1E77EE78D30CF9E5F7CE167BEFA3DE4B71D466EE200AC420D9A61FEFF6E6144C5435E06681D4FFD265EFFFEA323FC15A7830F7DE93E989FB9FDEB48D5269019D909AB34484B377E44451B29B1625DACFFDDA2F0D2F99818D6FA63450DCCF59F7F44949B066DE64AF8FB273BD0A7E757601587E9DECB3F8242D7F94FFEABF1125B8E9EFA391175BCFEA80B8FA475EBF208433D0EFAFAB5AE163F2ABE6DCDB760BA610C339D25984B31A46BFF8A3F8E461B0D9F12AA76C14DC71122CD446CE668BF3DB8B1A55440D7F8B85084E9AAC7FB6E002D655035D2F0C31EB226451FF277BA8550135F11FE404DB4A7B989FF494F7351D6CAB4449FF9CFB0FED50AFD824D27D6AC2B772DFF0DB41402BAB6D0C8C273D2D09767D10A7228F7BA30BA0E5A7DAA866EC3D74B68E883A84D6D87DBB350E82D61B252442B4CC3C814111B068C988F1545E1EB294F102597FECFC47F5DA9A2BE7E7FF1256726A6085C17F1D3CD6BFABF3E77168B4145896506948D2F1E0C2918611F8691829319C4A0B682C2F1AFA07F3E87C07751CE543098CD20D33E8FE2F0301AA042845BD16C7471C03A85F85C0A2D771C6E710246790CBEC5D7EA39B25CD0CD0081172808A8999A7A7F8B4A11096A56A2161BA777E0FDE8BCAF48D72F4978A8E0BB1645D46A5A4A74690299683DC2464F01AD643123E5CDB9B84606AE36886CD080934A21740D6CEF1C4361E6ABE8BB6D44D5ED48994D042B4730B9ED4A74DB67918D4DAC041E661EF81E2A95023AE74AD837B21FA78F3D84B4EE63D7D0384E3C701AE6B667A178CDABD0740C1416BF89C681972095EAA03FDF87934F21633A08235F095D824DCCB8101BEB9C2082FA1D9442444FC1C74B41154C727B7A2D6AACB8FA4BD8DD476AD1D6DDAB162742376877710E8E96C3AEE81C2A6B47E03A75EC192D62FAEC5D586AF690C9A4D03EF10D9C6B04C80C96F1D0FD5F472695A1B51AF0020D56D0874B61B5FB4DEC701DE4D30656E657D176BB709AAB088F7E929CF75E0CBFF0DD08971F8571C731783FF69B0C11B3B8A60C3CD0D6918F053344CAEA758607F87DE8A14F5C613CE5E5695AEA33FC40952FB2B37FF19BDE153FE90D22377900BA9DBE44919BA61655538884F2F62338067F4A0F21135A985ABA13E3CBB763A94FEBF77578511FDD7E0F7DDF46BBD7A190B38CD101DA2BCB1406C19B4537ECFB081CC67BCBC400415D8BC21F28A4F1E4DC0A72C27068A9792D44CBA75BEF35A097B6A15024086ED73153BC1ECFFDC99FA5CBEF61263B0EF416111323EA25BE4F8FC28F5CC416953414AF4421C79A829DA652D44BC3B84C1ACF25073DFE47294723D61106A1F24C7E7E90E1C986B9B288A9720398BF1BE73A7D144A252CD07D773B01FA9E89A5A505389E07DB6E23452017A518E31D0F19DB469F566759F41614C974BD854AA680736B6D792B3EBF4594EFC1CD53A926B662762EA0C0CFA11D55D165E818C0C3183861E26C6A2779820FA33280B18932EA8D3A8DDD819DD5551A205ABF7731289BC0B0DF6BC12290BE1402AA29D6A42B37AF27D74547E9173268EBD19056A2D13A7D5AAA5698A2F1543070FACB483FF937B861FF38065A0E1E8E3A28ECBF0AF7DD7B3FA667CEC0A3959A760676B18892EB627965015AB182B40F647219ACAED195777BB0B2590C16F2588A0C4C2FADC2A44719191A40A3D5222BA09285399C5B5E40AFEF0B0782DDA325333CD46A2DACAC2D60B6BE8A2E956A60DF21D2C44984DE2C15929F81428E5C5FE5007C7E8612DDBF085DA7EBD775328D28BAE851DE54097C2EB586405D17DDB8D785AF12A712CBC9A57BE92A7274A5A5B9A3C89FF922AAF112F61CD88AA38F1EC3EC4A1D3FF6B2D7E2A1BBEE40BDBD8C015A9F17E968751A88E8CA03828162B94A94AD63A155C7805145B1548595CFA2D37589035A286649DD28B096EFE0DCCA0A6C0A279BCFC3324DAC52B8797A86060597CFE8B8FEF2CBF0E013DFC7D1D9FB31561D80568A903FB58C654A323407904E41ADA66EE9305205C069A05B9F57F04927350C23EF9248059962E592A912AAA2E1D2C9D14731978F71D7A07BAE781D8C9DBC1B03C1519C9E3E82F29E43F8E6838F00A9320E5DB113C78F3F8823B3F3D8B6632F9E7CE2310A8C588054CAD40B74E97DA26BF2FCBE8776AB4BAB0C51CD97B0DA5D457570144BE7E769C53EAD3287568FAE9A422763A345D749D36CD8A68E40796E13690AEFB1B9735406170C1C5858EBC16C3670CAB8055B7B1FC56C308CF197FC1C1A6DD2BF42097EAF498F6590FEDB08B568DD8B5D1AD95163F79537BC778DC838551A54AE48A3955D944B4FB26D317FD6F9B34557EB72E11D3787E127BF86AD95351C9F3E01176944561687F7EE428731DCE33D2FD01D7BE4EF69CD05F11DB93C97D83611D0DDF6E8D26D0A2C93CE62746A1CBD8E87B536AD98D6DA5B59C3E4D02016EA6D022F0A986EDCA6602CD234B7D584954E0B7140CBE9F335C800CC94028D855C41454587BF8BFD2E72868B766301BB063A980896D13377201C1C80EEB4C81C24CC1367A4F3B4767A82989E55D1BDF8E2AD352F05EEE4C31917311BADC04E12D895CFD109E4EAFD184D3B853DEE714C6597D09F398D91F210AEBFEE19689D7D02F38BB308B3253C72DF7D086855F595164E3801B2D5024AB93C4CC6D13EBD86EFF9B46E02B5906EBE57C4D85005CB7562EC305431FEE4F959C4368179275421AF2FB90C2A5CAE5486114468132C6A7AA492C08D5E0FD9B4A5C2486CA531942DC225EDF39ACB4853191E3FFE04ACF2561CBE71022B5E1BDFEADAB86C4456B580D50631041547271B110079B1DDBDB1EBCA1BDFBB1AE5609786544A327EDAF6C5665D4FDD0CA98ECB853EDF74511B1CC61F3C730837B90F637CA20A8D14EBFFFC955FC6CC93C7F1C9DBBE023757C697EFF81A06C7B6A80C6A96DC7C64A88452218B2E15A04D8026A695CD6490AB9650E4DF9B5D82B27A53A55F352A459E715CA3305C024008E0A29B17875C965CB62569408233C6ECD8A7A2C406FFD7E5637DA40C71DD013A64120E9F97251670A9343EC389E7A7B1347D0AF35E09575FBE1B8B0ED945BD81BCA9277992687D0B0117F732F65CF9CCF7D6A33C5D3D5D93E4EC93FBDA842BC9666B9296D18559E8F0196BEB8CCB375F7B257E617706271EFE3ABE74E7D771F38B7E0C23BA838F7DE2AFF1A9DBBF86FD57DD80EFDCFD755CBEEF1940D0C2D4C820ADB88156BBA3DCB680A888A1420F62747A7DB88D06E9948574AD888080AEDBEB1284A5B0B65A879D329191FBD189B869E1D9725921FA66BBAD405A46429002E81A921C9789123D85C82F2DF8286393B7C70C01548AC0C5D4AEABD15B3A819B76C578D5A12A2686F35826E85B6E85C818BE12FE0FFEE1A25D8CF1143CB214FC30637CB259B33957C21EC59244053D5AD2325278C7B30F60CFE93BF0A53B3E07BDF3047EE60DAFC7684EC39FFCD52771E3CB7E063B26F2F8D85F7F0A1105B52628BE54C1F98579A2F1261C49B6D08F9A04772E415CC7EB43A3E556196F3D5AA84E0050ADD5103A2EE3BFF07B9AB3D7A5A323A02356485119B2BA9429112F1090690CD05D7A218B8C20C5C7E4C9C773D91C0160441C6228A018C514A66DA9BF89FF9E3F771C4E67150F3FFA7D3C797601B7EC1FC2AE4A1A5F3FEDA0AD65519614B3C231C67A6E4ABB28172DFEC6758B1F82A12C7E73FFC962B961841C5DF2C0C0045EAC1FC1EAA9BBF1E8B7BF849D876EC015072FC7C24A072F7CC56BF1FD7B6EC7BF7BDFFF832DDB77C2A05B5E6976D168345127CFAF65B248970AA8550789A61DF86E4FED3A16C8E7D79A6B942F63353C3E2F4696742EA052A488FAD2B4DE2C819F4D41A4531A7A814373B0615916BD44AC3C434CE19A7144F74E6173D1427AA614FFDFCA6614230295568A9606E835D3E902BD458730C1C099C78EE3337FFB293CF2BD6FE3177EFC7A2A978D657B981EA49BB85BC944C61A2EC63FE5EAD7627EF0F230919529D9C5CDBBF4642323902C5A750C6FDCEEE0197BB6E04B27636C3DB00B3BCB6968A4737AD8C3DD9FFD28FEEC339FC7AEDD7BE01065CF2ECEC18D42656912DFE5C35814CAEADA0A51779E96A831BECB268A8D81B151E449B0357A04974A615A048154889814AB4885B3D386DA5C3168C9E3C416A98C853E15433C47415C3911BF6DCACE1C19A46DABB02496EE741DB521239BB55DE28428F451A95519E75D74E8FA73E4FF7C23343B2D9C3B7E04AFBF6E080F2CE61051992C7EF058D355BE6253D77CFD4A5CBDA273439B5A6BA7304EA4F024961B2E9EB7B78601338FEF4D9FC7A1FC2A9E77ED3E2E8E8D7DBBA7F0D9BFF938BE76FC2CE6165719C789A209BA1CBAE18C02A3A114CDA88C984F41D8149400B5526580964CD74CE1D79766E1F53B28568A2814F3B4CA1C6A9502464961074707D1E66B6EDFBA053B77ED503178716E85EE1DC85169EA9D0E862A358C8E8DD0F2E999749BC226FA773BA480544A38EABD627A8976B7AD424626C53011F0BE08E86255B741D6D15AC2771FF83E5ADE38CCA1FD281643846EA89254B8087BF6C6EEAB04DCE514B8DB4CC1AB0A195A54E047A894F398EEA4B13FBD8A67D59670C3A143F89BBFFA6B3CFEF851FCE107FE0BAE78E14FA0BD388F63C71F43D3A5D5BA8EAA2110301A86C9B66710046A432460CC36E9014CD2A6F6DA3C8C28A03BCF63DBF83815A38FDA40195B876B3005CCD15A6B83154C0C0E9294F379F42C69E29CCB0FEC40CE26E8B34C5C7EF810D6EA6B2AC96366D2548A0508402FE70BF07D476DE6F89E87C14A1911C1E4C2B939E20A02C05C8E982354C91FD902253B453E934369F55E38E6200A3B0E1243B4D6C5BDF9D97B33D13851747D53AB7064B3C5A4CC7C0A6BC6CBE00F2F77F1922BB7E3C939037FF6C7EF27A832F099BBBE852BAFB9058FDEFF6D7CE9EB77AA4C9E953294A57748FB7A8CADF9942AA4A2FBF2287C9F169E439AAFE9F59A28660BAA646EC7D818EAFD2E5D780605CF552076DB58054B2B6B08D7EA38BC7F1B72136538E2AE29A9467315575F71108D6E173A5D7BB4B28A25E284A9F1098C50E08F3D790A31ADB5C0D7EB4589D22D2D9CC7AE0307A90414B6D34344EC502A1410D4C9F1ED2C7A1D1F0B6B0BA4A505C4B3A7083E73C8A4E9B1DCE0A2946699DA7A89109E22189BB519C305638CEE46069E5D8B30460B73E22E6EFBD45FE3B35FFE26464746F0A217BE1C0FDDF76D3C72FA1CE3B745F46C2B20D821000BA8A806C197A114D7A575DA28143228E7285CA2F52ABD48814A61678B6893BB6F2DD55029A4912E14192A3CD49B0EB694CAB8EAE00E8CD192C513F449CB4C1ADFE3DF7F82C0A38F83E343189C9CC2C16D5BF1C92FFE3DA6182AF66C1DC7A478A8B979341B1DD41D8F58A38420EBE0D4E30F6378742B5656EA585858C055D75D4F8A47BEDF6DA0420FB0D60DD1A2878A8F7C08AD03372077F5D5D0BD458471FC54A5E08592930D77F57BAF78E67B1B2AC60FAFF3F88DFDA72B9153585C008D0BBE73CB368CA4623C67A283CF7EEAD3F8D0676EC3B5571DA4800A78E2EC13F8EEBD8FAB14A7EC67477C8E58B045252913708D17B2288AA0A913BB87CBB87CFB186AE90C064B256CA9E4181288E0A9DAB9420ED74ABA96EB1992EF978401F079D7EFD9C1C7A6697942C50830E90952F92C26B66F41B7DB237523DBC9A7313C9427CDB360DA216C2FC2DEEDDB14193672598CD60618D7F9C20474F9DA189AF515B5CB67A72C349696B0EFF015E85241C2C8E51352A480B2F1D4434C3652BAE91D30FD59082354162FE12BC65346B8A1A85EC5F8F082E0CD0D8FEC911E2615AEB4D476D7C583AB06DE7DB88BF6CC43F8B38F7E12461CE2F4E95378E4F871CC9D5B448696221B1CB21D6A9AA4578C9F13E59472D513C325868B10E30345EC267297AA58D96E2AA56DD4C8080E4E6D25A82372CFA6303C40D7CEF87BF8D0E5189D98C4E44819050AB5542C42A7024A756EE0B4E921F210F51F1A1F43BFD34526CB65223A2FD02D1BF450A3C383047A4318674CB789DCCAD59A7AFFA505C6F650A717D3D071EA48A52A6831BC88520ED36BD49B1D3207576519D31952BED947D5B658F5F07311B95D55512445DDF126797C638F085ECB2245FEABDBC67AE27EE3AEA48A26529BC03DBD8A8F3CB38F6B8743FCDE1F7C100F9C3CA780D34A878B476054CCE4190A7CF81D22F89C45B46C284BDE3B3E887CCE4689487EA45CC6165A7B861C65B5D5C0E45015538CE92572739FF42D45CFB18D606E9A42DFB96D1BC6A718EF1756B085283E14949ECF298B37E929841148658E24703239FE2E95672831C8E96DBE37499B9581D3F389E24905CD1446AB0538AD2ECAA400532363985D5D41A3D55139062DAD63A05CC4CCB973C402596CBFEC20E64E9D54C99F7CB14205F1D179F4ABA83DF7DFF0F57DD5DB46140865F2C6C65FC6DEA71238A344CAF63AB9DEC84B79552C87365E70D920DEBAA38FBFBCFD5BF8F4E73E8F3857C06ABDAB2C43B72D0A9DC0C72535CBDB74C33AB6174C6C1DAC111D1BC8526B2BD91C06D21639B605A71F105917E94A23A504856206E962090B67CE93A79B74D743289472F09D0013931388533A056B290F23DBAFA6DA8889F93EA468A4719E43A0486508480DAD548EE1C556DEC7E6F33A047DF99C49466261CBF6499C78E40876D3FD670A25E2948861A283166960D14AA323F504CD3642BF8FE1ADDB94D2F9FC7C161533725A088C2A460EDD8CA05187D407AB526E95CDDC5839A80A9C248D976CD76D74758DBC43C8F759EC6B78967E025FFCFA43F8DC6DB7A31599B089D23DC66E2EB3DA8F17C46BAA644988897C910A60806B4F176BD0F5DA2853F0B6219B2721958182CE52387C830CDD7591E8DBEBB8B8E2AA7DC8300EA765DFCFA2F50A8BCC6768C169B282169530293435081E4D2A972982A7D395BD738D3F97CB554452856C66A9832DE469CD3A85D6248AF7F9FA7B0FEFC6B39E751369DC0C32049DD7ECDC850C9FFBE8F422CEAF2CF19ED2049C8398230D1CA542EDDEBD0F27679E448BCA53125640844FAC49BCA3ABBD85A40637DA043A87F5BD70436D666D788C0F68C5ABBE895F7FD624F6661EC747BE7202FD768BB48E6A414E2F1569FDA715556769AD150A7438A36198602A479055A21264A82056DA40484BD72C4D256444890DC6F441A2712B4525B0F3280D0CAA3D7ED500416E9FCD1565C79DD8D2870D822D896E86C4565E44E0721B02B123D354566ED20B1AB696E01F8FF48CE1D0CC5AA8112774D71AC40DE731BE7327DCC61AB46811DBCA19542FDF8B2E9D55B7DD46A3D746B132849D533BB0E2310CF01E2409D4A70708F95AEEDC0308880D0C2A6540EFA0EB9B43EC94E0635563BD7E6D2877A7507B74B563E378DD15C3F8D6C7FF12F9420559C6E118CBF002BA750AB7DFEF43F6C62C0A44B8F2509E162D71364B8B271E295A66526A4D5E1F5120690A5E5C753A5564C84AC10A4D65C145C67689677A2A8514252A2E5C0B3DC414A4E47D2C85656DC491283E25452D30D6BB8A0CABC0D82B3902C6DF384D7ECFD7974D1D2B454FD125DDF330383C8215328C355A7F6E6C0A3B9B0DBE4E06A3835BB0DA76D173FA387A6A06F34BE7E0F2FE53D51152C90873E4F619E2052249F8AB27B078EF97B1F5B9B7C29F3D4DEC10FF231F196D98F7BDD02EB88157A42EF94C961950DB633497CE6076A58BD9668827683583C59C2A67EA3B3DBA5B0B59BAFE142D82E01C55823C3BCF5040875D201797F4ACEAFE11E085A49A44F08946F76F51C87A4A981385C61021D5B9D269A372C3AE43EF96A77B975A2A07A1B856FECD602CD60243B970456CA40B06D24F1EAA3E338D56AA33DE0B9D8CC328C10551165E3746AD3088A1C95D18199BC0966D3B255BAC30C9D46011B98C85E16A9994B3068737B534730AB1E36072629C1E4553212C37B803D35FFE20D6A6CF1193A44876A27FB46E1B231325F8F84233C5865DA6BA629D82E202449187CF3CDCC213DE2096CF3C80A15211CB75DA382D570A2324D2D9F479594A61B890612C345110B79DCDF0F974EF94A37C3718B035522C9B8213F91A0C9642B9745F7E4FD1F167F96C669C4B0603D0C2A4EE35A4B5EAB22BA6CBEBE455A840BA40E09625A573D53D587C4D3D97A74FCCA958AFFA3872253E8EAFA167699974CF149ED377F85802358D287FFBA82A06699F5F408ECA52233E981C9612ACA4F41B7611B367CFA94D249B6FCEDBA04EB690AB1DA2E2C9EE89019547DE70796849EBA784C08DD4AC04B224DD2FB213D669B470A7BF05B5D5FBB16B6A3BE669F99228D155DA1870B8F83E7FA8482CA5EBCE315ECBAE98F4A4A9BE348239C93922D0549383FCC5A087F0FA6DC901AB6D5555A4EBD26688DC2349B0D05D8B8788B8B822C850A7056B54084BF67488EEB3867A75C3CCC3348CC4B2A908B6C5BFD19D8B57D0A98CA6EC06D646603244C552C451A9A8C7A6E9CA3DD7C2C4AEBDBCA722066A255CB36B0FAA54DC7C9AEAD66DE1B26BAEA24773B0BCBCA86A00DC7E88D6F2328A7B0F61E8C01E78D2FCB1498518EBFC2A2965DE884B154FAE17532AE0E691768D8EE13DE9AF62EEDC297CE3E133B43A9F6E5453DBA65EDF458A808EB41D5BE9E76BE922659C513B6329523C4FD2AAA6A5C05ACAA40761DCD5B9E8B1D74FCA9905B548C9B8401672698DEE3AF218B3F9DC88713F1449D3AA6C8604CD16654B5198F41E21713FE33B48D7E4B146A1ACDCAEEF50617D1711C34B6C1794D58BDB27F4534D99E2FEED7C8EEF4D5A99A9105B108C8E0FA3BFD2C05025874AB9845D93E3709B1D74979631C89F73A47D0C4CC856B2D033292C7FEB3F91252CD12852CA136DA43C2E5CFA53133F36781356F6C7256122655179FAB83B1E69E154FA1052A940E5DFA51F5D20AD4D5E6E5138555A7B918B66884BB5A40A46532550A60859255902B54F2E5BA336DD6FAA4CEBCC8A30ADA4ED9DC156972A4ABA6583D44D90B34A151BC9FB24142652255AD2A1A37A5C19F3CD5441E5CCA380CA285D308CD3B271A353C8BAF41D44B23340CE4F5E291DBAD21F17D2CB087EC9D285A70A35948686313C3E0E674DDAB14A4A6146C686E1F179255B143685AE246CBA0ED2790ADF8BD03C3D03839F23146FB609B05ED736A5974B4FB4584A98E8C2A7DB4DD4773F1F97E756D0989F419F0BDEE87555858049AB1441176891B699B49D0AA736641B55CABF65588169AA0C208100819CAEAA65ADC8545E458A49C4554BA58C161B4978D012A044E9AB522C595789E5E2896229A332A46347573C3F499C9BEA5ED57BF2BB089FD2E5FB4B358E03439ECBCBB044F844E79660FF40852029ABD2E20CB6EEDF876D63832832B4E533B6CA00E6A818ADE69ABA8732C388C17B743A75E40EBE08E3575F8DA0D354F7B229BB738AE3E207B5581BDA22A325D65F228FD2BB2B38D38854EC3728CC808B1C10E566CC28195AC2789FA260A5C459805326A529EB97A6439561B393812570F9D888802C456BA3811B51922F10A30EDD367F5FA4E5F6F9180240227D3D0ED5BEBD51C82BC5487217E924E2D97C2F4FEAE992F9374EA7C718CFE76449E7480335FE4D13CB4F090594B6721F369FE7CB9D8802F05E0D52565FEBD2FD1731323E85C2E9335476C063288A4953A9328AB9187AA84AB70ADD34D64EDD835E574AC1D2BCE760539A96D5B6ACAE61C3059F4C95D29450ED38C0237A0543FCEE73F1632E8268BFD0B70E796E59E8932AFA3714F73668B2BE2A6A08D4F6A564D10CBAF18888DA95AE542B4F7045B71C4816CEA3E1E665EB8CF44EF8BCCDD7C8A98D21932E5F1840A03A5A22A53852512BD823E4BDE81E55CAD7E18475A402226F4B2666F8B01CFE8DCF95224D8B802ED44939B5ACF220E29A75FE1CA75DC4BD2615951E224EA910529A1840A558423EDF5334D3666C2F102348B9765FF5057245F23568F3C7D039FD30723BB623F0D7B01993B6F4A41666E3DD4B5260B49E92A485CAC26DBFE5E7305048FD2047E1339613BC498C96AD4D3714D09758519FF150E59718575587AF46579B2D12557321CD6434898AFFD215CBCF644B86CD24D8F39C24152BD91AB78FA0DB41CCD0A2AB9DE1A408C20FF87BA26D01969EEE28030824D1239E9F56EE8752B52B342FAD308249EE18050ED67D93CA354A8F9FBCAFBCA661C86E1F958E3860726018830335E4F2792A858B8CBDCED55D5F9574538F501ABB0C9DA54662869BD4BD4CC38AD5C80163BD0E64A32F89B51EC1D0F096328C237F814EBB0F93313063C8281371E786EA723173B45447922FB4740AA22C3C585C539CB842D9FE948A599F0230F41485132885B1B2A904C071918DB087C04ACAA4A5C2486AE504459BE2CAA543460B54B56DC4D734280149A8F0E692BBA496F9DD2EEFD95461C3122D900A5C15130CA9BA54D5B24197DE400A31A330E1FA3227C788550EC16F3BA88C0E60800A9AE26BB77A1E4AD5AA6214A650436291DEF279585B9E81EDB7BE046E7D51959B9BF84167D346C9414FB09DBE3E276A23AEF54A52F53D49166518DB569F3C8E73E108E3670D790A3B083C252F995C259C5DF3287C02372D2D551842031D253C484A554A9DC9E123A27BF8462238016386A1EAD56D33F90ED2B914954A144525E4EC5CB227AE009CDCD3FAA42F7A1179AD50311D5DE5CC352BD9BF90274632F346042AC91C7A02E9C0D585909919B58D4CAEA71880BCAC2487847544D22A450C50A4AB2FE7D2897533D8B708E6DAAB757EEE2CFF5656F7669B9E6052F5DEB19EAC961AE1A427B9BB8D904B12E30560097AD636CEC95F48404AA144ECF7A00D1C4050DA8DB0773BDF380B870B97258F978C9BB4A5FA5C3C4F10B293246B32B46A898D5A8631D6219CCA69E84ACD1D63BA21833C24F72D569C492B6C902A54D5803293BCDAE2EF425A6B2A95B44B8741472960244D1691440357D5CADBB4CA8002B5A5CC8BEE5D9269267183C20A76915E8542A71732B3860272BA4D6E1F8A87A2A8FA8E3225558069246DD71EFF96A567A8D25B15521974DB5D94CAC3BC9F2C5666CF214C671802AA68CD9C4373661E397A82C88F9F5AB738A947DD287007B518B210F186C2C93841ABD29328D4CB5D853DB917E5DA205617165423821F04480B93A24505EB79F188A04AEADF23298D12E377024587040F78D2514B979AE6EBD165C0A7F02DBAEAD82A5348914A8B0A6B894371AB047CAAA1828B4B4B8DBD9E0A15523F2FA5B069334F82405E6D64C48055358D4E5C10287C508491CFF17B8D38C183EF76E92A23D5E829E0538A2D0351330ACDE0937DF4205B8C967C067AA8C9D12AAAF43E67DB6423313D0EBD5948972E53B13CBE4EE99A972253E5FB4A5F5F12809F0AF41B15EF9312AF7853B238EBD5FC7192238F3D3452C30818F774B11095AEA57559D24E15226B5A0C01A6124E52A716284B0FD7132D61BCBEB928982114FA27D9BBF5DD3655684FEF92CE25342B251939D964118890E40422D2B2980A6384BA6AA20C252D9CA680251C44048891A65E330C0D55631F0982F73C65857626237BB9A49F3A69585785894CA6028F144FEE30EE53F9ECACE2F42E01A5B4703D6BCF768C16F32A2C39DD26430495CAA1D0A9E9E97885B797561B4692B6DE0C51989A7EA1575BDB84F26AEDC24630AD9EAE95421D1C286199483B3029BC40B65A69A9045FE5BC08C2564D07227C53A7BBD62959BA7EDF140014A952A930B454AA5593BD753ED76B132D971853ED12F4811104D2FC48EB12BA18D33A55651B152565A588E26996F42816C157365540CF69D3ED7B506D1AA2A03D87342EC29ADC53A7A55CB3688F54FC7854823E15B1D558517504DBC60668F1814AD498950A1C41FD2AE414A8A8110EEEDB85CF1C3D81742ACB786E225FC9A2D76E12E557517FF45E442F67E8B034956EDE8C6A67D517AD366C36833DAE174448B630344374738348D135160A39CCACF9C46281AAB32F12F89469AD32C502A450592A82476B90546E877F974105469042D7EAA092A515F55C946C5755E3C4344FA7D7405675CA71216D82B53E558D424B4910E6FF873DC6785AAD2EC38F7A0C390C2D0E05282E5CA667845A521B1849C306DF2BA242B448F5961AAB08FB6406C59CCA1EC6F40843B521D47BCB58E874908BC433F0B589512CA90C12AF22C922DB427978083B074BB8E77C13E95C19CD569D8A6C60C69A42F939EF81E9D5199ECC248318479B2478F917252D4D1B6CEF2A7DAA220B3F64C65F4275EB95387DEC51BA9E27D1F17454887C87C979A53C592C261D519836DDBB43E11131D5E92ABBFD88BFEBA3B916637AA98D95F69AAA8FB3C8E16BB93CB64F0E63B25844AD38A8B003823A8A038308E4757949C74B448069A78AD271876E7D097EABA3267BCA766F9D421157DDA7A0175617D0E77D2C2CACE2F4F212ADDCC3EEC9AD181F1FC0E1C3D7A2EBB5959057D63A687A1D94B53E0AC409A18CE1901433434D48C097A7F7B972DB16DC79E23B0C0726A67B1A2608267FE97006AD9BF7E2ABE716B147C25AF4B42C67BC918257CD8B6152E1696EACE4A375054B3E510F99521538F82654E67E15CB27096C88BA0B851472055B790549E268864F0027D66760BED7A775F5927C3C85777E7919737375749CDE3A8DA3E068F1F623364A9532F69687F08CCB7660A85285265DAF46D2C123A00A74FBBD3E05CEB81C7AC212F2081A0D34BA2D9C5F5CC3F1B327A830164ED757F0C489E3288F8E1275E7B063CB56AC2D2FA0BB3083DEDA1A0E5C77BDCA1348C76D86CAD66B31ACF43B04967C3F7A1A6B507AF9C82C48072B8379AC89828D5D869BE6EFC6077FF19D38F89A9703C7FE1A6FAD3E1B772FA6B02DE3A8BCC57ABDF546965E253DEA4664A83DED8DCDDC45EB0321089864687EA78FE9A00A23732DF4F4C370097A52DA886A6C14A027F57032904072EB73CD36961B8E7A059B342C66FCDF393189E75D79354AA532CAA664D33C74881766CFCF618D687DA05CC602AD34C3D89913A027D4CE12AC404027533018EB4315DF7A70567BB44C699F6AAB5DB40A9526450BDC79D9287EEE152F2616194449EECBB05529662F36B1B8D2825D2EC1E6EBCCCE9E80D331B073DF7E7A8F05B86D861EDB86EF75F9BA368AC12A41681F99033F8ED797BA78CDAD6FC2F65F7A17BEFE81DFC763EFF97778FF5FFC2EAE1D7C1D9DD379352357E521A20D167CB26F1EA96BE37D7D62FB8EEF62A5388CCFBD6D07F4875F8A9FFAE9AF2028F0772BE4B307769392FB2AF5E9F648798C58B54C39A183917255B5498D0C9471607207C6470791A3A5A53265D54A25BB68AD953ACE9D3B8BB5461DEDAE472B5B433E5F22E0E39BAF448A2F0BC7B789A485DEB95D97A0AEAFBA7053A470831913C3255DF5CE67F2157A920CADBA8F562FCBC77B0C3F2E2A7CEF2DFBAEE6737A589A9DC184BE0575D2D2D38F3D81E1AD4328D488D2BB7DF804A3A59C8F5479040F4637415BF822A2CE316C7FD727D03BFD243DDC04265FF70EA41E790837DDF27ADCBFAA6154D45B38A564120D6D435CBE79610EBFB63EC27F43D99C0292C9D8AF99D4047E73F00CD22FB805FF351AC0E5D61A7EFAF56FC16DDFFE261657D73050ABA81EB79882D0E8EA9BA44D83D52A4A7929B6B409FEB2B0821EDCB505C66B0FF6F69AF456C1324BA8D46AC84D8C317C3C81B33367D16D3529D81E5A2ED94355F2F305D524214A1833BCD99541C4F555F278C66B53B8B68674A6C4B05042AF4360D79CA1B0638CEE2BA23C5023D7CF22C5EFA0EB4EB7228C574AE8644D94B305741B2D62833AD2434328D572281624C5BB153FFF077F8B3FFFF0C7B17B4B131FA7B9FD468140F5D849ECBFE63A54565CF48F3F896D68E16E2D2BDDF60A07A9912E1B648B494DA74AAC6D16BA23D7E5DAE7C76BB8F1EFFE2D56EB14FAFE6D68905E7DFBAFFE183B5EF273709EF80E345AB76154E8F6222C31AECB90815AB1840CAD60D24EA342C06448312485E0D395B74E1F27250B881B0A48D7AA640C16AA8CCBA66D62E6D469B8046A412E872CA99517B8D024E942C660150B2A556C8403BC355F6D0D4BB99554F4F89DB3705BCBF0492517BA21A61F7D800AA8619558A31F86C895B2981A9EC4C16D93D8BB6792821E47B866A2D9C9A098D1610E8EE2B3DF58C15B7FFBD7B17CE2EFF0CE37FF1CBEF88D4FD19BD18DCB0007629C143F4386603178348BDD0681AB9E5423AB4CE7061E8963FE203D146F7C12274E3C578F0B5ED31AA8B6DAA88F8F639C167D76A981A18357E2C8B7EF806B956829050CF96D447A0ED51463B29DC30091FE40A9889617E1F1BE85C5761EC3876EC2AD2F788E6A4F3E727E06A7BEF3350C796770CDDE01EC1C9940697440E56F16E79B585D9C436FE13C82521EFAD84EBAFCB442DC065D79269F463933CE55EF6269699E08BE8DF9BE81A5D2153879FC09F497CE6180D69BE977B175721CB5D1AD68B53DFCBFB77D01EF7AEC349548C3F39F7D355EF8BADFC000A9596FE6097CE0CEEFE1AEBFFB0279FE39BCE155AFC7FBFFF43D38FFDC23B8EDEE6FD1D8D204832934A61790BBEA108C63BB71C86AC14A8D50E99B6A5F6223CD300177BAB639091C855603ACF043FF6FFD2760F8D2BCBE1769CDC1750455ADED6398683570C7771F42A77F10CFBCE200C6BBC710A44B58EC02F74E77B11A10FD336EA6B51E2632A444CD47F1E4639F4095715EA3450FBB31F46C059FFCE631CC9EFD220EEEDD81C3DBA72834137A5FE6DF25030E6AC534B6EEDC82ECF020501AC6DA9993B8FDF39FC691EF3F8AF920C3D85B4095487C70E1140E7596F100C3CF57EFA5F0771EC217BFF6713CE7D6E76247C6C01FBEE1666CBDE5FF467B7A15B77FE73B58BAFB73F8F7777C19274ECE01AD6D54F665FCF2DB5F8F3FF8FD9F078E1EC195976DC3A7EFBC0B7EBF07ABCA7095953A4282D6DE12BED2AFC0749A0081AB84776D03DBE6CD24F66E528B661C2723BC7345DC70F20138F94935AA64EEC84318CDDAB8F3C12378DD6BDF206588F8CA83C7F06D7F9528BB852D43555C71F50DD85FE8226ACC53201E52E863A91560211EC157EE7E08E7961B74E505F8B4D6B7FEE48FE339DB87B0FBD657E19E2327F0DDA3475177229C6F77511918C2B6A28B2B771CC2D7BEF4159C38710C2756DBD8BB651B6E39BC1FAF79F13EF8F553384E059079B65FFBCEA3684C5D8691EB0EA3F1E01F61FABEBBE8756AB8F995BF80873EF1A778DEDB7E17BBC7FE046F79F58FC16974603657B1CB3B8B13A55110E6E3F60FBD0B2F7AC5F33173DF5110EF618A78C0B4B3C41FDFC7C8D5D7AAEDDDE8DC3CF297EDC46DED2206D056682BDCE0E928E653B1773352775AA26416ADFEC9EA4E5C73DF1D98C91408690254CBA3E82D2E23571DC09B5EFE5C1C39F13816D63AD8363982DF7CCB6B70DF17BE80B57E13994C0675D2C007E757317DAE89173D7F379E71D3F3E07FFA93585C9EC7F5B7BC0C2F7BF59BF05BEF7C330EE7EFC47B3EF887A8CFCD03B4B06F9C9CC5FFF1471FC6EBF78F62A89C2226A8E2CDAF7A2D7EF237FE3D5E7EDD0DB87272181353E3B8EBAE6598F4206EAA4C8F5CC5338B16B6A6231C7EFBCF30F4A43135B50785F9C7F18CB7BC11EF7CE75BF05BEFFD0DFC5F1FFC2B82CF222E9BDA899B76ECC6EEA98378FF2FFE1B4847C8F9878F03CD3A3CABAC265F0DE47370EA0BE8F51AF063E201671E4B437BF1C46C0B07529ADAE2D5D6376AA20D12CBFAB6ACA6B8A9B1D10376E583909F4EB88BF8BDF233F182E1DB51F23A684B9F39C1D20C51EEE2CC34B28CA76FBD793F3E7DF41C31818FC6F22AEE3A7214D75E7B186EBD89D9F9A4C4E9C5D71DC276C3C19E5A0637BFFD6DE4DE39ECDAC1D86D84F8FCDFDD83474E3F81F34BCB288C4CA2F1C4712CD1E2AF1CCDE2DAADC3383036A4CAA98AE78FE395D75C8963F5393CF0A506DEF7C617A3C6BFADCEE751DB3A895B6D0D9D4522FE560BFBF61D501B2E96A46C4776225C3D0BA7398D5B6FB81239D2C867DFF25C55C777F8D9D762DB8D3702CB1DAC48EBB71622B032F048EF46C856262A052C3D790AA5FD07A0D5B6C3E267BA67F0806A0691CD131F3FA070E68659BC9680BA4DE1F1EB613E2D3B6DFCF717877F12BFF2AD0FC0E97BD00A44EA29990D47179836D1EA3AF8991BF66361B50E2357C133F65F8E2DF406A73B2E86E905C6B9223B068730313C84341F3FB26D0F8A749BCD99592CF74E213F73023B0E5E8DB96684B30FDE87F1AAE4F43B58D4499768557DCF270D34F18D2377E3CAF1ADF8952FFE3D52B51D78E4E109ECDEB105A9740E73C78EF18E336AD4A9145FCC3EF97D74D7AA28978915E69F2428B4D46EE1D63D9763C765D760EB75D763F5E4290C6ED981FEB925558F2F6D1A9A9D53ECA41BACA23650C176BE5F9FC20EBB0D02CC3E3050C49DBD02CAFA5AB2B3F8B4D01B6F98E037FB780A6952E042EE7417F0B1DA9578FDC4415417EE419495618459AC769BA8DA455575ABC5698CD1E5568787B16FFB16D5DC5829E5B0BD9047D721DAF37BB438996C55C6E2F1FBB110F2B59B3D180C078E31059F42B02C99A611626EBE81347F36DDF370BD2DA898068676EC521331BA674FE04FDEF6763200B287F96574970B18DFB31FB9E9B3EA7D9A0DC1261EADD680C37BE8399EDA4B28E4468507224B4A39B2633B8AA50134D373C8A4728CEF2D743D4FA55ED5C91A91AB5AF83C7AB617BCF4A7505E3849C1F375CA3436B3807B1B21C6747A8648DF94534D55AEFEE9A32E37E32DA1ACDEA35BF3F0915D2FC51B4E7F0F8F743CEC23C25E5B5A539B29B9544155CCFAED06173843E0BD0D9D996318ADD6687105B417F83A5953EDA4F5FAA464D91C52992C32E51A4CA380C2401555C6DCD0ED2126AD0BD2658CCF3F819FDF21356F65B8B22F1FF4B0FFEAAB103DF3057096CE909F77D193F268A4615309ABE33B915E9DC120637ABFB9886EBB897C46E6E210F5D706511C188629E5DB52AA4536D16DAC215FAC319CC549799699E3CF7DBE1F15A64DAFD1937370FAB85A061F4D8C00B60F4B6BE1685840D3F5B09DDC3F8CD77B10E20D97C2660FDA8AD70B6A4D8C7796F08D892BF1CADA56984B73D83A3282803C39908609CF51E3C30DCB42F7D4318CEDBF020F9D7A1843D5719444C8237C8C345448152E918A952ED2FA5C0AA684D1DA04520379B551D2F56430710E8FDDF74D349B2ED263D7A9F74F491166AE8CB0E762E8D076AC90464D7FF6AF50BBE259E831861BCD068CFC3032E1382C094313932A9BA6B95D98E9146C52AE7C7188C65AA472F671FEF4316487A630B56307BDD0923A6FCE8863B5171F7A9AEAD1733457B57BE9A78E233F36007BC7157401F37830E4BDC6BDF5A361E24D2AC4586F9DBB706DC697BCA79A0C4D343FEB7B7874C78D98BAE713D8B2FD004E3E72049E143048E5AA4FD79CAD62FAE877604E9F86511DA35264E0FB31CA235BD458333B1D271B2732AE2497955A28C40BCB68AE86D0DD00BEA163EDDC49784B2B7CFD29CC9D3EA7BA63354B57D3A7CD0CDDF299050C8C6EC3FE17BC1AA78E3E885CEC23B469130B6728EC941A8664877595E695414561A7833E7FBF463CD25F59855D19C69EE7BC1CF96D9308E71628619FE83D841F5849DF809AF823C92BDE7B2895B9CBC8EFB81A469ABEBFEDE05B0D0BC3A948155BEAC0C641F9FFCEEFAEB7CE6EE680C3C4D55828F5FB385ADB85F1B0833D83E3385E3C870EA997F4A0CB28705B8F604BAB9213303CF4E1055DF4AD3C7C6F1AFD5C1E795AAD9D0990D1D25CE4B6EA4713D3CCD1CDA6A5933568A3316F203D3A8CD6EA9A1A3A9492093AD278A95BB03C57CDB7B568703B0F1EC2E8BE83983EFE181CC110BC276B684809CC54A02B50ADCE717B95DE260573641F6A7B0B18181947266BC39D3B0F8DCA1AD26D477D9978113F556E261338355F535337469E7F2DF48209FBEC1C552283FBDA2EF6D9C99C3B69F290FAC24D89F1FAA6C6F81FECCD9B5A802C85792A358C9060C97356314850B728B48602728D88313087382B438A0C552421F36FD2046F59997241375BAC0EA9E95469226DCD0FC9007464D2B2F79E3403AFB5FA70D6EA68323EB7DA6D35CBCFB2A4D62E5265DB3EC194ECFDEBBC17A7D58390A99D7BF7A34E6CD15E5E544D1D727860265FA4B0CB6AC48A3E3CA04ABC0DC75159C038D2E0CA5064BF8558061AA96D5FA839009121AD561A0211BE45F0D697091E39344E9FC2305FE34F9BBBF9DE7D551EAE0E2E95B134B1B639482BC9DD6CDE644BEDC2FE2C0599F17A68D36DC72982A2F9B3CA124CBA4A9F96E35B02DE3C847D3954C656D642D4C705EEA8E2C9348596A3055AA5A21A83127B2B30F9B3C545F668C9BD4E1D9DB9592C2E2E624D3A71E8BE53B4DAB42DD69E1C1014499DBD5C527D4BE58BBB7CDF3E85D75A84DE588449B018F45AE83522644A9A2AA38EA970AA328EE14846B1C8E14791782986155FCABFDC909F47EAF33C555CE97A1D48B9A0C4708920916B20572C819C129F988FB0CDF01565941DB3CDCAA29ADAFAD8ECA732789B02EF92FE6C35AD422C8D51B439B61BB963F761AD54419F1692B1898409CC72693DE96A95C64A7EB73C992F9B571328F3148A2D93AE0647E8BE6962D9A29A312705934EB78DD6EC0CCE3E7104A7571651CC0D50E0869A7215CACE5C14AB8147D2BA2D071FC5190A910AE7F5FAF4022142238D3AE377B432072D5561CCEE2120E02CD68695B789DC3E05AF27A5E9D270414610A8B2AE805889519D3821F6620540655C879C3E1BF6DBAA72D722AF97214E4B4B5DACF90E26D27A7248F9261E4667FE03A16FE21B87B8D0FF2F077B05082F3B84A5C7EE41991CDD5D5855A5CA7272942F87FDE56C55DEACDAA609E46C3928886E5A93D9F199949A83A3F53DD502250BDEE9B4B1B67A06E74F3D8A734B0D942AA3D8323A8E56A7A53C81B229B172A9982D0F93EE4D22383F43C8912248CCA8A9D51185DA1B6EE2EC035FE5FBB5195E2AAA4EDEA0158724E4195ABD1CC64C17A1EAEAC5DDC7C1A22ADD0ED63B90438DC2777DA51C12462D7A2BB741C0D95E5287217F6496CC40DAB68D10D8E4A3474D7DBDD85287B6A9A71C1B172C9F0BE5D71B5899BC4255B6547315646DA96AEDD04AF91839EA93313B4D214BAD9D2DF5F1921849A769A18E9A87D36B2D93C905AAA64E5A589C7607CBD3E7B1D8EAA87DE0ED6313D0B3C401149AAFCAA72DA4C916AC81EDF05B75542E3F84F6FC0C05DA276D9B522559E82CABC10C3E2D34585EA67B8F109081446151790BAFD7402655525D3629D3573581D2462D478A4BE7AD74434A1DBE1A9DA69A43920A62199F5A727A689E5EC3479DAB7028D350695E7D335D6E62F1FAE66DCB3EBD2043BA508CA4672F1F74703CBD053771515A7487BBB8F8474F1C5523C9222EAC1448A839355C549F3F678D74B2892175E874FDE25275392BC6A27028ECFADC0C5656CE93D9A555EF9DE3B51832526A569DEBB51190158847E9ACCE32F65279EEFA0AD28512CA4315BE2E5D7DAB01D76D2324C02B9647D5018341AF8E2CD1B674DEBA52B0C97BEF053ED2468541866B4716A0D363683244C1E17DE80E4392AE923B321E05C248A89C633262A566E0771FDF89A2EDA8A95CD25717C6170E4BDFA4187F61B774537DFD7A3B9DDAA5A58BCB470ECEA284C3033BB176EC310CBDE4D5D0E9A6655295CA732A0CAAA9D82CDE3E12E0C7DF06EDAEDAD0080A2935D2D46805E8D27B2C9C3FCB18CD1050A8A25C6F636E7E1EB94E137362B95696BCDFC1F499E3E8F5EBA816CB84063BB0B43A830FBFFF37A90C75BCF0A6676078FB3EB45B3EB65E7F238C233AE688156453C7A2151B6E8F14B0456657459F00326B1568F1BE3A1C2196640D21BD119BEB18022AEE87968E1A15F7CCC945FCEDF961DC4530BA3D94697E32E503C978964DB47A53B532F29D35C623395A6BD3BFA42B26908686353C7CC31BB1E59E97AA56A3B129BA61227289E3AEE3C233320A118BEF94FA7A3945AA41CDF1A56359FAEA74177D5AD73205D8628C975010F7DA2A068BEE7CFFE8635863F8181A1C273277D121D22E4C9FC120D17574FFB770FB67BF00A717629C54ED11F2FC175EF932ECDA374905A2B5EFDE8F06419E47C018166275CC981E7AB089177C320497FF0CA9A5974ED7C051B5724187483E955505936A141B797FC599C7DBED97E31CBDC6D5A85359F464B042146F76885FCFD5AB51287AD286BC89BE5ED2153239423A568A8DD3786CFBCD889FFB6F71CBE209ECDCB717F79F7C1243B501A27A3FE99793184B45E9767AF079ABA93041E20EE99D415CEFC5C406CB8D245D2AB8CB7754176CAD5080BD6B2F9F47771CCA80059D8A268387D2E8CAF0E3E171BCE7239F874DBE2E206ECBE597D3B21D75E4B8DBED235BAD6174C77E4C3FF25DBE1EC121594520BDF76E46A58B435753CD187286AC3A5CC98FD68F7991B81EA8BA7A53B6977BA63A5CE1105AC9C1C3D2232F75FD324953D841BC79C973F3E21C67FDB4F918717202A3749D8ECE7D1FA75EF44BF8B5A51E5EE47C8931D5871BCA694E969A431B48936C206D89F44E0D9F408916654BE205EA0C39694614442FBDE97232B6AFAA150DF46985325E4CCD50233E904953BB76EEC5B643D751783D946A655543274D1719823E776906CD565B1D452E0DF0021CCBE51C1AB541F49D3652656201A9C92758849A436B2AA4AFFB32492356C99D5426A74AC4642AA62471D2F40E3371162D3D8501ADA394334ECA8E93C81E6FEE8EC9453FD17ABD1A80EB672A5E3FD03C0B7D308FFAD0410CE64C3874E9D2F92A13A5245E3A5132B458665304B4DE1EDDAF3432CA587039B4D0938310444964669EEF2AA42FE1224A19B064AA75B98C110A6E6C6202368158E877E1D59755D6CE6FB4891156D0AE77E8510CD5BC211DF3BA1691F65551D936A528685A5AA3E4CC39198824D62A634F65EC991A06ADAB9F23998AA1861D48C3271597CA37EBA5937D18E58E2EEEBA9BC9189CF51665CDB8483711291E2B93AE22E28C3CA9D45A710B26E9E6EB2B3DD409DA46650AB53A1E3C46205C5C12355CD95CDA52EE5C26548825A71CBAFAD8A68BEDA8712432ACC8A4C7D07499376FD28BE4D458F154B64CCAD650DDB7D22B1FD375DBE571B2071395A9DDF01C3972BC4D2F2229B73495C9458DB4B04DA0D838770653575D4FE5929169AE027DD2BE25091D5F062638C951A2B678027E2E9FE0D562D859F5ABB0B381027DD2D5135F44E99B09AF9292CE5025152E8ED56B2A1E265823469A4298D3275091C6077461C9B002594BB11499681199EAA871298857873FCB287A8239971698355368F942A762354F2794FE77BEB664DB0AD501E4357E9779371DD98019467E80719A74B23F7F0A1105952B0D93EE85EAA42A773552031742D2C190485D4EB11825E73F7EC76D68AD2D90FE8DD09D5B4849623E485119E5D0C30871D1E6C29A6AB69632287A22DD09B048D0A88E4D8B92B95B17E3BCB97F60F15A7C617EF5C5F3FCEBC70B2B8AA74E9612A16E398860E638D2959A3A8E5384EE45C29DB9A8320C412652528829E95B9791A9B46A478629F06F3DDF572757C9716590F9F45CFCF69969AC761C94197F579D473079C5552A3E077D52310A3BBDD64543E89ED647A65A41A63C2053E9B03AF398CC41002A237C0F0B85D161F81D3E666B114691F7A2A59582C8600339224DB67C3D4933A8D657B1F0409D44BD6CD6908EC375167DA176FAE2A02C05EE04DADB6A40D7C50DF99A8AAAC9168ED95FC1E2D833E9643F4EA744341F19B08D82EC70A80957B26C32DF3E1D265DA5190AD363CCB732B6E47560D28B37BBE4D85111519B94ACDD52092071CB4BABFCD9E91329A631B46B271A42FF180E9C930FC16B36D062CC0FE59C3A2B8D93AD559C9B99C3C1CBB6E19A5B6F40797CBBEAB449A5F36A5B599D859749BA70657E8F410029D334640F5FD88AEF4670DD1622BEDD79BD8C32D1BDA5F6E8B58B26F4758B4F060D6F56B1E5BF04F42255B0A021D55F83B1FD4682B241B4C9B9B3590A5DC69E4AE50C052CB1D4C85BCAEA03BA51B344571BF4D42BC81CBAE5E5051C3BBB96ECCFD32B94F279D5C4205DB283F41ED5540EF3149423F573B91C5272CC38C35E2E3B8AD2D06EB54F2047A05D5E4EA1B6771B66A78F61F5D87D74E7B3F490F42A95B4DA8CF1A598436E9C0AA5F9EEBA384395BB5703B14811B5F62ACEF6725823AEA8D0E12B2CB329D305FF398BD7D6CF71DFE4FDF87F2E872FAB9722605BA0DD1CBCFA4598BDEBCFC9E747840E138485B47C5B55AF7AE4F37DCB479EAE5EC2432CC99E568796AFD103E471704F158BB38B6AA67CC52E6090F17B3781DBDECB0EA12CB571DD160A8512F2C512A3086D9438C1DA320567751E2E39A274C2DA9345E40B790C8D3E0BA7CA32A6ED180CBE4FAE98572C4352B8294DC69476557E40A6618B6B9779F6A1EB5069EB28F96DDC9FB91E69622849D186329FE7E2A37A6CFA7EFCBFE8F2D7071B651A67D078C61B617CF5CFD0674CB58A451596425531142A25117AE749A9B4CCC1A5306B52435FAF637C7844D1BB94455AD595789F4526ECA88A9CB8BBA694249D2B22B475B46514DA580D56658814B10B275843A079486DA9A8ADAB7ED357478E8F516942D5FAECA893A025DB298399FA5A7252A44CCE5653369D5855137B7C5DAFD384D38B71BFB11355BDA5DA9FF5F8A2B3B9C44BA95A6E6DFDBA24249F54E8E49B4BE80D5F8F812B9F8FF327BE8342F6205DBF34F506C93D0B5FF63DB874B13267562657654B65389EA72651F52579428107058246D96BF753589210327D04E3D10E54264791CA0DD2FA7C04F32760B46711923944591DD9C10AFD0DA159ACA98C9CE401B4BE8E229941A7BD9C0C44B46478529EF8480A2F84ABBB6A16AE844E97CA269D324667054F86A35849A7B03B6C51314CC4F1C55F62558821992675F283DA25BFF85FEA9001E20DCB36D05D9945EBBA3721F8CE97D099ECABF3E2CD380182525A6D90BE7508D49ACD0EAAD9B46A81F608D61C99302959352423D3CC72418D3D9119F37D2ACC9CB38CD53375E4574B4A9132F902B2560DF97C0D19BD82B8E7520152C8F0FD5CF270334CA9359211E56A18A42048A2797554B8E04B5F0D3A532760049E00BA0EDABC86E1E21BF6D5284BCFBB19A9F6A88B717AF43F61F1C998120D312E952FE1BB72005FAACD78BBFB5AE448EDE6E76630393E858C4CB796C31149F96486AC8C206DCA1895162DD3E9C0218F7725854AB1CB38127592891C2386A4142A25CFD553B44802BFB487816A49A567D344F199F5838E64465DE03B6A6A95C710117A964AD008BFD79F3A26C5236074914E9554BC97B4ADA4712508F5E859CC761B4B41150F6546B05D5B56C39C64304432ED40BBC816BF7EF2635286A15D2A9E5E0D239448185829B8A458F9E7BD03CD0FFF2CB2D5212272C66735B72E52E959C9F777DD3EDA9294D1E4C0825001053939C248C5EA4429117C5E4E772468AC8E8C225748D1C5A7D4796FE5C1497A8E581D2F62654AEAF00229E192BD74B538E2F40D7D3D1B97439069C3EBC96C9B0EF44C066EBF919C17A525FB0FA1E712EC85A8864D7C32FD5294C5BCD4100753DD6B7C092CB3A9F2E02A7FBC61C36CFF3FD1BA647886A68A23EDD593685DFE6330A7AEC19A6CD58E4EA06806091F0EE4F21520AC53F005392756C69CA885F693122FFEBF68B880AFF2E008320C0939A2FE74A6AA0E1A4ACB0912543039A51AB23123E7BF9BC90E9B4F219A3221A924C79B4449A5AF5D56838A433F54C515B2C1220709C6722C52E8A113D0AD137B045A018F4C2F2373D515C8349BE84889B5115F746BC7FA1699D242398BED52BB4C75E8B8A9A84FAAB580E8D5EF477F6D416DCBB689ACFB6E043F9619F3913AC8CFED77D1ED76B9F0811A2F261820F442B565AA2894343FF6FAF05A5D359C5023BFB7E5FC58D94BD53555DEAC279D0FC9806365BF74DDB45CB7D553BD7A122AC4E5CBC182522010755D3578D8930D24D2C388883E7463CC9D7A1C93CF79035E3CE2E0536F7C2152DB0F22856448F3A5B0B6C6816B6F7C6F9FEE2B5B1B4CAA46D74F6FB874AE301919DE5D9233CF91A2F5351EBE0D5AA1A6B8BBE4C824F1A4857E321E5DF537062A7122491489C5269F6FCB295441AC0E27362D399396FCDB926D5D831E815E2248CEA8931A40397848BE245EAB49937A864AE0A8AD54DAB8EA945153A95C4F9D95274D1A7212A528687B6D054B4B0BA49E355CF1925760E7E507F11FDEF3F370335B71F0D9CF4377613A19692E9F4D55218517655D4D191E2C837365D4B7799176E7FEC5882FF96D0A29240DB35FF62E84F77C1A4E9B5C3C5756A72FA729CC408EA65D3F02DC663C97F82FD625E02C94D32788E4E5EC7955142967BAD2FA1CCF41CE379500FC5456553F45AA264C4EB530143553051506194260AA922ABA07024752487552A5A7B68B35FECDC8D82A2CF402A197015EF3EEDF52775FA60E4DECBC020FFDE7B7E3F04B5E85DAE414D6E667D5D9369ADA8F372FCA468D3479A8C5BD30B6FC52BC42014D944786542D6AADA1F0D31F407B695A65C13A44DE1D5AB72F9613C5E870F13B7E5FA574A5D64D704218E96A0CBA2FE9535D4F0E2A906DE0B40947AA5FFB3D7584492CB9004FEAE70304AEA30623F99D2535FB560E2196B9F65EBBA70E160A1C19812AF9044B154B3ABD169A6B73682C2EE3277EF5F7D4E2466142DB5EF4B2D742E6987FE6E7AF425D1FC4C0D46E758286D48948E74CA4E99BBEA66A7753C7A57CC5EACC3999BE19D34AECFA69D8975F8FCEEE57A2B57A5E4DA48E94C0BDA4339556D4EDF6E0C6C9A99492920E18AFFBC2CB1926C42A43FE4D4DAEEEF86A46BE4FE1F9B4D47E9C0C6C30423FA97AF57C398F40B103511C8F0AD175A427BFC9581EA9AC9DEE27F98FCE2A5DFCE939BCE85DFF81F42EA55C78A82720EE652F79016DAB0A8BD4F4632F1DC6634F9CC6D065D73248052A6961A9BCBDBEA9EB6A26F9DA4B2757FF4FC1FCE46C7B3D219DF367B0EBCDEFC3B9F75C0B935C5CBA6AA4FF4FB87CDA4CAB05EFAF75315C29229FCF49BD962A95EAB85D55E861D832E38ED1C35941262E2BC1F5A44D8BEC202EB6180A32B0FD58317571895E9F2E9D8F774819BB6B4BB0A454DB4EAB234BE40893D5E539745B7DFCC46F7F10E97446A1FC489D9993DCFEFE1D5B01399D72601085CE226E7BDBD568FEC66770CB4FBC02CB8FDD4F0B3413B41F6F72D3AADAEABE74D8DC3F4BEE05E59F5FA9E33FBE6A1B3EF4B14338FAF809E4B698C848A286FC5E8E18B368ADAB5E034B1EF97E904FF2EA32EB5676E7A22EE3B7862CA979472179390133AD365AA4AA87AFC4CB57A55881F455306C040D9798C28156D4D5E44B29AC88D5348B32664F3E0A23378457FCE6EF27EE5D8E245779004D95802BA66C271B10AA8F203780A18922BEF73BAFA4C7F8249EF3AA57A3FEF8836AA6BE526C3D995FAC6F86E09F7E48CD252BF5787DE4B974AFDA398C10EFED3D7008DFB9EF21ACFA650CC9510574B12E637596D655CCE5D16DB771867CBE20C7901B49FD5B73E604B64DED41478E180B6CE4651E4F3A07AD54E0E253E0F32DB5AF2F94318C22385A4A4E9087CDE7165C93D69E574052A8E0DCE38F203DB91D2F7CDBBBD55D06D2E5ABAF07282D4A0A49F9757E61895E2754D95139023D2AA63130B117F7FEFE6B91A90EE3C69B9F8DA5130FA88315A52C4BDB84A22CF3E963D1E34BC7B3FF839622E1CEB2F7AD9855BE82E1A94974CF4D235599A48075788CD36DC6D454CA50871368045519A168A4DA6B4E17CBF400928A356D0DB981719C5C5D54F58EABE4FCF9B5AC023A3939D7D57014428FF4900297D229D23DF4309CA547A86688DCD36A388234769C7AFC2846B65F8D17BCED97D6EF3152C7AB5CB8E764C841D21DF3852FDE0E48DC5713215C585A11113FC7D8D4417CE3D76E45E63F7F0F575C75182B271E56D4F1E95FD1FA5675F8434EFB984FCF235D747B8F92B8A3F60C6443254EF6AFE35215E981317594D843DFBA1307668FC21FDD8390F17B686C125ED7418F326A905F67CCE47CF93E8593A5A006A9007282B52BA7503056CBE85139E0B847C4DEEF48C2A6A3787E46EF43A7FFB74D930A60C0302C86031F65E2871C2F339D96F25A62811ECE9E7A127BAEBF1537FDE4CFAC6F2A45EBD0ECC2C758AFAF59DFEDFCCBBFFC28066B5575FA85E41BD47166A298D93C4688F0EF78C78DB03EF25DEC3BFC0CF4CE1C27636098D10C756297485DD8ACFE43F6FDFA0FF6E32FCE653CFDFFD5DC1F57CD7B93E6427B7C37D27BAF2487F670F2D31FC2A7DE7005BEFCCEE7A2C418DB6200B5AD0C761F7A16C2BE8C0D33D540823EE4844AE976F1D17323153B3344FE83A50C06E8F2CB32ADCA96D3AA73EABC3B43CD7F21024FF1BB4CCA2616C8676D756AD4409EE0309382A745AA5AD669F771E4BE07B0E7393FF103A15FD870795A2595AABC59DF81FBF6438F63F1EC192A505E8EB6846E16184A02D5252CD3B8CC7C15B52DDB70DB5B6FC4B1DBFF86742F0BB73AAA40A954F2A853BFF51FFEBA9B4FFDCFA6A1FA7FB83395B8B038190122830ACA5B50AB0E219013A71FFA1ABE4D811FB9EF6B8AA6255F03A8D2D5CB1C78E95F3F78E3B371E6D8FD083BAB74C73565ED72BAA46C8F9A9181AE2C36C156BA2FB3E8931272F92E67CAA684E3AF5B6664A7D44187B6A5ABB02235F172CE9C2E5BBBB18D85FA799C78FC71BCEE5DBF852B9E7D738239C4D2FF07A6A8B669D73DC0AFFEDA7B9119AAA14FDC2003975C5134D7550726EA465629B564F9CAF40677FEFE5BF1FA37FF3296735368ECBA1E5B27B6C05D989643D3D4D9B812927E587BF9892E3DAD5B76632F5DF5E7C9E2CB07512777F3F71E1777CDC821AA6C8579F651DCF14B2FC11FBF6C121F7ED72BF1E0BD5F056A83EA66F36397E3C7DFF13E3C72CFDFD1ED67D4C46A93CFBFF5677F11413F844D3A9795AE1B296EA6557B96AECAA9C492E5548A1E75AE154A668DEFE9532944490CD23299A2C5EFB13463BAE4FC72B61C69A21C5ED06976317DE2FB78F8A187F1960F7C38113AFE69A1430D768A1445FEFEA9F3F8EE57BF82F1C1AA7A7F35BD1B4955B0A5CE9D8BD5D1673A5D7FAE50445018C0E7BFF4B73850D1D0FEF4FBF0D03DDF4276E76114D3A6CA0B2468DFFCA1C8C27CCA4BADCF40DA98FCA0F6945B3405EDF21D1DBAB93651B54CB1181B2FE16A9BEEFC1B1FC57FFDF30FE2F8C913F4E379F2DE7195927557665119BF167FFCA97BF1BE5F7D35BA2557ED9F4B0956B7E7A34A7EFCE2B7FF3A6EFB2FBF8E2981EFE901D5BF16A40D958235E2F592285AAE1ECB1937918AB369E9751321C95162614F75CC181E1FABCE86E55F0808CF9D3D0EC78BF19FBE7C2FF2856C82B75579BFFE4FF8B3F8A9D4F74FBDEECDC88F8CA85A3C99DF1BAA938C251165A8E347546188BC1C011FE214866AA3983E7904777CFB6B30FC2ECEFFE9AFC19F3F872B5EF70B28F7E7D05B5E816F48678EF13FDD72A5CA477E18A795C617BEEBFFE877D2D840B62CC38CA45D63812E77DACD202E0FE3FA839378CD243078DFC7F0EB3FFD6CBCFBDDFF3B8E4F9F43BA3A8E6CB5A48090BB3A8BAB6E7D333EF2B97B717EF6095AFB6D58AB37F1DF48FB12284BCFE2BAFAB7B7F6BE4ECFBE4A1A894562224006876003261606DB9C23E3C34112ABC1C4360E8A31060C041B2B3644364A4C58C2A2C8844D48C620642414908C1604125A6746B3F4CCF4744FEFFDBA5FF7DBFE2D756F7DAF25C740E278404733A3EE7EFFFF2D55B7AA6EDD8AD457735CA96ED0EADA92ECD87FA1FCB25A03CC8909F39A948A68BF56FF9E83CEEC331183A24E3128722CB91F80A2AD0BDE5ED798BCAE607B5D92C686742057824104CD3579E2C17F506B30207F79E7A36ED3D3FFBB1499DB902F7EFD3B72E407F7CAD8C8A0BAF68EB11A91260E3A1ABFB7A8A241E08A5E40F409A0A537C964786C97FCF07B7F270B0B73126DDF234BDFFDBC7CFF3FBE41A636147BECBB50AA6825CB62AEEBBF64BFC26E0AAF3B65F85FC28E658BA26315E1C1428CDBD445AE2581AC69983458CAE479DB22D9A98029589F92FBBF7ABB5C77CB2D72ECF107995288FAC6C9A3C3FA362132B4BA2457BCEDAFE58A37BC511EB8EF2E993F7D442D8127F3330BBA010151B88D45F5A5B6342BFBCEBF50B2B7FCB17CFF131F9489EDEAD7CBA3D2C9EDF0219FEEC54D36319642581CFDA8181C9A0E8702DBC44ACC82478DBD21D3A74FC825AF7C8BBCFDCF3E2C0CB000AD2962F0D3771D9B87381DBF7EF3D557CAF6FD077483530930DE3C8E992D0CD1D51B45A490331FEC47461C4565D44BD8B08134D2EAF28A0C6FED91BA5ABED6C9C7E4FE77BD42665F738D5CF28AD7CAC8C2A4ACAED674B1437706FD7F76C0175ABA36A0AFC9FF3FAB73287E06167998C88F440C9F5674C3D15078C1502A870613E947EC5C9F973B6EF95FF2A52FDD20F35347F53B8AE2F50F2BA82A927D8A4C5AABB5A23771437EE98D1F91E7BFE497E4A6CF5C2FA3FB2E91D3271F665A756E799E2F0A9A3558327E1E91EF363F774EF63DEB62A9BEE3A3F29D8FBF4BB6ABAFAC0E6D9126C793151847FB89ED7311E81F34A9B8C311A5014AB79050D34D986B895CFEBECFC86B5EF34A9E66246630A9FA67B9C22CCB3637FD45BF72A578905DAB96386418E3CDC0CD134EFB52ABE31BC904926CD86C948461F341CDCA306235CDA4B1D190BE8D2657B7A378C6D3E77CF2BFBD47161FBC4B9EF5D60FC9BE5D13529F3E420145EEE13F53E7DA65EE3272C1BCA73554FCF47977969420E191E3C14259611EDC9716CCA99EFA7E8D7FB1E1CF1DE8C8B37AF5259A8B3275624DBEF8C0E372DF3DDF90633FFA01642DC41FD8A2B72F24A0CAE294D2611406D297FCB5B7FFA55C72E9CFCBF7FEEE0B120D8D6B2855935347EE657F5FB2B62AA7A6A61510F5A845811B8968460BFACFEADCA26C3D70815CFE479F94DBAFBB464617CEC8D0D67D0AFE5A928545D2DD40C50615ABA466DF8F06A45CA928D4E8E13CF8A9E979F9C5B7FD85BCF415FF1A0D3C7A48628A2E19FEF7FFC9ADFA3F7DFE759FF8B2DCF58D9B64FF339FC32A1F6B03914D9562862230D5ADC033F207DBE7912CD2C355C4C043B1C18A70994BF3A724AA0EA8112CD8C8D391EDB2FCF03D72D73B5F268B6FF833B9F825FF562A2B53D25A5E94361346010FF5FF4BC8EF5DF97BEFC9D7FB76C8D6F32F51BF59DE7C1DDB5EEF1F9D00F8860824443547EBFAC08B10F1D358795BA923DBF5846F0B52191BACCA7035929595BA4CCE4CA9CF9E96E3278EEAC69F9413471F96B5F9390574550ED1C5DC58207D342060C274DC5C6186EBCDEFFEAC9C7FDE5E39F2D00352ED1F93BE9109F9D68D1F94C38FDEAB2FA888A1362FEFBDF6AFE459173D43566B35A9144BE2970AA44357BCA22415F5EF0323E8B6929BFFE21D32D438273B2EB8586F5FC7B961080C6B9450ED9108E3ABD5E42F4E9D94F9862FCFBCEA83F20BBF7899145D61A854CEE98B7F9A15ED822C20E5E3732B7260CB4E3970D1332586E88122FF24C9D9EC99C53EA4F538B93AA6D297914458CF475FBDAE5DC8D6AA5CA6CE9C94CA40454A60F1424D03AE014054C169B1589086BAA2A851939E0B7E5E9EF3A6F7C9AEBDBBC5ABABFB6B293E8913561FD3CD1D734C4A4FFE911CBA99FADC295EC17F71164A405FCD1246EA51C5210F70A30B32A5CE31D37FF668947451A5297BC63046BBC3A686B0D42367E6D4943F7944A6674ECBECDCAC4C1E7D4266CF9E94265A99D4B405FD7DD64D92E78E63616DC309466FEB26BCF4D7DE2E3D612CF7DFFD2DA90E6E95F15D7BE596CF7E401EFDD15DA25753228AA3891C3D795C9E77F121A9C3FE16D866A1002E926651C19CFE7B437D64453FEB8AF77D52BEF9B177CBDC892764F7330E491BF2257A22727D9C95E59A7A8E0D59393325957D2F9217FFEE357270EF1EC93B1967D056CBA6DC913BB1D19FF42BA5F530337B60CF33A57F620B6BFEE89DEFA0B72ECF8D8B1765EC01F4B288F98A9400D363D60F346D4EA5C832D6F7B13031DAC2CA29891F68FEA4C60354011418FA989235B053364EFE581EBAF64AA9BDE0553270E845D23BBC4D4A1A1662CA7A983429ECE4EBFB2554F0F4CC1511CEE4DDD1241E5B7C915FCE70F280FA02348484D25250B4DEF1D80DD2ABA7E1053D1DD93BA48BA721D0F4CA9ADC777C439AFA22BD7A45CE4E4FC949DD74101EA64F1E95DAFC82AC4325120C1F74B4C237204983B295670D9288E3DB386D694B76EDBA54FFDC941FDCFB3D0536FB65EF96FD6AEA3F238FDC7B9BB4350887FC2CCAA05898DA9C69E191589199CC581E41F634A4FB01652ADDD89081915EB9FACF6F943BAEFF80D44FDF2F5BF65F20ED562EADA82905BD396767E764F4E56F9317BFF6B7640C6AD8DCC8402A6533ED7916FCCC3E93EEA63FFBB25F61BBF980A2780074DE34C4DEE0FE6756DE851A3718BCC834747C8F8DD47E828C7E8B3A4069E831552C1C95EED325A0B50B13347D68E1758C47E8457A185B191356A0A59D7DE05BB2F8E36F4B501A92CAE84E193970BE54769C2FA2D1518F1E861EBDB8D1FA921EA6A61E025B9BB06BC7C13D476F37367F45FF7A45C38720AEC998A2A15DEA570FF6FB32A888FACCE2923CB0DAA1C050D6DA6062E1F4E99372FCF86135E30B1CD909160B54A1200796AA7D634FB8AB37E2B672AD34360E0AB99A5FFD86784D26763F537AC646A454DA22BB0E1E944A6F558E3D749B6EFACD7AE8DA44FC3E1C2265C14259585C96A66E1C19B07AA2D1998A932E1CCF292C8B56305018EFB7362FAF79CF07E5EEBFBD4536EEBD49C6C747A5B5E1C9CC7A2407AF7EBF3CE3B92FA4A62E0410423D5DFDBDAED9808CE99F6CE311469A4E9F2F1FFEC827E491FB6E93FD175E4A15AF16C491B081991133A1AA1178D67841BA36D6439F1B7D80707378F6901B1050920D946FD0BA5A4951D7C374BE91E193C022008E5BD79F5A5F59D03529A93BEC9516FAFFB13E2B67E5D45D4FB07680A6CFCAF87E29ED7B8E940F5E2C3BC6F648A53EC759BCA10F5044C9B8546AFA0175056A5BE2BA3C6F2096E1109AB2C2312167CE6DC8510561F373731A6A2DB1363EBB3823E74ECFC8C2CC2935E56BF477B9DE967AA741B92F3556FAB34DEB8D296D5D241FE18DDEA218322100758AAC47765E24DBF75E20BB765F22FB9EFD3C99557F7BE247B7CAF1C7EE967367CF8937380CDD13FC5F7108F9D232BB3023F32B35E9D5BF28EB62925B170B67CEC31D6491CF240F3462F10CA3FA7DBF7EC5AFCA23CF79A1FCFDB56FE6BCF8E7FECE87E5D283DB656EB6C9A102803895B23596E43F63F6579E593302C0D4B1992579CF7F78ABECD87F486FB7C6D73106081B5D8CD839CB98BEC5F984B63EC2D01437D0D1C5529745C381C117E1668785A2E29F369B4552B68117A8F9E71720A9A6182186446ACA8453963565BDA607A8AE07AE50A245F442F4100C31EB586A1D96CAE411F1EED10B74F1CB65E8B217CBF8C4B81E347DDB66B122B3857ED9AB3FE450BE40858873675A722CD6D0433F18E33DD7154CCC9E3D23E7E6A7654D6F7DA359D71FBC24D07E6860EC064E2EC673FBB1019146C2326846EA32F64A0F40076342F4D6070931454291A08A4C8C6F9591890B64506FE2DDDFF884741AEB32BF705CCE68B817F58E690C9CD0B2F8244A789C7ABDBA5E930EFADE2BB9748A55A9F8B668112EAADEDA121B2012F5D355D9B76744EEFBD15179D35BDF2C8F1F7E5C027D5FD4DEE5535F954F7CFA73F2962BAF30B48F6E56B1B0CBF352F9E9F838DBF4F9E71F7CBEF4EA4D2A568A0A4E138E426173056E280603A3B94383477E00AC114C35387D599B2457A2FDDC3054060A386B09FAB31430E366C395C5BAA668FD0693978C633FA6A201DA87BD00C0B865B800CDA34D28896D485AD58B3B3A2EC59E61FDAC8419D3F907FE56961FFC96CC3EEF72095766CECA99C3B372E5B651F15B3539BDD290190D97462A7DB2D66ACB869A93D3678FCAB2FAEF999969F58F758EED48444D11C405F22225C0FC52D166CAE96129E02406360ADB87C233888F2DEBC3E7CE604C34E28630D5707D45C1615BD6E68ECB976FFB943EECA0CC9C9BA62C69501CA3E64DEE77A34845C9148D8B2851DED4E7EBED8D28259A47B9F1E374B14A1A2843F868EB9609D9BF73405E7DD59BE56B377C5AC1618F9AF17EA9F6F4C8C2D2AC246A1E7FEBAADF90234F4ECA7FFE9377F106E769E6B28FC14F48C3E7DD6896BF5EF3FA6B245F3B27DB761F62270F746CF9AE058F8521FC8436B36C45B27A62BCB21E2A54FB24285BBD9E424846DCC081C3F743BE75BD1510BB984A0C2C642E652A64A20AA9A15F9E91B295A56ADF30FE1D910A9E1F56473F33D503B0323F2B75BD20B91E8856ABC50305C977FF9B9F927075FA841C3CF01C3973E2B86EB46EA79E748CF83E79F249BDDD93B2383DADFE7496746698438D7FF4B6AD9BBE8C17B13F3CC84AC62BC7AD41DF5966EC385ACA4E4AB508C4AD6C17845BC174683DF15828009AC38FDF277D95014E5D9C9C3CA55641BF3B1AB4D8D973E3B419A07A74216C544358D368A8F9EF337914144D143C2151D25A5D933D07CF93DDDB2163B6579667276562D779944E8389075A1BECD9A2E7C797753D04D7FDE91FCA98868C7FF88E2B097CB29F26249D772BB081DCFFF013F2A5CF7D54F6A85F6FC167EACFCA1D68F5633BA8A4727965AA78204113A43E19B5164059A085C290174187BF48F39D39D62D061E44E806D60384352DEA7331BAF253579FAFE86BB4F93D392C14AA049E710BE9353482C83B1D3288210E15A9E56BEBC56E35EAFA8E8A654677EC96D57A43E6EA87D53CE6D2D42F9E3D3DA5A7659A531A9ACD0DD375872E1BDA93DBE85289481DC6C7F1467A96B943EB324E7AC68248F7B49A29CB2CCB41AE7B02E568B05919BA40A7A64723B5AACC2D2CD184457011E29A16FC8EA565336F531ACDF8091ACFC3A923A1A3BF8FF38E1EBCB2B49A4D1919DF22DBC60689F4F11DE33BF752B53A230E4C89B8C3EA802E6659916E2CA3E75F26EFFEFDABE4C28BCE9357BEF4F964F622BCF2FF49AA2EDB54067BFEF37F4146B71DE44227E8DFE366D826F9A8E906E67FD1A285B9F408A90072710020190EA44ED3811232B2C16AFD122F639DBCA43793D0913E3FE46643320D7E3EC0C40E423B6B1B8B3C933C4FF5D04B62736D9006B2E28FE517D01398E575DD12ABEC498C2297FAC3C78F3CCA07EEB452DDECBAACAD2C4A47C105A633007AF8A863EBC37A601FB293D44E3FACAE89EFBA7D76244134357413F8F873C28B10B2BFACE3352CFF151458ADF334860DD41D2CD76B7A5B51B5CA291A488B2E76D3494FF79D18225031172A97869A30C89A17C31EFD9945BA8C5857EED267EF95A1C1416ED4F8EE83526FAC4A8F02BD66430F457F49623D8C233B2E91FADAA2646B2BF4817D237BE4552FBB6C5374D056EDE999BAA70861AF7EDDEFB0BF6E60E480B4637D9F24B2C312E2C696F5666B800A666FA9A49FD990B25A19103051AEC58F8D08D8423BCCBC3438B8396BFF7087C87164063568411032C6D87418BFDCBA7D101662ED69E00321FD0C954C824487B330D5C3CBAD2A0A288AB632E430801BFC8DFA8A2C2F2FA98F9D975545E98B73EA17EA1B627B5C60A1855AECEDCC7E005A7D93A7335F1D2DC8314560AA90FC604208312A5E88C32814A1B63363CAA22B9F9D29056AD075747152B52408C1D8259B199529EF523430DE41CD1A18AE5C7A3D20457DD10DDD74E40C70E7117B375AEB72E8D0A5F2BADFBC4A86B7EE9641FD67EED4717D9C4043BF587A31C0171369462E9162DF360E20E8ADF6D004B24B467F8DEF7D866BD37E6A76BBD1A533DE96C79E3C255FBBF1BFC8DEF32F60960CC975346732FAD3D00A35768C22C75A04E40BE8A636D6D897872AA5DE3D69239D01A056400452D40353206E2A85457DC712F5F1000800EE3257BA451631A445F52D12C8ED1951A9036046C288AE059747F78B16421227B9E6331261CF00ACB53EB35F5FAB69983B2B3545E8ABEBAB6A12616EAC3B44FFC553E72799D1A2B00999F57A51288D921EAC3830BF8CD399C6DEE6E5F0F406208E35330000D6714911B423EB49D7C3C02A55C14AA640C3BCD07E5701CB928EE49DC5CC62B35802740F4104B883164342057A1A09ECDAB34FEEBDE7BBF2C52FDE20BF7AC5D572D3CD77F270D696E6146D478A7A33E91BDC2BA5E109E9EF832CDA3ADDD982BE3B8A26FD3BB7CAFCE4E372FDA7BEE06804DE664A168B8C5F872E7BB9F48FEC63CC8D7ABAAFFE335480E551CA3CB3900D1A383952152D560633A8606854043707600A7E80DA5A1E0ABA3505641BF5257D8E29999E3BA996688D9DBDBE86D310874033097E4E92E7AE0A677D776C6F5780979014129094C2DC024C3B0E256D6DDBB570DB3342F1D3538BE02389D0C1F447800D45DB61D1D5581142C5AEF8EC425A9019C00D878E9B81140B4FE8DB1574518040CCDEE3E7F9EADBA258DC0717889883ACC0E4860F7E5B6AB70ABE0C7AAF84E5307DF0D959CEBA39AD7D6C6E02DA7696DBCFA552ADF0163414D9271442F0647C6C4CDEF9F6D7EBE6BC542E38EF7C2EFC4DDFBA8B459FE5953919DFBE5B4ABDDBA4A8E6EECCF187F4AF9B3230D0C7CF68A9DB589D5FE5EF3FF9B9BF791AFBF4A9E2D5BB3EF451E92C9F90E191714BE422FDA5AE12BED90F8B6C8D66376D662552DD56B548392D5C54AA2AF2AF31BD0D0B0910BABEBAA020FA09993A79589F6F41975CD13A4415F4B940B34A128B807CA4A401A473138BE0758015CE4DFB871D43E266FD008B21D3EB994E3ED78B6DE42079BA8B86C30151604C50406ED8A3646897D3EBBBB61EE7CC7D6B2106D71C370C79E5B45BC84F0C08E59147A41CB071316458D3F6339E561CB0409168084D59D49E133B208CF3E90E0ACE87E7E6A39084F113529D81A700709801C46DD1E718E8EF63850D7E3B513F3B3E382EDFFFDEDD32333DABB7FD75FADF7BE5D8E127647CCB5679E36FFFBE48735D37A1A0377D4C2A95110D23D724AECFCAB9B963ECB157188D3E6779CB3BFF44DEFF810FCBE76FBAC3955B0DACC0C7FEF91FBF5BB6ED7F36C3302C6621315FC772BE2E2C1A2CED88205B9910F720E112C4160396FCAAAEF386B4E23599993D2D2BEB2B32D43F2C3B76EED7E7DC2983C8B455D512C0422840443B33AC5A0A60A83FCC0B4D953B0C632BA451032AB1112F7E978AED441511DA412D24B1668E2CB3701A5D46D8533F63E75ECE322A5E12A54413A17138D697A7901C7DAF586B3295A75D6226F29943C693A46C01769C72DF0A4076938D860CE0923AC4CF1A351FC2369CA10B704112B066C071299985491EB27D7CE99CC99C42A947464646A51137D547C71C27FA3FBFF06979D12B5F2B07F6ED63CA330A6C96CDBABA300947E81F8F3F7EAB2CADCEE9211D54B7B4E60E953E977ECDBB3EF031F9BD6BFE401AEBF372F2CC5959DF68D1B5E0D7BFFAB9CB45CA03520E218F8E08A2C82109B918E206A88244B997A4EE9E1478680D8C957409326B56D4755E5B5A9501C516E323DBF43DA0D261E24D1D0839B533BA399AE91026BDE8BA782DDEE71AA511B728250FCF8A3B317BEF733DA0997D666618C977B8006B8D8411797EA8676C92ED6062F1C0989AE46ACBB61FD6D6C305F27CD7BF969A35A065F68826435278423254F15548F532E44B1CDC67A8E2F306F8BE2B0482F1E25C880DE633BF0FF4C85C76665224EC247643F8189E201CD2EFC3740984C80094C7A626A5581A9297FC9BCBF536CDF06417CA2505AA6B72C79DB74A75605491FE0119DBBA5FCE3E7C832C9FFD9ED1B0A189B8BE246FFF836BE5CA375D25C78F3ECEDB51541FFBF7DFFD313FF32BB77D5F1EF9C1ADB27FCF6E0E0846410B39281250324BCE41058BD8262C303A49E9066DE199CB5310D66CAD52AD03A3C881293A2C9AB4B95969EAF2F9E85D47C1C92EAA147129339BDBC5B5D81C4599F390898B90603185F73CB0FD096DBC1B7E0FFEA0EF641E3CE94E01139B0D93C62E4F12B82F88C5DDCA9C9465AA8B85766B190EE44C22F1E4798E1C5FC237412B3E524F54F0E93610E3929D027F53F4182DE466190D957ADD16713A3E962B3D4B6953713A73FD2834B9A9E5D0B1784D35DD8542C8500CC0EDDCE44979D92FBF4A4647FAE4F091C3BA976B32D0DB2F5FBFF9CBB2747656468647A5B6B1240535F5137B5FA8AE60587DFC9AB4D4CFEE7FC673E5EA37BC49CE9E3AA5872AA30541F2647171960BFB1BAFBE42064677098C210E37CBCA6CB9164EBD4E3C5BE43076A95E2072843E54E3B6F8BE1DC7746B186116EA0B87A5C06E6C62702D0F6263D11A5CE7665832A7FBE7DCF22149C1A24DCF720D9EE3F9917ABD392938A0C1C81CE71FF9165A9CCCAC2A696B5653A6942B3F8C296AA42D0B369B8C12DBC8B425D610C8130C73E20AFB9E2BE30B63CF88B79171364289CCB90C24193253732C3281919AAE7B64B881911417AF6DBE1D21235D4E375C4C79DA912564B50C492090114A6529958A1A521BB8DABA7D42FC52C8AE9513934F4AA480727070C0FADAD48C022485714BFA472F94D2E03EE9ED1D6406F08FDEFF9FA4DDACCB867E8DB559AF2A66E897BDFB0EC84B7FFD6A45E4E7D4AD4C705A54C6F029658D3C75D68F21176E3D39F94623F7998D8D282507F7C9464AF5FD188F062DDE425461AF5FA22FEF756276D9609D42FD1AFC77DBB080BA78E2A8E9490274DF512B61E5638FE3487D1E02DFC997A5CE35D3FF6FB675E076279B8525B473FADD6E96DCF975BA5FF883C87E48965AA86036D932324C2EE0C5023B140823A036453889589193AD426BFBF472D75E64BA74C2F6A4C0529F282F861686B07A9539B48A9C6760E11D3F083F072247996B578A3C2648303BAD54E9A564094AB6488916F46B776CDBAE87A1451EE3AA86462892942A2559AFAFCB5A2D519C372FC5F2A804E51D943539357D5C9A9D363D765B37A9BF5C91C1FE21397DEA84DC71F3E7657CCF415E0ED874BA322450B078E0C6E73E4D31CBA599A59889AE619E21BB42C4A59BC4B49BBD333C72BBADF841FD77B5ACCF0FBFADEF803C3E507F2BB6B93651C9639DDE6EA4E5F50D7CAB478F0D3F88BB8C89AB245A15C4A7EBF4C84DB0A4904F7360F1BCB57BE4E258A83E8B13BE6B6F8109A21941EE3A755C6EBBCAE6F7238F7F1790A469F35061FAC23C62A62F631DD12542186EB8542BE2705496826E52827B6AA68AC9818473E128014C7F1371E1BA2953D721CF69927887BE3E8D1434349C3A374BA700AB80C6C6DDBBF6CB7135FF5FF9EAE7A57FCB6E4474B26BC70E09AA20952CC9996347D56A34F5CF7D1237DA4C24D100E2B661A861A5281FFFF8F582CECB52A1424BC08CA46FEE107AF81E4688024703E022D201DAC7D0C3AC45ED7B2F3673EFF9DDE8C07D7F66402BCE9BAC79F49606E8DB93AC49B08AFB5328F8AC59C41C836AD93A98FA84F17C669B09EABA1F9A18AD6F2B8308009089DAFEA460D93E60C309A203C307BE4BB23F5580CCAD8AC8141ACA8208DFD424670CC78C13461587C073F3C03DFAA2B89033D4A2BE431C6F7668C034225D8BAA11E3FE98064A418B4D734E731B37EAC7E126519BA107B0529013A9669D80ED9DCC8E719885271B1A4E0509D4A62B5692C40467FC24B837BD3513BB7648BDB6208B535332D037A440AF2067F406C3FCA30B677C644056976725DD58E4FC98124810CC4DE4522996E591871F9207EFB943B6EFDACBD81799B1844512339F1134F0B9ED090D2A59CA1D844F0D3D7C051E20B068B3BCC5393AB074D8A0C07D0EF976BA313133969186995B641D522CBA7625F85DEF690A9881B3C820CA2016CF9FD6EA9ADBA5F0912FC061E305B4810F1C64C8AE258FFF0D696E610E2D30E4945B736A376AB782033E2D4819A6F874390167AEE2F3A2C882019A334FFD725A940238E778301CB7D0B50D66AE6E8DF8B16DFCB104C50B72A8F46672F466CEB235CCA26198D4CD6DB19F9FF86DD73468F569803E145FD07D526FD4596685ABE8E9EB258DDA26437B32D63B2CDFFECEB78D561860526555FA0647E95397E69765067AB6DB26F43FF7C9433F7C80D2E5E01A222DDDA707E5637F7D9D049521E6BC81B8E1A6489BD307083839B2C3354941634A7CE6C5B3B0251B8D35D63B30B11AE56A006F621D249F50CCE1CB58F6930D16045E1D6ECC96F11DE239A26BCEF08F4284B43401AB861ED7C72A30E272F6867C135C32903722FBBAC02B72E831A3F6DCDBEC0B2023358FAD00C533ECB93279684DF9A98BC38DA120261B2616D73159E3B86ED66490F17491B592E7EE07F91658D0FFC5246DC27F66469E771BEEF144F2A130AE23CEEC64325E15E66E59D162EA31B0640F0E13FCBF9AB4C5E59A8C8D8CC9C2F29C94F50034C80FD043A0E6FBA4FAEDBB6EFD9A94FBB1D92D595C6B9068094AF5E88E3DD23F3422B3D393D23B34248F3DF610F573F2B8AD2161AFDC75EF77E4ECE1476562EB4EEB86853EBD1732794579742C1A3623753E1B261871B402BE818171C6E3CD8D9A651B338BCAB121214792654C6681B08A75C660EBC88D4D6D2AC064B22831A9B66E4C07F79533DA494C0C2A35B8C570D829DAF8DDDE63DC7C2F7369728F5FC81BEFC60F19EC8A2C8EF77D9B39179218E873961A5330B9499D823CE1E5763B0BACBD64141F0000C9A3D0992ECF326B9E99E47C33B0B0516079B5C314A3D7F15903881C52A5F67CEE7AC1221335003D8B427CAEBA97E7218F51E05B68873F53A94A83F8620540AC5FFAAABDCC933775F3B7EFDC25B7DCFC259AC0DD3BB693AAB467FB16CA95CE9E3E2C33A78EEA835564DBEEF3A4A4D6E7C4C33F9473537352ECE9134C32F9F85F7D54A2FE2176B79080CA36119B9D01DE81C7B443669813B7C77759B1C4A3C67D8F1E4280AF961E348CC425FD2AB064152E0228D73EEA13F0DBFA1C50C35C589E96F9C5B92EB0323C845C041A41C40A2C6CB860686C851B2BF306B420F83B987253B42A310DEE31DB695E1B49331FA45484EE7866576611ABEA7A0EBD5B4DD46F9B25E04D1433E3F07161E6592E5D1FBC884DF1D9C3E98A101EAB53B891F4CF6187716A900EF034A644AF393B6622CF77074BFF7B31DCD4D2F570EB49E848A904ED8589A44F137CC6C2777461E30473E25BB2AEB7B947D171CC54624163E675B9EDAB378A94FA64B9D660EBF3D2F2129F6FEB81F36558637A6CCCDCF459A9E8A141FFCF0FEFBF5BB66CD92177DE7EABD49767F4F73B8DC4D945C10054A1B1A9B2D892A3007738B06011237627D9445D013A6F7AAA83249B40521D42CAD83CDCE4769CB2271F9D3D95821E90CEBACCCD4FF3D6F6EA3B00E0E2702579772C636A55ABCC52E3B4224EBE260413C9F75C2EC5D60F64D14DA1064E1DF16959BB699F38EE026CA7E80092A44FD41A98794F18AF51D3D595A7E86B803041878E7C130F4C5C5AB04BE1C70685DD7C3F39659E952E79C042162D38A20BC0CE33A120F0E1BB43F7883E13072EF38265B3F028A9D5E5790031D551BFBF56C38CB89AA263212B17C067647C40AE7DFF7BF92C6363DB358C1B906AB59FFE2ED2906F716143EA8B3332B2758F0C8D0DA9495EE7D7DE77FFBD8C10AEBFFE3A290D6DB7F472666C18C6C5C851B04E61594EBC33F96F084992964D8D16E3ED61E360230A602C49C6D4319843E8D0A50E8E6E18A662AF361664B5BEAC00B5AA8720B24A1E98B904B56ECE0D2C20F20351B741CD86F246B94758C9561CDFC6B1076E835934DBA48AE64EBEDDB187BCCC1D0CB771F40DA1BBF799E322705EA67565D1643853C32830B0AA1C2C58CC2282D19A11E77A6AC698A0F1AD6598211D6273FC5BCD4C1A523CCE12327A43A2C07C3940A33054CA36FB3D305BDD73F98530CAC9332B42C14AFDDBC2FC9CACAB2F2D8711EBD043C363F2C0FDDF97EFDCFE75919E3159ABAF70465D031325D2508647B64AFF48855A3973D3A715453BA13F7DA3D5D515B9F17F7C465AF525B508833CFB784FC4E87456BAA139B04B4E82380F003685B1352D5766200DC34E0B11D13ADE0BF36B1A0AF64094888A05460805FDF7FACA0AF909D5F200593A2C35FBB655CCDF880D254C02C7E34B12A6AB730A3D14D843C09439AAA2BE93B76046CEB730CE4FE9B6BBAA5B31DC73664C26EB8F478E4D5F0E82CF042190EC24ECF71CD31466D9D2AFA0FD90E081EE1A3C2C6855A1ABF6F84621B6A7D51FE6756CCC7762B1027C0C3042DED6535D4A49390231D3639D3BE182C42ED6277D88218B866C69241DB88B127C7FC8F092B905FDDFEA221A363AEA9BABAC030C8D0EC8A7FFFD7FD51352D2DB5B95A1DE41693535E42B564940989E3FA78BD1E260C181724B5D595D8ECF2ED2253CA27EFED1477EA096E000D9C09E3B80C8B917709BF4EF62BD516574002359A37E193F93DAB099D5D43D46C701898D70C2B19AF504EADBFA3CB86588DF43CEC6ADB39E4F8A556674133487E4A8F6E1EC87A44DDA40B8CCB52027B9591896623DEE03984B9EA173BBB4500161CE24B4CC9D6719D7C8B37CBF55425D83277E83D42C102B6D6966D534F82B9B6E1DD24790F693B8967A44639955E4BAB29DBC916EC01EC34032563DD7276F1181E75B0108790D3F379E1E369E7DE288D380115297FE75FC75242B601558C0C162826244841FE88DDDE0811CEAEDE3B33CA89B377BE6A4E28501529ED6D7F428E9018D229B3DB77FCF4E1EF254FD6E6DF649A9AF2DA91529B13305890F74EC92FDE2B93A559ABBF0CA651CF5B9DA7987872E0A2CDF80E10496A9F3682559C4112B3E259925C63C6A0806BCE9AD4693D9CA72D46FE414CF6A14B08431C02F32972850F9C674F172632A534C01F7198A1F2855734C794E640FCB9AE63604C1F3ADF331EAC6F65D0107044E4E0BC14139ABD584DD92996548ACD024C6B5F3BB9B9E5B5D98FE170375313735320547D4CB337A713B0CB8255EE87AF5E8A753333B1015CC1B7A6B3CE396651D4B6CE01FCE66CD5921440862BC3307185CD1C263EC6A0B92AB19C7EDD8885B2CAEFCCD0D9FA5C9EB192C4AA554A55A5551ED5CA3599356D694D36796A5540A65707050C6B61D90D5DAAC1E90552E6C0F1A39A332E7D0B2C581B36872C786CD295C040973104DD1FF9674BAD3267C6B7C24E8D2F701CF1DC5A6DCA8522C79639C5AB9C89B8E8D8A3CFD1C50D190DE053883D2769CB886140B5743FC1C24D6422388620FF0F7B8D3C84C06FC3A8F29736201FDDA0A9E3DB7C10C2933B1EC9F259ACF5D09D968EF6417814091B918D9705D9075430FD7EE0450135B518FCC223E85B546C5A965EF507DF31D49906D0F0E6060D263DEBD422EE1948246859B93594893F9E966BD9E335ED2AE05B15A32F9F83033890910FBACCB87EADFD765BDDD90D686FAF1F6863CFEC37B44CA23D2A8B738CF3557EB50AA82A65D9481DEB28C8CF448A3E1C9E4E471B506CBBA384D4A947B7191E562B82D1CF69CC31B60138BBC3DCC69C0EA7905C6FB9EBAB13488ED75D03583044F6CC2C8B8B1F873E8063C85C41F05595C5C94665BDD4CC9C229307542B66D77A882C5CFE4C508AD70955BC896E79B42AEDC54D2A7D83368D7052CDCC8B39A7D4BDF3741BE1F603AB50B63CCDF800CA7BC93BBEAAACDC49320095CA3A171E588D003982653594A90BAEDDE3C77CA3D074468115DAE1DC7D2E14AE970069BA55C01E29C3534CA348483B3CC8D0DB53A14CE69E47B9BBAB576593CA63579B291C4C1694D1CBD48371E25CEA913939C2377F3CD5FE52757AB554E9AC0F8C076D250E4BF4E6669A2887F71795E76EDDE29A343C3D2AACD2BE8CA089CAA3D65BD4545E60940D9B6570B5CB9D323D387841273669C7A494492D8F8500A1301F7A4A63F1F92BF96733D23FDFDF2EA3215B47A0AECFA7476D1E78C598E62E040654B04658EBF90A6D1533EDC25B324B7BA48E8082E844379E03632E1F390B6AED6224D8C2D9CDBC86603ECB0CA49FED4B0C30CBA2A68EBEDE4345F2CDDA5A6BDEA3BA2A4D5619DF046668105BEBB809B9DBA4E09162D8C325C082C6423FBDEB154D1438790039F01E2232BFFE889734376736494803843C30FF44F089E511266FDC91A0A7025102D40B2144383472606E59B8CDBFB7593636294BEDE1EFDBC5026268674D1CA8AF8B7307F303FBB2E2B6BABD2CCEA6CDCAC50ADD2787CDC5B3678A62E659D30D5C54886AEA945563473E62439A6E6631D8D397632A6D8FC40DD4659C339B07FD0D55382E8B16778269116DF334EDB1CA48441074162B3EB78113C9F9FC31A4157E0D4B794AF297304963D74C2CE39AA7599E5F219D1C19246C6E4C9C8C04D6885F80978378FB917DF49C506E6CB53FB81F81000B84E926D8232DFF58953B62537358756669522A355050C374C522160272BE2F020B0F65F54F3A8EC80BA7412732BD3DC8889E8AEC1D7909A955A2B71DE251548FE94B223805E1A9023BE5C5B9517BCE8C572E7B7BF61B58C4A8FA49D842D4AF5F586BA99922C2CCE89C796AA840CD7891DC392AFAD494D6FA15F311A7281ACE28889199B8513F0309AF7336D9A98722519E5CBE16B992E05DE482DF6E63941881B5AD91958A0A6317AA3D9A2BA56B7A90497CCA3154D7878CCEC1B4642522CF56CA832363D717C071E2C563623CB1AE636B485431418CD175D1128E01874D3CAB7BEBC8C59BD82D1B67277A9913B191B1DE55F300599B9C48967244134F0E771772C626AB739B36C968F98353024EB497781522BF6F896B76F6B880366494A5A574ED34DD315A12327569F14DB986D1E85D058F4CC0DF856FF16671570C2D5F4114378899D7E6410F556EDDBB74FBE4850E733BDD95BAD4835284BDF408F14F5F703D55EDD585DC40E2C512493C71E91566791BCC1C0ABB0BBD6FC6B463E1C535238F8882090BEF6ACD101B7357784451C3C6C2E6E91D51C02A72F1010EFC01AAD359649DD86763DC05EEEAE033880A635F794AB849568A6C6472C745B379030C25A70B37D2B20E5DD9E7C738FB06CA86BA0C5DADF54BD35F60F4367CF72322EFF66919B58A78EFF8217FE1CEC36F71B881DB566942839C8C77541D1067ADE6699906631379061AD4D565707318144126496C01957D081142A932080FE0881E01BFDB671F01136FA16E6B5C1D7278448F5C65AC5CE54A02D1489B282D1B65CF3244E73EF50AF9C3C76584E1F7D42BF604843A586DEF40D3630AED69628A6B08A5A3BA284202692AE9644166BE7985FE8016D1923483257AFF0531740E4BC49C01CB10DE5B3EA606EBE15ED4BAC98C1FCB33B26A39F4645AC50D04DDFD86002A7C292B1D5E83D5771037EA2D5E89656BD2E052B7115148F02CCB80C968AB7BEB8AEEA2888A829636B13AD226389D6297349B2849C384EE7A0BB0E5DAD2167B61587EBB9971E12FF8D575F2D3B764CB8267DF5D9459BD102C040FD162A5774AD816CA2CAE4691324ACD9C0E27E9A76DFC81DB899416A53A008D0D84F95B1BDD7887616C2D8C9CD4D2204FD15A9317BBCC00E1C3624091B16C2516EDC5AA6070746E42B5FBE810B58D51B5EAA1674B18B64DF16F5C654072ABC2DED66AC48FF9C22F9964C9F3A4249B1B2A2FC506F23030A3F773730E43FC41B99BD53B4C93D0D6C22676E6E0D593A615364E452DE42FE7CA3DD66FAB45CC1A0437F530C9ED17E60A89F392E583B327A02CAA40705CB648ACB77140233ED088341A6B4A28C8B96502B885C6C2E0EB5BBFD0111260437A260554F84A079B7AA8943552CC83B7FF7B7C59F9C9CFCD8D7BFF665D9B675DC111DAC12C49C05CBB8C1A60E1E91796675B7502C9C23C2468ECD09F4777BE5AC05AB3B03C569C138D6A69F59D706089EE8CFF383DC91417C9A55E68070D203D36FCB5DBA38F05DD649C395524117B9B92EB7DFFE0D2A59B435846BEA4DAB37DBD25ADB609E2001B1A19DCAD8D856E940E5CA6FA94598658A195C090231C6C281DD36C7EA24F9443C67951C41347313BA3C07F668BE1333C7309D68384567AA460F05C51629871CF90452DDFA3A8A372C6783868DCD42A10923D141C868DAC042966E33A77F278E34117405194C979754F43471594F2B8611B7818B982B60648A37B0CC1D5AA63393BF0649F523D77E488687FABF82C3B8EBB1C71EBB66DBB6EDFFEEBF7FEE06B9F3EE7F90959555032DAEE0EF6DEAB89927418CCA92A51F3ABA6E37C4738AD440AC8E0098A59BA682A94CA436D1CD69B562DDB24AD5D42F59674666AEBD491405EEC3425A48876826A2B9EAC56081A29AD4959A74D0F7ADC89C370553A6D41AF494AAA67DDB334885AE4E5CD030AF2CF1C69CCC9C3B4E62661F469638C64E8010CB77294D32572282BB4260D9315A39846DDDC321D63C6A849D806117F4ECDA6ADECBA5123788E407B18537D2921BADE21B4E62D304D4F0B126986BA39F5F2C46A49D49609A79CCA9034BB83E0568E9FB05739134E7A1E3073859163E47075151C2EAA349B9E48A33CA72D185E7C9EB5FF73A84D85FDABF7FFF7BFFB70003006B38797529CC84570000000049454E44AE426082, 'test', 'plug-in/accordion/images/temp01.png', '1');
+
+-- ----------------------------
+-- Table structure for t_s_log
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_log`;
+CREATE TABLE `t_s_log` (
+  `ID` varchar(32) NOT NULL,
+  `broswer` varchar(100) DEFAULT NULL,
+  `logcontent` longtext NOT NULL,
+  `loglevel` smallint(6) DEFAULT NULL,
+  `note` longtext,
+  `operatetime` datetime NOT NULL,
+  `operatetype` smallint(6) DEFAULT NULL,
+  `userid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_oe64k4852uylhyc5a00rfwtay` (`userid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_log
+-- ----------------------------
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7ef000c8', 'Chrome', '用户: admin登录成功', '1', '169.254.200.136', '2013-04-24 16:22:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7efa00c9', 'Chrome', '用户: admin登录成功', '1', '10.10.10.1', '2013-04-24 17:12:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7efd00ca', 'Chrome', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-10 15:37:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f0200cb', 'Chrome', '用户admin已退出', '2', '169.254.218.201', '2013-03-10 15:38:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f0500cc', 'MSIE 9.0', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-10 15:38:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f0900cd', 'MSIE 9.0', 'JeecgDemo例子: 12被删除 成功', '4', '169.254.218.201', '2013-03-10 15:39:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f0c00ce', 'MSIE 9.0', 'JeecgDemo例子: 12被删除 成功', '4', '169.254.218.201', '2013-03-10 15:39:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f1000cf', 'Chrome', 'JeecgDemo例子: 12被删除 成功', '4', '169.254.218.201', '2013-03-10 15:39:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f1300d0', 'MSIE 9.0', '权限: 单表模型被更新成功', '5', '169.254.218.201', '2013-03-10 15:39:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f1600d1', 'Chrome', '删除成功', '4', '169.254.218.201', '2013-03-10 15:39:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f1a00d2', 'MSIE 9.0', '删除成功', '4', '169.254.218.201', '2013-03-10 15:39:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f1e00d3', 'Chrome', '删除成功', '4', '169.254.218.201', '2013-03-10 15:39:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f2100d4', 'Firefox', '删除成功', '4', '169.254.218.201', '2013-03-10 15:39:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f2700d5', 'Chrome', '添加成功', '3', '169.254.218.201', '2013-03-10 15:40:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f2b00d6', 'Chrome', '更新成功', '5', '169.254.218.201', '2013-03-10 15:40:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f2f00d7', 'Chrome', 'JeecgDemo例子: 12被添加成功', '3', '169.254.218.201', '2013-03-10 15:40:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f3500d8', 'Chrome', '部门: 信息部被更新成功', '5', '169.254.218.201', '2013-03-10 15:41:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f3900d9', 'Chrome', '部门: 设计部被更新成功', '5', '169.254.218.201', '2013-03-10 15:41:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f3c00da', 'Chrome', '类型: 信息部流程被更新成功', '5', '169.254.218.201', '2013-03-10 15:46:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f4000db', 'Chrome', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-10 15:48:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f4400dc', 'Firefox', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-21 23:23:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f4700dd', 'Chrome', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-21 23:26:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f4b00de', 'Chrome', '权限: 一对多实例被添加成功', '3', '169.254.218.201', '2013-03-21 23:28:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f4e00df', 'Chrome', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-22 08:25:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f5200e0', 'Firefox', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-22 09:05:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f5500e1', 'Chrome', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-22 09:09:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f5a00e2', 'MSIE 8.0', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-22 09:28:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f5c00e3', 'Firefox', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-22 10:32:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f5f00e4', 'Chrome', '物品: 笔记本添加成功', '3', '169.254.218.201', '2013-03-22 10:35:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f6100e5', 'Firefox', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-22 10:41:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f6500e6', 'Firefox', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-22 16:11:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f6700e7', 'Chrome', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-22 21:49:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f6a00e8', 'Chrome', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-22 23:17:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f6d00e9', 'Chrome', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-22 23:27:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f6f00ea', 'Chrome', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-23 00:16:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f7200eb', 'Chrome', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-23 00:22:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f7400ec', 'Firefox', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-23 00:31:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f7700ed', 'Chrome', '用户: admin登录成功', '1', '169.254.218.201', '2013-03-23 14:23:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f7900ee', 'Chrome', '流程参数: 主任审批被添加成功', '3', '169.254.218.201', '2013-03-23 15:05:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f7b00ef', 'Firefox', '业务参数: 入职申请被添加成功', '3', '169.254.218.201', '2013-03-23 15:05:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f7e00f0', 'Chrome', '权限: 入职申请被添加成功', '3', '169.254.218.201', '2013-03-23 15:12:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f8000f1', 'Firefox', '权限: 入职办理被添加成功', '3', '169.254.218.201', '2013-03-23 15:13:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f8300f2', 'Chrome', '用户: admin登录成功', '1', '10.10.10.1', '2013-05-06 15:27:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f8500f3', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 15:16:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f8800f4', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:02:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f8a00f5', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:07:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f8d00f6', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:09:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f8f00f7', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:11:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f9200f8', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:13:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f9400f9', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:16:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f9600fa', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:19:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f9900fb', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:27:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f9c00fc', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:42:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7f9f00fd', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:44:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fa200fe', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:49:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fa500ff', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:50:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fa80100', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:53:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fad0101', 'MSIE 8.0', '修改成功', '5', '192.168.197.1', '2013-07-07 16:56:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fb00102', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 16:59:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fb30103', 'MSIE 8.0', '创建成功', '3', '192.168.197.1', '2013-07-07 17:22:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fb50104', 'MSIE 8.0', '修改成功', '5', '192.168.197.1', '2013-07-07 17:26:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fb80105', 'MSIE 8.0', '删除成功', '4', '192.168.197.1', '2013-07-07 17:31:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fbb0106', 'MSIE 8.0', '修改成功', '5', '192.168.197.1', '2013-07-07 17:35:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fbe0107', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 17:46:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fc20108', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 17:55:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fc40109', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 18:08:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fc7010a', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 18:13:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fca010b', 'MSIE 8.0', '用户: admin登录成功', '1', '192.168.197.1', '2013-07-07 18:15:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fcc010c', 'MSIE 8.0', '修改成功', '5', '192.168.197.1', '2013-07-07 18:28:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fd0010d', 'MSIE 8.0', '修改成功', '5', '192.168.197.1', '2013-07-07 18:29:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fd3010e', 'MSIE 8.0', '修改成功', '5', '192.168.197.1', '2013-07-07 18:30:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fd6010f', 'MSIE 8.0', '修改成功', '5', '192.168.197.1', '2013-07-07 18:31:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fda0110', 'MSIE 8.0', '修改成功', '5', '192.168.197.1', '2013-07-07 18:31:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fde0111', 'MSIE 9.0', '物品: 555添加成功', '3', '192.168.1.103', '2013-03-20 23:03:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fe20112', 'MSIE 9.0', '用户: admin登录成功', '1', '192.168.1.103', '2013-03-20 23:19:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fe50113', 'MSIE 9.0', '用户: admin登录成功', '1', '192.168.1.103', '2013-03-21 20:09:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fe90114', 'MSIE 9.0', '用户: admin登录成功', '1', '192.168.1.103', '2013-03-21 20:27:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fed0115', 'MSIE 9.0', '用户: admin登录成功', '1', '192.168.1.103', '2013-03-21 20:44:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7fef0116', 'MSIE 9.0', '用户: admin登录成功', '1', '192.168.1.103', '2013-03-21 20:54:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7ff20117', 'MSIE 9.0', '用户: admin登录成功', '1', '192.168.1.103', '2013-03-21 21:01:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7ff50118', 'MSIE 9.0', '用户: admin登录成功', '1', '192.168.1.103', '2013-03-21 21:13:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7ff80119', 'MSIE 9.0', '物品: 55添加成功', '3', '192.168.1.103', '2013-03-21 21:15:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7ffb011a', 'MSIE 9.0', '用户: admin登录成功', '1', '192.168.1.103', '2013-03-21 21:22:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda7ffd011b', 'MSIE 9.0', '物品: 55添加成功', '3', '192.168.1.103', '2013-03-21 21:23:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda8000011c', 'MSIE 9.0', '物品: 33添加成功', '3', '192.168.1.103', '2013-03-21 21:23:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda8002011d', 'MSIE 9.0', '用户: admin登录成功', '1', '192.168.1.103', '2013-03-21 21:25:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda8005011e', 'MSIE 9.0', '用户: admin登录成功', '1', '192.168.1.103', '2013-03-21 21:27:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda8007011f', 'MSIE 9.0', '权限: 采购审批被添加成功', '3', '192.168.1.103', '2013-03-21 21:29:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda800a0120', 'MSIE 9.0', '权限: 采购审批被更新成功', '5', '192.168.1.103', '2013-03-21 21:29:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda800d0121', 'MSIE 9.0', '权限: 采购审批被更新成功', '5', '192.168.1.103', '2013-03-21 21:30:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda800f0122', 'MSIE 9.0', '用户: admin更新成功', '5', '192.168.1.103', '2013-03-21 21:31:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda80120123', 'MSIE 9.0', '流程参数: 采购审批员审批被添加成功', '3', '192.168.1.103', '2013-03-21 21:36:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda80150124', 'MSIE 9.0', '流程参数: 采购审批员审批被更新成功', '5', '192.168.1.103', '2013-03-21 21:36:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda80180125', 'MSIE 9.0', '流程参数: 采购审批员审批被更新成功', '5', '192.168.1.103', '2013-03-21 21:37:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda801b0126', 'MSIE 9.0', '流程类别: 采购审批员审批被删除 成功', '4', '192.168.1.103', '2013-03-21 21:38:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda801e0127', 'MSIE 9.0', '物品: 44添加成功', '3', '192.168.1.103', '2013-03-21 21:43:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda80220128', 'MSIE 9.0', '用户: admin登录成功', '1', '192.168.1.105', '2013-02-07 10:10:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda80250129', 'MSIE 9.0', '权限: 上传下载被添加成功', '3', '192.168.1.105', '2013-02-07 11:07:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda8028012a', 'MSIE 9.0', '权限: 插件演示被删除成功', '4', '192.168.1.105', '2013-02-07 11:07:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efda802b012b', 'MSIE 9.0', '用户: admin登录成功', '1', '192.168.1.105', '2013-02-07 11:07:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efd9fd0146efdaab230183', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 10:57:03', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446efdba10146efdbf6f60000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 10:58:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f085e40146f086ab340000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 14:04:55', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f088f00146f0893e8d0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 14:07:44', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f088f00146f09003800008', 'Chrome', '创建成功', '3', '192.168.2.100', '2014-07-01 14:15:08', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f088f00146f090e06a0009', 'Chrome', '修改成功', '5', '192.168.2.100', '2014-07-01 14:16:04', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f092400146f0933c470000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 14:18:39', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f09ba60146f09bf9e00000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 14:28:12', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f09fb10146f0a00a180000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 14:32:38', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0a2220146f0a5a7190000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 14:38:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0a2220146f0b60cbf0002', 'Chrome', '权限: 协同办公被添加成功', '3', '192.168.2.100', '2014-07-01 14:56:41', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0a2220146f0b6bbb90004', 'Chrome', '权限: 公告通知被添加成功', '3', '192.168.2.100', '2014-07-01 14:57:25', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0a2220146f0b723d80007', 'Chrome', '用户admin已退出', '2', '192.168.2.100', '2014-07-01 14:57:52', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0a2220146f0b736800008', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 14:57:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0b8060146f0b85ff70000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 14:59:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0c95c0146f0c9b15d0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 15:18:08', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0dff10146f0e04ac40000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 15:42:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0e4c40146f0e50edf0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 15:48:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0e6340146f0e67f8d0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 15:49:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0e6340146f0e7d0720001', 'Chrome', '权限: 公告通知被更新成功', '5', '192.168.2.100', '2014-07-01 15:51:02', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0f0640146f0f0b6a40000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 16:00:45', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0f1c70146f0f218450000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 16:02:16', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0f36f0146f0f3c4a20000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 16:04:05', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0f50a0146f0f55b200000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 16:05:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0f50a0146f0f5f0450001', 'Chrome', '权限: 公告通知被更新成功', '5', '192.168.2.100', '2014-07-01 16:06:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0f50a0146f0f6fa810002', 'Chrome', '用户admin已退出', '2', '192.168.2.100', '2014-07-01 16:07:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0f50a0146f0f70d3c0003', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-01 16:07:41', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0f50a0146f142aeda0004', 'Chrome', '修改成功', '5', '192.168.2.100', '2014-07-01 17:30:17', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0f50a0146f142ed790005', 'Chrome', '修改成功', '5', '192.168.2.100', '2014-07-01 17:30:33', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0f50a0146f14446a80006', 'Chrome', '修改成功', '5', '192.168.2.100', '2014-07-01 17:32:02', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f0f50a0146f145f97b0007', 'Chrome', '修改成功', '5', '192.168.2.100', '2014-07-01 17:33:53', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4ac850146f4acf2e40000', 'Chrome', '用户: admin[信息部]登录成功', '1', '10.0.0.111', '2014-07-02 09:25:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4bd9d0146f4be9cc00000', 'Chrome', '用户: admin[信息部]登录成功', '1', '10.0.0.111', '2014-07-02 09:44:31', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4bd9d0146f4c72b680001', 'Chrome', '修改成功', '5', '10.0.0.111', '2014-07-02 09:53:51', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f4e911700000', 'Chrome', '用户: admin[信息部]登录成功', '1', '10.0.0.111', '2014-07-02 10:30:53', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f4f054ff0002', 'Chrome', '公告通知添加成功', '3', '10.0.0.111', '2014-07-02 10:38:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f4f244280004', 'Chrome', '公告通知添加成功', '3', '10.0.0.111', '2014-07-02 10:40:56', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f5094c1f0009', 'Chrome', '创建成功', '3', '10.0.0.111', '2014-07-02 11:06:05', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f50f495e000f', 'Chrome', '创建成功', '3', '10.0.0.111', '2014-07-02 11:12:38', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f510c5920010', 'Chrome', '修改成功', '5', '10.0.0.111', '2014-07-02 11:14:15', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f5110bb20011', 'Chrome', '修改成功', '5', '10.0.0.111', '2014-07-02 11:14:33', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f512193a0012', 'Chrome', '移除成功', '4', '10.0.0.111', '2014-07-02 11:15:42', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f5130a070018', 'Chrome', '修改成功', '5', '10.0.0.111', '2014-07-02 11:16:44', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f513dd7d0019', 'Chrome', '修改成功', '5', '10.0.0.111', '2014-07-02 11:17:38', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f5a6b0b4001a', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-02 13:58:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f5ab16b2001b', 'Chrome', '修改成功', '5', '192.168.2.100', '2014-07-02 14:02:48', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f5ac6266001c', 'Chrome', '修改成功', '5', '192.168.2.100', '2014-07-02 14:04:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f5aceb5c001d', 'Chrome', '修改成功', '5', '192.168.2.100', '2014-07-02 14:04:48', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f5ad0da6001e', 'Chrome', '修改成功', '5', '192.168.2.100', '2014-07-02 14:04:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f5ad580c001f', 'Chrome', '修改成功', '5', '192.168.2.100', '2014-07-02 14:05:16', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f5adc7360020', 'Chrome', '修改成功', '5', '192.168.2.100', '2014-07-02 14:05:45', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080ef46f4e8a50146f5aef5840021', 'Chrome', '修改成功', '5', '192.168.2.100', '2014-07-02 14:07:02', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f5b61f0146f5b684b10000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-02 14:15:17', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f5b61f0146f5b86f650002', 'Chrome', '权限: 办公设备被添加成功', '3', '192.168.2.100', '2014-07-02 14:17:23', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f5b61f0146f5b92e620004', 'Chrome', '权限: 办公设备类型被添加成功', '3', '192.168.2.100', '2014-07-02 14:18:12', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f5b61f0146f5b995a70007', 'Chrome', '用户admin已退出', '2', '192.168.2.100', '2014-07-02 14:18:38', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f5b61f0146f5b9a82f0008', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-02 14:18:43', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f5b61f0146f5bac422000a', 'Chrome', '设备类型添加成功', '3', '192.168.2.100', '2014-07-02 14:19:56', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f5b61f0146f5bad31b000b', 'Chrome', '设备类型删除成功', '4', '192.168.2.100', '2014-07-02 14:20:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f5b61f0146f5baf1a4000d', 'Chrome', '设备类型添加成功', '3', '192.168.2.100', '2014-07-02 14:20:07', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f5f5670146f5f74ca80000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-02 15:26:03', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e446f5f5670146f65eeb220001', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-02 17:19:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('297e1abe46fb50520146fb51d3790000', 'Chrome', '用户: admin[信息部]登录成功', '1', '169.254.154.62', '2014-07-03 16:23:02', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('297e1abe46fb50520146fb83cad10001', 'Chrome', '用户: admin[信息部]登录成功', '1', '169.254.154.62', '2014-07-03 17:17:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('297e1abe46ffee670146ffeefda20000', 'Chrome', '用户: admin[信息部]登录成功', '1', '169.254.154.62', '2014-07-04 13:53:11', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('297e1abe46fff6c80146fff715b20000', 'Chrome', '用户: admin[信息部]登录成功', '1', '169.254.154.62', '2014-07-04 14:02:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080f34700468e01470046dd4b0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '10.0.0.115', '2014-07-04 15:29:09', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080f34700468e0147004869e30003', 'Chrome', '公告通知添加成功', '3', '10.0.0.115', '2014-07-04 15:30:51', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080f347004ad30147004ca0bc0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-04 15:35:27', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8a8080f347004ad30147004d0bfc0001', 'Chrome', '公告通知删除成功', '4', '192.168.2.100', '2014-07-04 15:35:55', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e447004fc701470050124f0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-04 15:39:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470057b101470059f4d00000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-04 15:50:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470079f10147007a59420000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-04 16:25:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470079f10147007c2d1c0002', 'Chrome', '公告通知添加成功', '3', '192.168.2.100', '2014-07-04 16:27:23', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470079f10147007ea0a90004', 'Chrome', '公告通知添加成功', '3', '192.168.2.100', '2014-07-04 16:30:04', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470079f10147007f66ea0006', 'Chrome', '公告通知添加成功', '3', '192.168.2.100', '2014-07-04 16:30:55', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470081cf0147008264aa0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-04 16:34:11', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470081cf0147008296590002', 'Chrome', '公告通知更新成功', '5', '192.168.2.100', '2014-07-04 16:34:23', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470081cf0147008343140004', 'Chrome', '公告通知更新成功', '5', '192.168.2.100', '2014-07-04 16:35:08', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e44700854b01470085a1bc0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-04 16:37:43', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e44700854b01470085e80e0001', 'Chrome', '公告通知更新成功', '5', '192.168.2.100', '2014-07-04 16:38:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e44700854b014700860d610002', 'Chrome', '公告通知删除成功', '4', '192.168.2.100', '2014-07-04 16:38:11', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e44700854b01470086158a0003', 'Chrome', '公告通知删除成功', '4', '192.168.2.100', '2014-07-04 16:38:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470087d701470088255d0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-04 16:40:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470087d701470088b25c0001', 'Chrome', '公告通知更新成功', '5', '192.168.2.100', '2014-07-04 16:41:04', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470087d70147008902680002', 'Chrome', '公告通知更新成功', '5', '192.168.2.100', '2014-07-04 16:41:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e447009cdc0147009d23f00000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-04 17:03:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e447009cdc014700a5888e0001', 'Chrome', '公告通知更新成功', '5', '192.168.2.100', '2014-07-04 17:12:34', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e447009cdc014700a5ae7a0002', 'Chrome', '公告通知更新成功', '5', '192.168.2.100', '2014-07-04 17:12:43', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e447009cdc014700b7c3ac0003', 'Chrome', '公告通知更新成功', '5', '192.168.2.100', '2014-07-04 17:32:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e447009cdc014707150c6f0004', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.1.108', '2014-07-05 23:12:05', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470e769201470e7774a80000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-07 09:36:55', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470e769201470e8176bc0001', 'MSIE 9.0', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-07 09:47:51', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470e769201470e84648c0002', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-07 09:51:03', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4470e769201470e8ecab70003', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-07 10:02:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e447100d0c0147100eadd40000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-07 17:01:43', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e447100d0c01471486e5a30001', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-08 13:51:30', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5475432770147543738850000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-20 22:40:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5475432770147543970490002', 'Chrome', '权限: 人事管理被添加成功', '3', '192.168.0.101', '2014-07-20 22:42:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5475432770147543adfc80003', 'Chrome', '权限: 角色管理被更新成功', '5', '192.168.0.101', '2014-07-20 22:44:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5475432770147543c09140004', 'Chrome', '权限: 用户管理被更新成功', '5', '192.168.0.101', '2014-07-20 22:45:26', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5475432770147543c32f60005', 'Chrome', '权限: 部门管理被更新成功', '5', '192.168.0.101', '2014-07-20 22:45:37', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5475432770147543ca14e0006', 'Chrome', '权限: 系统配置被更新成功', '5', '192.168.0.101', '2014-07-20 22:46:05', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5475432770147543d7e180008', 'Chrome', '用户admin已退出', '2', '192.168.0.101', '2014-07-20 22:47:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5475432770147543d9ba20009', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-20 22:47:09', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e547543277014754431620000b', 'Chrome', '用户: scott更新成功', '5', '192.168.0.101', '2014-07-20 22:53:08', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e547543277014754432eb4000c', 'Chrome', '角色: 普通用户被删除成功', '4', '192.168.0.101', '2014-07-20 22:53:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e54754327701475444296b000d', 'Chrome', '用户admin已退出', '2', '192.168.0.101', '2014-07-20 22:54:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5475432770147544448ac000e', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-20 22:54:26', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e547543277014754463174000f', 'Chrome', '用户admin已退出', '2', '192.168.0.101', '2014-07-20 22:56:32', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e54754327701475448d3c70010', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-20 22:59:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5475432770147544b59630011', 'Chrome', '用户admin已退出', '2', '192.168.0.101', '2014-07-20 23:02:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5475432770147544b8b7d0012', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-20 23:02:22', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e747731ebc0147732047c60000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.103', '2014-07-26 22:43:21', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e747731ebc0147733a0c7f0004', 'Chrome', '用户admin已退出', '2', '192.168.0.103', '2014-07-26 23:11:29', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e747731ebc0147733a352f0005', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.103', '2014-07-26 23:11:40', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e747731ebc0147733a9eec0006', 'Chrome', '修改成功', '5', '192.168.0.103', '2014-07-26 23:12:07', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e74773448a01477344e1da0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.103', '2014-07-26 23:23:19', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477349520147734ffe5a0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.103', '2014-07-26 23:35:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e747734952014778156ac80002', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-27 21:49:35', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477349520147781c5d9a0008', 'Chrome', '公告通知添加成功', '3', '192.168.0.101', '2014-07-27 21:57:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477349520147782307580021', 'Chrome', '用户admin已退出', '2', '192.168.0.101', '2014-07-27 22:04:27', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477349520147782325ee0022', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-27 22:04:35', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477349520147782d27540023', 'Chrome', '公告通知更新成功', '5', '192.168.0.101', '2014-07-27 22:15:30', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e747734952014778442a290025', 'Chrome', '公告通知添加成功', '3', '192.168.0.101', '2014-07-27 22:40:38', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e747734952014778452aea0027', 'Chrome', '公告通知添加成功', '3', '192.168.0.101', '2014-07-27 22:41:44', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477349520147784542190028', 'Chrome', '公告通知更新成功', '5', '192.168.0.101', '2014-07-27 22:41:50', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477349520147784593d60029', 'Chrome', '公告通知更新成功', '5', '192.168.0.101', '2014-07-27 22:42:11', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e74773495201477845bc04002a', 'Chrome', '公告通知更新成功', '5', '192.168.0.101', '2014-07-27 22:42:21', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477349520147785aa64d0030', 'Chrome', '创建成功', '3', '192.168.0.101', '2014-07-27 23:05:12', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e547787aab0147787b287a0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-27 23:40:43', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e547787aab0147787cb5cc0001', 'Chrome', '权限: 办公设备被删除成功', '4', '192.168.0.101', '2014-07-27 23:42:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e547787aab0147787cccfd0002', 'Chrome', '权限: 办公设备类型被删除成功', '4', '192.168.0.101', '2014-07-27 23:42:30', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e547787aab0147787dd35f0004', 'Chrome', '权限: 日程安排被添加成功', '3', '192.168.0.101', '2014-07-27 23:43:37', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e547787aab0147787e6b9c0006', 'Chrome', '用户admin已退出', '2', '192.168.0.101', '2014-07-27 23:44:16', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e547787aab0147787e98df0007', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-27 23:44:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5477884bf0147788546460000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-27 23:51:45', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5477895b3014778965d6a0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-28 00:10:26', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5477895b3014778970c870001', 'Chrome', '权限: 日程安排被更新成功', '5', '192.168.0.101', '2014-07-28 00:11:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5477895b30147789755c60002', 'Chrome', '用户admin已退出', '2', '192.168.0.101', '2014-07-28 00:11:29', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e5477895b30147789770f80003', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-28 00:11:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e547789abe0147789b3bf80000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-28 00:15:45', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e547789d6c0147789de9400000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-28 00:18:40', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e54778a287014778a31dd90000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.101', '2014-07-28 00:24:21', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477a795601477a79f95c0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-28 08:58:39', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477a7e5601477a80062a0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-28 09:05:16', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477a826a01477a830ddf0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-28 09:08:34', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477a919a01477a91ee180000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-28 09:24:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477ac98401477adc665b0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-28 10:46:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477ae19e01477ae244fe0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-28 10:52:34', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477ae19e01477ae369160002', 'Chrome', '日程安排添加成功', '3', '192.168.2.100', '2014-07-28 10:53:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477ae93e01477ae9b0da0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-28 11:00:41', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477ae93e01477aed291b0001', 'Chrome', '日程安排更新成功', '5', '192.168.2.100', '2014-07-28 11:04:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477ae93e01477aed45ab0002', 'Chrome', '日程安排更新成功', '5', '192.168.2.100', '2014-07-28 11:04:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477ae93e01477aee84a90003', 'Chrome', '部门: 研发室被更新成功', '5', '192.168.2.100', '2014-07-28 11:05:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477ae93e01477aeecd690004', 'Chrome', '部门: 研发室被更新成功', '5', '192.168.2.100', '2014-07-28 11:06:16', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477b800f01477b81f4ec0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-28 13:47:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477b800f01477b893e1b0002', 'Chrome', '类型分组: 会议室类型被添加成功', '3', '192.168.2.100', '2014-07-28 13:54:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477b800f01477b898a860004', 'Chrome', '类型: 大会议室被添加成功', '3', '192.168.2.100', '2014-07-28 13:55:17', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477b800f01477b89b5650006', 'Chrome', '类型: 小会议室被添加成功', '3', '192.168.2.100', '2014-07-28 13:55:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477b800f01477b8df1530007', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-28 14:00:05', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477b800f01477b8ed9ad000d', 'Chrome', '创建成功', '3', '192.168.2.100', '2014-07-28 14:01:05', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477ba0ef01477ba157500000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-28 14:21:17', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477ba0ef01477ba2583e0002', 'Chrome', '权限: 会议管理被添加成功', '3', '192.168.2.100', '2014-07-28 14:22:22', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477ba0ef01477ba3071a0004', 'Chrome', '用户admin已退出', '2', '192.168.2.100', '2014-07-28 14:23:07', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477ba0ef01477ba3208c0005', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-28 14:23:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477bad10480000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-28 14:34:05', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477bad78420002', 'Chrome', '会议管理添加成功', '3', '192.168.2.100', '2014-07-28 14:34:31', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477bada9750003', 'Chrome', '会议管理删除成功', '4', '192.168.2.100', '2014-07-28 14:34:44', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477baded5f0005', 'Chrome', '会议管理添加成功', '3', '192.168.2.100', '2014-07-28 14:35:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477bae29bd0006', 'Chrome', '会议管理更新成功', '5', '192.168.2.100', '2014-07-28 14:35:17', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477bfe89f30007', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-28 16:03:04', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477bff010a0009', 'Chrome', '会议管理添加成功', '3', '192.168.2.100', '2014-07-28 16:03:35', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477d4bddb6000a', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.103', '2014-07-28 22:07:09', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477d4ccc52000b', 'Chrome', '会议管理更新成功', '5', '192.168.0.103', '2014-07-28 22:08:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477d701a4f000c', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.103', '2014-07-28 22:46:44', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477d70b6fe000e', 'Chrome', '会议管理添加成功', '3', '192.168.0.103', '2014-07-28 22:47:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477d9bccff0010', 'Chrome', '会议管理添加成功', '3', '192.168.0.103', '2014-07-28 23:34:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477da3d00c0011', 'Chrome', '公告通知更新成功', '5', '192.168.0.103', '2014-07-28 23:43:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477da478310012', 'Chrome', '公告通知更新成功', '5', '192.168.0.103', '2014-07-28 23:43:56', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477da79c740013', 'Chrome', '公告通知更新成功', '5', '192.168.0.103', '2014-07-28 23:47:22', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477da8f2c50014', 'Chrome', '公告通知删除成功', '4', '192.168.0.103', '2014-07-28 23:48:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477da8f2f00015', 'Chrome', '公告通知删除成功', '4', '192.168.0.103', '2014-07-28 23:48:50', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477da977c90017', 'Chrome', '公告通知添加成功', '3', '192.168.0.103', '2014-07-28 23:49:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477daa15620018', 'Chrome', '公告通知删除成功', '4', '192.168.0.103', '2014-07-28 23:50:04', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477bacae01477dab1cce001a', 'Chrome', '公告通知添加成功', '3', '192.168.0.103', '2014-07-28 23:51:11', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477dbce501477dbd37da0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.103', '2014-07-29 00:10:58', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477dbce501477dbe0ec90002', 'Chrome', '公告通知添加成功', '3', '192.168.0.103', '2014-07-29 00:11:53', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477dbce501477dc2e51a0003', 'Chrome', '会议管理删除成功', '4', '192.168.0.103', '2014-07-29 00:17:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477dbce501477dc2e5270004', 'Chrome', '会议管理删除成功', '4', '192.168.0.103', '2014-07-29 00:17:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477dbce501477dc2e5360005', 'Chrome', '会议管理删除成功', '4', '192.168.0.103', '2014-07-29 00:17:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477dbce501477dc2e5460006', 'Chrome', '会议管理删除成功', '4', '192.168.0.103', '2014-07-29 00:17:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477dbce501477dc32e750008', 'Chrome', '会议管理添加成功', '3', '192.168.0.103', '2014-07-29 00:17:29', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e7477dbce501477dc38e500009', 'Chrome', '会议管理更新成功', '5', '192.168.0.103', '2014-07-29 00:17:53', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477f8f0201477f8fcea90000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-29 08:40:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477f8f0201477f906daf0001', 'Chrome', '用户admin已退出', '2', '192.168.2.100', '2014-07-29 08:41:17', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477f8f0201477f9089310002', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.2.100', '2014-07-29 08:41:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477f8f0201477f9118130003', 'Chrome', '用户：scott删除成功', '4', '192.168.2.100', '2014-07-29 08:42:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477f8f0201477f91bb760005', 'Chrome', '角色: 普通用户被添加成功', '3', '192.168.2.100', '2014-07-29 08:42:42', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402882e4477f8f0201477f926ef10008', 'Chrome', '用户: libo添加成功', '3', '192.168.2.100', '2014-07-29 08:43:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e847923099014792316d480000', 'Firefox', '用户: admin[信息部]登录成功', '1', '192.168.0.104', '2014-08-01 23:30:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e8479230990147923227fc0002', 'Firefox', '日程安排添加成功', '3', '192.168.0.104', '2014-08-01 23:31:06', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e84792309901479232ab6b0004', 'Firefox', '日程安排添加成功', '3', '192.168.0.104', '2014-08-01 23:31:40', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e847923bc20147923cc3680000', 'Firefox', '用户: admin[信息部]登录成功', '1', '192.168.0.104', '2014-08-01 23:42:41', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e847923bc20147923fa1900001', 'Firefox', '日程安排更新成功', '5', '192.168.0.104', '2014-08-01 23:45:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e847924ca70147924d724c0000', 'Firefox', '用户: admin[信息部]登录成功', '1', '192.168.0.104', '2014-08-02 00:00:54', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e847924ca70147924dced10002', 'Firefox', '日程安排添加成功', '3', '192.168.0.104', '2014-08-02 00:01:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880ea479bfde401479c12ba690000', 'Firefox', '用户: admin[信息部]登录成功', '1', '192.168.0.106', '2014-08-03 21:32:58', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880ea479c290301479c29e9420000', 'Firefox', '用户: admin[信息部]登录成功', '1', '192.168.0.106', '2014-08-03 21:58:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e447a627bb0147a634b3010000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.100', '2014-08-05 20:46:17', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e447a63f6b0147a6410e860000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.100', '2014-08-05 20:59:47', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e447a63f6b0147a641fa000003', 'Chrome', '用户: test添加成功', '3', '192.168.0.100', '2014-08-05 21:00:47', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e447a63f6b0147a6454e160005', 'Chrome', '图标: test被删除成功。', '4', '192.168.0.100', '2014-08-05 21:04:25', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e447a66d420147a66da10f0000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.100', '2014-08-05 21:48:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e447a673060147a673dd600000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.100', '2014-08-05 21:55:16', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e447a6b2b00147a6b330020000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.100', '2014-08-05 23:04:26', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e447a6c4820147a6c4f8420000', 'Chrome', '用户: admin[信息部]登录成功', '1', '192.168.0.100', '2014-08-05 23:23:52', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e447a6c4820147a6c5b6270003', 'Chrome', '用户: zengzheng添加成功', '3', '192.168.0.100', '2014-08-05 23:24:40', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e447a6c4820147a6c659460006', 'Chrome', '用户: chenchi添加成功', '3', '192.168.0.100', '2014-08-05 23:25:22', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e447a6c4820147a6c6d4d40009', 'Chrome', '用户: chenhao添加成功', '3', '192.168.0.100', '2014-08-05 23:25:54', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402880e447a6c4820147a6c753c2000c', 'Chrome', '用户: chenlong添加成功', '3', '192.168.0.100', '2014-08-05 23:26:26', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a708a00147a709cf170000', 'Chrome', '用户: admin[信息部]登录成功', '1', '10.122.85.7', '2014-08-06 00:39:03', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a708a00147a8bf32920001', 'Chrome', '用户: admin[信息部]登录成功', '1', '10.122.85.7', '2014-08-06 08:36:48', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147a8da4b750000', 'MSIE 9.0', '用户: admin[信息部]登录成功', '1', '10.122.85.7', '2014-08-06 09:06:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147a8da5b350001', 'Chrome', '用户: admin[信息部]登录成功', '1', '10.122.85.7', '2014-08-06 09:06:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147a8dc91290003', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-06 09:08:53', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147a8dd5d0a0004', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-06 09:09:45', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147a8df342f0006', 'Chrome', '会议管理添加成功', '3', '10.122.85.7', '2014-08-06 09:11:45', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147a8e677bb0007', 'MSIE 9.0', '用户：cgy删除成功', '4', '10.122.85.7', '2014-08-06 09:19:42', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147a8e687780008', 'MSIE 9.0', '用户：cgspy删除成功', '4', '10.122.85.7', '2014-08-06 09:19:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147a8eb380f000a', 'MSIE 9.0', '公告通知添加成功', '3', '10.122.85.7', '2014-08-06 09:24:53', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147a8ec4118000c', 'MSIE 9.0', '会议管理添加成功', '3', '10.122.85.7', '2014-08-06 09:26:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147a8eff95d000d', 'MSIE 9.0', '会议管理更新成功', '5', '10.122.85.7', '2014-08-06 09:30:05', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147a971121f000e', 'Chrome', '用户: admin[信息部]登录成功', '1', '10.122.85.7', '2014-08-06 11:51:05', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147a9f94ed3000f', 'Chrome', '用户: admin[信息部]登录成功', '1', '10.122.85.7', '2014-08-06 14:19:53', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147aa2ebb3a0010', 'Chrome', '用户: admin[信息部]登录成功', '1', '10.122.85.7', '2014-08-06 15:18:15', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147aa71ac790011', 'Chrome', '用户: admin[信息部]登录成功', '1', '10.122.85.7', '2014-08-06 16:31:22', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147aa71fcc20012', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-06 16:31:42', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147aa7291db0014', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-06 16:32:20', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147aa7518090015', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-06 16:35:06', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147aa987f1a0016', 'Chrome', '用户: admin[信息部]登录成功', '1', '10.122.85.7', '2014-08-06 17:13:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747a8d7cc0147aa9922750017', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-06 17:14:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abc3eaf40000', 'Chrome', '用户: admin[信息部]登录成功', '1', '10.122.85.7', '2014-08-06 22:40:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abcd58310001', 'Chrome', '部门: 研发室被删除 成功', '4', '10.122.85.7', '2014-08-06 22:51:07', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abcd8e260002', 'Chrome', '部门: 办公室被更新成功', '5', '10.122.85.7', '2014-08-06 22:51:20', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abce00160004', 'Chrome', '部门: 副主任被添加成功', '3', '10.122.85.7', '2014-08-06 22:51:50', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abcfac2f0006', 'Chrome', '部门: 执法监督科被添加成功', '3', '10.122.85.7', '2014-08-06 22:53:39', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abd000fd0008', 'Chrome', '用户: chenlong更新成功', '5', '10.122.85.7', '2014-08-06 22:54:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abd0fd2f000a', 'Chrome', '用户: chenchi更新成功', '5', '10.122.85.7', '2014-08-06 22:55:06', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abd13e81000c', 'Chrome', '用户: chenchi更新成功', '5', '10.122.85.7', '2014-08-06 22:55:22', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abd1698e000e', 'Chrome', '用户: chenhao更新成功', '5', '10.122.85.7', '2014-08-06 22:55:33', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abd288750010', 'Chrome', '用户: zengzheng更新成功', '5', '10.122.85.7', '2014-08-06 22:56:47', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abd2bf610012', 'Chrome', '用户: zengzheng更新成功', '5', '10.122.85.7', '2014-08-06 22:57:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abd301f70014', 'Chrome', '用户: chenchi更新成功', '5', '10.122.85.7', '2014-08-06 22:57:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abd349200016', 'Chrome', '用户: chenhao更新成功', '5', '10.122.85.7', '2014-08-06 22:57:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abd3efad0018', 'Chrome', '用户: zengzheng更新成功', '5', '10.122.85.7', '2014-08-06 22:58:19', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abd50ecc001a', 'Chrome', '用户: chenchi更新成功', '5', '10.122.85.7', '2014-08-06 22:59:32', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abd66b30001c', 'Chrome', '用户: chenhao更新成功', '5', '10.122.85.7', '2014-08-06 23:01:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abe2148a001e', 'Chrome', '用户: chenlong更新成功', '5', '10.122.85.7', '2014-08-06 23:13:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abe2e1620020', 'Chrome', '用户: libo更新成功', '5', '10.122.85.7', '2014-08-06 23:14:38', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abe891590022', 'Chrome', '用户: libo更新成功', '5', '10.122.85.7', '2014-08-06 23:20:51', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abe8f14f0024', 'Chrome', '用户: libo更新成功', '5', '10.122.85.7', '2014-08-06 23:21:15', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abf240b90025', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-06 23:31:26', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abf24c0b0026', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-06 23:31:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abf253680027', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-06 23:31:30', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abf504690028', 'Chrome', '部门: 设计部被删除 成功', '4', '10.122.85.7', '2014-08-06 23:34:27', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abf57d9a002a', 'Chrome', '会议管理添加成功', '3', '10.122.85.7', '2014-08-06 23:34:58', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147abf8327d002c', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-06 23:37:55', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747abc2800147ac02c336002d', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-06 23:49:27', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac32e10147ac3457d70000', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-07 00:43:37', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac32e10147ac350e900002', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 00:44:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147ac505c090000', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-07 01:14:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147ac5104b70002', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 01:14:56', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147ac52e08d0004', 'Chrome', '会议管理更新成功', '5', '10.122.85.7', '2014-08-07 01:16:58', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147ac55c5fa0005', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 01:20:08', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147ac56adfc0007', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 01:21:07', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147ac573b4d0009', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 01:21:43', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147adc98e96000a', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-07 08:06:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147adcb2646000c', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 08:07:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147adcb4ed1000f', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 08:08:08', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147adcbe4fa0012', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 08:08:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147adcde2d00015', 'Chrome', '会议管理添加成功', '3', '10.122.85.7', '2014-08-07 08:10:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147adcebd780016', 'Chrome', '会议管理更新成功', '5', '10.122.85.7', '2014-08-07 08:11:53', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147add04fef0018', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 08:13:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147add115ff0019', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 08:14:26', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147add139f8001a', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 08:14:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147add2181e001b', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 08:15:32', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147add226c1001c', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 08:15:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147add2329b001d', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 08:15:39', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147add2f2ab001f', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 08:16:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147add5f9680022', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 08:19:47', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147adee96e50024', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-07 08:46:40', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147adf0005e0025', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 08:48:12', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147adf0b1cf0026', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 08:48:58', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147adf11ddd0027', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 08:49:25', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147adfc95880028', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-07 09:01:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147adffc9a00029', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 09:05:27', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147ae005408002a', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 09:06:02', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ac3e080147ae0138da002c', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 09:07:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae1ffee90000', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-07 09:40:38', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae212fc60001', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-07 09:41:56', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae223ef30002', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-07 09:43:05', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae224df50004', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 09:43:09', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae2250700006', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 09:43:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae2423c80008', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 09:45:09', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae2642d7000b', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 09:47:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae2752b7000d', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 09:48:38', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae326f12000e', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 10:00:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32db09000f', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 10:01:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32db120010', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 10:01:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32db1b0011', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 10:01:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32db260012', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 10:01:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32db2e0013', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 10:01:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32db3d0014', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 10:01:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32db490015', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 10:01:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32ec880016', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:01:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32ec990017', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:01:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32eca90018', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:01:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32ecb90019', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:01:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32ecd7001a', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:01:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32ece8001b', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:01:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32ecf9001c', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:01:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32ed0a001d', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:01:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae32ed1b001e', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:01:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae3394460020', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 10:02:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae37e4b60023', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 10:06:44', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae38c9080026', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 10:07:42', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae399f260027', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 10:08:37', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae39eb460028', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 10:08:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae3a10f00029', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 10:09:06', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae3abfed002a', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:09:51', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae3abffe002b', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:09:51', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae3ac010002c', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:09:51', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae3b4d90002e', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 10:10:27', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae3cbd410031', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 10:12:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae3fb7400033', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 10:15:17', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae40a46a0035', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 10:16:17', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae50fc320037', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 10:34:08', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae5193f20038', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 10:34:47', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae5326550039', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 10:36:30', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae533f20003a', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 10:36:37', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae55de79003b', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:39:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae55de96003c', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:39:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae55dea6003d', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:39:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae55deb6003e', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 10:39:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae562490003f', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 10:39:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae5624990040', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 10:39:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae5624a30041', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 10:39:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae5624ad0042', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 10:39:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae56b7420044', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 10:40:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae57f7370047', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 10:41:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae592d05004a', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 10:43:05', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae14880147ae59e3d4004b', 'MSIE 8.0', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-07 10:43:52', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae69550147ae6a9c000000', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-07 11:02:08', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae69550147ae6b785a0001', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-07 11:03:04', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae69550147ae6c37e20002', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-07 11:03:53', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae69550147ae7b955d0003', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-07 11:20:40', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae69550147ae7be01f0004', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 11:20:59', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae69550147ae7be0420005', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 11:20:59', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae69550147ae7be0630006', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-07 11:20:59', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae69550147ae7c17230007', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 11:21:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae69550147ae7c17340008', 'Chrome', '会议管理删除成功', '4', '10.122.85.7', '2014-08-07 11:21:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae69550147ae7d35a1000a', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 11:22:27', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae69550147ae80e99b000d', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-07 11:26:29', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747ae69550147ae9857b3000e', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-07 11:52:05', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147bfe9c0540000', 'Firefox', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-10 20:34:33', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147bfea5d820001', 'Firefox', '用户admin已退出', '2', '10.122.85.7', '2014-08-10 20:35:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147bfea707c0002', 'Firefox', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-10 20:35:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c045e3030003', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-10 22:15:11', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c04765dc0005', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-10 22:16:50', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c04849b30008', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-10 22:17:48', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c051f374000b', 'Firefox', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-10 22:28:22', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c05279a2000c', 'MSIE 9.0', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-10 22:28:56', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c058bcb8000e', 'Firefox', '类型分组: annotype被添加成功', '3', '10.122.85.7', '2014-08-10 22:35:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c058ed2f000f', 'Firefox', '类型分组: 公告类型被更新成功', '5', '10.122.85.7', '2014-08-10 22:35:59', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c0594eae0011', 'Firefox', '类型: 公告通知被添加成功', '3', '10.122.85.7', '2014-08-10 22:36:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c0597a980013', 'Firefox', '类型: 会议通知被添加成功', '3', '10.122.85.7', '2014-08-10 22:36:35', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c06282980015', 'MSIE 9.0', '公告通知添加成功', '3', '10.122.85.7', '2014-08-10 22:46:27', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c274ba010018', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-11 08:25:35', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c27510030019', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-11 08:25:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c275102f001a', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-11 08:25:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c2751054001b', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-11 08:25:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c2777432001d', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-11 08:28:34', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c27935db0020', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-11 08:30:29', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c27c84780024', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-11 08:34:06', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c2946a730027', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-11 09:00:12', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c2b596f1002c', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-11 09:36:26', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c2b62394002e', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-11 09:37:02', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c2cc494b0032', 'Chrome', '用户admin已退出', '2', '10.122.85.7', '2014-08-11 10:01:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c2f60ba70033', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-11 10:46:50', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c7dd91340034', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-12 09:38:12', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147c907ef1a0036', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-12 15:04:06', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147ccf6b78d0037', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-13 09:23:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147cd32f7490038', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-13 10:29:35', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147ce3aa89f0039', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-13 15:17:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147ce96ebc5003a', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-13 16:58:23', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147d249b41a003b', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-14 10:12:31', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147d3ad805a003c', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-14 16:41:08', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747bfe8550147d77c8e6e003d', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-15 10:26:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147e694eb1a0000', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-18 08:47:04', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147e7fd828e0001', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-18 15:20:56', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147e7fe421e0002', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-18 15:21:45', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147e7fe42630003', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-18 15:21:45', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147e7fe42a30004', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-18 15:21:45', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147e7fe43230005', 'Chrome', '公告通知删除成功', '4', '10.122.85.7', '2014-08-18 15:21:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147e8004d540007', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-18 15:23:59', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147e807b1960009', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-18 15:32:04', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147e80b2b11000a', 'Chrome', '公告通知更新成功', '5', '10.122.85.7', '2014-08-18 15:35:51', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147e80d7d57000c', 'Chrome', '公告通知添加成功', '3', '10.122.85.7', '2014-08-18 15:38:23', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147ebbe3663000f', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-19 08:50:17', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147f11a36bb0010', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-20 09:48:52', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147f62471a50011', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-21 09:18:09', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d0147fcefd0700012', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-22 16:58:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480bfa04da0013', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-25 15:03:27', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480bfa40b20014', 'Chrome', '用户admin已退出', '2', '10.122.85.7', '2014-08-25 15:03:43', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480cf96bc20015', 'Firefox', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-25 19:42:25', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480cfcb3710017', 'Firefox', '角色: 收文管理专员被添加成功', '3', '10.122.85.7', '2014-08-25 19:46:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480cfd0e530019', 'Firefox', '角色: 中心领导被添加成功', '3', '10.122.85.7', '2014-08-25 19:46:23', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480cfd8f2d001b', 'Firefox', '角色: 副主任被添加成功', '3', '10.122.85.7', '2014-08-25 19:46:56', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480cfdc665001d', 'Firefox', '角色: 科长被添加成功', '3', '10.122.85.7', '2014-08-25 19:47:11', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480cfdfc82001e', 'Firefox', '角色: 科员被更新成功', '5', '10.122.85.7', '2014-08-25 19:47:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480cff8e1e0021', 'Firefox', '用户: ruanhui添加成功', '3', '10.122.85.7', '2014-08-25 19:49:07', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480d00dd240024', 'Firefox', '用户: xieping添加成功', '3', '10.122.85.7', '2014-08-25 19:50:33', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480d03fb400027', 'Firefox', '用户: lixiaoming添加成功', '3', '10.122.85.7', '2014-08-25 19:53:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480d0870830029', 'Firefox', '部门: 资金监管二科被添加成功', '3', '10.122.85.7', '2014-08-25 19:58:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480d089215002a', 'Firefox', '部门: 资金监管二科被更新成功', '5', '10.122.85.7', '2014-08-25 19:58:58', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480d08bf68002b', 'Firefox', '部门: 办公室被更新成功', '5', '10.122.85.7', '2014-08-25 19:59:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480d09e080002e', 'Firefox', '用户: panfeng添加成功', '3', '10.122.85.7', '2014-08-25 20:00:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480d0aa6710031', 'Firefox', '用户: lixiaomin添加成功', '3', '10.122.85.7', '2014-08-25 20:01:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480d0b76c10032', 'Firefox', '用户：lixiaoming删除成功', '4', '10.122.85.7', '2014-08-25 20:02:08', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480d0baee80033', 'Firefox', '用户：lixiaomin删除成功', '4', '10.122.85.7', '2014-08-25 20:02:22', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480d0c68840036', 'Firefox', '用户: lixiaoming添加成功', '3', '10.122.85.7', '2014-08-25 20:03:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58747e49a2d01480d0e30cc0039', 'Firefox', '用户: liuhui添加成功', '3', '10.122.85.7', '2014-08-25 20:05:06', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d145001480d1679ea0000', 'Firefox', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-25 20:14:09', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d181b01480d18ed4a0000', 'Firefox', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-25 20:16:50', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d181b01480d19c0580002', 'Firefox', '用户: chenhao更新成功', '5', '10.122.85.7', '2014-08-25 20:17:44', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e0148118aa2080000', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-26 16:59:31', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e014811b6a4390001', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-26 17:47:35', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e014811ba519a0004', 'Chrome', '用户: xubingtao添加成功', '3', '10.122.85.7', '2014-08-26 17:51:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e014811bf7e1b0007', 'Chrome', '用户: longkehu添加成功', '3', '10.122.85.7', '2014-08-26 17:57:15', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e014811c027ce0009', 'Chrome', '角色: 调研员被添加成功', '3', '10.122.85.7', '2014-08-26 17:57:58', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e014811caef46000b', 'Chrome', '部门: 调研员被添加成功', '3', '10.122.85.7', '2014-08-26 18:09:45', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e014811cb1aa7000d', 'Chrome', '部门: 副调研员被添加成功', '3', '10.122.85.7', '2014-08-26 18:09:56', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e014811cbfd260010', 'Chrome', '用户: liutianjin添加成功', '3', '10.122.85.7', '2014-08-26 18:10:54', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e014811cc40270012', 'Chrome', '用户: liutianjin更新成功', '5', '10.122.85.7', '2014-08-26 18:11:11', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e014811ce6bc50013', 'rv:11.0', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-26 18:13:33', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e014811d131f50014', 'MSIE 9.0', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-26 18:16:35', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01481507e6a10015', 'MSIE 9.0', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-27 09:15:12', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e0148150f73480018', 'MSIE 9.0', '用户: wangfang添加成功', '3', '10.122.85.7', '2014-08-27 09:23:27', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01481510b406001b', 'MSIE 9.0', '用户: suozuqiang添加成功', '3', '10.122.85.7', '2014-08-27 09:24:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e014815235f82001c', 'MSIE 9.0', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-27 09:45:12', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01481524da01001f', 'MSIE 9.0', '用户: zhangshiqiao添加成功', '3', '10.122.85.7', '2014-08-27 09:46:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e0148152523ef0021', 'MSIE 9.0', '角色: 副调研员被添加成功', '3', '10.122.85.7', '2014-08-27 09:47:08', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01481525659f0023', 'MSIE 9.0', '用户: zhangshiqiao更新成功', '5', '10.122.85.7', '2014-08-27 09:47:25', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e0148152760000026', 'MSIE 9.0', '用户: panguoxiang添加成功', '3', '10.122.85.7', '2014-08-27 09:49:35', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01481527f7cf0029', 'MSIE 9.0', '用户: jindaosen添加成功', '3', '10.122.85.7', '2014-08-27 09:50:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01481538c943002a', 'MSIE 9.0', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-27 10:08:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01481539ece2002d', 'MSIE 9.0', '用户: liuboyu添加成功', '3', '10.122.85.7', '2014-08-27 10:09:50', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e0148153c5c3a0030', 'MSIE 9.0', '用户: liubo添加成功', '3', '10.122.85.7', '2014-08-27 10:12:30', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e0148153cd1570032', 'MSIE 9.0', '用户: chenchi更新成功', '5', '10.122.85.7', '2014-08-27 10:13:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e0148153cebe10034', 'MSIE 9.0', '用户: libo更新成功', '5', '10.122.85.7', '2014-08-27 10:13:07', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e0148153e06bb0037', 'MSIE 9.0', '用户: yangshu添加成功', '3', '10.122.85.7', '2014-08-27 10:14:19', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e014815404ad6003a', 'MSIE 9.0', '用户: panyili添加成功', '3', '10.122.85.7', '2014-08-27 10:16:48', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01481540f9fd003d', 'MSIE 9.0', '用户: tangchi添加成功', '3', '10.122.85.7', '2014-08-27 10:17:32', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e014815419fbf0040', 'MSIE 9.0', '用户: wuxiaoying添加成功', '3', '10.122.85.7', '2014-08-27 10:18:15', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482a9918010041', 'MSIE 9.0', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-08-31 13:45:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482a9a27650043', 'MSIE 9.0', '部门: 维修资金管理科被添加成功', '3', '10.122.85.7', '2014-08-31 13:46:58', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482a9aa8700045', 'MSIE 9.0', '角色: 副科长被添加成功', '3', '10.122.85.7', '2014-08-31 13:47:31', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482a9b7eff0048', 'MSIE 9.0', '用户: zhangyi添加成功', '3', '10.122.85.7', '2014-08-31 13:48:26', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482a9c3a37004b', 'MSIE 9.0', '用户: wuyuanping添加成功', '3', '10.122.85.7', '2014-08-31 13:49:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482a9cd721004e', 'MSIE 9.0', '用户: fulidong添加成功', '3', '10.122.85.7', '2014-08-31 13:49:54', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482a9d75490051', 'MSIE 9.0', '用户: yuanhonglin添加成功', '3', '10.122.85.7', '2014-08-31 13:50:35', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482a9e626a0054', 'MSIE 9.0', '用户: juwenjuan添加成功', '3', '10.122.85.7', '2014-08-31 13:51:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482a9f331e0057', 'MSIE 9.0', '用户: zhangjingjie添加成功', '3', '10.122.85.7', '2014-08-31 13:52:29', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482a9fbc55005a', 'MSIE 9.0', '用户: 夏媛添加成功', '3', '10.122.85.7', '2014-08-31 13:53:04', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aa056e1005d', 'MSIE 9.0', '用户: shimengtao添加成功', '3', '10.122.85.7', '2014-08-31 13:53:44', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aa0e56f0060', 'MSIE 9.0', '用户: wuzhengkun添加成功', '3', '10.122.85.7', '2014-08-31 13:54:20', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aa176480063', 'MSIE 9.0', '用户: zhangyanyan添加成功', '3', '10.122.85.7', '2014-08-31 13:54:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aa1d6810065', 'MSIE 9.0', '部门: 资金监管一科被添加成功', '3', '10.122.85.7', '2014-08-31 13:55:22', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aa29c980068', 'MSIE 9.0', '用户: hugang添加成功', '3', '10.122.85.7', '2014-08-31 13:56:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aa3552d006b', 'MSIE 9.0', '用户: xiaoli添加成功', '3', '10.122.85.7', '2014-08-31 13:57:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aa41716006e', 'MSIE 9.0', '用户: sunhong添加成功', '3', '10.122.85.7', '2014-08-31 13:57:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aa4bd250071', 'MSIE 9.0', '用户: zhengjianzhong添加成功', '3', '10.122.85.7', '2014-08-31 13:58:32', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aa57bf50074', 'MSIE 9.0', '用户: liujin添加成功', '3', '10.122.85.7', '2014-08-31 13:59:21', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aa634bb0077', 'MSIE 9.0', '用户: yangchenhu添加成功', '3', '10.122.85.7', '2014-08-31 14:00:08', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aa6e400007a', 'MSIE 9.0', '用户: zhangqi添加成功', '3', '10.122.85.7', '2014-08-31 14:00:53', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aa7888d007d', 'MSIE 9.0', '用户: yangshuang添加成功', '3', '10.122.85.7', '2014-08-31 14:01:35', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aa999400080', 'MSIE 9.0', '用户: zhanghongyuan添加成功', '3', '10.122.85.7', '2014-08-31 14:03:50', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aaa75a90083', 'MSIE 9.0', '用户: huping添加成功', '3', '10.122.85.7', '2014-08-31 14:04:47', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aab58b80086', 'MSIE 9.0', '用户: wucaimei添加成功', '3', '10.122.85.7', '2014-08-31 14:05:45', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aac016e0089', 'MSIE 9.0', '用户: xiayongbo添加成功', '3', '10.122.85.7', '2014-08-31 14:06:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aacae1c008c', 'MSIE 9.0', '用户: gaoyansong添加成功', '3', '10.122.85.7', '2014-08-31 14:07:12', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aad6b87008f', 'MSIE 9.0', '用户: lihuili添加成功', '3', '10.122.85.7', '2014-08-31 14:08:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aae104c0092', 'MSIE 9.0', '用户: jiangjing添加成功', '3', '10.122.85.7', '2014-08-31 14:08:43', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aaf70150095', 'MSIE 9.0', '用户: shenyuping添加成功', '3', '10.122.85.7', '2014-08-31 14:10:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ab032200098', 'MSIE 9.0', '用户: huangxiaoxu添加成功', '3', '10.122.85.7', '2014-08-31 14:11:03', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ab26296009b', 'MSIE 9.0', '用户: yangjun添加成功', '3', '10.122.85.7', '2014-08-31 14:13:26', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ab47703009e', 'MSIE 9.0', '用户: chenyan添加成功', '3', '10.122.85.7', '2014-08-31 14:15:43', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ab58f5f00a1', 'MSIE 9.0', '用户: yangguangqing添加成功', '3', '10.122.85.7', '2014-08-31 14:16:54', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ab68afe00a4', 'MSIE 9.0', '用户: xiangkun添加成功', '3', '10.122.85.7', '2014-08-31 14:17:59', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ab7576c00a7', 'MSIE 9.0', '用户: lvwei添加成功', '3', '10.122.85.7', '2014-08-31 14:18:51', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ab842ea00aa', 'MSIE 9.0', '用户: zhoufang添加成功', '3', '10.122.85.7', '2014-08-31 14:19:51', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac1404700ad', 'MSIE 9.0', '用户: zhangyang添加成功', '3', '10.122.85.7', '2014-08-31 14:29:41', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac1a91c00af', 'MSIE 9.0', '部门: 市场监测科被添加成功', '3', '10.122.85.7', '2014-08-31 14:30:07', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac2780900b2', 'MSIE 9.0', '用户: tanguolin添加成功', '3', '10.122.85.7', '2014-08-31 14:31:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac3292200b5', 'MSIE 9.0', '用户: zhangliang添加成功', '3', '10.122.85.7', '2014-08-31 14:31:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac4028c00b8', 'MSIE 9.0', '用户: zhangjiadong添加成功', '3', '10.122.85.7', '2014-08-31 14:32:41', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac4aac100bb', 'MSIE 9.0', '用户: zhaobo添加成功', '3', '10.122.85.7', '2014-08-31 14:33:24', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac5451800be', 'MSIE 9.0', '用户: wangyifei添加成功', '3', '10.122.85.7', '2014-08-31 14:34:04', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac6369300c1', 'MSIE 9.0', '用户: tianchang添加成功', '3', '10.122.85.7', '2014-08-31 14:35:06', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac6d86900c4', 'MSIE 9.0', '用户: yangwei添加成功', '3', '10.122.85.7', '2014-08-31 14:35:47', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac7bbee00c7', 'MSIE 9.0', '用户: zhangmingming添加成功', '3', '10.122.85.7', '2014-08-31 14:36:45', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac7fd1c00c9', 'MSIE 9.0', '部门: 物业事务指导科被添加成功', '3', '10.122.85.7', '2014-08-31 14:37:02', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac897e100cc', 'MSIE 9.0', '用户: huangjianping添加成功', '3', '10.122.85.7', '2014-08-31 14:37:42', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac932f700cf', 'MSIE 9.0', '用户: lishenglan添加成功', '3', '10.122.85.7', '2014-08-31 14:38:21', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ac9be7800d2', 'MSIE 9.0', '用户: qiuyun添加成功', '3', '10.122.85.7', '2014-08-31 14:38:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482aca4efe00d5', 'MSIE 9.0', '用户: lijuan添加成功', '3', '10.122.85.7', '2014-08-31 14:39:34', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482acb037400d8', 'MSIE 9.0', '用户: yuantao添加成功', '3', '10.122.85.7', '2014-08-31 14:40:20', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482acb9c0600db', 'MSIE 9.0', '用户: jiangjun添加成功', '3', '10.122.85.7', '2014-08-31 14:40:59', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482acc5b5000de', 'MSIE 9.0', '用户: tanghao添加成功', '3', '10.122.85.7', '2014-08-31 14:41:48', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482accffd900e1', 'MSIE 9.0', '用户: chengzhen添加成功', '3', '10.122.85.7', '2014-08-31 14:42:31', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482acd883d00e4', 'MSIE 9.0', '用户: pengqian添加成功', '3', '10.122.85.7', '2014-08-31 14:43:05', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482acdc49900e6', 'MSIE 9.0', '部门: 财务科被添加成功', '3', '10.122.85.7', '2014-08-31 14:43:21', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ace677e00e9', 'MSIE 9.0', '用户: wangjing添加成功', '3', '10.122.85.7', '2014-08-31 14:44:03', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482acef55f00ec', 'MSIE 9.0', '用户: liuqunyan添加成功', '3', '10.122.85.7', '2014-08-31 14:44:39', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482acf7f7200ef', 'MSIE 9.0', '用户: hanying添加成功', '3', '10.122.85.7', '2014-08-31 14:45:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ad27f8d00f0', 'MSIE 9.0', '用户：夏媛删除成功', '4', '10.122.85.7', '2014-08-31 14:48:31', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482ad35f8000f3', 'MSIE 9.0', '用户: xiayuan添加成功', '3', '10.122.85.7', '2014-08-31 14:49:28', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587480d524e01482edd510000f4', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-01 09:38:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58748365e7b0148365ff9b40000', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-02 20:38:52', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58748366df201483672fe5e0000', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-02 20:59:38', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58748366df20148367660620001', 'Chrome', '角色: 副科长被更新成功', '5', '10.122.85.7', '2014-09-02 21:03:20', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58748366df201483676b2440003', 'Chrome', '角色: 主任被添加成功', '3', '10.122.85.7', '2014-09-02 21:03:41', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad58748366df201483677321f0006', 'Chrome', '用户: xieping更新成功', '5', '10.122.85.7', '2014-09-02 21:04:14', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b801483966038c0000', 'Chrome', '用户: libo[办公室]登录成功', '1', '10.122.85.7', '2014-09-03 10:44:19', '1', '402882e4477f8f0201477f926ede0006');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b80148396693bb0001', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-03 10:44:56', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b801483967218a0002', 'MSIE 9.0', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-03 10:45:33', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b80148396803cc0003', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-03 10:46:31', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b80148396fbded0004', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-03 10:54:57', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b80148397b8c6e0005', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-03 11:07:51', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b80148397c728d0006', 'Chrome', '用户admin已退出', '2', '10.122.85.7', '2014-09-03 11:08:50', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b80148397c97230007', 'Chrome', '用户: libo[办公室]登录成功', '1', '10.122.85.7', '2014-09-03 11:08:59', '1', '402882e4477f8f0201477f926ede0006');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b801483982983d0008', 'Chrome', '用户libo已退出', '2', '10.122.85.7', '2014-09-03 11:15:33', '1', '402882e4477f8f0201477f926ede0006');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b80148398618ed0009', 'MSIE 8.0', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-03 11:19:22', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b80148398882a1000b', 'MSIE 9.0', '部门: 第一党支部被添加成功', '3', '10.122.85.7', '2014-09-03 11:22:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b801483988a19f000d', 'MSIE 9.0', '部门: 第二党支部被添加成功', '3', '10.122.85.7', '2014-09-03 11:22:08', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b801483988c045000f', 'MSIE 9.0', '部门: 团支部被添加成功', '3', '10.122.85.7', '2014-09-03 11:22:16', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b80148399b026e0010', 'MSIE 9.0', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-03 11:42:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b80148399b91080011', 'MSIE 9.0', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-03 11:42:49', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587483689b801483a3af4830012', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-03 14:36:55', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c012800000', 'MSIE 9.0', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-14 18:40:40', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c138370002', 'MSIE 9.0', '类型分组: 办公用品单位被添加成功', '3', '10.122.85.7', '2014-09-14 18:41:55', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c17aee0004', 'MSIE 9.0', '类型: 套被添加成功', '3', '10.122.85.7', '2014-09-14 18:42:12', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c3d34c0006', 'MSIE 9.0', '类型: 部被添加成功', '3', '10.122.85.7', '2014-09-14 18:44:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c408810008', 'MSIE 9.0', '类型: 块被添加成功', '3', '10.122.85.7', '2014-09-14 18:45:00', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c47fcc000a', 'MSIE 9.0', '类型: 支被添加成功', '3', '10.122.85.7', '2014-09-14 18:45:30', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c4bddb000c', 'MSIE 9.0', '类型: 个被添加成功', '3', '10.122.85.7', '2014-09-14 18:45:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c4fb75000e', 'MSIE 9.0', '类型: 桶被添加成功', '3', '10.122.85.7', '2014-09-14 18:46:02', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c542e90010', 'MSIE 9.0', '类型: 批被添加成功', '3', '10.122.85.7', '2014-09-14 18:46:20', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c57ef80012', 'MSIE 9.0', '类型: 袋被添加成功', '3', '10.122.85.7', '2014-09-14 18:46:36', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c612af0014', 'MSIE 9.0', '类型: 台被添加成功', '3', '10.122.85.7', '2014-09-14 18:47:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c6613c0016', 'MSIE 9.0', '类型分组: 中心名称被添加成功', '3', '10.122.85.7', '2014-09-14 18:47:33', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c6941b0018', 'MSIE 9.0', '类型: 市场管理中心被添加成功', '3', '10.122.85.7', '2014-09-14 18:47:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c95274001a', 'MSIE 9.0', '类型: 维修资金中心被添加成功', '3', '10.122.85.7', '2014-09-14 18:50:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873c9d817001c', 'MSIE 9.0', '类型分组: 办公用品分类被添加成功', '3', '10.122.85.7', '2014-09-14 18:51:20', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873ca2ba3001e', 'MSIE 9.0', '类型: 耗材被添加成功', '3', '10.122.85.7', '2014-09-14 18:51:42', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873ca64790020', 'MSIE 9.0', '类型: 维修被添加成功', '3', '10.122.85.7', '2014-09-14 18:51:56', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873cb25cb0022', 'MSIE 9.0', '类型分组: 设备类型被添加成功', '3', '10.122.85.7', '2014-09-14 18:52:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873cb73b30024', 'MSIE 9.0', '类型: 台式电脑被添加成功', '3', '10.122.85.7', '2014-09-14 18:53:06', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873cba2b10026', 'MSIE 9.0', '类型: 笔记本电脑被添加成功', '3', '10.122.85.7', '2014-09-14 18:53:18', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873cbf60f0028', 'MSIE 9.0', '类型: 打印机被添加成功', '3', '10.122.85.7', '2014-09-14 18:53:39', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873ccae04002a', 'MSIE 9.0', '类型分组: 设备状态被添加成功', '3', '10.122.85.7', '2014-09-14 18:54:26', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873cce59c002c', 'MSIE 9.0', '类型: 正常使用被添加成功', '3', '10.122.85.7', '2014-09-14 18:54:41', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873cd35e1002e', 'MSIE 9.0', '类型: 正常使用被添加成功', '3', '10.122.85.7', '2014-09-14 18:55:01', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873cd6de90030', 'MSIE 9.0', '类型: 未使用被添加成功', '3', '10.122.85.7', '2014-09-14 18:55:15', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873ce43950032', 'MSIE 9.0', '类型: 拟下账被添加成功', '3', '10.122.85.7', '2014-09-14 18:56:10', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873cee3c50034', 'MSIE 9.0', '类型: 已下账被添加成功', '3', '10.122.85.7', '2014-09-14 18:56:51', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad5874868c2e0014873cf11820036', 'MSIE 9.0', '类型: 库存被添加成功', '3', '10.122.85.7', '2014-09-14 18:57:03', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402881e74873fd2f014873fe38e80000', 'MSIE 9.0', '用户: admin[办公室]登录成功', '1', '192.168.1.103', '2014-09-14 19:48:33', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402881e74873fd2f014873ffd53a0002', 'MSIE 9.0', '权限: 办公用品管理被添加成功', '3', '192.168.1.103', '2014-09-14 19:50:19', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402881e74873fd2f0148740022110003', 'MSIE 9.0', '权限: 办公用品管理被更新成功', '5', '192.168.1.103', '2014-09-14 19:50:38', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402881e74873fd2f01487400d0f50005', 'MSIE 9.0', '权限: 办公用品管理被添加成功', '3', '192.168.1.103', '2014-09-14 19:51:23', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402881e74873fd2f014874015db60007', 'MSIE 9.0', '权限: 设备管理被添加成功', '3', '192.168.1.103', '2014-09-14 19:51:59', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402881e74873fd2f01487401b584000b', 'MSIE 9.0', '用户admin已退出', '2', '192.168.1.103', '2014-09-14 19:52:22', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402881e74873fd2f01487401c9b1000c', 'MSIE 9.0', '用户: admin[办公室]登录成功', '1', '192.168.1.103', '2014-09-14 19:52:27', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402881e74873fd2f01487405be39000e', 'MSIE 9.0', '办公用品管理添加成功', '3', '192.168.1.103', '2014-09-14 19:56:46', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402881e74873fd2f01487405d8c4000f', 'MSIE 9.0', '办公用品管理删除成功', '4', '192.168.1.103', '2014-09-14 19:56:53', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402881e74873fd2f0148740626730011', 'MSIE 9.0', '设备管理添加成功', '3', '192.168.1.103', '2014-09-14 19:57:13', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('402881e74873fd2f0148740657fc0012', 'MSIE 9.0', '设备管理删除成功', '4', '192.168.1.103', '2014-09-14 19:57:25', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587487c00ac01487c242e8a0000', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-16 09:46:59', '1', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_log` VALUES ('8afad587487c00ac01487c3f1dc00001', 'Chrome', '用户: admin[办公室]登录成功', '1', '10.122.85.7', '2014-09-16 10:16:24', '1', '402882e446efd9fd0146efda7bcc0044');
+
+-- ----------------------------
+-- Table structure for t_s_operation
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_operation`;
+CREATE TABLE `t_s_operation` (
+  `ID` varchar(32) NOT NULL,
+  `operationcode` varchar(50) DEFAULT NULL,
+  `operationicon` varchar(100) DEFAULT NULL,
+  `operationname` varchar(50) DEFAULT NULL,
+  `status` smallint(6) DEFAULT NULL,
+  `functionid` varchar(32) DEFAULT NULL,
+  `iconid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_pceuy41wr2fjbcilyc7mk3m1f` (`functionid`),
+  KEY `FK_ny5de7922l39ta2pkhyspd5f` (`iconid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_operation
+-- ----------------------------
+INSERT INTO `t_s_operation` VALUES ('402882e446efd9fd0146efda7cb9006a', 'add', null, '录入', null, '402882e446efd9fd0146efda7b3e002b', '402882e446efd9fd0146efda7a3b0000');
+INSERT INTO `t_s_operation` VALUES ('402882e446efd9fd0146efda7cbe006b', 'edit', null, '编辑', null, '402882e446efd9fd0146efda7b3e002b', '402882e446efd9fd0146efda7a3b0000');
+INSERT INTO `t_s_operation` VALUES ('402882e446efd9fd0146efda7cc2006c', 'del', null, '删除', null, '402882e446efd9fd0146efda7b3e002b', '402882e446efd9fd0146efda7a3b0000');
+INSERT INTO `t_s_operation` VALUES ('402882e446efd9fd0146efda7cc7006d', 'szqm', null, '审核', null, '402882e446efd9fd0146efda7b3e002b', '402882e446efd9fd0146efda7a3b0000');
+
+-- ----------------------------
+-- Table structure for t_s_opintemplate
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_opintemplate`;
+CREATE TABLE `t_s_opintemplate` (
+  `ID` varchar(32) NOT NULL,
+  `descript` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_opintemplate
+-- ----------------------------
+
+-- ----------------------------
+-- Table structure for t_s_role
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_role`;
+CREATE TABLE `t_s_role` (
+  `ID` varchar(32) NOT NULL,
+  `rolecode` varchar(100) NOT NULL,
+  `rolename` varchar(100) NOT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_role
+-- ----------------------------
+INSERT INTO `t_s_role` VALUES ('402882e446efd9fd0146efda7bbc0042', 'admin', '管理员');
+INSERT INTO `t_s_role` VALUES ('402882e4477f8f0201477f91bb710004', 'normaluser', '科员');
+INSERT INTO `t_s_role` VALUES ('8afad58747e49a2d01480cfcb36d0016', 'inboxmanager', '收文管理专员');
+INSERT INTO `t_s_role` VALUES ('8afad58747e49a2d01480cfd0e500018', 'centerleader', '中心领导');
+INSERT INTO `t_s_role` VALUES ('8afad58747e49a2d01480cfd8f29001a', 'vicedirector', '副主任');
+INSERT INTO `t_s_role` VALUES ('8afad58747e49a2d01480cfdc663001c', 'sectionchife', '科长');
+INSERT INTO `t_s_role` VALUES ('8afad587480d524e014811c027c20008', 'diaoyanyuan', '调研员');
+INSERT INTO `t_s_role` VALUES ('8afad587480d524e0148152523ed0020', 'fudiaoyanyuan', '副调研员');
+INSERT INTO `t_s_role` VALUES ('8afad587480d524e01482a9aa86d0044', 'vicesectionchife', '副科长');
+INSERT INTO `t_s_role` VALUES ('8afad58748366df201483676b23f0002', 'director', '主任');
+
+-- ----------------------------
+-- Table structure for t_s_role_function
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_role_function`;
+CREATE TABLE `t_s_role_function` (
+  `ID` varchar(32) NOT NULL,
+  `operation` varchar(100) DEFAULT NULL,
+  `functionid` varchar(32) DEFAULT NULL,
+  `roleid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_fvsillj2cxyk5thnuu625urab` (`functionid`),
+  KEY `FK_9dww3p4w8jwvlrgwhpitsbfif` (`roleid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_role_function
+-- ----------------------------
+INSERT INTO `t_s_role_function` VALUES ('402882e446efd9fd0146efda7ce60070', null, '402882e446efd9fd0146efda7af20019', '402882e446efd9fd0146efda7bbc0042');
+INSERT INTO `t_s_role_function` VALUES ('402882e446efd9fd0146efda7d100078', null, '402882e446efd9fd0146efda7aff001d', '402882e446efd9fd0146efda7bbc0042');
+INSERT INTO `t_s_role_function` VALUES ('402882e446efd9fd0146efda7d18007a', null, '402882e446efd9fd0146efda7b03001e', '402882e446efd9fd0146efda7bbc0042');
+INSERT INTO `t_s_role_function` VALUES ('402882e446efd9fd0146efda7d20007c', null, '402882e446efd9fd0146efda7b07001f', '402882e446efd9fd0146efda7bbc0042');
+INSERT INTO `t_s_role_function` VALUES ('402882e446efd9fd0146efda7d2a007e', null, '402882e446efd9fd0146efda7b0e0020', '402882e446efd9fd0146efda7bbc0042');
+INSERT INTO `t_s_role_function` VALUES ('402882e446efd9fd0146efda7d340080', null, '402882e446efd9fd0146efda7b120021', '402882e446efd9fd0146efda7bbc0042');
+INSERT INTO `t_s_role_function` VALUES ('402882e446efd9fd0146efda7d3f0082', null, '402882e446efd9fd0146efda7b160022', '402882e446efd9fd0146efda7bbc0042');
+INSERT INTO `t_s_role_function` VALUES ('402882e446f0a2220146f0b7051c0005', null, '402882e446f0a2220146f0b6bbb20003', '402882e446efd9fd0146efda7bbc0042');
+INSERT INTO `t_s_role_function` VALUES ('402882e446f0a2220146f0b7051f0006', null, '402882e446f0a2220146f0b60c970001', '402882e446efd9fd0146efda7bbc0042');
+INSERT INTO `t_s_role_function` VALUES ('402881e74873fd2f014874019e610008', null, '402881e74873fd2f014874015d440006', '402882e446efd9fd0146efda7bbc0042');
+INSERT INTO `t_s_role_function` VALUES ('402881e74873fd2f014874019e7c0009', null, '402881e74873fd2f01487400d0830004', '402882e446efd9fd0146efda7bbc0042');
+INSERT INTO `t_s_role_function` VALUES ('402880e5475432770147543d62960007', null, '402880e5475432770147543970400001', '402882e446efd9fd0146efda7bbc0042');
+INSERT INTO `t_s_role_function` VALUES ('402881e74873fd2f014874019e7d000a', null, '402881e74873fd2f014873ffd4bd0001', '402882e446efd9fd0146efda7bbc0042');
+
+-- ----------------------------
+-- Table structure for t_s_role_user
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_role_user`;
+CREATE TABLE `t_s_role_user` (
+  `ID` varchar(32) NOT NULL,
+  `roleid` varchar(32) DEFAULT NULL,
+  `userid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_n2ucxeorvpjy7qhnmuem01kbx` (`roleid`),
+  KEY `FK_d4qb5xld2pfb0bkjx9iwtolda` (`userid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_role_user
+-- ----------------------------
+INSERT INTO `t_s_role_user` VALUES ('402882e446efd9fd0146efda7e3900c2', '402882e446efd9fd0146efda7bbc0042', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_role_user` VALUES ('402882e446efd9fd0146efda7e3e00c3', '402882e446efd9fd0146efda7bbc0042', '402882e446efd9fd0146efda7bcc0044');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e0148153cebdf0033', '402882e4477f8f0201477f91bb710004', '402882e4477f8f0201477f926ede0006');
+INSERT INTO `t_s_role_user` VALUES ('8afad58747e49a2d01480cff8e170020', '8afad58747e49a2d01480cfcb36d0016', '8afad58747e49a2d01480cff8de7001f');
+INSERT INTO `t_s_role_user` VALUES ('402880e447a63f6b0147a641f9fa0002', '402882e4477f8f0201477f91bb710004', '402880e447a63f6b0147a641f9e80001');
+INSERT INTO `t_s_role_user` VALUES ('8afad58747abc2800147abd3efaa0017', '402882e4477f8f0201477f91bb710004', '402880e447a6c4820147a6c5b6040001');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e0148153cd1550031', '402882e4477f8f0201477f91bb710004', '402880e447a6c4820147a6c6593a0004');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d181b01480d19c0550001', '8afad58747e49a2d01480cfd8f29001a', '402880e447a6c4820147a6c6d4c90007');
+INSERT INTO `t_s_role_user` VALUES ('8afad58747abc2800147abe21486001d', '402882e4477f8f0201477f91bb710004', '402880e447a6c4820147a6c753b4000a');
+INSERT INTO `t_s_role_user` VALUES ('8afad58748366df20148367732170004', '8afad58747e49a2d01480cfd0e500018', '8afad58747e49a2d01480d00dd1c0022');
+INSERT INTO `t_s_role_user` VALUES ('8afad58747e49a2d01480d0e30c90038', '402882e4477f8f0201477f91bb710004', '8afad58747e49a2d01480d0e30c40037');
+INSERT INTO `t_s_role_user` VALUES ('8afad58747e49a2d01480d09e069002d', '8afad58747e49a2d01480cfdc663001c', '8afad58747e49a2d01480d09e063002c');
+INSERT INTO `t_s_role_user` VALUES ('8afad58747e49a2d01480d0c68810035', '8afad58747e49a2d01480cfdc663001c', '8afad58747e49a2d01480d0c68700034');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e014811ba518c0003', '8afad58747e49a2d01480cfd8f29001a', '8afad587480d524e014811ba513f0002');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e014811bf7e100006', '8afad58747e49a2d01480cfd8f29001a', '8afad587480d524e014811bf7e060005');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e014811cc40240011', '8afad587480d524e014811c027c20008', '8afad587480d524e014811cbfd1e000e');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e0148150f73450017', '8afad58747e49a2d01480cfdc663001c', '8afad587480d524e0148150f73410016');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01481510b403001a', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01481510b3fe0019');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01481525659d0022', '8afad587480d524e0148152523ed0020', '8afad587480d524e01481524d9f9001d');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e014815275ffd0025', '402882e4477f8f0201477f91bb710004', '8afad587480d524e014815275ff80024');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01481527f7cc0028', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01481527f7c70027');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01481539ecdf002c', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01481539ecda002b');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e0148153c5c37002f', '402882e4477f8f0201477f91bb710004', '8afad587480d524e0148153c5c32002e');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e0148153e06b90036', '402882e4477f8f0201477f91bb710004', '8afad587480d524e0148153e06b30035');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e014815404ad30039', '402882e4477f8f0201477f91bb710004', '8afad587480d524e014815404acd0038');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01481540f9f8003c', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01481540f9ee003b');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e014815419fbd003f', '402882e4477f8f0201477f91bb710004', '8afad587480d524e014815419fb8003e');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482a9b7efc0047', '8afad58747e49a2d01480cfdc663001c', '8afad587480d524e01482a9b7ef70046');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482a9c3a35004a', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482a9c3a2f0049');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482a9cd71e004d', '8afad587480d524e01482a9aa86d0044', '8afad587480d524e01482a9cd718004c');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482a9d75470050', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482a9d7541004f');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482a9e62680053', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482a9e62620052');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482a9f331c0056', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482a9f33170055');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ad35f7e00f2', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ad35f7900f1');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aa056de005c', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aa056d9005b');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aa0e56d005f', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aa0e567005e');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aa176460062', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aa176400061');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aa29c8f0067', '8afad58747e49a2d01480cfdc663001c', '8afad587480d524e01482aa29c7e0066');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aa3552a006a', '8afad587480d524e01482a9aa86d0044', '8afad587480d524e01482aa355250069');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aa4170f006d', '8afad587480d524e01482a9aa86d0044', '8afad587480d524e01482aa41703006c');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aa4bd230070', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aa4bd1d006f');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aa57bef0073', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aa57be60072');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aa634b80076', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aa634b20075');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aa6e3fe0079', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aa6e3fa0078');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aa7888a007c', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aa78885007b');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aa9993d007f', '8afad587480d524e01482a9aa86d0044', '8afad587480d524e01482aa99939007e');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aaa75a70082', '8afad587480d524e01482a9aa86d0044', '8afad587480d524e01482aaa75a20081');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aab58b60085', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aab58b00084');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aac016b0088', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aac01650087');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aacae1a008b', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aacae15008a');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aad6b85008e', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aad6b80008d');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aae104a0091', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aae10450090');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aaf70120094', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aaf700d0093');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ab0321e0097', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ab032190096');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ab26293009a', '8afad587480d524e01482a9aa86d0044', '8afad587480d524e01482ab2628e0099');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ab47700009d', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ab476fc009c');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ab58f5d00a0', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ab58f58009f');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ab68afb00a3', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ab68af600a2');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ab7576a00a6', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ab7576400a5');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ab842e700a9', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ab842e300a8');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ac1404400ac', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ac1404000ab');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ac2780600b1', '8afad58747e49a2d01480cfdc663001c', '8afad587480d524e01482ac2780200b0');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ac3291f00b4', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ac3291900b3');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ac4028900b7', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ac4028300b6');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ac4aabe00ba', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ac4aab900b9');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ac5451600bd', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ac5451000bc');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ac6369000c0', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ac6368a00bf');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ac6d86700c3', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ac6d86200c2');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ac7bbec00c6', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ac7bbe700c5');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ac897de00cb', '8afad58747e49a2d01480cfdc663001c', '8afad587480d524e01482ac897d900ca');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ac932f400ce', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ac932ef00cd');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ac9be7600d1', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482ac9be7000d0');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482aca4ef700d4', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482aca4ef300d3');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482acb037200d7', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482acb036d00d6');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482acb9c0400da', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482acb9bff00d9');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482acc5b4800dd', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482acc5b4400dc');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482accffd500e0', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482accffd000df');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482acd883b00e3', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482acd883600e2');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482ace677b00e8', '8afad58747e49a2d01480cfdc663001c', '8afad587480d524e01482ace677600e7');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482acef55d00eb', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482acef55800ea');
+INSERT INTO `t_s_role_user` VALUES ('8afad587480d524e01482acf7f7000ee', '402882e4477f8f0201477f91bb710004', '8afad587480d524e01482acf7f6c00ed');
+INSERT INTO `t_s_role_user` VALUES ('8afad58748366df201483677321d0005', '8afad58748366df201483676b23f0002', '8afad58747e49a2d01480d00dd1c0022');
+
+-- ----------------------------
+-- Table structure for t_s_student
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_student`;
+CREATE TABLE `t_s_student` (
+  `ID` varchar(32) NOT NULL,
+  `classname` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `sex` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_student
+-- ----------------------------
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82920168', '1班', '张三', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82950169', '1班', '李四', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda8296016a', '1班', '王五', 'm');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda8298016b', '1班', '赵六', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda829a016c', '2班', '张三', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda829c016d', '2班', '李四', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82a0016e', '2班', '王五', 'm');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82a2016f', '2班', '赵六', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82a60170', '3班', '张三', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82a90171', '3班', '李四', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82ae0172', '3班', '王五', 'm');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82b40173', '3班', '李四', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82bd0174', '3班', '王五', 'm');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82c00175', '3班', '赵六', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82c20176', '4班', '张三', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82c40177', '4班', '李四', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82c60178', '4班', '王五', 'm');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82c80179', '4班', '赵六', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82c9017a', '5班', '张三', 'm');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82cb017b', '5班', '李四', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82cc017c', '5班', '王五', 'm');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82ce017d', '5班', '赵六', 'm');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82cf017e', '5班', '赵六', 'm');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82d1017f', '5班', '李四', 'f');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82d20180', '5班', '王五', 'm');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82d30181', '5班', '赵六', 'm');
+INSERT INTO `t_s_student` VALUES ('402882e446efd9fd0146efda82d50182', '5班', '赵六', 'm');
+
+-- ----------------------------
+-- Table structure for t_s_territory
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_territory`;
+CREATE TABLE `t_s_territory` (
+  `ID` varchar(32) NOT NULL,
+  `territorycode` varchar(10) NOT NULL,
+  `territorylevel` smallint(6) NOT NULL,
+  `territoryname` varchar(50) NOT NULL,
+  `territory_pinyin` varchar(40) DEFAULT NULL,
+  `territorysort` varchar(3) NOT NULL,
+  `x_wgs84` double NOT NULL,
+  `y_wgs84` double NOT NULL,
+  `territoryparentid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_territory
+-- ----------------------------
+INSERT INTO `t_s_territory` VALUES ('1', '100', '1', '全国', 'qg', '0', '106.258754', '38.471318', '0');
+INSERT INTO `t_s_territory` VALUES ('100', '371300', '3', '临沂市', 'LYS', '0', '118.356448', '35.104672', '18');
+INSERT INTO `t_s_territory` VALUES ('101', '371400', '3', '德州市', 'DZS', '0', '116.357465', '37.434093', '18');
+INSERT INTO `t_s_territory` VALUES ('102', '371500', '3', '聊城市', 'LCS', '0', '115.985371', '36.4567039', '18');
+INSERT INTO `t_s_territory` VALUES ('103', '371600', '3', '滨州市', 'BZS', '0', '117.970703', '37.38199', '18');
+INSERT INTO `t_s_territory` VALUES ('104', '371700', '3', '菏泽市', 'HZS', '0', '115.480656', '35.23375', '18');
+INSERT INTO `t_s_territory` VALUES ('195', '370100', '3', '济南市', 'JNS', '0', '116.994917', '36.665282', '18');
+INSERT INTO `t_s_territory` VALUES ('89', '370200', '3', '青岛市', 'QDS', '0', '120.382504', '36.06722', '18');
+INSERT INTO `t_s_territory` VALUES ('90', '370300', '3', '淄博市', 'ZBS', '0', '118.055007', '36.813497', '18');
+INSERT INTO `t_s_territory` VALUES ('91', '370400', '3', '枣庄市', 'ZZS', '0', '117.323725', '34.810488', '18');
+INSERT INTO `t_s_territory` VALUES ('92', '370500', '3', '东营市', 'DYS', '0', '118.674767', '37.434751', '18');
+INSERT INTO `t_s_territory` VALUES ('93', '370600', '3', '烟台市', 'YTS', '0', '121.447926', '37.463819', '18');
+INSERT INTO `t_s_territory` VALUES ('94', '370700', '3', '潍坊市', 'WFS', '0', '119.16193', '36.706691', '18');
+INSERT INTO `t_s_territory` VALUES ('95', '370800', '3', '济宁市', 'JNS', '0', '116.587099', '35.414921', '18');
+INSERT INTO `t_s_territory` VALUES ('10', '00000016', '2', '河南省', 'HNS', '0', '113.687228', '34.76819', '1');
+INSERT INTO `t_s_territory` VALUES ('11', '00000008', '2', '黑龙江省', 'HLJS', '0', '126.662507', '45.7421699', '1');
+INSERT INTO `t_s_territory` VALUES ('12', '20000000', '2', '上海市', 'SHS', '0', '121.473704', '31.230393', '1');
+INSERT INTO `t_s_territory` VALUES ('13', '00000010', '2', '江苏省', 'JSS', '0', '118.763232', '32.061707', '1');
+INSERT INTO `t_s_territory` VALUES ('14', '00000011', '2', '浙江省', 'ZJS', '0', '120.153676', '30.26586', '1');
+INSERT INTO `t_s_territory` VALUES ('15', '00000012', '2', '安徽省', 'AHS', '0', '117.284923', '31.861184', '1');
+INSERT INTO `t_s_territory` VALUES ('16', '00000013', '2', '福建省', 'FJS', '0', '119.296506', '26.099933', '1');
+INSERT INTO `t_s_territory` VALUES ('17', '00000014', '2', '江西省', 'JXS', '0', '115.909175', '28.674424', '1');
+INSERT INTO `t_s_territory` VALUES ('18', '00000015', '2', '山东省', 'SDS', '0', '117.020411', '36.668627', '1');
+INSERT INTO `t_s_territory` VALUES ('19', '00000017', '2', '湖北省', 'HBS', '0', '114.341921', '30.545861', '1');
+INSERT INTO `t_s_territory` VALUES ('20', '00000018', '2', '湖南省', 'HNS', '0', '112.98381', '28.112444', '1');
+INSERT INTO `t_s_territory` VALUES ('21', '40000000', '2', '重庆市', 'ZQS', '0', '106.551557', '29.56301', '1');
+INSERT INTO `t_s_territory` VALUES ('22', '00000022', '2', '四川省', 'SCS', '0', '104.075931', '30.651652', '1');
+INSERT INTO `t_s_territory` VALUES ('23', '00000019', '2', '广东省', 'GDS', '0', '113.266531', '23.132191', '1');
+INSERT INTO `t_s_territory` VALUES ('24', '00000020', '2', '广西壮族自治区', 'GXZZZZQ', '0', '108.327546', '22.815478', '1');
+INSERT INTO `t_s_territory` VALUES ('25', '00000021', '2', '海南省', 'HNS', '0', '110.349229', '20.017378', '1');
+INSERT INTO `t_s_territory` VALUES ('26', '810000', '2', '香港特别行政区', 'XGTBXZQ', '0', '114.109497', '22.396428', '1');
+INSERT INTO `t_s_territory` VALUES ('27', '820000', '2', '澳门特别行政区', 'AMTBXZQ', '0', '113.543873', '22.198745', '1');
+INSERT INTO `t_s_territory` VALUES ('28', '00000023', '2', '贵州省', 'GZS', '0', '106.707116', '26.598026', '1');
+INSERT INTO `t_s_territory` VALUES ('29', '00000024', '2', '云南省', 'YNS', '0', '102.709812', '25.045359', '1');
+INSERT INTO `t_s_territory` VALUES ('3', '00000006', '2', '辽宁省', 'LNS', '0', '123.42944', '41.835441', '1');
+INSERT INTO `t_s_territory` VALUES ('30', '00000025', '2', '西藏自治区', 'XCZZQ', '0', '91.1170059', '29.647951', '1');
+INSERT INTO `t_s_territory` VALUES ('31', '00000026', '2', '陕西省', 'SXS', '0', '108.954239', '34.265472', '1');
+INSERT INTO `t_s_territory` VALUES ('32', '00000027', '2', '甘肃省', 'GSS', '0', '103.826308', '36.059421', '1');
+INSERT INTO `t_s_territory` VALUES ('33', '00000028', '2', '青海省', 'QHS', '0', '101.780199', '36.620901', '1');
+INSERT INTO `t_s_territory` VALUES ('34', '00000029', '2', '宁夏回族自治区', 'NXHZZZQ', '0', '106.258754', '38.471318', '1');
+INSERT INTO `t_s_territory` VALUES ('35', '00000030', '2', '新疆维吾尔自治区', 'XJWWEZZQ', '0', '87.6278119', '43.793028', '1');
+INSERT INTO `t_s_territory` VALUES ('4', '00000007', '2', '吉林省', 'JLS', '0', '125.326065', '43.896082', '1');
+INSERT INTO `t_s_territory` VALUES ('5', '10000000', '2', '北京市', 'BJS', '0', '116.407413', '39.904214', '1');
+INSERT INTO `t_s_territory` VALUES ('6', '30000000', '2', '天津市', 'TJS', '0', '117.200983', '39.084158', '1');
+INSERT INTO `t_s_territory` VALUES ('7', '00000003', '2', '河北省', 'HBS', '0', '114.468665', '38.037057', '1');
+INSERT INTO `t_s_territory` VALUES ('8', '00000004', '2', '山西省', 'SXS', '0', '112.562569', '37.873376', '1');
+INSERT INTO `t_s_territory` VALUES ('9', '00000005', '2', '内蒙古自治区', 'NMGZZQ', '0', '111.765618', '40.817498', '1');
+INSERT INTO `t_s_territory` VALUES ('1000', '370903', '4', '岱岳区', 'DYQ', '0', '117.041582', '36.18799', '96');
+INSERT INTO `t_s_territory` VALUES ('1001', '370921', '4', '宁阳县', 'NYX', '0', '116.805797', '35.758787', '96');
+INSERT INTO `t_s_territory` VALUES ('1002', '370923', '4', '东平县', 'DPX', '0', '116.470304', '35.937102', '96');
+INSERT INTO `t_s_territory` VALUES ('1003', '370982', '4', '新泰市', 'XTS', '0', '117.767953', '35.909032', '96');
+INSERT INTO `t_s_territory` VALUES ('1004', '370983', '4', '肥城市', 'FCS', '0', '116.768358', '36.182571', '96');
+INSERT INTO `t_s_territory` VALUES ('1005', '371002', '4', '环翠区', 'HCQ', '0', '122.123444', '37.501991', '97');
+INSERT INTO `t_s_territory` VALUES ('1006', '371081', '4', '文登市', 'WDS', '0', '122.058128', '37.1939129', '97');
+INSERT INTO `t_s_territory` VALUES ('1007', '371082', '4', '荣成市', 'RCS', '0', '122.486676', '37.165249', '97');
+INSERT INTO `t_s_territory` VALUES ('1008', '371083', '4', '乳山市', 'RSS', '0', '121.539764', '36.919816', '97');
+INSERT INTO `t_s_territory` VALUES ('1009', '371102', '4', '东港区', 'DGQ', '0', '119.462228', '35.425475', '98');
+INSERT INTO `t_s_territory` VALUES ('1010', '371103', '4', '岚山区', 'LSQ', '0', '119.318813', '35.121816', '98');
+INSERT INTO `t_s_territory` VALUES ('1011', '371121', '4', '五莲县', 'WLX', '0', '119.208744', '35.750095', '98');
+INSERT INTO `t_s_territory` VALUES ('1012', '371122', '4', '莒县', 'JX', '0', '118.837131', '35.579868', '98');
+INSERT INTO `t_s_territory` VALUES ('1013', '371202', '4', '莱城区', 'LCQ', '0', '117.659864', '36.203208', '99');
+INSERT INTO `t_s_territory` VALUES ('1014', '371203', '4', '钢城区', 'GCQ', '0', '117.811355', '36.058572', '99');
+INSERT INTO `t_s_territory` VALUES ('1015', '371302', '4', '兰山区', 'LSQ', '0', '118.347707', '35.051729', '100');
+INSERT INTO `t_s_territory` VALUES ('1016', '371311', '4', '罗庄区', 'LZQ', '0', '118.284786', '34.996741', '100');
+INSERT INTO `t_s_territory` VALUES ('1017', '371312', '4', '河东区', 'HDQ', '0', '118.402893', '35.089917', '100');
+INSERT INTO `t_s_territory` VALUES ('1018', '371321', '4', '沂南县', 'YNX', '0', '118.465213', '35.549976', '100');
+INSERT INTO `t_s_territory` VALUES ('1019', '371322', '4', '郯城县', 'TCX', '0', '118.367263', '34.613557', '100');
+INSERT INTO `t_s_territory` VALUES ('1020', '371323', '4', '沂水县', 'YSX', '0', '118.627918', '35.79045', '100');
+INSERT INTO `t_s_territory` VALUES ('1021', '371324', '4', '苍山县', 'CSX', '0', '118.07065', '34.857149', '100');
+INSERT INTO `t_s_territory` VALUES ('1022', '371325', '4', '费县', 'FX', '0', '117.977868', '35.26634', '100');
+INSERT INTO `t_s_territory` VALUES ('1023', '371326', '4', '平邑县', 'PYX', '0', '117.640352', '35.5059429', '100');
+INSERT INTO `t_s_territory` VALUES ('1024', '371327', '4', '莒南县', 'JNX', '0', '118.835163', '35.174846', '100');
+INSERT INTO `t_s_territory` VALUES ('1025', '371328', '4', '蒙阴县', 'MYX', '0', '117.945085', '35.710032', '100');
+INSERT INTO `t_s_territory` VALUES ('1026', '371329', '4', '临沭县', 'LSX', '0', '118.650782', '34.919852', '100');
+INSERT INTO `t_s_territory` VALUES ('1027', '371402', '4', '德城区', 'DCQ', '0', '116.299434', '37.451272', '101');
+INSERT INTO `t_s_territory` VALUES ('1028', '371421', '4', '陵县', 'LX', '0', '116.576176', '37.33579', '101');
+INSERT INTO `t_s_territory` VALUES ('1029', '371422', '4', '宁津县', 'NJX', '0', '116.800324', '37.652329', '101');
+INSERT INTO `t_s_territory` VALUES ('1030', '371423', '4', '庆云县', 'QYX', '0', '117.385123', '37.77539', '101');
+INSERT INTO `t_s_territory` VALUES ('1031', '371424', '4', '临邑县', 'LYX', '0', '116.86665', '37.189864', '101');
+INSERT INTO `t_s_territory` VALUES ('1032', '371425', '4', '齐河县', 'QHX', '0', '116.758917', '36.795011', '101');
+INSERT INTO `t_s_territory` VALUES ('1033', '371426', '4', '平原县', 'PYX', '0', '116.434187', '37.165419', '101');
+INSERT INTO `t_s_territory` VALUES ('1034', '371427', '4', '夏津县', 'XJX', '0', '116.001726', '36.948371', '101');
+INSERT INTO `t_s_territory` VALUES ('1035', '371428', '4', '武城县', 'WCX', '0', '116.069302', '37.213311', '101');
+INSERT INTO `t_s_territory` VALUES ('1036', '371481', '4', '乐陵市', 'LLS', '0', '117.231935', '37.729907', '101');
+INSERT INTO `t_s_territory` VALUES ('1037', '371482', '4', '禹城市', 'YCS', '0', '116.638387', '36.934259', '101');
+INSERT INTO `t_s_territory` VALUES ('1038', '371502', '4', '东昌府区', 'DCFQ', '0', '115.988484', '36.434697', '102');
+INSERT INTO `t_s_territory` VALUES ('1039', '371521', '4', '阳谷县', 'YGX', '0', '115.79182', '36.114392', '102');
+INSERT INTO `t_s_territory` VALUES ('1040', '371522', '4', '莘县', 'SX', '0', '115.671191', '36.233599', '102');
+INSERT INTO `t_s_territory` VALUES ('1041', '371523', '4', '茌平县', 'CPX', '0', '116.255282', '36.5807639', '102');
+INSERT INTO `t_s_territory` VALUES ('1042', '371524', '4', '东阿县', 'DAX', '0', '116.24758', '36.334917', '102');
+INSERT INTO `t_s_territory` VALUES ('1043', '371525', '4', '冠县', 'GX', '0', '115.44274', '36.484009', '102');
+INSERT INTO `t_s_territory` VALUES ('1044', '371526', '4', '高唐县', 'GTX', '0', '116.231478', '36.866062', '102');
+INSERT INTO `t_s_territory` VALUES ('1045', '371581', '4', '临清市', 'LQS', '0', '115.704881', '36.838277', '102');
+INSERT INTO `t_s_territory` VALUES ('1046', '371602', '4', '滨城区', 'BCQ', '0', '118.019146', '37.43206', '103');
+INSERT INTO `t_s_territory` VALUES ('1047', '371621', '4', '惠民县', 'HMX', '0', '117.510451', '37.489769', '103');
+INSERT INTO `t_s_territory` VALUES ('1048', '371622', '4', '阳信县', 'YXX', '0', '117.578262', '37.641106', '103');
+INSERT INTO `t_s_territory` VALUES ('1049', '371623', '4', '无棣县', 'WDX', '0', '117.625696', '37.770261', '103');
+INSERT INTO `t_s_territory` VALUES ('1050', '371624', '4', '沾化县', 'ZHX', '0', '118.132199', '37.698281', '103');
+INSERT INTO `t_s_territory` VALUES ('1051', '371625', '4', '博兴县', 'BXX', '0', '118.131815', '37.150226', '103');
+INSERT INTO `t_s_territory` VALUES ('1052', '371626', '4', '邹平县', 'ZPX', '0', '117.743109', '36.862989', '103');
+INSERT INTO `t_s_territory` VALUES ('1053', '371702', '4', '牡丹区', 'MDQ', '0', '115.417827', '35.252512', '104');
+INSERT INTO `t_s_territory` VALUES ('1054', '371721', '4', '曹县', 'CX', '0', '115.542328', '34.825508', '104');
+INSERT INTO `t_s_territory` VALUES ('1055', '371722', '4', '单县', 'DX', '0', '116.107428', '34.778808', '104');
+INSERT INTO `t_s_territory` VALUES ('1056', '371723', '4', '成武县', 'CWX', '0', '115.889765', '34.952459', '104');
+INSERT INTO `t_s_territory` VALUES ('1057', '371724', '4', '巨野县', 'JYX', '0', '116.094674', '35.396261', '104');
+INSERT INTO `t_s_territory` VALUES ('1058', '371725', '4', '郓城县', 'YCX', '0', '115.943613', '35.599758', '104');
+INSERT INTO `t_s_territory` VALUES ('1059', '371726', '4', '鄄城县', 'JCX', '0', '115.510193', '35.563408', '104');
+INSERT INTO `t_s_territory` VALUES ('1060', '371727', '4', '定陶县', 'DTX', '0', '115.573094', '35.071', '104');
+INSERT INTO `t_s_territory` VALUES ('1061', '371728', '4', '东明县', 'DMX', '0', '115.089905', '35.289368', '104');
+INSERT INTO `t_s_territory` VALUES ('1839', '370102', '4', '历下区', 'LXQ', '0', '117.07653', '36.666344', '195');
+INSERT INTO `t_s_territory` VALUES ('1840', '370103', '4', '市中区', 'SZQ', '0', '116.997475', '36.6511749', '195');
+INSERT INTO `t_s_territory` VALUES ('1841', '370104', '4', '槐荫区', 'HYQ', '0', '116.90113', '36.651301', '195');
+INSERT INTO `t_s_territory` VALUES ('1842', '370105', '4', '天桥区', 'TQQ', '0', '116.987492', '36.678016', '195');
+INSERT INTO `t_s_territory` VALUES ('1843', '370112', '4', '历城区', 'LCQ', '0', '117.065222', '36.680171', '195');
+INSERT INTO `t_s_territory` VALUES ('926', '370113', '4', '长清区', 'CQQ', '0', '116.751959', '36.553691', '195');
+INSERT INTO `t_s_territory` VALUES ('927', '370124', '4', '平阴县', 'PYX', '0', '116.456187', '36.289265', '195');
+INSERT INTO `t_s_territory` VALUES ('928', '370125', '4', '济阳县', 'JYX', '0', '117.173529', '36.978547', '195');
+INSERT INTO `t_s_territory` VALUES ('929', '370126', '4', '商河县', 'SHX', '0', '117.157183', '37.309045', '195');
+INSERT INTO `t_s_territory` VALUES ('930', '370181', '4', '章丘市', 'ZQS', '0', '117.534326', '36.714015', '195');
+INSERT INTO `t_s_territory` VALUES ('931', '370202', '4', '市南区', 'SNQ', '0', '120.412392', '36.075651', '89');
+INSERT INTO `t_s_territory` VALUES ('932', '370203', '4', '市北区', 'SBQ', '0', '120.374801', '36.087661', '89');
+INSERT INTO `t_s_territory` VALUES ('933', '370205', '4', '四方区', 'SFQ', '0', '120.366454', '36.103993', '89');
+INSERT INTO `t_s_territory` VALUES ('934', '370211', '4', '黄岛区', 'HDQ', '0', '120.198054', '35.960935', '89');
+INSERT INTO `t_s_territory` VALUES ('935', '370212', '4', '崂山区', 'LSQ', '0', '120.468956', '36.107538', '89');
+INSERT INTO `t_s_territory` VALUES ('936', '370213', '4', '李沧区', 'LCQ', '0', '120.432864', '36.145476', '89');
+INSERT INTO `t_s_territory` VALUES ('937', '370214', '4', '城阳区', 'CYQ', '0', '120.396529', '36.307061', '89');
+INSERT INTO `t_s_territory` VALUES ('938', '370281', '4', '胶州市', 'JZS', '0', '120.033345', '36.264664', '89');
+INSERT INTO `t_s_territory` VALUES ('939', '370282', '4', '即墨市', 'JMS', '0', '120.447162', '36.389401', '89');
+INSERT INTO `t_s_territory` VALUES ('940', '370283', '4', '平度市', 'PDS', '0', '119.960014', '36.7867', '89');
+INSERT INTO `t_s_territory` VALUES ('941', '370284', '4', '胶南市', 'JNS', '0', '120.04643', '35.8725', '89');
+INSERT INTO `t_s_territory` VALUES ('942', '370285', '4', '莱西市', 'LXS', '0', '120.51769', '36.889084', '89');
+INSERT INTO `t_s_territory` VALUES ('943', '370302', '4', '淄川区', 'ZCQ', '0', '117.966842', '36.643449', '90');
+INSERT INTO `t_s_territory` VALUES ('944', '370303', '4', '张店区', 'ZDQ', '0', '118.017656', '36.806773', '90');
+INSERT INTO `t_s_territory` VALUES ('945', '370304', '4', '博山区', 'BSQ', '0', '117.861698', '36.494752', '90');
+INSERT INTO `t_s_territory` VALUES ('946', '370305', '4', '临淄区', 'LZQ', '0', '118.308977', '36.827343', '90');
+INSERT INTO `t_s_territory` VALUES ('947', '370306', '4', '周村区', 'ZCQ', '0', '117.869877', '36.803109', '90');
+INSERT INTO `t_s_territory` VALUES ('948', '370321', '4', '桓台县', 'HTX', '0', '118.097955', '36.959623', '90');
+INSERT INTO `t_s_territory` VALUES ('949', '370322', '4', '高青县', 'GQX', '0', '117.826916', '37.171063', '90');
+INSERT INTO `t_s_territory` VALUES ('950', '370323', '4', '沂源县', 'YYX', '0', '118.170979', '36.184827', '90');
+INSERT INTO `t_s_territory` VALUES ('951', '370402', '4', '市中区', 'SZQ', '0', '117.556124', '34.864114', '91');
+INSERT INTO `t_s_territory` VALUES ('952', '370403', '4', '薛城区', 'YCQ', '0', '117.263157', '34.795206', '91');
+INSERT INTO `t_s_territory` VALUES ('953', '370404', '4', '峄城区', 'YCQ', '0', '117.590819', '34.772236', '91');
+INSERT INTO `t_s_territory` VALUES ('954', '370405', '4', '台儿庄区', 'TEZQ', '0', '117.733832', '34.562528', '91');
+INSERT INTO `t_s_territory` VALUES ('955', '370406', '4', '山亭区', 'STQ', '0', '117.461343', '35.099549', '91');
+INSERT INTO `t_s_territory` VALUES ('956', '370481', '4', '滕州市', 'TZS', '0', '117.164388', '35.084021', '91');
+INSERT INTO `t_s_territory` VALUES ('957', '370502', '4', '东营区', 'DYQ', '0', '118.582184', '37.448964', '92');
+INSERT INTO `t_s_territory` VALUES ('958', '370503', '4', '河口区', 'HKQ', '0', '118.525579', '37.886138', '92');
+INSERT INTO `t_s_territory` VALUES ('959', '370521', '4', '垦利县', 'KLX', '0', '118.547627', '37.58754', '92');
+INSERT INTO `t_s_territory` VALUES ('960', '370522', '4', '利津县', 'LJX', '0', '118.255273', '37.49026', '92');
+INSERT INTO `t_s_territory` VALUES ('961', '370523', '4', '广饶县', 'GRX', '0', '118.407045', '37.0537', '92');
+INSERT INTO `t_s_territory` VALUES ('962', '370602', '4', '芝罘区', 'ZFQ', '0', '121.400031', '37.540687', '93');
+INSERT INTO `t_s_territory` VALUES ('963', '370611', '4', '福山区', 'FSQ', '0', '121.267697', '37.498051', '93');
+INSERT INTO `t_s_territory` VALUES ('964', '370612', '4', '牟平区', 'MPQ', '0', '121.600512', '37.386901', '93');
+INSERT INTO `t_s_territory` VALUES ('965', '370613', '4', '莱山区', 'LSQ', '0', '121.445304', '37.511305', '93');
+INSERT INTO `t_s_territory` VALUES ('966', '370614', '4', '开发区', 'KFQ', '0', '121.251001', '37.554683', '93');
+INSERT INTO `t_s_territory` VALUES ('967', '370634', '4', '长岛县', 'CDX', '0', '120.736584', '37.921417', '93');
+INSERT INTO `t_s_territory` VALUES ('968', '370681', '4', '龙口市', 'LKS', '0', '120.477836', '37.646064', '93');
+INSERT INTO `t_s_territory` VALUES ('969', '370682', '4', '莱阳市', 'LYS', '0', '120.711607', '36.97891', '93');
+INSERT INTO `t_s_territory` VALUES ('970', '370683', '4', '莱州市', 'LZS', '0', '119.942327', '37.177017', '93');
+INSERT INTO `t_s_territory` VALUES ('971', '370684', '4', '蓬莱市', 'PLS', '0', '120.758848', '37.810661', '93');
+INSERT INTO `t_s_territory` VALUES ('972', '370685', '4', '招远市', 'ZYS', '0', '120.434072', '37.355469', '93');
+INSERT INTO `t_s_territory` VALUES ('973', '370686', '4', '栖霞市', 'QXS', '0', '120.849675', '37.335123', '93');
+INSERT INTO `t_s_territory` VALUES ('974', '370687', '4', '海阳市', 'HYS', '0', '121.158477', '36.776425', '93');
+INSERT INTO `t_s_territory` VALUES ('975', '370702', '4', '潍城区', 'WCQ', '0', '119.024836', '36.7281', '94');
+INSERT INTO `t_s_territory` VALUES ('976', '370703', '4', '寒亭区', 'HTQ', '0', '119.219734', '36.775491', '94');
+INSERT INTO `t_s_territory` VALUES ('977', '370704', '4', '坊子区', 'FZQ', '0', '119.166485', '36.654448', '94');
+INSERT INTO `t_s_territory` VALUES ('978', '370705', '4', '奎文区', 'KWQ', '0', '119.132486', '36.707676', '94');
+INSERT INTO `t_s_territory` VALUES ('979', '370724', '4', '临朐县', 'LQX', '0', '118.542982', '36.5125059', '94');
+INSERT INTO `t_s_territory` VALUES ('980', '370725', '4', '昌乐县', 'CLX', '0', '118.829914', '36.706945', '94');
+INSERT INTO `t_s_territory` VALUES ('981', '370781', '4', '青州市', 'QZS', '0', '118.479622', '36.684528', '94');
+INSERT INTO `t_s_territory` VALUES ('982', '370782', '4', '诸城市', 'ZCS', '0', '119.410103', '35.995654', '94');
+INSERT INTO `t_s_territory` VALUES ('983', '370783', '4', '寿光市', 'SGS', '0', '118.790652', '36.85548', '94');
+INSERT INTO `t_s_territory` VALUES ('984', '370784', '4', '安丘市', 'AQS', '0', '119.218978', '36.478494', '94');
+INSERT INTO `t_s_territory` VALUES ('985', '370785', '4', '高密市', 'GMS', '0', '119.755597', '36.3825949', '94');
+INSERT INTO `t_s_territory` VALUES ('986', '370786', '4', '昌邑市', 'CYS', '0', '119.398525', '36.85882', '94');
+INSERT INTO `t_s_territory` VALUES ('987', '370802', '4', '市中区', 'SZQ', '0', '116.596614', '35.40819', '95');
+INSERT INTO `t_s_territory` VALUES ('988', '370811', '4', '任城区', 'RCQ', '0', '116.628562', '35.433727', '95');
+INSERT INTO `t_s_territory` VALUES ('989', '370826', '4', '微山县', 'WSX', '0', '117.128946', '34.8071', '95');
+INSERT INTO `t_s_territory` VALUES ('990', '370827', '4', '鱼台县', 'YTX', '0', '116.650608', '35.012749', '95');
+INSERT INTO `t_s_territory` VALUES ('991', '370828', '4', '金乡县', 'JXX', '0', '116.311532', '35.06662', '95');
+INSERT INTO `t_s_territory` VALUES ('992', '370829', '4', '嘉祥县', 'JXX', '0', '116.342442', '35.407829', '95');
+INSERT INTO `t_s_territory` VALUES ('993', '370830', '4', '汶上县', 'WSX', '0', '116.489043', '35.732799', '95');
+INSERT INTO `t_s_territory` VALUES ('994', '370831', '4', '泗水县', 'SSX', '0', '117.251195', '35.664323', '95');
+INSERT INTO `t_s_territory` VALUES ('995', '370832', '4', '梁山县', 'LSX', '0', '116.096044', '35.802306', '95');
+INSERT INTO `t_s_territory` VALUES ('996', '370881', '4', '曲阜市', 'QFS', '0', '116.986532', '35.581137', '95');
+INSERT INTO `t_s_territory` VALUES ('997', '370882', '4', '兖州市', 'YZS', '0', '116.783834', '35.553144', '95');
+INSERT INTO `t_s_territory` VALUES ('998', '370883', '4', '邹城市', 'ZCS', '0', '117.003743', '35.405185', '95');
+INSERT INTO `t_s_territory` VALUES ('999', '370902', '4', '泰山区', 'TSQ', '0', '117.135354', '36.192084', '96');
+INSERT INTO `t_s_territory` VALUES ('184', '360100', '3', '南昌市', 'NCS', '0', '115.858089', '28.68316', '17');
+INSERT INTO `t_s_territory` VALUES ('185', '360200', '3', '景德镇市', 'JDZS', '0', '117.17842', '29.268836', '17');
+INSERT INTO `t_s_territory` VALUES ('186', '360300', '3', '萍乡市', 'PXS', '0', '113.854676', '27.622865', '17');
+INSERT INTO `t_s_territory` VALUES ('187', '360400', '3', '九江市', 'JJS', '0', '116.001951', '29.705103', '17');
+INSERT INTO `t_s_territory` VALUES ('188', '360500', '3', '新余市', 'XYS', '0', '114.91741', '27.817819', '17');
+INSERT INTO `t_s_territory` VALUES ('189', '360600', '3', '鹰潭市', 'YTS', '0', '117.069202', '28.260189', '17');
+INSERT INTO `t_s_territory` VALUES ('190', '360700', '3', '赣州市', 'GZS', '0', '114.935025', '25.831925', '17');
+INSERT INTO `t_s_territory` VALUES ('191', '360800', '3', '吉安市', 'JAS', '0', '114.992912', '27.113039', '17');
+INSERT INTO `t_s_territory` VALUES ('192', '360900', '3', '宜春市', 'YCS', '0', '114.416778', '27.815619', '17');
+INSERT INTO `t_s_territory` VALUES ('193', '361000', '3', '抚州市', 'FZS', '0', '116.358176', '27.9492', '17');
+INSERT INTO `t_s_territory` VALUES ('194', '361100', '3', '上饶市', 'SRS', '0', '117.943433', '28.454863', '17');
+INSERT INTO `t_s_territory` VALUES ('1739', '360102', '4', '东湖区', 'DHQ', '0', '115.89901', '28.6849159', '184');
+INSERT INTO `t_s_territory` VALUES ('1740', '360103', '4', '西湖区', 'XHQ', '0', '115.877287', '28.656887', '184');
+INSERT INTO `t_s_territory` VALUES ('1741', '360104', '4', '青云谱区', 'QYPQ', '0', '115.925749', '28.621169', '184');
+INSERT INTO `t_s_territory` VALUES ('1742', '360105', '4', '湾里区', 'WLQ', '0', '115.730994', '28.714869', '184');
+INSERT INTO `t_s_territory` VALUES ('1743', '360111', '4', '青山湖区', 'QSHQ', '0', '115.962144', '28.682985', '184');
+INSERT INTO `t_s_territory` VALUES ('1744', '360121', '4', '南昌县', 'NCX', '0', '115.944162', '28.545459', '184');
+INSERT INTO `t_s_territory` VALUES ('1745', '360122', '4', '新建县', 'XJX', '0', '115.815233', '28.692437', '184');
+INSERT INTO `t_s_territory` VALUES ('1746', '360123', '4', '安义县', 'AYX', '0', '115.549199', '28.844429', '184');
+INSERT INTO `t_s_territory` VALUES ('1747', '360124', '4', '进贤县', 'JXX', '0', '116.240924', '28.376918', '184');
+INSERT INTO `t_s_territory` VALUES ('1748', '360202', '4', '昌江区', 'CJQ', '0', '117.183688', '29.27342', '185');
+INSERT INTO `t_s_territory` VALUES ('1749', '360203', '4', '珠山区', 'ZSQ', '0', '117.202336', '29.301272', '185');
+INSERT INTO `t_s_territory` VALUES ('1750', '360222', '4', '浮梁县', 'FLX', '0', '117.215061', '29.351739', '185');
+INSERT INTO `t_s_territory` VALUES ('1751', '360281', '4', '乐平市', 'LPS', '0', '117.129169', '28.961902', '185');
+INSERT INTO `t_s_territory` VALUES ('1752', '360302', '4', '安源区', 'AYQ', '0', '113.87073', '27.615202', '186');
+INSERT INTO `t_s_territory` VALUES ('1753', '360313', '4', '湘东区', 'XDQ', '0', '113.733059', '27.640075', '186');
+INSERT INTO `t_s_territory` VALUES ('1754', '360321', '4', '莲花县', 'LHX', '0', '113.961465', '27.127669', '186');
+INSERT INTO `t_s_territory` VALUES ('1755', '360322', '4', '上栗县', 'SLX', '0', '113.795219', '27.880567', '186');
+INSERT INTO `t_s_territory` VALUES ('1756', '360323', '4', '芦溪县', 'LXX', '0', '114.029595', '27.631145', '186');
+INSERT INTO `t_s_territory` VALUES ('1757', '360402', '4', '庐山区', 'LSQ', '0', '115.989212', '29.671775', '187');
+INSERT INTO `t_s_territory` VALUES ('1758', '360403', '4', '浔阳区', 'XYQ', '0', '115.990399', '29.72746', '187');
+INSERT INTO `t_s_territory` VALUES ('1759', '360421', '4', '九江县', 'JJX', '0', '115.911314', '29.608456', '187');
+INSERT INTO `t_s_territory` VALUES ('1760', '360423', '4', '武宁县', 'WNX', '0', '115.100579', '29.256323', '187');
+INSERT INTO `t_s_territory` VALUES ('1761', '360424', '4', '修水县', 'XSX', '0', '114.547356', '29.025707', '187');
+INSERT INTO `t_s_territory` VALUES ('1762', '360425', '4', '永修县', 'YXX', '0', '115.809111', '29.021824', '187');
+INSERT INTO `t_s_territory` VALUES ('1763', '360426', '4', '德安县', 'DAX', '0', '115.756883', '29.314348', '187');
+INSERT INTO `t_s_territory` VALUES ('1764', '360427', '4', '星子县', 'XZX', '0', '116.044893', '29.448037', '187');
+INSERT INTO `t_s_territory` VALUES ('1765', '360428', '4', '都昌县', 'DCX', '0', '116.204099', '29.273194', '187');
+INSERT INTO `t_s_territory` VALUES ('1766', '360429', '4', '湖口县', 'HKX', '0', '116.220266', '29.73944', '187');
+INSERT INTO `t_s_territory` VALUES ('1767', '360430', '4', '彭泽县', 'PZX', '0', '116.549359', '29.896061', '187');
+INSERT INTO `t_s_territory` VALUES ('1768', '360481', '4', '瑞昌市', 'RCS', '0', '115.681504', '29.673795', '187');
+INSERT INTO `t_s_territory` VALUES ('1769', '360499', '4', '共青城', 'GQC', '0', '115.774', '29.2417', '187');
+INSERT INTO `t_s_territory` VALUES ('1770', '360502', '4', '渝水区', 'YSQ', '0', '114.944574', '27.80038', '188');
+INSERT INTO `t_s_territory` VALUES ('1771', '360521', '4', '分宜县', 'FYX', '0', '114.692039', '27.814628', '188');
+INSERT INTO `t_s_territory` VALUES ('1772', '360602', '4', '月湖区', 'YHQ', '0', '117.036676', '28.238797', '189');
+INSERT INTO `t_s_territory` VALUES ('1773', '360622', '4', '余江县', 'YJX', '0', '116.818871', '28.204174', '189');
+INSERT INTO `t_s_territory` VALUES ('1774', '360681', '4', '贵溪市', 'GXS', '0', '117.245497', '28.292519', '189');
+INSERT INTO `t_s_territory` VALUES ('1775', '360702', '4', '章贡区', 'ZGQ', '0', '114.941826', '25.862827', '190');
+INSERT INTO `t_s_territory` VALUES ('1776', '360721', '4', '赣县', 'GX', '0', '115.011561', '25.860691', '190');
+INSERT INTO `t_s_territory` VALUES ('1777', '360722', '4', '信丰县', 'XFX', '0', '114.922963', '25.386278', '190');
+INSERT INTO `t_s_territory` VALUES ('1778', '360723', '4', '大余县', 'DYX', '0', '114.362094', '25.401283', '190');
+INSERT INTO `t_s_territory` VALUES ('1779', '360724', '4', '上犹县', 'SYX', '0', '114.551371', '25.784978', '190');
+INSERT INTO `t_s_territory` VALUES ('1780', '360725', '4', '崇义县', 'CYX', '0', '114.308273', '25.681879', '190');
+INSERT INTO `t_s_territory` VALUES ('1781', '360726', '4', '安远县', 'AYX', '0', '115.393922', '25.136925', '190');
+INSERT INTO `t_s_territory` VALUES ('1782', '360727', '4', '龙南县', 'LNX', '0', '114.789811', '24.911107', '190');
+INSERT INTO `t_s_territory` VALUES ('1783', '360728', '4', '定南县', 'DNX', '0', '115.027845', '24.78441', '190');
+INSERT INTO `t_s_territory` VALUES ('1784', '360729', '4', '全南县', 'QNX', '0', '114.530125', '24.742401', '190');
+INSERT INTO `t_s_territory` VALUES ('1785', '360730', '4', '宁都县', 'NDX', '0', '116.009472', '26.470116', '190');
+INSERT INTO `t_s_territory` VALUES ('1786', '360731', '4', '于都县', 'YDX', '0', '115.41551', '25.952066', '190');
+INSERT INTO `t_s_territory` VALUES ('1787', '360732', '4', '兴国县', 'XGX', '0', '115.36319', '26.337937', '190');
+INSERT INTO `t_s_territory` VALUES ('1788', '360733', '4', '会昌县', 'HCX', '0', '115.786057', '25.600272', '190');
+INSERT INTO `t_s_territory` VALUES ('1789', '360734', '4', '寻乌县', 'YWX', '0', '115.646525', '24.963322', '190');
+INSERT INTO `t_s_territory` VALUES ('1790', '360735', '4', '石城县', 'SCX', '0', '116.354201', '26.32686', '190');
+INSERT INTO `t_s_territory` VALUES ('1791', '360781', '4', '瑞金市', 'RJS', '0', '116.02713', '25.885561', '190');
+INSERT INTO `t_s_territory` VALUES ('1792', '360782', '4', '南康市', 'NKS', '0', '114.765238', '25.661356', '190');
+INSERT INTO `t_s_territory` VALUES ('1793', '360802', '4', '吉州区', 'JZQ', '0', '114.994307', '27.129975', '191');
+INSERT INTO `t_s_territory` VALUES ('1794', '360803', '4', '青原区', 'QYQ', '0', '115.01424', '27.081719', '191');
+INSERT INTO `t_s_territory` VALUES ('1795', '360821', '4', '吉安县', 'JAX', '0', '114.907659', '27.040142', '191');
+INSERT INTO `t_s_territory` VALUES ('1796', '360822', '4', '吉水县', 'JSX', '0', '115.135507', '27.229632', '191');
+INSERT INTO `t_s_territory` VALUES ('1797', '360823', '4', '峡江县', 'XJX', '0', '115.316566', '27.582901', '191');
+INSERT INTO `t_s_territory` VALUES ('1798', '360824', '4', '新干县', 'XGX', '0', '115.393043', '27.740809', '191');
+INSERT INTO `t_s_territory` VALUES ('1799', '360825', '4', '永丰县', 'YFX', '0', '115.441477', '27.317869', '191');
+INSERT INTO `t_s_territory` VALUES ('1800', '360826', '4', '泰和县', 'THX', '0', '114.908861', '26.790231', '191');
+INSERT INTO `t_s_territory` VALUES ('1801', '360827', '4', '遂川县', 'SCX', '0', '114.52098', '26.311894', '191');
+INSERT INTO `t_s_territory` VALUES ('1802', '360828', '4', '万安县', 'WAX', '0', '114.786256', '26.458257', '191');
+INSERT INTO `t_s_territory` VALUES ('1803', '360829', '4', '安福县', 'AFX', '0', '114.619893', '27.392874', '191');
+INSERT INTO `t_s_territory` VALUES ('1804', '360830', '4', '永新县', 'YXX', '0', '114.242675', '26.945233', '191');
+INSERT INTO `t_s_territory` VALUES ('1805', '360881', '4', '井冈山市', 'JGSS', '0', '114.289182', '26.748186', '191');
+INSERT INTO `t_s_territory` VALUES ('1806', '360902', '4', '袁州区', 'YZQ', '0', '114.424657', '27.798846', '192');
+INSERT INTO `t_s_territory` VALUES ('1807', '360921', '4', '奉新县', 'FXX', '0', '115.384904', '28.700806', '192');
+INSERT INTO `t_s_territory` VALUES ('1808', '360922', '4', '万载县', 'WZX', '0', '114.447551', '28.10455', '192');
+INSERT INTO `t_s_territory` VALUES ('1809', '360923', '4', '上高县', 'SGX', '0', '114.924494', '28.232827', '192');
+INSERT INTO `t_s_territory` VALUES ('1810', '360924', '4', '宜丰县', 'YFX', '0', '114.803542', '28.393613', '192');
+INSERT INTO `t_s_territory` VALUES ('1811', '360925', '4', '靖安县', 'JAX', '0', '115.362629', '28.861475', '192');
+INSERT INTO `t_s_territory` VALUES ('1812', '360926', '4', '铜鼓县', 'TGX', '0', '114.37098', '28.520747', '192');
+INSERT INTO `t_s_territory` VALUES ('1813', '360981', '4', '丰城市', 'FCS', '0', '115.771195', '28.159325', '192');
+INSERT INTO `t_s_territory` VALUES ('1814', '360982', '4', '樟树市', 'ZSS', '0', '115.546063', '28.055796', '192');
+INSERT INTO `t_s_territory` VALUES ('1815', '360983', '4', '高安市', 'GAS', '0', '115.375618', '28.417261', '192');
+INSERT INTO `t_s_territory` VALUES ('1816', '361002', '4', '临川区', 'LCQ', '0', '116.31136', '27.934529', '193');
+INSERT INTO `t_s_territory` VALUES ('1817', '361021', '4', '南城县', 'NCX', '0', '116.644658', '27.552748', '193');
+INSERT INTO `t_s_territory` VALUES ('1818', '361022', '4', '黎川县', 'LCX', '0', '116.907508', '27.282382', '193');
+INSERT INTO `t_s_territory` VALUES ('1819', '361023', '4', '南丰县', 'NFX', '0', '116.525725', '27.218445', '193');
+INSERT INTO `t_s_territory` VALUES ('1820', '361024', '4', '崇仁县', 'CRX', '0', '116.061164', '27.764681', '193');
+INSERT INTO `t_s_territory` VALUES ('1821', '361025', '4', '乐安县', 'LAX', '0', '115.837895', '27.420441', '193');
+INSERT INTO `t_s_territory` VALUES ('1822', '361026', '4', '宜黄县', 'YHX', '0', '116.222128', '27.546146', '193');
+INSERT INTO `t_s_territory` VALUES ('1823', '361027', '4', '金溪县', 'JXX', '0', '116.775435', '27.908337', '193');
+INSERT INTO `t_s_territory` VALUES ('1824', '361028', '4', '资溪县', 'ZXX', '0', '117.060264', '27.706102', '193');
+INSERT INTO `t_s_territory` VALUES ('1825', '361029', '4', '东乡县', 'DXX', '0', '116.590465', '28.236118', '193');
+INSERT INTO `t_s_territory` VALUES ('1826', '361030', '4', '广昌县', 'GCX', '0', '116.325757', '26.837267', '193');
+INSERT INTO `t_s_territory` VALUES ('1827', '361102', '4', '信州区', 'XZQ', '0', '117.966823', '28.43121', '194');
+INSERT INTO `t_s_territory` VALUES ('1828', '361121', '4', '上饶县', 'SRX', '0', '117.90785', '28.448983', '194');
+INSERT INTO `t_s_territory` VALUES ('1829', '361122', '4', '广丰县', 'GFX', '0', '118.19124', '28.436286', '194');
+INSERT INTO `t_s_territory` VALUES ('1830', '361123', '4', '玉山县', 'YSX', '0', '118.245124', '28.682055', '194');
+INSERT INTO `t_s_territory` VALUES ('1831', '361124', '4', '铅山县', 'QSX', '0', '117.709451', '28.315217', '194');
+INSERT INTO `t_s_territory` VALUES ('1832', '361125', '4', '横峰县', 'HFX', '0', '117.596452', '28.407118', '194');
+INSERT INTO `t_s_territory` VALUES ('1833', '361126', '4', '弋阳县', 'YYX', '0', '117.449588', '28.378044', '194');
+INSERT INTO `t_s_territory` VALUES ('1834', '361127', '4', '余干县', 'YGX', '0', '116.695647', '28.702302', '194');
+INSERT INTO `t_s_territory` VALUES ('1835', '361128', '4', '鄱阳县', 'PYX', '0', '116.699746', '29.011699', '194');
+INSERT INTO `t_s_territory` VALUES ('1836', '361129', '4', '万年县', 'WNX', '0', '117.058445', '28.694582', '194');
+INSERT INTO `t_s_territory` VALUES ('1837', '361130', '4', '婺源县', 'WYX', '0', '117.861911', '29.2480249', '194');
+INSERT INTO `t_s_territory` VALUES ('1838', '361181', '4', '德兴市', 'DXS', '0', '117.578713', '28.946464', '194');
+
+-- ----------------------------
+-- Table structure for t_s_timetask
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_timetask`;
+CREATE TABLE `t_s_timetask` (
+  `ID` varchar(32) NOT NULL,
+  `CREATE_BY` varchar(32) DEFAULT NULL,
+  `CREATE_DATE` datetime DEFAULT NULL,
+  `CREATE_NAME` varchar(32) DEFAULT NULL,
+  `CRON_EXPRESSION` varchar(100) NOT NULL,
+  `IS_EFFECT` varchar(1) NOT NULL,
+  `IS_START` varchar(1) NOT NULL,
+  `TASK_DESCRIBE` varchar(50) NOT NULL,
+  `TASK_ID` varchar(100) NOT NULL,
+  `UPDATE_BY` varchar(32) DEFAULT NULL,
+  `UPDATE_DATE` datetime DEFAULT NULL,
+  `UPDATE_NAME` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_timetask
+-- ----------------------------
+INSERT INTO `t_s_timetask` VALUES ('402882e446efd9fd0146efda80fc015c', null, null, null, '0 0/1 * * * ?', '0', '0', '测试Demo', 'taskDemoServiceTaskCronTrigger', null, null, null);
+
+-- ----------------------------
+-- Table structure for t_s_type
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_type`;
+CREATE TABLE `t_s_type` (
+  `ID` varchar(32) NOT NULL,
+  `typecode` varchar(50) DEFAULT NULL,
+  `typename` varchar(50) DEFAULT NULL,
+  `typepid` varchar(32) DEFAULT NULL,
+  `typegroupid` varchar(32) DEFAULT NULL,
+  PRIMARY KEY (`ID`),
+  KEY `FK_nw2b22gy7plh7pqows186odmq` (`typepid`),
+  KEY `FK_3q40mr4ebtd0cvx79matl39x1` (`typegroupid`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_type
+-- ----------------------------
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c460052', '2', '菜单图标', null, '402882e446efd9fd0146efda7bea0048');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c4b0053', '1', '系统图标', null, '402882e446efd9fd0146efda7bea0048');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c4f0054', 'files', '附件', null, '402882e446efd9fd0146efda7c110050');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c540055', '1', '优质订单', null, '402882e446efd9fd0146efda7bf10049');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c580056', '2', '普通订单', null, '402882e446efd9fd0146efda7bf10049');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c5c0057', '1', '签约客户', null, '402882e446efd9fd0146efda7bf5004a');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c600058', '2', '普通客户', null, '402882e446efd9fd0146efda7bf5004a');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c650059', '1', '特殊服务', null, '402882e446efd9fd0146efda7bfa004b');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c6c005a', '2', '普通服务', null, '402882e446efd9fd0146efda7bfa004b');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c70005b', 'single', '单条件查询', null, '402882e446efd9fd0146efda7bfe004c');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c75005c', 'group', '范围查询', null, '402882e446efd9fd0146efda7bfe004c');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c79005d', 'Y', '是', null, '402882e446efd9fd0146efda7c02004d');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c7e005e', 'N', '否', null, '402882e446efd9fd0146efda7c02004d');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c83005f', 'Integer', 'Integer', null, '402882e446efd9fd0146efda7c07004e');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c880060', 'Date', 'Date', null, '402882e446efd9fd0146efda7c07004e');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c8c0061', 'String', 'String', null, '402882e446efd9fd0146efda7c07004e');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c920062', 'Long', 'Long', null, '402882e446efd9fd0146efda7c07004e');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c950063', 'act', '工作流引擎表', null, '402882e446efd9fd0146efda7c0b004f');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c990064', 't_s', '系统基础表', null, '402882e446efd9fd0146efda7c0b004f');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7c9d0065', 't_b', '业务表', null, '402882e446efd9fd0146efda7c0b004f');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7ca10066', 't_p', '自定义引擎表', null, '402882e446efd9fd0146efda7c0b004f');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7ca50067', 'news', '新闻', null, '402882e446efd9fd0146efda7c110050');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7ca90068', '0', '男性', null, '402882e446efd9fd0146efda7c160051');
+INSERT INTO `t_s_type` VALUES ('402882e446efd9fd0146efda7cad0069', '1', '女性', null, '402882e446efd9fd0146efda7c160051');
+INSERT INTO `t_s_type` VALUES ('402882e4477b800f01477b898a800003', '1', '大会议室', null, '402882e4477b800f01477b893e100001');
+INSERT INTO `t_s_type` VALUES ('402882e4477b800f01477b89b5600005', '2', '小会议室', null, '402882e4477b800f01477b893e100001');
+INSERT INTO `t_s_type` VALUES ('8afad58747bfe8550147c0594ea40010', '0', '公告通知', null, '8afad58747bfe8550147c058bca5000d');
+INSERT INTO `t_s_type` VALUES ('8afad58747bfe8550147c0597a950012', '1', '会议通知', null, '8afad58747bfe8550147c058bca5000d');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873c17ae00003', '套', '套', null, '8afad5874868c2e0014873c138280001');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873c3d3490005', '部', '部', null, '8afad5874868c2e0014873c138280001');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873c4087b0007', '块', '块', null, '8afad5874868c2e0014873c138280001');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873c47fc80009', '支', '支', null, '8afad5874868c2e0014873c138280001');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873c4bdd7000b', '个', '个', null, '8afad5874868c2e0014873c138280001');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873c4fb6e000d', '桶', '桶', null, '8afad5874868c2e0014873c138280001');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873c542e5000f', '批', '批', null, '8afad5874868c2e0014873c138280001');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873c57ef50011', '袋', '袋', null, '8afad5874868c2e0014873c138280001');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873c612ac0013', '台', '台', null, '8afad5874868c2e0014873c138280001');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873c694180017', '市场管理中心', '市场管理中心', null, '8afad5874868c2e0014873c661360015');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873c952710019', '维修资金中心', '维修资金中心', null, '8afad5874868c2e0014873c661360015');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873ca2b9f001d', '耗材', '耗材', null, '8afad5874868c2e0014873c9d814001b');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873ca6476001f', '维修', '维修', null, '8afad5874868c2e0014873c9d814001b');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873cb73b00023', '台式电脑', '台式电脑', null, '8afad5874868c2e0014873cb25c70021');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873cba2aa0025', '笔记本电脑', '笔记本电脑', null, '8afad5874868c2e0014873cb25c70021');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873cbf60c0027', '打印机', '打印机', null, '8afad5874868c2e0014873cb25c70021');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873cce599002b', '正常使用', '正常使用', null, '8afad5874868c2e0014873cb25c70021');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873cd35dd002d', '正常使用', '正常使用', null, '8afad5874868c2e0014873ccae000029');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873cd6de6002f', '未使用', '未使用', null, '8afad5874868c2e0014873ccae000029');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873ce43920031', '拟下账', '拟下账', null, '8afad5874868c2e0014873ccae000029');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873cee3c10033', '已下账', '已下账', null, '8afad5874868c2e0014873ccae000029');
+INSERT INTO `t_s_type` VALUES ('8afad5874868c2e0014873cf117f0035', '库存', '库存', null, '8afad5874868c2e0014873ccae000029');
+
+-- ----------------------------
+-- Table structure for t_s_typegroup
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_typegroup`;
+CREATE TABLE `t_s_typegroup` (
+  `ID` varchar(32) NOT NULL,
+  `typegroupcode` varchar(50) DEFAULT NULL,
+  `typegroupname` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_typegroup
+-- ----------------------------
+INSERT INTO `t_s_typegroup` VALUES ('402882e446efd9fd0146efda7bea0048', 'icontype', '图标类型');
+INSERT INTO `t_s_typegroup` VALUES ('402882e446efd9fd0146efda7bf10049', 'order', '订单类型');
+INSERT INTO `t_s_typegroup` VALUES ('402882e446efd9fd0146efda7bf5004a', 'custom', '客户类型');
+INSERT INTO `t_s_typegroup` VALUES ('402882e446efd9fd0146efda7bfa004b', 'service', '服务项目类型');
+INSERT INTO `t_s_typegroup` VALUES ('402882e446efd9fd0146efda7bfe004c', 'searchmode', '查询模式');
+INSERT INTO `t_s_typegroup` VALUES ('402882e446efd9fd0146efda7c02004d', 'yesorno', '逻辑条件');
+INSERT INTO `t_s_typegroup` VALUES ('402882e446efd9fd0146efda7c07004e', 'fieldtype', '字段类型');
+INSERT INTO `t_s_typegroup` VALUES ('402882e446efd9fd0146efda7c0b004f', 'database', '数据表');
+INSERT INTO `t_s_typegroup` VALUES ('402882e446efd9fd0146efda7c110050', 'fieltype', '文档分类');
+INSERT INTO `t_s_typegroup` VALUES ('402882e446efd9fd0146efda7c160051', 'sex', '性别类');
+INSERT INTO `t_s_typegroup` VALUES ('402882e4477b800f01477b893e100001', 'roomtype', '会议室类型');
+INSERT INTO `t_s_typegroup` VALUES ('8afad58747bfe8550147c058bca5000d', 'annotype', '公告类型');
+INSERT INTO `t_s_typegroup` VALUES ('8afad5874868c2e0014873c138280001', 'officesp', '办公用品单位');
+INSERT INTO `t_s_typegroup` VALUES ('8afad5874868c2e0014873c661360015', 'centername', '中心名称');
+INSERT INTO `t_s_typegroup` VALUES ('8afad5874868c2e0014873c9d814001b', 'officetp', '办公用品分类');
+INSERT INTO `t_s_typegroup` VALUES ('8afad5874868c2e0014873cb25c70021', 'devicetype', '设备类型');
+INSERT INTO `t_s_typegroup` VALUES ('8afad5874868c2e0014873ccae000029', 'devicesta', '设备状态');
+
+-- ----------------------------
+-- Table structure for t_s_user
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_user`;
+CREATE TABLE `t_s_user` (
+  `email` varchar(50) DEFAULT NULL,
+  `mobilePhone` varchar(50) DEFAULT NULL,
+  `officePhone` varchar(50) DEFAULT NULL,
+  `signatureFile` varchar(100) DEFAULT NULL,
+  `id` varchar(32) NOT NULL,
+  `officno` varchar(200) DEFAULT NULL COMMENT '办公室门号',
+  PRIMARY KEY (`id`),
+  KEY `FK_2cuji5h6yorrxgsr8ojndlmal` (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_user
+-- ----------------------------
+INSERT INTO `t_s_user` VALUES (null, '13426432910', '13426432910', 'images/renfang/qm/licf.gif', '402882e446efd9fd0146efda7bcc0044', '');
+INSERT INTO `t_s_user` VALUES ('', '18672946675', '85482021,85482079', null, '402882e4477f8f0201477f926ede0006', '4004');
+INSERT INTO `t_s_user` VALUES ('', '18602737169', '85482079', null, '8afad58747e49a2d01480cff8de7001f', '4004');
+INSERT INTO `t_s_user` VALUES ('', '13676787898', '87676767', null, '402880e447a63f6b0147a641f9e80001', '202');
+INSERT INTO `t_s_user` VALUES ('', '13971206068', '85482209', null, '402880e447a6c4820147a6c5b6040001', '4032-4033');
+INSERT INTO `t_s_user` VALUES ('', '13971441369', '85482021,85482079', null, '402880e447a6c4820147a6c6593a0004', '4004');
+INSERT INTO `t_s_user` VALUES ('', '', '85482016', null, '402880e447a6c4820147a6c6d4c90007', '4006');
+INSERT INTO `t_s_user` VALUES ('', '13886093769', '85482209', null, '402880e447a6c4820147a6c753b4000a', '4032-4033');
+INSERT INTO `t_s_user` VALUES ('', '', '85482079', null, '8afad58747e49a2d01480d00dd1c0022', '4005');
+INSERT INTO `t_s_user` VALUES ('', '15802745267', '85482187', null, '8afad58747e49a2d01480d0e30c40037', '4028-4029');
+INSERT INTO `t_s_user` VALUES ('', '13971083918', '85482075', null, '8afad58747e49a2d01480d09e063002c', '4031');
+INSERT INTO `t_s_user` VALUES ('', '13607170725', '85482073', null, '8afad58747e49a2d01480d0c68700034', '4030');
+INSERT INTO `t_s_user` VALUES ('', '', '85482508', null, '8afad587480d524e014811ba513f0002', '4008');
+INSERT INTO `t_s_user` VALUES ('', '', '85482261', null, '8afad587480d524e014811bf7e060005', '4007');
+INSERT INTO `t_s_user` VALUES ('', '', '85482366', null, '8afad587480d524e014811cbfd1e000e', '4009');
+INSERT INTO `t_s_user` VALUES ('', '15927249981', '85482079', null, '8afad587480d524e0148150f73410016', '4004');
+INSERT INTO `t_s_user` VALUES ('', '13907183682', '85482155', null, '8afad587480d524e01481510b3fe0019', '4000');
+INSERT INTO `t_s_user` VALUES ('', '', '85482227', null, '8afad587480d524e01481524d9f9001d', '4010');
+INSERT INTO `t_s_user` VALUES ('', '13971579588', '85482145', null, '8afad587480d524e014815275ff80024', '4023');
+INSERT INTO `t_s_user` VALUES ('', '13995538796', '85482145', null, '8afad587480d524e01481527f7c70027', '4023');
+INSERT INTO `t_s_user` VALUES ('', '13607184520', '85482021,85482079', null, '8afad587480d524e01481539ecda002b', '4004');
+INSERT INTO `t_s_user` VALUES ('', '18627102460', '85482021,85482079', null, '8afad587480d524e0148153c5c32002e', '4004');
+INSERT INTO `t_s_user` VALUES ('', '13871412090', '85482017', null, '8afad587480d524e0148153e06b30035', '4012');
+INSERT INTO `t_s_user` VALUES ('', '13871412090', '85482017', null, '8afad587480d524e014815404acd0038', '4012');
+INSERT INTO `t_s_user` VALUES ('', '18907145323', '85482017', null, '8afad587480d524e01481540f9ee003b', '4012');
+INSERT INTO `t_s_user` VALUES ('', '13207105921', '', null, '8afad587480d524e014815419fb8003e', '4011');
+INSERT INTO `t_s_user` VALUES ('', '13871191288', '85482800', null, '8afad587480d524e01482a9b7ef70046', '4003');
+INSERT INTO `t_s_user` VALUES ('', '13797060908', '85482029', null, '8afad587480d524e01482a9c3a2f0049', '4002');
+INSERT INTO `t_s_user` VALUES ('', '13986135337', '85482029', null, '8afad587480d524e01482a9cd718004c', '4002');
+INSERT INTO `t_s_user` VALUES ('', '13396090077', '85482437', null, '8afad587480d524e01482a9d7541004f', '4001');
+INSERT INTO `t_s_user` VALUES ('', '', '85482437', null, '8afad587480d524e01482a9e62620052', '4001');
+INSERT INTO `t_s_user` VALUES ('', '13797071972', '85482437', null, '8afad587480d524e01482a9f33170055', '4001');
+INSERT INTO `t_s_user` VALUES ('', '18627166262', '85482437', null, '8afad587480d524e01482ad35f7900f1', '4001');
+INSERT INTO `t_s_user` VALUES ('', '18086689023', '85482437', null, '8afad587480d524e01482aa056d9005b', '4001');
+INSERT INTO `t_s_user` VALUES ('', '18627822806', '85482437', null, '8afad587480d524e01482aa0e567005e', '4001');
+INSERT INTO `t_s_user` VALUES ('', '18672388668', '85482437', null, '8afad587480d524e01482aa176400061', '4001');
+INSERT INTO `t_s_user` VALUES ('', '18971010177', '85389101', null, '8afad587480d524e01482aa29c7e0066', '4017-4018');
+INSERT INTO `t_s_user` VALUES ('', '13971098868', '85482509', null, '8afad587480d524e01482aa355250069', '4017-4018');
+INSERT INTO `t_s_user` VALUES ('', '13986016810', '85482509', null, '8afad587480d524e01482aa41703006c', '4017-4018');
+INSERT INTO `t_s_user` VALUES ('', '13237177009', '85482509', null, '8afad587480d524e01482aa4bd1d006f', '4017-4018');
+INSERT INTO `t_s_user` VALUES ('', '13720331007', '85482509', null, '8afad587480d524e01482aa57be60072', '4017-4018');
+INSERT INTO `t_s_user` VALUES ('', '15337127230', '85482509', null, '8afad587480d524e01482aa634b20075', '4017-4018');
+INSERT INTO `t_s_user` VALUES ('', '13986186205', '85482509', null, '8afad587480d524e01482aa6e3fa0078', '4017-4018');
+INSERT INTO `t_s_user` VALUES ('', '18627707275', '85482509', null, '8afad587480d524e01482aa78885007b', '4017-4018');
+INSERT INTO `t_s_user` VALUES ('', '13006129232', '85482187,85506146', null, '8afad587480d524e01482aa99939007e', '4028-4029');
+INSERT INTO `t_s_user` VALUES ('', '13098802388', '85482187,85506146', null, '8afad587480d524e01482aaa75a20081', '4028-4029');
+INSERT INTO `t_s_user` VALUES ('', '13247147620', '85482187,85506146', null, '8afad587480d524e01482aab58b00084', '4028-4029');
+INSERT INTO `t_s_user` VALUES ('', '13377870028', '85482187,85506146', null, '8afad587480d524e01482aac01650087', '4028-4029');
+INSERT INTO `t_s_user` VALUES ('', '13317162270', '85482187,85506146', null, '8afad587480d524e01482aacae15008a', '4028-4029');
+INSERT INTO `t_s_user` VALUES ('', '13886015051', '85482187,85506146', null, '8afad587480d524e01482aad6b80008d', '4028-4029');
+INSERT INTO `t_s_user` VALUES ('', '13971501230', '85482187,85506146', null, '8afad587480d524e01482aae10450090', '4028-4029');
+INSERT INTO `t_s_user` VALUES ('', '13886102770', '85482187,85506146', null, '8afad587480d524e01482aaf700d0093', '4028-4029');
+INSERT INTO `t_s_user` VALUES ('', '15071373667', '85482187,85506146', null, '8afad587480d524e01482ab032190096', '4028-4029');
+INSERT INTO `t_s_user` VALUES ('', '13986255508', '85482209', null, '8afad587480d524e01482ab2628e0099', '4032-4033');
+INSERT INTO `t_s_user` VALUES ('', '13986051022', '85482209', null, '8afad587480d524e01482ab476fc009c', '4032-4033');
+INSERT INTO `t_s_user` VALUES ('', '15207104503', '85482209', null, '8afad587480d524e01482ab58f58009f', '4032-4033');
+INSERT INTO `t_s_user` VALUES ('', '13971529121', '85482209', null, '8afad587480d524e01482ab68af600a2', '13971529121');
+INSERT INTO `t_s_user` VALUES ('', '13971467994', '85482209', null, '8afad587480d524e01482ab7576400a5', '4032-4033');
+INSERT INTO `t_s_user` VALUES ('', '13277969895', '85482209', null, '8afad587480d524e01482ab842e300a8', '4032-4033');
+INSERT INTO `t_s_user` VALUES ('', '13016460003', '85482209', null, '8afad587480d524e01482ac1404000ab', '4032-4033');
+INSERT INTO `t_s_user` VALUES ('', '13886035320', '85482071', null, '8afad587480d524e01482ac2780200b0', '85482071');
+INSERT INTO `t_s_user` VALUES ('', '15926237875', '85482022', null, '8afad587480d524e01482ac3291900b3', '4022');
+INSERT INTO `t_s_user` VALUES ('', '13995665268', '85482022', null, '8afad587480d524e01482ac4028300b6', '4022');
+INSERT INTO `t_s_user` VALUES ('', '18971175260', '85482022', null, '8afad587480d524e01482ac4aab900b9', '4022');
+INSERT INTO `t_s_user` VALUES ('', '18062623339', '85482022', null, '8afad587480d524e01482ac5451000bc', '4022');
+INSERT INTO `t_s_user` VALUES ('', '18607192382', '85482022', null, '8afad587480d524e01482ac6368a00bf', '4022');
+INSERT INTO `t_s_user` VALUES ('', '15827225769', '15827225769', null, '8afad587480d524e01482ac6d86200c2', '4022');
+INSERT INTO `t_s_user` VALUES ('', '13477021456', '85482022', null, '8afad587480d524e01482ac7bbe700c5', '4022');
+INSERT INTO `t_s_user` VALUES ('', '15337225828', '85482757', null, '8afad587480d524e01482ac897d900ca', '4020');
+INSERT INTO `t_s_user` VALUES ('', '13871402100', '85482529', null, '8afad587480d524e01482ac932ef00cd', '4019');
+INSERT INTO `t_s_user` VALUES ('', '13886013130', '85482529', null, '8afad587480d524e01482ac9be7000d0', '4019');
+INSERT INTO `t_s_user` VALUES ('', '13995545306', '85482529', null, '8afad587480d524e01482aca4ef300d3', '4019');
+INSERT INTO `t_s_user` VALUES ('', '18502708008', '85482529', null, '8afad587480d524e01482acb036d00d6', '4019');
+INSERT INTO `t_s_user` VALUES ('', '15827646821', '15827646821', null, '8afad587480d524e01482acb9bff00d9', '4019');
+INSERT INTO `t_s_user` VALUES ('', '13554636616', '85482529', null, '8afad587480d524e01482acc5b4400dc', '4019');
+INSERT INTO `t_s_user` VALUES ('', '18062693338', '85482529', null, '8afad587480d524e01482accffd000df', '4019');
+INSERT INTO `t_s_user` VALUES ('', '13554645820', '85482529', null, '8afad587480d524e01482acd883600e2', '4019');
+INSERT INTO `t_s_user` VALUES ('', '13986000608', '85482061', null, '8afad587480d524e01482ace677600e7', '4034');
+INSERT INTO `t_s_user` VALUES ('', '18627169982', '85482061', null, '8afad587480d524e01482acef55800ea', '4034');
+INSERT INTO `t_s_user` VALUES ('', '13986079448', '85482061', null, '8afad587480d524e01482acf7f6c00ed', '4034');
+
+-- ----------------------------
+-- Table structure for t_s_version
+-- ----------------------------
+DROP TABLE IF EXISTS `t_s_version`;
+CREATE TABLE `t_s_version` (
+  `ID` varchar(32) NOT NULL,
+  `loginpage` varchar(100) DEFAULT NULL,
+  `versioncode` varchar(50) DEFAULT NULL,
+  `versionname` varchar(30) DEFAULT NULL,
+  `versionnum` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of t_s_version
+-- ----------------------------

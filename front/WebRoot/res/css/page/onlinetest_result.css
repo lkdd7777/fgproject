@@ -1,0 +1,7 @@
+#main{width:1002px;position:relative;}
+#main .title{width:1001px;height:58px;overflow:hidden;overflow:hidden;}
+#main .title img{display:block;width:1001px;height:58px;}
+
+#main .page{background:#fff;width:892px;padding:50px 55px 100px 55px;}
+#main .page .bg{width:854px;height:270px;margin:0 auto;background:url(images/Test/result.jpg) no-repeat; position:relative;}
+#main .page .bg h5{ position:absolute;color:#4c4c4c;top:89px;left:335px;}

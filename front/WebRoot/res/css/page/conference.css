@@ -1,0 +1,12 @@
+#main{width:1002px;position:relative;}
+#main .title{width:1001px;height:58px;overflow:hidden;overflow:hidden;padding:0 0 13px;}
+#main .title img{display:block;width:1001px;height:58px;}
+
+#main .button{padding:35px 17px;height:507px;}
+#main .button a{display:block;float:left;position:relative;}
+#main .button a.b01{width:389px;height:246px;margin-right:15px;margin-bottom:15px;}
+#main .button a.b02{width:562px;height:246px;margin-bottom:15px;}
+#main .button a.b03{width:966px;height:246px;}
+#main .button a.b04{width:389px;height:246px;}
+
+#main .button a span{position:absolute;display:block;width:32px;height:32px;top:-18px;right:-9px;background:url(../../images/Home/num.png) no-repeat;line-height:32px;text-align:center;padding:0 4px 4px 0;font-weight:bold;color:#fff;font-size:16px;z-index:30;}

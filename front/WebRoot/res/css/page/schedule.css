@@ -1,0 +1,49 @@
+#main{width:1002px;position:relative;}
+#main .title{width:1001px;height:58px;overflow:hidden;overflow:hidden;padding:0 0 13px;}
+#main .title img{display:block;width:1001px;height:58px;}
+
+#main .box{border:3px solid #d9d9d9;}
+#main .box h2{font-size:22px;color:#55c6cf;font-family:'微软雅黑','宋体',Arial, Helvetica, sans-serif;text-align:center; line-height:2.2em;}
+
+#main .box table#Calendar th.left{padding-left:45px;}
+#main .box table#Calendar th.right{padding-right:46px;}
+#main .box table#Calendar th{width:130px;text-align:center;line-height:44px;border-bottom:3px solid #a0a0a0;font-size:16px;font-weight:bold;color:#a0a0a0;font-family:'微软雅黑','宋体',Arial, Helvetica, sans-serif;}
+
+#main .box table#Calendar td{width:130px;text-align:center;line-height:44px;border-bottom:2px solid #e0e0e0;font-size:16px;color:#000;font-family:'微软雅黑','宋体',Arial, Helvetica, sans-serif;padding-bottom:16px;}
+#main .box table#Calendar td.bottom{border:0px;}
+
+#main .box table#Calendar td.events{background-image:url(../../images/Schedule/td2.png);background-position:center 44px;background-repeat:no-repeat;}
+#main .box table#Calendar td.left{background-position:105px 44px;}
+#main .box table#Calendar td.right{background-position:60px 44px;}
+
+#main .box table#Calendar td span{display:block;width:36px;height:36px;overflow:hidden;margin:0 auto;padding:4px 0;line-height:36px;cursor:pointer;}
+#main .box table#Calendar td span.current{background:url(../../images/Schedule/td1.png) 0px 4px no-repeat;color:#fff;}
+#main .box table#Calendar td span.queryDay{background:url(../../images/Schedule/td3.png) 0px 4px no-repeat;color:#fff;}
+#main .box table#Calendar td span.left{margin-left:92px;}
+#main .box table#Calendar td span.right{margin-right:93px;}
+
+#main li{border-top:4px solid #d1d1d1;}
+#main li div.in_time{height:30px;overflow:hidden;line-height:30px;font-size:14px;padding:12px 0 8px 48px;color:#1db0a3;background:#f9f9f9;font-family:'微软雅黑','宋体',Arial, Helvetica, sans-serif;}
+
+#main li table.Schedule{width:100%;background:#f9f9f9;}
+#main li table.Schedule th{background:url(../../images/Announcement/bg.jpg) left bottom repeat-x;height:48px;padding:0 0 2px 0;color:#b4b4b4;font-size:14px;line-height:48x;font-weight:bold;}
+#main li table.Schedule th.th1{padding:0 0 0 49px;width:200px;overflow:hidden;}
+#main li table.Schedule th.th2{width:344px;overflow:hidden;}
+#main li table.Schedule th.th3{width:270px;overflow:hidden;}
+#main li table.Schedule th.th4{width:187px;overflow:hidden;}
+
+#main li table.Schedule td{color:#000;font-size:14px;line-height:24x;padding:12px 0;}
+#main li table.Schedule td.td1{padding-left:49px;width:200px;overflow:hidden;}
+#main li table.Schedule td.td2{padding-right:151px;width:193px;overflow:hidden;}
+#main li table.Schedule td.td3{padding-right:76px;width:194px;overflow:hidden;}
+#main li table.Schedule td.td4{padding-right:60px;width:127px;overflow:hidden;}
+
+#main .box{position:relative;}
+#main .box a.left_btn{position:absolute;left:1px;background:url(../../images/Schedule/imgPlayer.png) no-repeat;top:5px;display:block;width:46px;overflow:hidden;text-indent:-10000em;height:81px;cursor:pointer;z-index:999;}
+#main .box a.right_btn{position:absolute;right:1px;background:url(../../images/Schedule/imgPlayer.png) top right no-repeat;top:5px;display:block;width:46px;overflow:hidden;text-indent:-10000em;height:81px;cursor:pointer;z-index:999;}
+
+.btn{text-align:center;padding:20px 0 0;}
+
+#container{height:355px;overflow:hidden;position:relative;}
+#container dl{position:absolute;left:0px;top:0px;}
+#container dl dd{float:left;width:996px;height:355px;overflow:hidden;}

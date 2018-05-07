@@ -1,0 +1,35 @@
+
+body{background:#ececec;}
+#wrap{width:1002px;margin:0 auto;overflow:hidden;}
+
+#header{height:130px;overflow:hidden; position:relative;}
+#header #Logo{ position:absolute;top:30px;left:0px;display:block;width:575px;height:60px;}
+#header #code{ position:absolute;display:block;width:58px;height:58px;top:37px;right:182px;}
+#header .username{width:180px;height:55px;overflow:hidden; position:absolute;top:37px;right:0px;}
+#header .username .photo{position:absolute;left:0px;top:0px;width:43px;height:51px;background:url(../images/header/header02.jpg) no-repeat;padding:2px 1px 2px 2px;overflow:hidden;}
+#header .username .photo img{display:block;width:43px;height:51px;}
+#header .username p{ position:absolute;right:0px;width:130px;line-height:24px;color:#333;top:3px;}
+#header .username p span{color:#2a97ed;}
+
+
+#footer{line-height:80px;text-align:center;color:#a8a8a8;}
+#footer .back{margin:30px auto 0;width:72px;height:72px;display:block;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

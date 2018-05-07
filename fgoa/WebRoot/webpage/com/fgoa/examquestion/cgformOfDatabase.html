@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+	<div>
+	<table>
+		<tbody id="template_header_database">
+			<tr bgcolor="#E6E6E6">
+				<!-- 增加序号表头 -->
+				<th align="center" bgcolor="#EEEEEE">序号</th>
+				<th style="display: none;"><input style="display: none;"></th>
+				<th align="center" bgcolor="#EEEEEE">答案内容</th>
+				<th style="display: none;"><input style="display: none;"></th>
+				<th align="center" bgcolor="#EEEEEE">正确</th>
+			</tr>
+		</tbody>
+		<tbody id="add_column_table_template_database">
+			<tr>
+				<!-- 增加行序号<a>标签 -->
+				<td><a name="rownumber[#rindex#]"></a></td>
+				<td style="display: none;"><input style="display: none;" name="columns[#index#].id"
+					value=""></td>
+				<td align="left"><input style="width: 20px;" type="checkbox"
+					name="ck" /></td>
+				<td align="left"><input style="width: 120px;" type="text"
+					name="columns[#index#].fieldName" nullmsg="请输入字段名称！"
+					datatype="s1-20,/^[a-z\d_]+$/" errormsg="字段名称为1到20位且不能有大写字母" class="fieldNameInput" />
+					<input style="width: 120px;" type="hidden"
+					name="columns[#index#].oldFieldName"  /></td>
+				<td align="left" style="display: none;"><input name="columns[#index#].orderNum"
+					maxlength="2" nullmsg="请输入字段顺序！" datatype="n1-2"
+					errormsg="字段顺序为1到2位" type="hidden" value="0"
+					style="display: none;"></td>
+				<td align="left"><input type="checkbox" style="width: 50px;"
+					name="columns[#index#].isNull" checked="checked"></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>

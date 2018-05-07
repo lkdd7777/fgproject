@@ -1,0 +1,18 @@
+body{background:#ececec;}
+#wrap{width:802px;margin:0 auto;overflow:hidden;}
+#header{height:62px;overflow:hidden;padding:70px 0 50px;}
+#header img{display:block;width:802px;height:62px;}
+
+#Login{width:802px;height:385px;overflow:hidden;position:relative;background:url(../../images/login/Login.jpg) no-repeat;}
+#photo{ position:absolute;left:59px;top:78px;display:block;width:126px;height:146px;}
+#LoginPage input.username{display:block;width:319px;height:42px;position:absolute;left:218px;top:78px;padding:0 13px;line-height:42px;border:0px;background:none;font-size:14px;color:#000;}
+#LoginPage input.password{display:block;width:319px;height:42px;position:absolute;left:218px;top:131px;padding:0 13px;line-height:42px;border:0px;background:none;font-size:14px;color:#000;}
+#LoginPage input.button{width:143px;height:47px;overflow:hidden;position:absolute;padding:0px;border:0px;top:292px;background-repeat:no-repeat;background-position:left top;cursor:pointer;}
+#LoginPage input.hover{background-position:left bottom;}
+#LoginPage input.login{left:220px;background-image:url(../../images/login/btn01.png);}
+#LoginPage input.reset{left:409px;background-image:url(../../images/login/btn02.png);}
+
+#Login #IsRemember{height:30px;line-height:30px; position:absolute;top:188px;left:218px;overflow:hidden;padding:0 0 0 24px;width:60px;background-image:url(../../images/login/check.png);background-repeat:no-repeat;cursor:pointer;background-position:left top;}
+#Login #IsRemember.checked{background-position:left bottom;}
+
+#footer{line-height:80px;height:80px;text-align:center;color:#a8a8a8;}

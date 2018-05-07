@@ -1,0 +1,17 @@
+#main{width:1002px;position:relative;}
+#main .title{width:1001px;height:58px;overflow:hidden;overflow:hidden;padding:0 0 13px;}
+#main .title img{display:block;width:1001px;height:58px;}
+#main .th_title{background:url(../../images/Contacts/th_title.jpg) no-repeat;height:46px;width:1001px;position:relative;}
+#main .th_title .text{width:800px;left:100px;top:8px;position:absolute;background:none;border:0px;padding:0px;text-align:center;font-size:16px; line-height:30px;height:30px;color:#ccc;font-family:'微软雅黑','宋体',Arial, Helvetica, sans-serif;letter-spacing:2px;display:block;}
+#main .th_title .submit{width:48px;height:25px;overflow:hidden;right:45px;top:11px;display:block;position:absolute;background:none;border:0px;padding:0px;cursor:pointer;}
+
+#main .th{padding:49px 0 0;background:url(../../images/Contacts/th.jpg) no-repeat #f9f9f9;padding:85px 53px 26px;}
+#main .th table{width:895px;margin:0 auto;}
+#main .th table td{line-height:26px;font-size:14px;padding:5px 0;border-bottom:1px solid #d7d7d7;color:#454545;}
+#main .th table td.d1{padding-left:3px;padding-right:3px;width:116px;}
+#main .th table td.d2{padding-left:3px;padding-right:3px;width:255px;}
+#main .th table td.d3{padding-left:3px;padding-right:3px;width:163px;}
+#main .th table td.d4{padding-left:3px;padding-right:3px;width:135px;}
+#main .th table td.d5{padding-left:3px;padding-right:3px;width:196px;}
+
+#main .print{padding:20px 16px 11px;background:#f9f9f9;}
